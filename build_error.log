@@ -1,0 +1,288 @@
+
+> 03_website_app@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 9 errors:
+./node_modules/@sanity/ui/dist/_chunks-es/_visual-editing.mjs:5:1
+Module not found: Can't resolve 'styled-components'
+  3 | import { c } from "react-compiler-runtime";
+  4 | import { createContext, useContext, forwardRef, useId, useState, useEffect, Children, isValidElement, cloneElement, useDebugValue, useSyncExternalStore, useRef, useImperativeHandle, lazy, Suspense, useLayoutEffect } from "react";
+> 5 | import { ThemeProvider as ThemeProvider$1, useTheme as useTheme$1, css, styled, keyframes } from "styled-components";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import ReactIs, { isValidElementType } from "react-is";
+  7 | import { SpinnerIcon, CheckmarkIcon, RemoveIcon, ChevronDownIcon, CloseIcon, ChevronRightIcon } from "@sanity/icons";
+  8 | import { detectOverflow, useFloating, autoPlacement, flip, offset, shift, arrow, hide, autoUpdate } from "@floating-ui/react-dom";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/@sanity/ui/dist/_chunks-es/_visual-editing.mjs [Client Component Browser]
+    ./node_modules/sanity/lib/index.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/@sanity/ui/dist/_chunks-es/_visual-editing.mjs [Client Component SSR]
+    ./node_modules/sanity/lib/index.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/@sanity/ui/dist/index.mjs:7:1
+Module not found: Can't resolve 'styled-components'
+   5 | import { SpinnerIcon, ChevronDownIcon, CloseIcon, ToggleArrowRightIcon } from "@sanity/icons";
+   6 | import { useState, useRef, useEffect, useImperativeHandle, Component, forwardRef, useReducer, startTransition, cloneElement, Children, isValidElement, Fragment, useContext, useSyncExternalStore, useId } from "react";
+>  7 | import { styled, keyframes, css } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { getTheme_v2 } from "@sanity/ui/theme";
+   9 | import { motion, AnimatePresence } from "motion/react";
+  10 | function _raf(fn) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/@sanity/ui/dist/index.mjs [Client Component Browser]
+    ./node_modules/sanity/lib/index.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/@sanity/ui/dist/index.mjs [Client Component SSR]
+    ./node_modules/sanity/lib/index.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/@sanity/vision/lib/_chunks-es/SanityVision.js:18:1
+Module not found: Can't resolve 'styled-components'
+  16 | import { tags } from "@lezer/highlight";
+  17 | import { hues } from "@sanity/color";
+> 18 | import { styled, css } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  19 | import { visionLocaleNamespace } from "./index.js";
+  20 | import { debounce, isEqual } from "lodash-es";
+  21 | import JSON5 from "json5";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/@sanity/vision/lib/_chunks-es/SanityVision.js [Client Component Browser]
+    ./node_modules/@sanity/vision/lib/_chunks-es/index.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/@sanity/vision/lib/_chunks-es/SanityVision.js [Client Component SSR]
+    ./node_modules/@sanity/vision/lib/_chunks-es/index.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/sanity/lib/_chunks-es/TooltipDelayGroupProvider.js:7:1
+Module not found: Can't resolve 'styled-components'
+   5 | import { SourceContext } from "sanity/_singletons";
+   6 | import { isValidElementType } from "react-is";
+>  7 | import { styled } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { useTranslation } from "react-i18next";
+   9 | const LARGE_BUTTON_PROPS = {
+  10 |   space: 3,
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/sanity/lib/_chunks-es/TooltipDelayGroupProvider.js [Client Component Browser]
+    ./node_modules/sanity/lib/index.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/sanity/lib/_chunks-es/TooltipDelayGroupProvider.js [Client Component SSR]
+    ./node_modules/sanity/lib/index.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/sanity/lib/_chunks-es/index2.js:10:1
+Module not found: Can't resolve 'styled-components'
+   8 | import { usePane, useStructureTool, PaneHeader, PaneHeaderActions, BackLink, Pane } from "./pane.js";
+   9 | import { Box } from "@sanity/ui";
+> 10 | import { styled } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import { ArrowLeftIcon } from "@sanity/icons";
+  12 | const Root = styled(Box).withConfig({
+  13 |   displayName: "Root",
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/sanity/lib/_chunks-es/index2.js [Client Component Browser]
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/sanity/lib/_chunks-es/index2.js [Client Component SSR]
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/sanity/lib/_chunks-es/index3.js:8:1
+Module not found: Can't resolve 'styled-components'
+   6 | import { usePaneLayout, PaneContent, PaneItem, useStructureTool, usePane, PaneHeader, PaneHeaderActions, BackLink, Pane, _DEBUG } from "./pane.js";
+   7 | import { Box, Text } from "@sanity/ui";
+>  8 | import { styled } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import { ArrowLeftIcon } from "@sanity/icons";
+  10 | const DividerContainer = styled(Box).withConfig({
+  11 |   displayName: "DividerContainer",
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/sanity/lib/_chunks-es/index3.js [Client Component Browser]
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/sanity/lib/_chunks-es/index3.js [Client Component SSR]
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/sanity/lib/_chunks-es/index4.js:16:1
+Module not found: Can't resolve 'styled-components'
+  14 | import { SyncIcon, WarningOutlineIcon } from "@sanity/icons";
+  15 | import { Stack, Text, Code, Box, Card, Container, Heading, Flex, useToast, useTheme, PortalProvider } from "@sanity/ui";
+> 16 | import { styled } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  17 | import { isHotkey } from "is-hotkey-esm";
+  18 | import { ResolvedPanesProvider } from "sanity/_singletons";
+  19 | class PaneResolutionError extends Error {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/sanity/lib/_chunks-es/index4.js [Client Component Browser]
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/sanity/lib/_chunks-es/index4.js [Client Component SSR]
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/sanity/lib/_chunks-es/pane.js:13:1
+Module not found: Can't resolve 'styled-components'
+  11 | import { TransferIcon, CloseIcon, LockIcon, CheckmarkIcon, UnknownIcon, SearchIcon, DocumentRemoveIcon, ReadOnlyIcon, ErrorOutlineIcon, SyncIcon, WarningOutlineIcon, InfoOutlineIcon, ComposeSparklesIcon, LaunchIcon, PauseIcon, UnpublishIcon, ArrowRightIcon, StarFilledIcon, StarIcon, ArrowLeftIcon, RevertIcon, ChevronUpIcon, ChevronDownIcon, SplitVerticalIcon, CollapseIcon, ExpandIcon, TrashIcon, ResetIcon, CopyIcon, PublishIcon, EditIcon, AddIcon, ChevronLeftIcon, RestoreIcon, LinkIcon, EarthAmericasIcon, JsonIcon, DocumentsIcon, ChevronRightIcon, DocumentIcon, FolderIcon, SpinnerIcon, EllipsisHorizontalIcon, DoubleChevronLeftIcon, DoubleChevronRightIcon, CheckmarkCircleIcon, MasterDetailIcon } from "@sanity/icons";
+  12 | import { uuid } from "@sanity/uuid";
+> 13 | import { styled, css, keyframes } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  14 | import { diffInput, wrap } from "@sanity/diff";
+  15 | import { useObservable, useObservableEvent } from "react-rx";
+  16 | import { Subject, distinctUntilChanged, filter, map, of, merge, startWith, catchError, concat, firstValueFrom, BehaviorSubject, from, fromEvent, EMPTY, timer, switchMap as switchMap$1, defer, mergeMap, throwError, share, partition, throttleTime, asyncScheduler, NEVER, tap as tap$1, debounce } from "rxjs";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/sanity/lib/_chunks-es/pane.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./node_modules/sanity/lib/index.js:12:1
+Module not found: Can't resolve 'styled-components'
+  10 | import { useVirtualizer, defaultRangeExtractor, elementScroll } from "@tanstack/react-virtual";
+  11 | import { throttle, isEqual as isEqual$1, memoize as memoize$1, partition, groupBy, omit, isPlainObject as isPlainObject$1, get, flatten as flatten$1, uniqBy, sample, uniq, orderBy, xor, debounce, keyBy, toLower, compact, words, intersection, union, flow, trim, sortBy, isFinite, pickBy, findIndex as findIndex$1, clone, isObject, isString as isString$1, noop as noop$7, capitalize, uniqueId, deburr, startCase, last as last$1, difference, upperFirst, set as set$1, find, castArray, pick, sortedIndex, values, identity as identity$2, isEmpty as isEmpty$1, range, sum as sum$1, max, escapeRegExp as escapeRegExp$1 } from "lodash-es";
+> 12 | import { styled, css, keyframes, useTheme as useTheme$1, createGlobalStyle } from "styled-components";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  13 | import { EllipsisHorizontalIcon, ErrorOutlineIcon, CircleIcon, CalendarIcon, UnpublishIcon, PublishIcon, EditIcon, CloseIcon, TrashIcon, AddCircleIcon, TimelineIcon, ChevronRightIcon, DocumentIcon, ImageIcon, ChevronDownIcon, ArrowRightIcon, ArrowDownIcon, RevertIcon, WarningOutlineIcon, InfoOutlineIcon, CheckmarkIcon, AddIcon, HelpCircleIcon, AccessDeniedIcon, ToggleArrowRightIcon, SyncIcon, LaunchIcon, BulbOutlineIcon, UnknownIcon, LinkIcon, ChevronUpIcon, DownloadIcon, DocumentsIcon, UploadIcon, DragHandleIcon, SearchIcon, StackCompactIcon, PanelLeftIcon, InsertAboveIcon, InsertBelowIcon, CopyIcon, AddDocumentIcon, ChevronLeftIcon, EarthGlobeIcon, EarthAmericasIcon, UlistIcon, OlistIcon, CodeIcon, UnderlineIcon, StrikethroughIcon, ItalicIcon, BoldIcon, BlockElementIcon, InlineElementIcon, CollapseIcon, ExpandIcon, ResetIcon, Icon, ReadOnlyIcon, BinaryDocumentIcon, LockIcon, CropIcon, EyeOpenIcon, DotIcon, CheckmarkCircleIcon, PinFilledIcon, PinIcon, RestoreIcon, ClockIcon, CloseCircleIcon, UnarchiveIcon, ArchiveIcon, ArrowUpIcon, ControlsIcon, SpinnerIcon, ArrowLeftIcon, SortIcon, ComposeSparklesIcon, UnlockIcon, ClipboardIcon, StringIcon, NumberIcon, BlockContentIcon, UndoIcon, UnlinkIcon, LinkRemovedIcon, AddCommentIcon, CommentIcon, SelectIcon, TaskIcon, UserIcon, DesktopIcon, MoonIcon, SunIcon, EyeClosedIcon, DoubleChevronRightIcon, AddUserIcon, CogIcon, BoltIcon, LeaveIcon, UsersIcon, GithubIcon, RefreshIcon, MenuIcon } from "@sanity/icons";
+  14 | import { ResizeObserver as ResizeObserver$2 } from "@juggle/resize-observer";
+  15 | import createPubSub from "nano-pubsub";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./node_modules/sanity/lib/index.js [Client Component Browser]
+    ./sanity.config.ts [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component Browser]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./node_modules/sanity/lib/index.js [Client Component SSR]
+    ./sanity.config.ts [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Client Component SSR]
+    ./src/app/studio/[[...index]]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at ./node_modules/ (sanity/ui/dist/_chunks-es/_visual-editing.mjs:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at ./node_modules/ (sanity/ui/dist/index.mjs:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at ./node_modules/ (sanity/vision/lib/_chunks-es/SanityVision.js:18:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)

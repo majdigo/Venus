@@ -17,20 +17,24 @@ html {
     /* Luxury Medical Theme - Light */
     --background: 0 0% 100%; /* Pure White */
     --foreground: 222.2 47.4% 11.2%; /* Deep Navy / Dark Slate */
-    
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
-    
+
     /* Primary buttons & headings: Deep Navy */
-    --primary: 222.2 47.4% 11.2%; 
+    --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-    
+
     /* Secondary/Accent: Luxury Gold/Champagne for highlights/CTAs */
     --secondary: 42 63% 62%;
     --secondary-foreground: 0 0% 100%;
+
+    /* Brand tokens (referenced by Tailwind brand-navy / brand-gold) */
+    --brand-navy: 222.2 47.4% 11.2%;
+    --brand-gold: 42 63% 62%;
     
     /* Muted/Clinical tones: Soft Blue-Gray */
     --muted: 210 40% 96.1%;
@@ -66,7 +70,11 @@ html {
     
     --secondary: 42 63% 62%; /* Gold remains the same */
     --secondary-foreground: 0 0% 100%;
-    
+
+    /* Brand tokens remain consistent in dark mode */
+    --brand-navy: 222.2 47.4% 11.2%;
+    --brand-gold: 42 63% 62%;
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
     

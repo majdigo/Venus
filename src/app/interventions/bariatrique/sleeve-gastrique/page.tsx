@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { BmiCalculator } from "@/components/calculators/BmiCalculator";
+import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { SleeveGastriqueInteractiveAnatomy } from "@/components/interventions/SleeveGastriqueInteractiveAnatomy";
 
 export default function SleeveGastriquePage() {
     const breadcrumbs = [
@@ -17,12 +19,14 @@ export default function SleeveGastriquePage() {
 
     return (
         <>
-            <JsonLd data={getMedicalProcedureData('sleeve-gastrique')} />
-            <JsonLd data={getFaqData('sleeve-gastrique')} />
-            <JsonLd data={getHowToData('sleeve-gastrique')} />
-            <JsonLd data={getBreadcrumbData(breadcrumbs)} />
+            <JsonLd graph={{
+                procedure: getMedicalProcedureData('sleeve-gastrique'),
+                faq: getFaqData('sleeve-gastrique'),
+                howTo: getHowToData('sleeve-gastrique'),
+                breadcrumb: getBreadcrumbData(breadcrumbs)
+            }} />
 
-            <main className="min-h-screen bg-slate-50">
+            <div className="min-h-screen bg-slate-50">
                 {/* HERO INTERVENTION */}
                 <section className="bg-primary text-primary-foreground py-20 px-4 mt-20">
                     <div className="container mx-auto max-w-4xl text-center">
@@ -70,17 +74,29 @@ export default function SleeveGastriquePage() {
                             </div>
                         </div>
 
+                        {/* ANIMATION A++ INTERACTIVE */}
+                        <div className="my-16 -mx-4 md:mx-0">
+                            <SleeveGastriqueInteractiveAnatomy />
+                        </div>
+
                         {/* Simulateur IMC interactif */}
                         <div className="mb-16">
                             <BmiCalculator variant="full" />
                         </div>
+                    </div>
+                </section>
 
+                {/* VISITE GUIDEE (Patient Journey) */}
+                <GuidedTourTimeline />
+
+                <section className="py-16 px-4 bg-white">
+                    <div className="container mx-auto max-w-4xl">
                         {/* Synchronized AI/UI FAQ */}
                         <FAQAccordion data={getFaqData('sleeve-gastrique')} />
 
                     </div>
                 </section>
-            </main>
+            </div>
         </>
     );
 }

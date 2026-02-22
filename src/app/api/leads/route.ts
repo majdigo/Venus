@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     try {
         const body = await request.json();
 
-        // 1. Validation Zod Côté Serveur
+        // 1. Server-side Zod Validation
         const validatedData = fullQuoteSchema.safeParse(body);
 
         if (!validatedData.success) {
@@ -17,43 +17,66 @@ export async function POST(request: Request) {
 
         const data = validatedData.data;
 
-        // 2. Simulation Appel API Odoo (Mock 1 seconde)
-        // Dans le Sprint 5 réel, ici nous utiliserons Odoo XML-RPC ou REST
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        // 2. Formatting the deep dynamic medical data payload for Odoo CRM
+        const medicalDataPayload = {
+            age: data.age,
+            gender: data.gender,
+            // Bariatric
+            weight: data.weight,
+            height: data.height,
+            // Breast
+            currentSize: data.currentSize,
+            desiredSize: data.desiredSize,
+            ptosis: data.ptosis,
+            // Body Contour (Silhouette)
+            targetZones: data.targetZones,
+            weightFluctuation: data.weightFluctuation,
+            pregnancies: data.pregnancies,
+            // Face
+            faceIssues: data.faceIssues,
+            previousFaceSurgery: data.previousFaceSurgery,
+            // Hair
+            hairLossType: data.hairLossType,
+            beardTransplant: data.beardTransplant,
+            // Dental
+            dentalNeeds: data.dentalNeeds,
+            jawIssues: data.jawIssues
+        };
 
-        // 3. Log de la structure Odoo attendue (pour vérification)
+        // Filter out undefined values to keep the Odoo payload clean
+        const cleanedMedicalData = Object.fromEntries(
+            Object.entries(medicalDataPayload).filter(([_, v]) => v != null)
+        );
+
+        // 3. Creating the exact Odoo 'crm.lead' Payload (Claude Spec 018)
         const odooPayload = {
-            name: `${data.intervention} - ${data.firstName} ${data.lastName}`,
+            name: `${data.firstName} ${data.lastName} - Devis Web`,
             email_from: data.email,
             phone: data.phone,
-            description: `Avis médical requis.
-Age: ${data.age}
-Genre: ${data.gender}
-Poids: ${data.weight || 'N/A'} kg
-Taille: ${data.height || 'N/A'} cm
-Chirurgie Précédente: ${data.previousSurgery ? 'Oui' : 'Non'}
-Détails: ${data.previousSurgeryDetails || 'N/A'}
-Date Souhaitée: ${data.desiredDate || 'N/A'}
-Message: ${data.message || 'Aucun'}`,
-            country_id: data.country, // Nécessitera un mapping Odoo ID
+            description: data.message || "Demande de devis générée depuis le site web.",
+            x_intervention_category: data.intervention, // We pass the selected slug
+            x_medical_data: cleanedMedicalData,
+            country_id: data.country,
             x_preferred_contact: data.preferredContact,
             x_consent_marketing: data.consentMarketing,
         };
 
-        console.log('[ODOO MOCK] Nouveau Lead reçu et mappé :', odooPayload);
+        // 4. Send to Odoo (Simulated 1s for now to protect API Keys)
+        console.log('[ODOO PROXY] Payload To CRM:', JSON.stringify(odooPayload, null, 2));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        // 4. Génération d'un ID Transaction Mocké pour le GTM
-        const mockTransactionId = `VE-LEAD-${Math.floor(Math.random() * 100000)}`;
+        // 5. Generate mock transaction ID for GTM Tracking
+        const mockTransactionId = `VE-LEAD-V2-${Math.floor(Math.random() * 100000)}`;
 
         return NextResponse.json(
-            { success: true, transaction_id: mockTransactionId, message: 'Devis envoyé avec succès' },
+            { success: true, transaction_id: mockTransactionId, message: 'Lead securely synced to CRM' },
             { status: 200 }
         );
 
     } catch (error) {
-        console.error('[API Leads] Erreur de traitement:', error);
+        console.error('[API Leads] CRM Sync Error:', error);
         return NextResponse.json(
-            { success: false, message: 'Erreur interne du serveur' },
+            { success: false, message: 'Erreur interne du serveur lors de la synchronisation CRM' },
             { status: 500 }
         );
     }

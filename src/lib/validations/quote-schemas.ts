@@ -36,6 +36,29 @@ export const step2Schema = z.object({
         "just-looking",
     ]).optional(),
     message: z.string().max(500).optional(),
+
+    // --- Champs Dynamiques V2 --- //
+    // Chirurgie Mammaire
+    currentSize: z.string().optional(),
+    desiredSize: z.string().optional(),
+    ptosis: z.boolean().optional(),
+
+    // Chirurgie Silhouette
+    targetZones: z.array(z.string()).optional(),
+    weightFluctuation: z.boolean().optional(),
+    pregnancies: z.boolean().optional(),
+
+    // Chirurgie Visage
+    faceIssues: z.array(z.string()).optional(),
+    previousFaceSurgery: z.boolean().optional(),
+
+    // Greffe Capillaire
+    hairLossType: z.string().optional(),
+    beardTransplant: z.boolean().optional(),
+
+    // Dentisterie
+    dentalNeeds: z.string().optional(),
+    jawIssues: z.boolean().optional(),
 }).refine(
     (data) => {
         // Si intervention bariatrique, poids et taille obligatoires

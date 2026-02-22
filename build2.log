@@ -1,0 +1,43 @@
+
+> 03_website_app@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 13.7s
+  Running TypeScript ...
+  Collecting page data using 31 workers ...
+The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+  Generating static pages using 31 workers (0/18) ...
+The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+  Generating static pages using 31 workers (4/18) 
+Sanity configuration missing or dataset not found. Using fallback static data.
+  Generating static pages using 31 workers (8/18) 
+  Generating static pages using 31 workers (13/18) 
+✓ Generating static pages using 31 workers (18/18) in 865.3ms
+  Finalizing page optimization ...
+
+Route (app)                                                  Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/leads
+├ ○ /chirurgiens                                                     1m      1y
+├ ○ /cliniques-partenaires
+├ ƒ /devis
+├ ○ /interventions/bariatrique/bypass-gastrique
+├ ○ /interventions/bariatrique/sleeve-gastrique
+├ ○ /interventions/capillaire/greffe-cheveux
+├ ○ /interventions/chirurgie-mammaire/augmentation-mammaire
+├ ○ /interventions/chirurgie-silhouette/abdominoplastie
+├ ○ /interventions/chirurgie-silhouette/liposuccion
+├ ○ /interventions/chirurgie-visage/rhinoplastie
+├ ○ /interventions/dentaire/facettes
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ƒ /studio/[[...index]]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

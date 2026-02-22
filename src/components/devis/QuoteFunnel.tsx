@@ -88,8 +88,8 @@ export function QuoteFunnel({ initialIntervention }: { initialIntervention?: str
         <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl border border-border/50 p-6 md:p-10 relative">
             {isSubmitting && (
                 <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-50 rounded-3xl flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 border-4 border-[#1C3F60] border-t-transparent rounded-full animate-spin"></div>
-                    <p className="mt-4 font-bold text-[#1C3F60]">Transmission sécurisée en cours...</p>
+                    <div className="w-12 h-12 border-4 border-brand-navy border-t-transparent rounded-full animate-spin"></div>
+                    <p className="mt-4 font-bold text-brand-navy">Transmission sécurisée en cours...</p>
                 </div>
             )}
             <StepProgress currentStep={step} />

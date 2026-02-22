@@ -1,0 +1,108 @@
+
+> 03_website_app@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 7 errors:
+./src/app/interventions/chirurgie-mammaire/lifting-seins/page.tsx:41:45
+Parsing ecmascript source code failed
+  39 |             {
+  40 |                 '@type': 'Question',
+> 41 |                 'name': 'Quel est le prix d'un lifting des seins en Tunisie tout compris ?',
+     |                                             ^^
+  42 |                 'acceptedAnswer': {
+  43 |                     '@type': 'Answer',
+  44 |                     'text': "Le forfait mastopexie chez Venus Estetika est à partir de 2 500 € (sans prothèse) et 3 500 € (avec prothèse). Tout est inclus : l'intervention, l'anesthésie, 1 à 2 nuits en clinique, 5 nuits en hôtel 5 étoiles, les transferts VIP, le soutien-gorge médical et le suivi 12 mois. En France, la mastopexie coûte entre 4 500 et 9 000 €.",
+
+Expected ',', got 'ident'
+
+
+./src/app/interventions/chirurgie-mammaire/lipofilling-mammaire/page.tsx:41:45
+Parsing ecmascript source code failed
+  39 |             {
+  40 |                 '@type': 'Question',
+> 41 |                 'name': 'Quel est le prix d'un lipofilling mammaire en Tunisie tout compris ?',
+     |                                             ^^
+  42 |                 'acceptedAnswer': {
+  43 |                     '@type': 'Answer',
+  44 |                     'text': "Le forfait lipofilling mammaire chez Venus Estetika est à partir de 2 800 € tout compris. Il inclut l'intervention, l'anesthésie, la liposuccion de la zone donneuse, 1 nuit en clinique agréée, 5 nuits en hôtel 5 étoiles, les transferts VIP, le soutien-gorge médical et le suivi 12 mois. En France, la même intervention coûte entre 5 000 et 7 000 €.",
+
+Expected ',', got 'ident'
+
+
+./src/app/interventions/chirurgie-mammaire/reduction-mammaire/page.tsx:40:45
+Parsing ecmascript source code failed
+  38 |             {
+  39 |                 '@type': 'Question',
+> 40 |                 'name': 'Quel est le prix d'une réduction mammaire en Tunisie tout compris ?',
+     |                                             ^^^
+  41 |                 'acceptedAnswer': {
+  42 |                     '@type': 'Answer',
+  43 |                     'text': "Le forfait réduction mammaire chez Venus Estetika est à partir de 2 800 € tout compris. Il inclut l'intervention, l'anesthésie, 2 nuits en clinique agréée, 5 nuits en hôtel 5 étoiles, les transferts VIP, le soutien-gorge médical et le suivi 12 mois. En France, la même intervention coûte entre 5 000 et 8 000 €.",
+
+Expected ',', got 'ident'
+
+
+./src/app/interventions/chirurgie-silhouette/bbl/page.tsx:1:1
+Export getFAQSchema doesn't exist in target module
+> 1 | import { getFAQSchema } from '@/lib/schema/faq';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { ArrowRight, CheckCircle2, Shield, Star, Clock, HeartPulse } from 'lucide-react';
+  3 | import Image from 'next/image';
+  4 | import Link from 'next/link';
+
+The export getFAQSchema was not found in module [project]/src/lib/schema/faq.ts [app-rsc] (ecmascript).
+Did you mean to import getFaqData?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+./src/app/interventions/chirurgie-silhouette/lifting-bras/page.tsx:1:1
+Export getFAQSchema doesn't exist in target module
+> 1 | import { getFAQSchema } from '@/lib/schema/faq';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { ArrowRight, CheckCircle2, Shield, Star, Clock, HeartPulse } from 'lucide-react';
+  3 | import Image from 'next/image';
+  4 | import Link from 'next/link';
+
+The export getFAQSchema was not found in module [project]/src/lib/schema/faq.ts [app-rsc] (ecmascript).
+Did you mean to import getFaqData?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+./src/app/interventions/chirurgie-silhouette/lifting-cuisses/page.tsx:1:1
+Export getFAQSchema doesn't exist in target module
+> 1 | import { getFAQSchema } from '@/lib/schema/faq';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { ArrowRight, CheckCircle2, Shield, Star, Clock, HeartPulse } from 'lucide-react';
+  3 | import Image from 'next/image';
+  4 | import Link from 'next/link';
+
+The export getFAQSchema was not found in module [project]/src/lib/schema/faq.ts [app-rsc] (ecmascript).
+Did you mean to import getFaqData?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+./src/app/interventions/chirurgie-silhouette/mommy-makeover/page.tsx:1:1
+Export getFAQSchema doesn't exist in target module
+> 1 | import { getFAQSchema } from '@/lib/schema/faq';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { ArrowRight, CheckCircle2, Shield, Star, Clock, HeartPulse, Sparkles } from 'lucide-react';
+  3 | import Image from 'next/image';
+  4 | import Link from 'next/link';
+
+The export getFAQSchema was not found in module [project]/src/lib/schema/faq.ts [app-rsc] (ecmascript).
+Did you mean to import getFaqData?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+    at <unknown> (./src/app/interventions/chirurgie-mammaire/lifting-seins/page.tsx:41:45)
+    at <unknown> (./src/app/interventions/chirurgie-mammaire/lipofilling-mammaire/page.tsx:41:45)
+    at <unknown> (./src/app/interventions/chirurgie-mammaire/reduction-mammaire/page.tsx:40:45)
+    at <unknown> (./src/app/interventions/chirurgie-silhouette/bbl/page.tsx:1:1)
+    at <unknown> (./src/app/interventions/chirurgie-silhouette/lifting-bras/page.tsx:1:1)
+    at <unknown> (./src/app/interventions/chirurgie-silhouette/lifting-cuisses/page.tsx:1:1)
+    at <unknown> (./src/app/interventions/chirurgie-silhouette/mommy-makeover/page.tsx:1:1)

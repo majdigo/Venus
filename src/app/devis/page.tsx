@@ -14,7 +14,7 @@ export default async function DevisPage({
     const resolvedParams = await searchParams;
 
     return (
-        <main className="min-h-screen bg-slate-50 py-24 md:py-32 px-4">
+        <div className="min-h-screen bg-slate-50 py-24 md:py-32 px-4">
             <div className="container mx-auto max-w-4xl">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
@@ -27,6 +27,6 @@ export default async function DevisPage({
 
                 <QuoteFunnel initialIntervention={resolvedParams.intervention} />
             </div>
-        </main>
+        </div>
     );
 }

@@ -14,6 +14,8 @@ const config: Config = {
 				heading: ['var(--font-outfit)', 'sans-serif'],
 			},
 			colors: {
+				'brand-navy': 'hsl(var(--brand-navy) / <alpha-value>)',
+				'brand-gold': 'hsl(var(--brand-gold) / <alpha-value>)',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
