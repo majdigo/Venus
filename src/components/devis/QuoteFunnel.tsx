@@ -13,9 +13,26 @@ import { useEffect, useRef } from "react";
 
 type FunnelStep = 1 | 2 | 3 | "confirmation";
 
-export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }: { initialIntervention?: string, initialBmi?: string, initialNorwood?: string }) {
+const INTERVENTION_VALUES: Record<string, number> = {
+    'rhinoplastie': 2200, 'blepharoplastie': 1800, 'lifting-cervico-facial': 3500,
+    'otoplastie': 1500, 'genioplastie': 2000, 'lipofilling-visage': 2200,
+    'augmentation-mammaire': 2800, 'reduction-mammaire': 2500, 'lifting-seins': 2500,
+    'lipofilling-mammaire': 2800, 'liposuccion': 2000, 'abdominoplastie': 2500,
+    'bbl': 3200, 'mommy-makeover': 4500, 'lifting-bras': 2000, 'lifting-cuisses': 2000,
+    'sleeve-gastrique': 4200, 'bypass-gastrique': 5500, 'anneau-gastrique': 3000,
+    'greffe-cheveux': 1800, 'greffe-dhi': 2500, 'greffe-barbe': 1800,
+    'implants-dentaires': 700, 'facettes': 350, 'couronnes': 200, 'blanchiment': 250,
+    'botox': 150, 'acide-hyaluronique': 200, 'peeling': 300, 'mesolift': 250,
+};
+
+function getEstimatedValue(intervention: string): number {
+    return INTERVENTION_VALUES[intervention] || 2000;
+}
+
+export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood, abVariant = 'control-A' }: { initialIntervention?: string, initialBmi?: string, initialNorwood?: string, abVariant?: string }) {
     const [step, setStep] = useState<FunnelStep>(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
     const [formData, setFormData] = useState<Partial<FullQuoteData>>({
         intervention: initialIntervention || "",
         ...(initialBmi ? { bmi: parseFloat(initialBmi) } : {}),
@@ -29,7 +46,8 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
         pushGtmEvent({
             event: 'funnel_step_1_start',
             funnel_source: initialIntervention ? 'direct_link' : 'cta_hero',
-            pre_selected_intervention: initialIntervention || null
+            pre_selected_intervention: initialIntervention || null,
+            ab_variant: abVariant
         });
 
         const handleUnload = () => {
@@ -40,6 +58,7 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
                     event: 'funnel_abandon',
                     last_completed_step: lastCompleted,
                     intervention: formData.intervention || "unknown",
+                    ab_variant: abVariant
                 });
             }
         };
@@ -55,6 +74,7 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
     const goNext = async (stepData: Partial<FullQuoteData>) => {
         const newData = { ...formData, ...stepData };
         setFormData(newData);
+        setSubmitError(null);
 
         if (step === 3) {
             setIsSubmitting(true);
@@ -74,18 +94,19 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
                         transaction_id: result.transaction_id,
                         intervention: newData.intervention,
                         ...stepData,
-                        estimated_value: 2000, // To be refined by a mapping function later
+                        estimated_value: getEstimatedValue(newData.intervention || ''),
                         currency: 'EUR',
-                        lead_source: 'website'
+                        lead_source: 'website',
+                        ab_variant: abVariant
                     });
                     setStep("confirmation");
                 } else {
                     console.error("API Validation Error:", result.errors);
-                    alert("Erreur dans les données du formulaire. Veuillez vérifier vos saisies.");
+                    setSubmitError("Erreur dans les données du formulaire. Veuillez vérifier vos saisies et réessayer.");
                 }
             } catch (error) {
                 console.error("Fetch Error:", error);
-                alert("Une erreur technique est survenue. Veuillez réessayer.");
+                setSubmitError("Une erreur technique est survenue. Veuillez réessayer dans quelques instants.");
             } finally {
                 setIsSubmitting(false);
             }
@@ -115,6 +136,23 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
                 </div>
             )}
             <StepProgress currentStep={step} />
+
+            {submitError && (
+                <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm flex items-start gap-3">
+                    <svg className="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
+                    <div>
+                        <p className="font-medium">{submitError}</p>
+                        <button
+                            onClick={() => setSubmitError(null)}
+                            className="text-red-500 hover:text-red-700 text-xs mt-1 underline underline-offset-2"
+                        >
+                            Fermer
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <div className="relative mt-8 min-h-[400px]">
                 <AnimatePresence mode="wait">
