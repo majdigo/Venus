@@ -27,6 +27,14 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Facettes Dentaires Tunisie E-max dès 250€ | Venus Estetika',
         description: 'Hollywood Smile en Tunisie avec facettes E-max & Lumineers. Design sourire 3D personnalisé. Résultat naturel en 3 étapes. Dès 250€.',
+        images: [
+            {
+                url: '/images/heroes/dentaire-hero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Facettes Dentaires Tunisie E-max — Venus Estetika',
+            },
+        ],
     },
 };
 

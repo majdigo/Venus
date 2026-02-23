@@ -1,9 +1,14 @@
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { getMedicalProcedureData } from '@/lib/schema/medical-procedure';
+import { getFaqData } from '@/lib/schema/faq';
+import { getHowToData } from '@/lib/schema/howto';
+import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Shield, Award, Plane, Clock, Heart } from "lucide-react";
 import { TrackedLink } from "@/components/tracking/TrackedLink";
 import { BreastAugmentationInteractiveAnatomy } from "@/components/interventions/BreastAugmentationInteractiveAnatomy";
+import { FastTrackPhotoUpload } from "@/components/cro/FastTrackPhotoUpload";
 import { InterventionHero } from "@/components/interventions/InterventionHero";
 import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
 import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
@@ -14,89 +19,38 @@ import { FAQAccordion } from "@/components/ui/faq-accordion";
 export const metadata: Metadata = {
     title: 'Augmentation Mammaire Tunisie | Prix Tout Compris 2 800€ — Venus Estetika',
     description: 'Augmentation mammaire en Tunisie avec prothèses de qualité européenne. Forfait tout compris dès 2 800€ : clinique agréée, hôtel 5 étoiles, suivi 12 mois. Devis gratuit.',
+    alternates: {
+        canonical: "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire",
+    },
+    openGraph: {
+        title: "Augmentation Mammaire Tunisie | 2 800 € Tout Compris",
+        description: "Augmentation mammaire en Tunisie avec prothèses européennes. Forfait tout compris dès 2 800€ : clinique, hôtel 5★, suivi 12 mois.",
+        images: [
+            {
+                url: '/images/heroes/chirurgie-mammaire-hero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Augmentation Mammaire Tunisie — Venus Estetika',
+            },
+        ],
+    },
 };
 
 export default function AugmentationMammairePage() {
-
-    // JSON-LD Extrait scrupuleusement de la doc de Claude (TICKET-007)
-    const surgicalProcedureSchema = {
-        "@context": "https://schema.org",
-        "@type": "SurgicalProcedure",
-        "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire#procedure",
-        "name": "Augmentation mammaire en Tunisie",
-        "alternateName": ["Implants mammaires Tunisie", "Prothèses mammaires Tunisie", "Breast augmentation Tunisia", "Augmentation des seins Tunisie", "Mammoplastie d'augmentation"],
-        "description": "L'augmentation mammaire est une intervention de chirurgie esthétique visant à augmenter le volume des seins par la mise en place de prothèses mammaires en silicone cohésif de marque européenne. Réalisée par le Dr Balti, chirurgien diplômé en France, avec la technique Dual Plane pour un résultat naturel. Forfait tout compris à partir de 2 800 €.",
-        "procedureType": { "@type": "MedicalProcedureType", "name": "Surgical" },
-        "bodyLocation": "Seins (région mammaire : glande mammaire, muscle grand pectoral, sillon sous-mammaire)",
-    };
-
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Quel est le prix d'une augmentation mammaire en Tunisie tout compris ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Le prix d'une augmentation mammaire en Tunisie chez Venus Estetika est à partir de 2 800 € tout compris avec des prothèses en silicone de marque européenne. Ce forfait inclut l'intervention, l'anesthésie, les prothèses, une nuit en clinique agréée, 5 nuits en hôtel 5 étoiles, les transferts VIP, le soutien-gorge de contention et un suivi de 12 mois. En France, la même intervention coûte entre 6 000 et 7 500 €, soit une économie de plus de 50%."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Prothèses rondes ou anatomiques : comment choisir ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Les prothèses rondes offrent un décolleté marqué et un effet push-up naturel. Les prothèses anatomiques reproduisent la forme naturelle du sein en goutte d'eau avec plus de volume en bas. Le choix dépend de votre morphologie, de l'épaisseur de vos tissus et du résultat souhaité. Le chirurgien vous conseille lors de la téléconsultation."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quelle est la durée de vie des implants mammaires ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Les prothèses en silicone cohésif modernes durent au minimum 10 à 15 ans, souvent bien au-delà. Les fabricants européens (Motiva, Mentor, Sebbin) offrent une garantie à vie en cas de rupture. Un remplacement n'est nécessaire qu'en cas de complication. Un suivi régulier par échographie mammaire annuelle permet de vérifier leur intégrité."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Peut-on allaiter après une augmentation mammaire ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Oui, dans la très grande majorité des cas. La technique Dual Plane place la prothèse derrière le muscle pectoral sans toucher la glande mammaire ni les canaux lactifères. La voie d'incision sous-mammaire préserve également la glande. L'allaitement reste possible après l'augmentation mammaire."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quand peut-on reprendre le sport après une augmentation mammaire ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Les activités légères sont possibles dès la première semaine. Le sport modéré (vélo, natation) est autorisé à partir de 4 à 6 semaines. Les sports intensifs sollicitant les pectoraux (musculation, tennis, crossfit) doivent attendre au minimum 8 semaines. Le port d'un soutien-gorge de sport est recommandé pendant les 3 premiers mois."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "L'augmentation mammaire est-elle douloureuse ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "L'intervention est sous anesthésie générale, il n'y a aucune douleur pendant l'opération. Les premiers jours, une sensation de tension thoracique comparable à des courbatures est ressentie car les muscles pectoraux sont étirés. Cette sensation diminue en 3 à 5 jours avec des antalgiques. La douleur est évaluée entre 3 et 5 sur 10 les premiers jours."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quels sont les risques de l'augmentation mammaire ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Les complications graves sont rares. Les risques principaux incluent la coque péri-prothétique (3-5%), l'hématome (1-2%), l'infection (< 1%), la perte de sensibilité mamelonnaire (généralement temporaire), le déplacement de prothèse et la rupture d'implant (très rare avec les prothèses modernes). Le taux de complication global est inférieur à 8%."
-                }
-            }
-        ]
-    };
+    const breadcrumbs = [
+        { name: "Accueil", url: "https://venus-estetika.com" },
+        { name: "Chirurgie Mammaire", url: "https://venus-estetika.com/interventions/chirurgie-mammaire" },
+        { name: "Augmentation Mammaire", url: "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire" }
+    ];
 
     return (
         <>
-            <JsonLd data={surgicalProcedureSchema} />
-            <JsonLd data={faqSchema} />
+            <JsonLd graph={{
+                procedure: getMedicalProcedureData('augmentation-mammaire'),
+                faq: getFaqData('augmentation-mammaire'),
+                howTo: getHowToData('augmentation-mammaire'),
+                breadcrumb: getBreadcrumbData(breadcrumbs)
+            }} />
 
             <div className="min-h-screen bg-slate-50">
                 {/* HERO INTERVENTION */}
@@ -142,8 +96,8 @@ export default function AugmentationMammairePage() {
                     title="L’Augmentation Mammaire en Tunisie"
                     description="L'augmentation mammaire par prothèses est une intervention de chirurgie esthétique qui permet de corriger l'hypoplasie (volume insuffisant) des seins, d'améliorer la forme de la poitrine et de restaurer le galbe."
                     images={[
-                        "https://venus-estetika.com/wp-content/uploads/2017/11/augmentation-mammaire-avant-apres.jpg",
-                        "https://venus-estetika.com/wp-content/uploads/2017/10/augmentation_mammaire.jpg"
+                        "/images/interventions/augmentation-mammaire/augmentation-mammaire-avant-apres.jpg",
+                        "/images/interventions/augmentation-mammaire/augmentation-mammaire.jpg"
                     ]}
                     contentSnippets={[
                         "Le choix définitif de la forme (ronde ou anatomique), du volume et de la projection de la prothèse mammaire se fait conjointement lors de votre consultation préopératoire.",
@@ -160,6 +114,11 @@ export default function AugmentationMammairePage() {
                     <div className="container mx-auto px-4">
                         <BreastAugmentationInteractiveAnatomy />
                     </div>
+                </section>
+
+                {/* CRO/GROWTH HACKING: FAST-TRACK PHOTO DIAGNOSIS */}
+                <section className="container mx-auto max-w-5xl px-4 mt-8">
+                    <FastTrackPhotoUpload interventionName="Augmentation Mammaire" />
                 </section>
 
                 {/* AVANTAGES (CRO) */}
@@ -233,7 +192,7 @@ export default function AugmentationMammairePage() {
                 {/* FAQ SECTION */}
                 <section className="bg-white">
                     <div className="container mx-auto px-4">
-                        <FAQAccordion data={faqSchema} title="Questions fréquentes sur les implants" />
+                        <FAQAccordion data={getFaqData('augmentation-mammaire')} title="Questions fréquentes sur les implants" />
                     </div>
                 </section>
 

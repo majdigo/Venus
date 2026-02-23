@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getMedicalProcedureData } from '@/lib/schema/medical-procedure';
 import { getFaqData } from '@/lib/schema/faq';
@@ -8,6 +9,7 @@ import { CheckCircle2, Shield, Award, Clock } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { LiposuccionInteractiveAnatomy } from "@/components/interventions/LiposuccionInteractiveAnatomy";
+import { FastTrackPhotoUpload } from "@/components/cro/FastTrackPhotoUpload";
 import { AuthenticLandingSection } from '@/components/interventions/AuthenticLandingSection';
 import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
@@ -16,9 +18,24 @@ import { InterventionHero } from "@/components/interventions/InterventionHero";
 import { TrackedLink } from '@/components/tracking/TrackedLink';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Liposuccion Tunisie | Prix Tout Compris 1 500€ — Venus Estetika",
     description: "Liposuccion en Tunisie par un chirurgien diplômé en France. Forfait tout compris dès 1 500€ : abdomen, flancs, cuisses. Clinique agréée, hôtel 5 étoiles, suivi 12 mois. Devis gratuit.",
+    alternates: {
+        canonical: 'https://venus-estetika.com/interventions/chirurgie-silhouette/liposuccion',
+    },
+    openGraph: {
+        title: 'Liposuccion Tunisie dès 1 500€ | Venus Estetika',
+        description: 'Liposuccion en Tunisie par chirurgien diplômé en France. Abdomen, flancs, cuisses. Hôtel 5 étoiles + suivi 12 mois. Dès 1 500€.',
+        images: [
+            {
+                url: '/images/heroes/chirurgie-silhouette-hero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Liposuccion Tunisie — Venus Estetika',
+            },
+        ],
+    },
 };
 
 export default function LiposuccionPage() {
@@ -59,8 +76,8 @@ export default function LiposuccionPage() {
                     title="La Liposuccion en Tunisie"
                     description="Traitement De Choix et Définitivement Pas Cher Pour Se Débarrasser De La Graisse Mal Placée. L'intervention permet d'aspirer les amas graisseux en excès pour remodeler la silhouette de façon définitive."
                     images={[
-                        "https://venus-estetika.com/wp-content/uploads/2017/11/liposuccion1.jpg",
-                        "https://venus-estetika.com/wp-content/uploads/2017/11/zones-lipoaspiration.png"
+                        "/images/interventions/liposuccion/liposuccion.jpg",
+                        "/images/interventions/liposuccion/zones-lipoaspiration.png"
                     ]}
                     contentSnippets={[
                         "Les cellules graisseuses n'ont pas la faculté de se multiplier. Dès lors qu'on a détruit certaines par la liposuccion, la graisse ne réapparaît généralement pas.",
@@ -123,6 +140,11 @@ export default function LiposuccionPage() {
 
                 {/* ANIMATION A++ INTERACTIVE */}
                 <LiposuccionInteractiveAnatomy />
+
+                {/* CRO/GROWTH HACKING: FAST-TRACK PHOTO DIAGNOSIS */}
+                <section className="container mx-auto max-w-5xl px-4 mt-8">
+                    <FastTrackPhotoUpload interventionName="Liposuccion" />
+                </section>
 
                 {/* PATIENT JOURNEY / VISITE GUIDEE */}
                 <GuidedTourTimeline />

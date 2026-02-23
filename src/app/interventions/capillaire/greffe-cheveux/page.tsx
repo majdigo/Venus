@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getMedicalProcedureData } from '@/lib/schema/medical-procedure';
 import { getFaqData } from '@/lib/schema/faq';
@@ -8,6 +9,7 @@ import { CheckCircle2, Shield, Award, Clock } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { GreffeCheveuxInteractiveSimulator } from "@/components/interventions/GreffeCheveuxInteractiveSimulator";
+import { FastTrackPhotoUpload } from "@/components/cro/FastTrackPhotoUpload";
 import { InterventionHero } from "@/components/interventions/InterventionHero";
 import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
 import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
@@ -16,9 +18,24 @@ import { AuthenticLandingSection } from '@/components/interventions/AuthenticLan
 import { TrackedLink } from '@/components/tracking/TrackedLink';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Greffe de Cheveux Tunisie | FUE & DHI — 1900€ Tout Compris",
     description: "Retrouvez une chevelure dense avec la greffe de cheveux en Tunisie (Techniques FUE Saphir et DHI). Mega Session jusqu'à 5000 greffons. PRP et Séjour VIP inclus.",
+    alternates: {
+        canonical: 'https://venus-estetika.com/interventions/capillaire/greffe-cheveux',
+    },
+    openGraph: {
+        title: 'Greffe de Cheveux Tunisie FUE & DHI dès 1 900€ | Venus Estetika',
+        description: 'Chevelure dense garantie en Tunisie. FUE Saphir & DHI, jusqu\'à 5000 greffons. PRP + séjour VIP inclus. Forfait dès 1 900€.',
+        images: [
+            {
+                url: '/images/heroes/capillaire-hero.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Greffe de Cheveux Tunisie FUE & DHI — Venus Estetika',
+            },
+        ],
+    },
 };
 
 export default function GreffeCheveuxPage() {
@@ -107,8 +124,8 @@ export default function GreffeCheveuxPage() {
                     title="La Greffe de Cheveux FUE en Tunisie"
                     description="Une Méthode Non Invasives D’extraction D’unités Folliculaires (FUE) Qui Est La Technique Majeure D’implant Capillaire. On prélève chaque racine du cuir chevelu une à une sans laisser de cicatrices visibles."
                     images={[
-                        "https://venus-estetika.com/wp-content/uploads/2017/12/microgreffe-1.jpg",
-                        "https://venus-estetika.com/wp-content/uploads/2017/12/hair-transplant.jpg"
+                        "/images/interventions/greffe-cheveux/microgreffe.jpg",
+                        "/images/interventions/greffe-cheveux/hair-transplant.jpg"
                     ]}
                     contentSnippets={[
                         "La greffe de cheveux FUE est la technique de prélèvement la plus moderne et la plus avancée dans le domaine de la chirurgie de restauration capillaire.",
@@ -122,6 +139,11 @@ export default function GreffeCheveuxPage() {
 
                 {/* ANIMATION A++ INTERACTIVE (Norwood Scale) */}
                 <GreffeCheveuxInteractiveSimulator />
+
+                {/* CRO/GROWTH HACKING: FAST-TRACK PHOTO DIAGNOSIS */}
+                <section className="container mx-auto max-w-5xl px-4 mt-8">
+                    <FastTrackPhotoUpload interventionName="Greffe de Cheveux" />
+                </section>
 
                 {/* PATIENT JOURNEY / VISITE GUIDEE */}
                 <GuidedTourTimeline />
