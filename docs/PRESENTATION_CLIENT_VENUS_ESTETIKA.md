@@ -92,7 +92,7 @@ L'alliance de l'architecture Next.js ultra-rapide et de contenus structurés.
 ### A. Core SEO & Sémantique (E-E-A-T)
 *   **Vitesse Lumière :** Next.js 15, Images WebP optimisées, polices pré-chargées. Le site tape le 95/100 sur Google Lighthouse, forçant un coût par clic (CPC) Google Ads moins cher grâce au Quality Score parfait.
 *   **Données Structurées (JSON-LD) :** Chaque page déclare à Google s'il s'agit d'un article de Blog, d'une FAQ Médicale, ou d'une Procédure Chirurgicale (Rich Snippets garantis).
-*   **La Matrice de Contenu (Sanity CMS) :** Un Headless Blog ultra moderne permet de générer de l'Inbound Marketing massif ("Combien coûte une liposuccion en 2026 ?", "Comment dormir après un BBL ?").
+*   **La Matrice de Contenu (Architecture Flat-File) :** Un système de gestion de contenu local sur-mesure (Zéro abonnement SaaS, Zéro base de données lente) générant des centaines d'articles de haute performance SEO.
 
 ### B. Google Ads (Campagnes & Mots-clés)
 *   **Structure SKAG (Single Keyword Ad Group) / Hagakure :** Campagnes extrêmement resserrées.
@@ -108,9 +108,9 @@ L'alliance de l'architecture Next.js ultra-rapide et de contenus structurés.
 
 L'infrastructure technico-marketing est **Live, Testée, et Prête au combat**.
 
-*   **Le Produit :** Un Front-end Next.js de renommée mondiale, adossé à Sanity CMS et optimisé CRO.
+*   **Le Produit :** Un Front-end Next.js de renommée mondiale, entièrement découplé (sans SaaS limitatif) et dont la base de données structurée est administrée en langage naturel par l'Agent IA.
 *   **Ce que nous attendons de l'Humain / de Claude :**
-    1.  **Génération de Contenu :** Nourrir le CMS Sanity avec des articles SEO optimisés PAA (People Also Ask).
+    1.  **Génération de Contenu :** Piloter l'Agent IA pour qu'il insère la donnée (Prix, Cliniques, Textes Chirurgies) directement dans l'architecture de données locale (JSON/TS) sans aucune interface tièrce.
     2.  **Investissement SEA :** Déverrouiller le robinet Google Ads (Budgets de lancement, paramétrage final Pmax/Search sur le Dashboard Google).
     3.  **Itération :** Suivre Vercel Analytics et lancer de nouveaux A/B tests chaque semaine. (On ne s'arrête jamais d'optimiser).
 
