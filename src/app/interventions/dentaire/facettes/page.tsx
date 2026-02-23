@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getMedicalProcedureData } from '@/lib/schema/medical-procedure';
 import { getFaqData } from '@/lib/schema/faq';
@@ -9,6 +10,7 @@ import { CheckCircle2, Star, Shield, Award, Sparkles } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { FacettesInteractiveAnatomy } from "@/components/interventions/FacettesInteractiveAnatomy";
+import { FastTrackPhotoUpload } from "@/components/cro/FastTrackPhotoUpload";
 import { InterventionHero } from "@/components/interventions/InterventionHero";
 import { AuthenticLandingSection } from '@/components/interventions/AuthenticLandingSection';
 import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
@@ -16,9 +18,16 @@ import { PatientTestimonialSection } from "@/components/interventions/PatientTes
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Facettes Dentaires Tunisie | Hollywood Smile E-max — Dès 250€",
     description: "Retrouvez un sourire éclatant avec les facettes dentaires en Tunisie (Emax & Lumineers). Design de sourire 3D personnalisé. Résultat naturel en 3 étapes.",
+    alternates: {
+        canonical: 'https://venus-estetika.com/interventions/dentaire/facettes',
+    },
+    openGraph: {
+        title: 'Facettes Dentaires Tunisie E-max dès 250€ | Venus Estetika',
+        description: 'Hollywood Smile en Tunisie avec facettes E-max & Lumineers. Design sourire 3D personnalisé. Résultat naturel en 3 étapes. Dès 250€.',
+    },
 };
 
 export default function FacettesDentairesPage() {
@@ -59,9 +68,9 @@ export default function FacettesDentairesPage() {
                     title="La Pose de Facette Dentaire en Tunisie"
                     description="Facette dentaire Tunisie : Dents Blanches et Alignées Prix Pas Cher! A Partir de 280€ la Facette. Séjour Tout Inclus! Photos Avant Après pour la Pose des Facettes."
                     images={[
-                        "https://venus-estetika.com/wp-content/uploads/2021/04/Facette-dentaire-tunisie-dents-blanches-alignees.jpg",
-                        "https://venus-estetika.com/wp-content/uploads/2021/04/avant-apres-dentaire-venus-13-e1619301874682.jpg",
-                        "https://venus-estetika.com/wp-content/uploads/2021/04/avant-apres-dentaire-venus-11-e1619302011303.jpg"
+                        "/images/interventions/facettes/facette-dentaire.jpg",
+                        "/images/interventions/facettes/avant-apres-dentaire-1.jpg",
+                        "/images/interventions/facettes/avant-apres-dentaire-2.jpg"
                     ]}
                     contentSnippets={[
                         "Le Hollywood Smile est la solution la plus demandée en Tunisie pour corriger tous les défauts dentaires en un minimum de temps.",
@@ -121,6 +130,11 @@ export default function FacettesDentairesPage() {
 
                 {/* ANIMATION A++ INTERACTIVE */}
                 <FacettesInteractiveAnatomy />
+
+                {/* CRO/GROWTH HACKING: FAST-TRACK PHOTO DIAGNOSIS */}
+                <section className="container mx-auto max-w-5xl px-4">
+                    <FastTrackPhotoUpload interventionName="Pose de Facettes Dentaires" />
+                </section>
 
                 {/* PATIENT JOURNEY / VISITE GUIDEE */}
                 <GuidedTourTimeline />

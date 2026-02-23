@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import { Suspense } from 'react';
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GtmProvider } from '@/components/tracking/GtmProvider';
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getClinicData } from "@/lib/schema/clinic";
@@ -102,6 +104,8 @@ export default function RootLayout({
             <CookieConsent />
           </GtmProvider>
         </Suspense>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
