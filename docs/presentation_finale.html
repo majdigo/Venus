@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus Estetika - Rapport de Relance & Stratégie Digitale</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0f172a',    // Trust, Institution
+                            blue: '#3b82f6',    // Medical, Clean, Action
+                            gold: '#f59e0b',    // Premium, VIP, Holidays
+                            cream: '#f8fafc',   // Space, Purity
+                            slate: '#64748b'    // Text Secondary
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Subtle Entrance Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Mockup Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-blue selection:text-white pb-32">
+
+    <!-- HERO SECTION -->
+    <header class="relative bg-brand-navy text-white py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <!-- Abstract background pattern -->
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grad1)" />
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center animate-fade-in">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-brand-gold text-sm font-semibold mb-8 uppercase tracking-widest">
+                <i class="ph ph-rocket-launch text-lg"></i> Stratégie de Lancement 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Pitch Client : La Re-fondation de <span class="text-brand-blue">Venus Estetika</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 font-light">
+                Document exécutif rédigé par votre pôle Ingénierie (IA Tech Lead) pour le Client Final et Claude
+                (Stratège Marketing). Présentation de l'arme de conversion ultime.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contexte"
+                    class="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-brand-blue/50 flex items-center gap-2">
+                    Découvrir l'Architecture <i class="ph ph-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION TABS (Sticky) -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-6 overflow-x-auto">
+            <ul class="flex items-center space-x-8 py-4 text-sm font-semibold text-gray-600 whitespace-nowrap">
+                <li><a href="#contexte" class="hover:text-brand-blue transition-colors">1. Contexte & Enjeux</a></li>
+                <li><a href="#marque" class="hover:text-brand-blue transition-colors">2. Branding & Visuels</a></li>
+                <li><a href="#produit" class="hover:text-brand-blue transition-colors">3. Le Produit (UI/UX layout)</a>
+                </li>
+                <li><a href="#cro" class="hover:text-brand-blue transition-colors">4. Growth & Conversion (CRO)</a></li>
+                <li><a href="#cms" class="hover:text-brand-blue transition-colors">5. CMS & Administration</a></li>
+                <li><a href="#sea" class="hover:text-brand-blue transition-colors">6. Déploiement & Acquisition</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16 space-y-32">
+
+        <!-- 1. CONTEXTE -->
+        <section id="contexte" class="scroll-mt-24 animate-fade-in delay-100">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold text-brand-navy mb-8 flex items-center gap-3">
+                    <span
+                        class="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center text-brand-blue"><i
+                            class="ph ph-target"></i></span>
+                    1. Compréhension du Besoin & Vision
+                </h2>
+                <div class="prose prose-lg text-gray-600">
+                    <p class="lead text-xl text-brand-navy font-medium mb-6">
+                        Le marché du tourisme médical n'est plus un marché de "prix", mais un marché de
+                        <strong>"Confiance" (Trust Economy)</strong>.
+                        Le patient européen (France, Suisse, Belgique) est hyper-sollicité par la Turquie et craint les
+                        complications post-opératoires.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8 my-10">
+                        <div
+                            class="bg-white p-8 rounded-2xl shadow-sm border border-red-100 border-t-4 border-t-red-500">
+                            <h3 class="font-bold text-red-900 mb-4 flex items-center gap-2"><i
+                                    class="ph ph-warning-circle text-xl"></i> L'Ancien Paradigme (Le Problème)</h3>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-start gap-2"><i class="ph ph-x text-red-500 mt-1"></i> Design
+                                    d'agence de voyage générique (perte de l'autorité médicale).</li>
+                                <li class="flex items-start gap-2"><i class="ph ph-x text-red-500 mt-1"></i> Formulaire
+                                    de devis long ressemblant à un interrogatoire de police (90% d'abandon).</li>
+                                <li class="flex items-start gap-2"><i class="ph ph-x text-red-500 mt-1"></i> Visuels
+                                    "Bank d'images" faux et froids.</li>
+                                <li class="flex items-start gap-2"><i class="ph ph-x text-red-500 mt-1"></i> Temps de
+                                    chargement lent tuant le Quality Score Google Ads.</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-2xl shadow-sm border border-emerald-100 border-t-4 border-t-emerald-500">
+                            <h3 class="font-bold text-emerald-900 mb-4 flex items-center gap-2"><i
+                                    class="ph ph-check-circle text-xl"></i> La Nouvelle Ère (Notre Solution)</h3>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-start gap-2"><i class="ph ph-check text-emerald-500 mt-1"></i>
+                                    Positionnement "Institution Hospitalière Suisse/Parisienne" mais au prix tunisien.
+                                </li>
+                                <li class="flex items-start gap-2"><i class="ph ph-check text-emerald-500 mt-1"></i>
+                                    Tunnels de devis interactifs (Micro-engagements) avec A/B testing temps réel.</li>
+                                <li class="flex items-start gap-2"><i class="ph ph-check text-emerald-500 mt-1"></i>
+                                    Hyper-Vitesse (Next.js 15) et architecture pensée pour le LeadGen (Acquisition de
+                                    prospects).</li>
+                                <li class="flex items-start gap-2"><i class="ph ph-check text-emerald-500 mt-1"></i>
+                                    E-E-A-T SEO natif (Expertise, Authoritativeness, Trust).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. MARQUE & IDENTITÉ -->
+        <section id="marque" class="scroll-mt-24">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold text-brand-navy mb-8 flex items-center gap-3">
+                    <span
+                        class="w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center text-brand-gold"><i
+                            class="ph ph-palette"></i></span>
+                    2. Charte Graphique & Message Clé
+                </h2>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">La Psychologie des Couleurs</h3>
+                        <p class="text-gray-600 mb-8">Nous avons injecté les ratios de couleur de cliniques privées
+                            européennes. Tout transpire l'hygiène, le sérieux, mais aussi l'accueil chaleureux d'un
+                            séjour VIP.</p>
+
+                        <div class="space-y-4">
+                            <!-- Color Swatch -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-xl bg-brand-navy shadow-inner"></div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Navy Blue (Primaire)</p>
+                                    <p class="text-sm text-gray-500">Institutionnel, Autorité chirurgicale, Expertise.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-xl bg-brand-blue shadow-inner"></div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Ice Blue (Action/Médical)</p>
+                                    <p class="text-sm text-gray-500">Boutons, Technologie de pointe (Laser, Vaser),
+                                        Propreté.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-xl bg-brand-gold shadow-inner"></div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Warm Gold (Accent)</p>
+                                    <p class="text-sm text-gray-500">L'aspect VIP, le séjour 5 étoiles, le soleil de la
+                                        Tunisie.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">L'Iconographie & Les Visuels</h3>
+                        <div
+                            class="bg-slate-900 border border-slate-700 rounded-2xl p-6 text-white text-sm space-y-4 shadow-2xl">
+                            <div class="flex gap-4 items-start">
+                                <i class="ph ph-images text-2xl text-brand-blue"></i>
+                                <div>
+                                    <p class="font-bold text-brand-blue">1. Photos d'ambiance "Saines"</p>
+                                    <p class="text-gray-400">Exit les corps irréalistes. Nous utilisons des sourires
+                                        authentiques, des corps en pleine santé, de la lumière naturelle (Soleil/Repos).
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="ph ph-stethoscope text-2xl text-emerald-400"></i>
+                                <div>
+                                    <p class="font-bold text-emerald-400">2. Les Blocs Opératoires Authentiques</p>
+                                    <p class="text-gray-400">Les chirurgiens sont montrés en tenue de bloc, avec leurs
+                                        équipements (Scalpel, Microscope DHI) pour rassurer le cerveau reptilien du
+                                        patient (C'est un VRAI hôpital).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="ph ph-cube text-2xl text-brand-gold"></i>
+                                <div>
+                                    <p class="font-bold text-brand-gold">3. Contours Anatomiques Interactifs (Le Hook)
+                                    </p>
+                                    <p class="text-gray-400">Pour ne pas choquer avec de vraies incisions, nous avons
+                                        codé des diagrammes SVG interactifs (ex: Silhouette de femme. Au survol, la zone
+                                        "Culotte de cheval" s'illumine avec les points d'aspiration). Extrêmement
+                                        didactique et haut de gamme.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LE PRODUIT (WIREFRMES) -->
+        <section id="produit" class="scroll-mt-24">
+            <h2
+                class="text-3xl font-serif font-bold text-brand-navy mb-8 flex items-center justify-center gap-3 text-center">
+                <span class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-600"><i
+                        class="ph ph-layout"></i></span>
+                3. Le Produit : Anatomie d'une "Page Intervention"
+            </h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16 text-lg">
+                Chaque page chirurgie (ex: Augmentation Mammaire) est une <strong>arme d'Acquisition Massive</strong>.
+                Les utilisateurs n'ont pas besoin de naviguer ailleurs pour être convaincus.
+            </p>
+
+            <!-- WIREFRAME UI MOCKUP -->
+            <div class="max-w-5xl mx-auto bg-gray-200 rounded-3xl p-2 md:p-6 shadow-2xl border border-gray-300">
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-inner flex flex-col relative h-[800px] overflow-y-auto">
+
+                    <!-- MOCK NAV -->
+                    <div
+                        class="sticky top-0 bg-white/90 backdrop-blur-md border-b px-6 py-4 flex justify-between items-center z-10 w-full">
+                        <div class="font-serif font-bold text-xl text-brand-navy">Venus Estetika</div>
+                        <div class="hidden md:flex gap-6 text-sm text-gray-500">
+                            <span>Chirurgies</span><span>Prix</span><span>Séjour</span>
+                        </div>
+                        <div
+                            class="bg-brand-blue text-white px-4 py-2 rounded-full text-sm font-bold shadow-md cursor-help relative group">
+                            Demander un Devis
+                            <span
+                                class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs whitespace-nowrap px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Caché
+                                si scroll, réapparait en sticky mobile</span>
+                        </div>
+                    </div>
+
+                    <!-- MOCK HERO -->
+                    <div class="bg-brand-navy p-12 text-center text-white relative">
+                        <div
+                            class="absolute top-2 left-6 text-xs text-brand-blue uppercase bg-brand-blue/20 px-2 py-1 rounded">
+                            Badge SEO / Trust</div>
+                        <h1 class="text-4xl font-serif mb-4 mt-4">Augmentation Mammaire en Tunisie</h1>
+                        <p class="text-gray-300 max-w-xl mx-auto mb-6">Prothèses européennes. Résultat Naturel Dual
+                            Plane. Hôtel 5* inclus.</p>
+                        <div class="flex items-center justify-center gap-4 mb-8">
+                            <span class="text-gray-400 line-through">6 500 €</span>
+                            <span class="text-3xl font-bold text-brand-gold">2 800 €</span>
+                        </div>
+                        <button
+                            class="bg-brand-blue text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-blue-600 transition-colors shadow-lg animate-pulse">Obtenir
+                            mon diagnostic 3D gratuit</button>
+
+                        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-400">
+                            <span class="flex items-center gap-1"><i class="ph ph-check-circle text-brand-gold"></i> Vol
+                                inclus</span>
+                            <span class="flex items-center gap-1"><i class="ph ph-check-circle text-brand-gold"></i>
+                                Suivi 1an</span>
+                        </div>
+                    </div>
+
+                    <!-- MOCK ANATOMY (The Hook) -->
+                    <div class="p-10 border-b relative">
+                        <div
+                            class="absolute -left-4 top-10 bg-emerald-500 text-white text-xs px-2 py-1 rounded-r-md shadow-md animate-bounce">
+                            Élément Différenciateur</div>
+                        <h2 class="text-center text-2xl font-serif font-bold text-brand-navy mb-8">Technique Dual Plane
+                            Explorateur 3D</h2>
+                        <div
+                            class="bg-gray-100 rounded-xl h-48 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300 relative group cursor-pointer overflow-hidden">
+                            <i class="ph ph-cube text-5xl group-hover:scale-110 transition-transform"></i>
+                            <div
+                                class="absolute bottom-4 text-sm bg-white/80 px-4 py-1 rounded-full text-brand-navy font-semibold backdrop-blur-sm shadow-sm group-hover:-translate-y-1 transition-transform">
+                                Survolez pour voir l'emplacement de l'implant</div>
+                        </div>
+                    </div>
+
+                    <!-- MOCK CRO DIAGNOSTIC FAST TRACK -->
+                    <div
+                        class="p-8 bg-gradient-to-r from-emerald-50 to-teal-50 border-y border-emerald-100 relative overflow-hidden">
+                        <div
+                            class="absolute -right-4 top-4 bg-red-500 text-white text-xs font-bold px-4 py-1 rotate-12 shadow-md">
+                            NEW : GROWTH HACK</div>
+                        <div class="flex items-center gap-6 relative z-10">
+                            <div
+                                class="w-16 h-16 bg-[#25D366] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-[#25D366]/30 flex-shrink-0">
+                                <i class="ph ph-whatsapp-logo text-4xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-emerald-900 text-xl font-serif">Diagnostic Express Photo en 2h
+                                    (Bypass)</h3>
+                                <p class="text-emerald-700/80 text-sm mb-3">Pas le temps de remplir le devis ? Envoyez 2
+                                    photos sur WhatsApp, le Dr Balti vous répond de suite.</p>
+                                <button
+                                    class="bg-[#25D366] text-white px-6 py-2 rounded-full font-bold text-sm shadow-md hover:scale-105 transition-transform">Envoyer
+                                    mes photos</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MOCK SOCIAL PROOF -->
+                    <div class="p-10 border-b">
+                        <h2 class="text-center text-2xl font-serif font-bold text-brand-navy mb-8">Nos Patientes Disent
+                            Tout</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 border p-4 rounded-lg relative">
+                                <div class="flex text-brand-gold mb-2"><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                                <p class="text-xs text-gray-600 mb-2">"Hôtel 5 étoiles bluffant, prothèses au top,
+                                    cicatrices invisibles."</p>
+                                <p class="text-xs font-bold">- Laura P. (Économie : 3700€)</p>
+                            </div>
+                            <div class="bg-gray-50 border p-4 rounded-lg">
+                                <div
+                                    class="bg-gray-200 h-20 rounded-lg flex items-center justify-center text-gray-400 text-xs">
+                                    <i class="ph ph-play-circle text-2xl"></i> Témoignage Vidéo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MOCK PRE-FOOTER TUNNEL TRIGGER -->
+                    <div class="p-16 bg-brand-navy text-center text-white">
+                        <h2 class="text-3xl font-serif font-bold mb-4">Prête pour le grand changement ?</h2>
+                        <p class="text-gray-300 mb-6">Démarrez le tunnel de devis maintenant.</p>
+                        <button class="bg-brand-blue px-10 py-4 rounded-full font-bold shadow-xl">Obtenir mon plan 3D
+                            gratuit</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-6"><i class="ph ph-info"></i> Représentation schématique du
+                Layout des pages Chirurgie Mammaire, Silhouette et Cheveux générées par React.</p>
+        </section>
+
+        <!-- 4. STRATÉGIE DE CONVERSION (CRO) -->
+        <section id="cro" class="scroll-mt-24">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold text-brand-navy mb-8 flex items-center gap-3">
+                    <span
+                        class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600"><i
+                            class="ph ph-trend-up"></i></span>
+                    4. Stratégie de Conversion Avancée (CRO)
+                </h2>
+                <p class="text-xl text-gray-600 mb-10">Un beau site ne sert à rien s'il ne génère pas de CA. Voici
+                    l'arsenal psychologique et technique déployé (Growth Hacking) :</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- CRO 1 -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-brand-blue/5 rounded-bl-[100px] -z-0"></div>
+                        <i class="ph-fill ph-funnel text-3xl text-brand-blue mb-4 relative z-10"></i>
+                        <h3 class="font-bold text-brand-navy mb-2 relative z-10">Le Tunnel Interactif</h3>
+                        <p class="text-sm text-gray-600 relative z-10">Fini le formulaire géant mortel. Nous posons des
+                            micro-questions une à une (IMC, âge, etc.) engageant le patient étape par étape par principe
+                            de cohérence (Cialdini).</p>
+                    </div>
+
+                    <!-- CRO 2 -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-emerald-500/5 rounded-bl-[100px] -z-0"></div>
+                        <i class="ph-fill ph-camera text-3xl text-emerald-500 mb-4 relative z-10"></i>
+                        <h3 class="font-bold text-brand-navy mb-2 relative z-10">Fast-Track WhatsApp</h3>
+                        <p class="text-sm text-gray-600 relative z-10">L'arme secrète. Un bloc WhatsApp direct sur les
+                            pages à fort trafic invitant à envoyer une photo pour un "Diagnostic en 2h". Bypasse 100% la
+                            friction.</p>
+                    </div>
+
+                    <!-- CRO 3 -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-red-50 shadow-lg border-b-4 border-b-red-500 relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <i class="ph-fill ph-cursor-click text-3xl text-red-500 mb-4 relative z-10"></i>
+                        <h3 class="font-bold text-red-900 mb-2 relative z-10">Exit-Intent Popup</h3>
+                        <p class="text-sm text-gray-600 relative z-10">Détecte quand la souris quitte le navigateur.
+                            Offre un "Guide des prix" gratuit contre l'email. Capture les prospects "perdus" avec
+                            hachage de l'email (SHA-256) pour les listes Google Ads.</p>
+                    </div>
+
+                    <!-- CRO 4 -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-brand-gold/20 shadow-lg relative overflow-hidden group hover:-translate-y-1 transition-transform bg-gradient-to-br from-white to-orange-50">
+                        <i class="ph-fill ph-split-horizontal text-3xl text-brand-gold mb-4 relative z-10"></i>
+                        <h3 class="font-bold text-brand-navy mb-2 relative z-10">A/B Testing Vercel Edge</h3>
+                        <p class="text-sm text-gray-600 relative z-10">Le trafic est mathématiquement divisé par notre
+                            Middleware Vercel pour tester les meilleurs titres (H1). Vercel Analytics remonte le
+                            vainqueur en temps réel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CMS & ADMINISTRATION BO (LE CERVEAU DE LA BÊTE) -->
+        <section id="cms" class="scroll-mt-24">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-serif font-bold text-brand-navy mb-8 flex items-center gap-3">
+                    <span
+                        class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600"><i
+                            class="ph ph-database"></i></span>
+                    5. Le Back-Office Sanity (Votre ORM sur-mesure)
+                </h2>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-lg text-gray-600 mb-6">
+                            <strong>L'autonomie totale.</strong> Finies les agences web qui facturent pour changer un
+                            prix. Nous avons câblé un <strong>"Headless CMS" (Sanity)</strong> agissant comme un
+                            véritable ORM (Object-Relational Mapping). Tout le contenu du site est une donnée
+                            interconnectée.
+                        </p>
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-start gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                                <i class="ph-fill ph-user-md text-2xl text-brand-blue mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Moteur Relationnel</h4>
+                                    <p class="text-sm text-gray-500">Créez la fiche d'un "Chirurgien". Liez-la en 1 clic
+                                        à la page "Rhinoplastie". Le site mettra à jour la page de la chirurgie, la page
+                                        du médecin et les témoignages associés instantanément.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                                <i class="ph-fill ph-tag text-2xl text-brand-gold mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Gestion des Prix Centralisée</h4>
+                                    <p class="text-sm text-gray-500">Mettez à jour le tarif d'une "Abdominoplastie" dans
+                                        l'interface d'administration, et l'information sera répercutée partout (Page
+                                        intervention, Calculateur, Menu).</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                                <i class="ph-fill ph-sparkle text-2xl text-emerald-500 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Assisté par l'IA (Claude)</h4>
+                                    <p class="text-sm text-gray-500">Claude est directement impliqué. Nous avons créé ce
+                                        pont pour que l'IA puisse structurer et rédiger le contenu directement dans
+                                        cette base de données.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CMS Mockup -->
+                    <div class="bg-gray-100 rounded-2xl p-4 shadow-inner border border-gray-200">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-[400px]">
+                            <!-- CMS Header -->
+                            <div class="bg-[#111] text-white px-4 py-3 flex items-center justify-between text-sm">
+                                <div class="flex items-center gap-2 font-bold"><i class="ph-fill ph-intersect"></i>
+                                    Sanity Studio</div>
+                                <div><span class="bg-red-500 text-xs px-2 py-1 rounded-full">Publish Changes</span>
+                                </div>
+                            </div>
+                            <!-- CMS Body -->
+                            <div class="flex flex-1 overflow-hidden">
+                                <!-- Sidebar -->
+                                <div class="w-1/3 border-r bg-gray-50 p-4 space-y-2 text-sm">
+                                    <div class="font-bold bg-gray-200 p-2 rounded">Interventions</div>
+                                    <div class="p-2 text-gray-600 hover:bg-gray-100 rounded cursor-pointer"><i
+                                            class="ph-fill ph-folder"></i> Chirurgiens</div>
+                                    <div class="p-2 text-gray-600 hover:bg-gray-100 rounded cursor-pointer"><i
+                                            class="ph-fill ph-folder"></i> Avis Patients</div>
+                                    <div class="p-2 text-gray-600 hover:bg-gray-100 rounded cursor-pointer"><i
+                                            class="ph-fill ph-folder"></i> Hôtels & Cliniques</div>
+                                </div>
+                                <!-- Editor -->
+                                <div class="flex-1 p-6 space-y-4">
+                                    <h3 class="font-serif font-bold text-xl text-gray-900">Modifier : Liposuccion</h3>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Titre H1
+                                            (Optimisé SEO)</label>
+                                        <div class="border rounded p-2 text-sm">Liposuccion VASER en Tunisie</div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="flex-1">
+                                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Prix
+                                                Standard (€)</label>
+                                            <div class="border rounded p-2 text-sm">2100</div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Prix
+                                                Barré (€)</label>
+                                            <div class="border rounded p-2 text-sm text-gray-400 line-through">4500
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Chirurgien
+                                            Assigné (Relation)</label>
+                                        <div
+                                            class="border rounded p-2 text-sm bg-blue-50 text-brand-blue flex items-center justify-between">
+                                            <span>Dr. Balti</span> <i class="ph ph-x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-xs text-gray-500 mt-3"><i class="ph ph-info"></i> Simulation de
+                            l'interface d'administration Sanity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ADS & SEO -->
+        <section id="sea" class="scroll-mt-24">
+            <div
+                class="max-w-6xl mx-auto bg-brand-navy text-white rounded-[3rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
+                <!-- Background decorations -->
+                <div
+                    class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 text-transparent">
+                    .</div>
+
+                <h2 class="text-3xl font-serif font-bold mb-10 flex items-center gap-3 relative z-10">
+                    <span class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center"><i
+                            class="ph ph-magnifying-glass"></i></span>
+                    6. Déploiement & Stratégie d'Acquisition
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-12 relative z-10 mb-8">
+                    <div class="space-y-6">
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <h3 class="text-brand-gold font-bold text-xl mb-3 flex items-center gap-2"><i
+                                    class="ph-fill ph-google-logo"></i> Google Ads (Hagakure & SKAG)</h3>
+                            <p class="text-gray-300 text-sm mb-4">Structure de campagne hyper granulaire pour contrer
+                                les concurrents.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-center gap-2"><i class="ph ph-check text-brand-blue"></i> Groupes
+                                    d'annonces par "Intention" exacte (ex: Prix Facettes Dentaires).</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check text-brand-blue"></i> Google
+                                    Tag Manager Complet : Suivi Gclid, Conversions Server-Side.</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check text-brand-blue"></i> Consent
+                                    Mode V2 Validé Légalement.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <h3 class="text-brand-blue font-bold text-xl mb-3 flex items-center gap-2"><i
+                                    class="ph-fill ph-robot"></i> Directive pour Claude (L'Analyste AI)</h3>
+                            <p
+                                class="text-gray-300 text-sm italic border-l-2 border-brand-blue pl-4 py-2 bg-brand-navy rounded">
+                                "L'architecture technique est live. Claude doit maintenant nous imposer : Le budget
+                                quotidien de test, le ciblage (Pmax vs Search), et les 3 premiers A/B tests conceptuels
+                                à déployer ce mois-ci."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <h3 class="text-emerald-400 font-bold text-xl mb-3 flex items-center gap-2"><i
+                                    class="ph-fill ph-article"></i> Headless SEO & Sanity CMS</h3>
+                            <p class="text-gray-300 text-sm mb-4">La fondation pour capter le trafic organique
+                                long-terme.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-center gap-2"><i class="ph ph-check text-emerald-400"></i> Next.js
+                                    15 : Pages générées côté serveur, vitésse de chargement colossale.</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check text-emerald-400"></i>
+                                    JSON-LD: Balisage sémantique [MedicalProcedure] & [FAQPage].</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check text-emerald-400"></i> Sanity
+                                    CMS configuré. Claude doit dicter la ligne éditoriale (Siloing).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEPLOYMENT STACK -->
+                <div class="bg-black/20 p-8 rounded-2xl border border-white/10 relative z-10">
+                    <h3 class="text-white font-bold text-xl mb-4 flex items-center gap-2"><i
+                            class="ph-fill ph-hard-drives"></i> Le Moteur de Déploiement (Vercel)</h3>
+                    <p class="text-gray-300 text-sm mb-6">L'architecture de déploiement est pensée pour une tolérance
+                        zéro aux pannes et une vitesse maximale absolue (Core Web Vitals parfaits).</p>
+
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1 bg-white/5 p-4 rounded-xl border border-white/5">
+                            <div class="text-brand-blue text-2xl mb-2"><i class="ph-fill ph-lightning"></i></div>
+                            <h4 class="font-bold text-gray-200">Réseau Edge Global (CDN)</h4>
+                            <p class="text-xs text-gray-400 mt-1">Le site est distribué sur des dizaines de serveurs
+                                dans le monde. Le patient visite toujours le serveur le plus proche géographiquement
+                                (vitesse < 1s).</p>
+                        </div>
+                        <div class="flex-1 bg-white/5 p-4 rounded-xl border border-white/5">
+                            <div class="text-brand-gold text-2xl mb-2"><i class="ph-fill ph-rocket"></i></div>
+                            <h4 class="font-bold text-gray-200">Génération Statique (SSG)</h4>
+                            <p class="text-xs text-gray-400 mt-1">À chaque fois que vous modifiez un prix dans le CMS
+                                d'administration, le serveur re-calcule les pages en arrière-plan (Zero-Downtime).</p>
+                        </div>
+                        <div class="flex-1 bg-white/5 p-4 rounded-xl border border-white/5">
+                            <div class="text-emerald-400 text-2xl mb-2"><i class="ph-fill ph-shield-check"></i></div>
+                            <h4 class="font-bold text-gray-200">Analytics Temps Réel</h4>
+                            <p class="text-xs text-gray-400 mt-1">Sondes de performance (Web Vitals) et de trafic
+                                incluses nativement à la racine du code. Parfaitement compatibles avec Google Ads.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 py-12 mt-12">
+        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
+            <h4 class="font-serif font-bold text-brand-navy text-xl mb-4">Fin de la Synthèse Exécutive</h4>
+            <p class="mb-6">Ce document est la preuve conceptuelle de la refonte architecturale menée par votre Agent
+                Tech Lead.</p>
+            <div class="inline-flex items-center gap-2 px-6 py-3 bg-brand-navy text-white rounded-full cursor-pointer hover:bg-gray-800 transition-colors shadow-lg"
+                onclick="window.print()">
+                <i class="ph ph-printer"></i> Exporter en PDF pour l'Agence / Claude
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
