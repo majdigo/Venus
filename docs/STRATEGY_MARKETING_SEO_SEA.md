@@ -55,8 +55,38 @@ Adoptez une structure hybride pour maximiser le **Quality Score (Score de Qualit
 
 ---
 
-## Phase 3 : Recherche de Concurrents (Competitive Intelligence)
+---
 
+## Phase 3 : Conformité & Réglementations Ads (Spécial Tourisme Médical)
+
+Le domaine de la chirurgie esthétique et du tourisme médical ("Healthcare and Medicines") est l'un des plus surveillés par les algorithmes de Google et Bing. Une erreur de paramétrage ou de formulation peut entraîner la **suspension définitive de votre compte Google Ads**.
+
+### 3.1. Les interdictions strictes (Ce qu'il faut absolument éviter)
+Pour cibler l'Europe Francophone (France, Belgique, Suisse), vous devez vous plier aux règles locales (ex: loi Kouchner en France) appliquées par les régies publicitaires :
+- **Interdiction des Promesses de Résultats Irréalistes :** Ne **jamais** utiliser des termes comme *"Résultat garanti à 100%"*, *"Corps de rêve instantané"*, *"Perte de poids magique"*.
+- **Interdiction de l'Urgence Commerciale :** Ne **jamais** utiliser des comptes à rebours ("Promo valable encore 2h") ou des rabais agressifs du type *"Soldes sur la rhinoplastie"*. La santé n'est pas un bien de consommation classique pour Google.
+- **Interdiction du ciblage sur liste de diffusion (Remarketing direct de Santé) :** Il est strictement **interdit** par Google Ads de créer des listes de reciblage (Remarketing/Retargeting) basées sur des problèmes de santé ou des interventions médicales passées. Vous ne pouvez pas cibler "les personnes ayant cherché liposuccion le mois dernier" avec des bannières Display. 
+
+### 3.2. Les Bonnes Pratiques pour l'Approbation des Annonces
+- **Ciblage Géographique Précis (Top Tiers) :** 
+  - *France :* Rentabilisez en excluant les zones à très faible pouvoir d'achat. Ciblez Île-de-France, PACA, Auvergne-Rhône-Alpes.
+  - *Suisse :* Ciblez Genève, Vaud, Neuchâtel (Suisse Romande). C'est le marché le plus rentable (Coût d'intervention local vs Tunisie = rapport de 1 à 5).
+  - *Belgique :* Bruxelles, Wallonie.
+- **Transparence du Contenu (E-E-A-T) :** Google Ads analyse la Landing Page (Page de destination). La page **DOIT** contenir explicitement : 
+  1. Les risques associés à l'opération (Déjà inclus dans nos sections FAQ générées).
+  2. Les informations relatives au clinicien/médecin physique (Les blocs `ChirurgienPortrait` que nous avons codés répondent à cette exigence).
+  3. Des informations de contact claires et un numéro de téléphone valide.
+- **La Certification Google Health :** Bien que les cliniques étrangères n'aient souvent pas besoin d'être des pharmacies en ligne certifiées, si vos annonces bloquent pour "Health & Medicine", une demande de certification manuelle via le formulaire "Google Healthcare and medicines policy" sera nécessaire.
+
+### 3.3. Contournement par la Réassurance et le "Soft Selling"
+Puisque le discours purement commercial ("Pas cher !", "Achetez maintenant") est banni :
+- **Axez le Copywriting sur l'Accompagnement :** Remplacez *"Liposuccion pas chère en Tunisie"* par *"L'excellence médicale en Tunisie : Prise en charge VIP et Séjour 5 Étoiles"*.
+- **Mettez en avant les Infrastructures :** Jouez sur le côté clinique accréditée ISO, médecins inscrits à l'Ordre National, technologie de pointe.
+- **Le rôle clé du Blog (SEO) :** Ce que Google Ads interdit parfois en annonce directe, le SEO l'autorise. Vos articles d'information (ex: "Comparatif des prix cliniques d'implants mammaires") capteront l'audience bloquée par les filtres algorithmiques payants.
+
+---
+
+## Phase 4 : Recherche de Concurrents (Competitive Intelligence)
 - **Mapping Concurrentiel :** Medespoir, Univers Med, Aram Clinic.
 - **Outils de veille :** Utilisez *SEMrush* ou *Ahrefs* (pour le SEO) et *SpyFu* (pour le SEA) afin d'espionner leurs annonces textuelles.
 - **Positionnement de différenciation Venus :** 
