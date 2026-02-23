@@ -72,3 +72,17 @@ export const reviewsQuery = groq`
     }
   }
 `
+
+// Query for Patient Reviews filtered by intervention
+export const reviewsByInterventionQuery = groq`
+  *[_type == "review" && intervention->slug.current == $interventionSlug] | order(date desc) [0...10] {
+    _id,
+    author,
+    rating,
+    comment,
+    date,
+    intervention->{
+      title
+    }
+  }
+`

@@ -1,8 +1,13 @@
 import { getFaqData } from '@/lib/schema/faq';
-import { ArrowRight, CheckCircle2, Shield, Star, Clock, HeartPulse, Sparkles } from 'lucide-react';
+import { CheckCircle2, Clock, HeartPulse, Shield } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { AbdominoplastieInteractiveAnatomy } from '@/components/interventions/AbdominoplastieInteractiveAnatomy';
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { TrackedLink } from '@/components/tracking/TrackedLink';
 
 export const metadata = {
     title: 'Mommy Makeover Tunisie : Prix & Avis (Ventre + Seins) | Venus Estetika',
@@ -22,41 +27,20 @@ export default function MommyMakeoverPage() {
             />
 
             {/* HERO SECTION */}
-            <section className="relative pt-32 pb-20 px-4 bg-brand-navy overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?q=80&w=2000&auto=format&fit=crop"
-                        alt="Résultat Mommy Makeover"
-                        fill
-                        className="object-cover opacity-20"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/80 to-transparent" />
-                </div>
-
-                <div className="container mx-auto max-w-5xl relative z-10 text-center text-white">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 font-semibold text-sm mb-6">
-                        <Sparkles className="w-4 h-4 text-brand-gold" />
-                        Package Chirurgie Post-Maternité
-                    </div>
-                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight leading-tight">
-                        Mommy Makeover en <span className="text-brand-gold">Tunisie</span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Retrouvez votre corps d'avant grossesse en une seule intervention. Combinez chirurgies de l'abdomen et des seins dans un forfait VIP tout compris 5 fois moins cher qu'en France.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8 h-14 rounded-xl w-full sm:w-auto shadow-lg shadow-brand-gold/20">
-                            <Link href="/devis?intervention=mommy-makeover">
-                                Obtenir mon devis sur mesure <ArrowRight className="ml-2 w-5 h-5" />
-                            </Link>
-                        </Button>
-                        <div className="text-white/80 text-sm font-medium flex items-center gap-2">
-                            Package dès <span className="text-2xl text-white font-bold block">4 500€</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <InterventionHero
+                title="Mommy Makeover en Tunisie"
+                subtitle="Retrouvez votre corps d'avant grossesse en une seule intervention. Combinez chirurgies de l'abdomen et des seins dans un forfait VIP tout compris 5 fois moins cher qu'en France."
+                price="4 500€"
+                priceOld="12 000€"
+                imageSrc="/images/heroes/chirurgie-silhouette-hero.jpg"
+                imageAlt="Mommy Makeover en Tunisie — Venus Estetika"
+                badge="Package Chirurgie Post-Maternité"
+                devisSlug="mommy-makeover"
+                stats="Consultation gratuite | Chirurgiens diplômés | Réponse sous 24h"
+                doctorName="Dr Walid Balti"
+                doctorImage="/images/doctors/dr-walid-balti.jpg"
+                doctorSpecialty="Chirurgie Plastique et Reconstructrice"
+            />
 
             {/* KEY INFO HIGHLIGHTS */}
             <section className="py-12 px-4 -mt-10 relative z-20">
@@ -72,8 +56,8 @@ export default function MommyMakeoverPage() {
                             </div>
                         </div>
                         <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center shrink-0">
-                                <Shield className="w-6 h-6 text-brand-gold" />
+                            <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                                <Shield className="w-6 h-6 text-brand-blue" />
                             </div>
                             <div>
                                 <h4 className="font-bold text-gray-900">Anesthésie & Clinique</h4>
@@ -98,7 +82,7 @@ export default function MommyMakeoverPage() {
                 <div className="container mx-auto max-w-6xl">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <span className="text-brand-gold font-bold tracking-wider uppercase text-sm mb-2 block">Sur Mesure</span>
+                            <span className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">Sur Mesure</span>
                             <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-navy mb-6">
                                 Que comprend un Mommy Makeover ?
                             </h2>
@@ -132,7 +116,7 @@ export default function MommyMakeoverPage() {
                         </div>
                         <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                             <Image
-                                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop"
+                                src="/images/heroes/chirurgie-silhouette-hero.jpg"
                                 alt="Abdominoplastie et Lifting Mammaire"
                                 fill
                                 className="object-cover"
@@ -142,19 +126,22 @@ export default function MommyMakeoverPage() {
                 </div>
             </section>
 
+            {/* INTERACTIVE COMPONENT INJECTION FOR MOMMY MAKEOVER (Abdo focus) */}
+            <AbdominoplastieInteractiveAnatomy />
+
             {/* FAQ SECTION */}
             <section className="py-24 px-4 bg-slate-50" id="faq">
                 <div className="container mx-auto max-w-4xl">
                     <div className="text-center mb-16">
-                        <span className="text-brand-gold font-bold tracking-wider uppercase text-sm mb-2 block">FAQ Post-Grossesse</span>
+                        <span className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">FAQ Post-Grossesse</span>
                         <h2 className="text-3xl md:text-5xl font-heading font-bold text-brand-navy">Questions Fréquentes</h2>
                     </div>
 
                     <div className="space-y-6">
-                        {faqs.map((faq: any, index: number) => (
+                        {faqs.map((faq: { name: string; acceptedAnswer: { text: string } }, index: number) => (
                             <div key={index} className="bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm">
                                 <h3 className="text-xl font-bold text-brand-navy mb-4 flex items-start gap-3">
-                                    <CheckCircle2 className="w-6 h-6 text-brand-gold shrink-0 mt-0.5" />
+                                    <CheckCircle2 className="w-6 h-6 text-brand-blue shrink-0 mt-0.5" />
                                     {faq.name}
                                 </h3>
                                 <p className="text-gray-600 leading-relaxed md:ml-9">
@@ -166,6 +153,55 @@ export default function MommyMakeoverPage() {
                 </div>
             </section>
 
+            {/* TÉMOIGNAGES PATIENTS */}
+            <PatientTestimonialSection
+                title="Témoignages Mommy Makeover"
+                testimonials={[
+                    { name: "Laure F.", city: "Paris", quote: "Après deux grossesses, mon ventre et mes seins avaient énormément changé. Le Mommy Makeover à Tunis m'a redonné confiance en moi. En une seule opération et une seule convalescence, j'ai retrouvé mon corps d'avant. Incroyable.", intervention: "Abdominoplastie + Lifting Mammaire", savings: "8 500 €", rating: 5 },
+                    { name: "Émilie T.", city: "Genève", quote: "J'hésitais entre faire plusieurs opérations séparées ou le Mommy Makeover. Le Dr Balti m'a conseillé le tout en un. C'était la meilleure décision. Le résultat est harmonieux et naturel. L'hôtel 5 étoiles a rendu la récupération très agréable.", intervention: "Abdo + Lipo + Prothèses Mammaires", savings: "9 200 €", rating: 5 },
+                    { name: "Camille D.", city: "Marseille", quote: "L'équipe de Venus Estetika m'a accompagnée à chaque étape, de la consultation à distance jusqu'au suivi à l'hôtel. Le Dr Imen Ben Gaied est très attentionnée et à l'écoute. Mon ventre est plat et mes seins sont parfaits.", intervention: "Mommy Makeover complet", savings: "10 000 €", rating: 5 },
+                ]}
+            />
+
+            {/* GARANTIES */}
+            <GuaranteeSection />
+
+            {/* CHIRURGIENS RÉFÉRENTS */}
+            <SurgeonReferenceSection
+                title="Nos chirurgiens experts en Mommy Makeover"
+                surgeons={[
+                    { name: "Dr Walid Balti", specialty: "Chirurgie Plastique et Reconstructrice", image: "/images/doctors/dr-walid-balti.jpg", experience: "+15 ans d'expérience" },
+                    { name: "Dr Imen Ben Gaied", specialty: "Chirurgie Plastique et Reconstructrice", image: "/images/doctors/dr-imen-ben-gaied.jpeg", experience: "+12 ans d'expérience" },
+                ]}
+                devisSlug="mommy-makeover"
+            />
+
+            {/* CTA FINAL */}
+            <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
+                <div className="container mx-auto max-w-3xl">
+                    <h2 className="text-4xl font-heading font-bold text-brand-navy mb-6">
+                        Prête à retrouver votre corps d'avant grossesse ?
+                    </h2>
+                    <p className="text-xl text-slate-600 mb-10">
+                        Notre équipe médicale élabore votre plan Mommy Makeover sur mesure gratuitement. Envoyez vos photos pour recevoir un devis personnalisé et transparent.
+                    </p>
+                    <TrackedLink
+                        href="/devis?intervention=mommy-makeover"
+                        ctaText="Obtenir mon devis gratuit"
+                        ctaLocation="footer_mommy-makeover"
+                    >
+                        <Button
+                            size="lg"
+                            className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
+                        >
+                            Recevoir mon plan sur mesure
+                        </Button>
+                    </TrackedLink>
+                    <p className="mt-6 text-sm font-medium text-slate-500">
+                        Consultation gratuite | Chirurgiens diplômés | Réponse sous 24h
+                    </p>
+                </div>
+            </section>
         </div>
     );
 }

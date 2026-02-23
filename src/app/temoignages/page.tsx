@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Quote, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 // ---------------------------------------------------------------------------
@@ -229,7 +230,7 @@ function FiveStars() {
             {Array.from({ length: 5 }, (_, i) => (
                 <Star
                     key={i}
-                    className="w-4 h-4 text-brand-gold fill-brand-gold"
+                    className="w-4 h-4 text-brand-blue fill-brand-blue"
                 />
             ))}
         </div>
@@ -301,7 +302,7 @@ function FeaturedReviewCard({ review }: { review: FeaturedReview }) {
             {/* Quote body */}
             <blockquote className="text-gray-600 italic leading-relaxed flex-1">
                 <Quote
-                    className="w-5 h-5 text-brand-gold mb-2 opacity-60"
+                    className="w-5 h-5 text-brand-blue mb-2 opacity-60"
                     aria-hidden="true"
                 />
                 &ldquo;{review.quote}&rdquo;
@@ -372,12 +373,20 @@ export default function TemoignagesPage() {
             {/* ==============================================================
                 1. HERO SECTION
                 ============================================================== */}
-            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20 bg-gradient-to-br from-brand-navy via-brand-navy/95 to-brand-navy/80">
+            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
+                <Image
+                    src="/images/hero/hero-temoignages.png"
+                    alt="Témoignages patients Venus Estetika"
+                    fill
+                    priority
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/90 via-brand-navy/80 to-brand-navy/70" />
                 <div className="container relative z-10 mx-auto px-4 text-center text-white">
 
                     {/* Eyebrow badge */}
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-6">
-                        <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
+                        <Star className="w-4 h-4 text-brand-blue fill-brand-blue" />
                         4.8/5 — +127 avis vérifiés
                     </div>
 
@@ -414,9 +423,8 @@ export default function TemoignagesPage() {
                                 className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5"
                             >
                                 <Icon
-                                    className={`w-4 h-4 text-brand-gold flex-shrink-0 ${
-                                        filled ? "fill-brand-gold" : ""
-                                    }`}
+                                    className={`w-4 h-4 text-brand-blue flex-shrink-0 ${filled ? "fill-brand-blue" : ""
+                                        }`}
                                 />
                                 <span className="text-sm font-semibold">{label}</span>
                             </div>
@@ -474,7 +482,7 @@ export default function TemoignagesPage() {
                                 {/* Category heading with gold accent bar */}
                                 <div className="flex items-center gap-4 mb-8">
                                     <div
-                                        className="w-1 h-8 bg-brand-gold rounded-full flex-shrink-0"
+                                        className="w-1 h-8 bg-brand-blue rounded-full flex-shrink-0"
                                         aria-hidden="true"
                                     />
                                     <h3 className="text-2xl font-heading font-bold text-brand-navy">
@@ -517,7 +525,7 @@ export default function TemoignagesPage() {
                                 key={label}
                                 className="bg-slate-50 rounded-2xl border border-gray-100 p-8 text-center shadow-sm"
                             >
-                                <p className="text-4xl font-bold text-brand-gold leading-none mb-3">
+                                <p className="text-4xl font-bold text-brand-blue leading-none mb-3">
                                     {value}
                                 </p>
                                 <p className="text-gray-600 text-sm font-medium leading-snug">
@@ -547,7 +555,7 @@ export default function TemoignagesPage() {
                     <Button
                         size="lg"
                         asChild
-                        className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-10 h-14 rounded-full shadow-xl font-bold"
+                        className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-10 h-14 rounded-full shadow-xl font-bold"
                     >
                         <Link href="/devis">
                             Demander mon devis gratuit

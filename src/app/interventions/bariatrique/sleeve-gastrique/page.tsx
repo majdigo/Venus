@@ -3,12 +3,15 @@ import { getMedicalProcedureData } from '@/lib/schema/medical-procedure';
 import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { BmiCalculator } from "@/components/calculators/BmiCalculator";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { SleeveGastriqueInteractiveAnatomy } from "@/components/interventions/SleeveGastriqueInteractiveAnatomy";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 
 export default function SleeveGastriquePage() {
     const breadcrumbs = [
@@ -28,17 +31,20 @@ export default function SleeveGastriquePage() {
 
             <div className="min-h-screen bg-slate-50">
                 {/* HERO INTERVENTION */}
-                <section className="bg-primary text-primary-foreground py-20 px-4 mt-20">
-                    <div className="container mx-auto max-w-4xl text-center">
-                        <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Sleeve Gastrique en Tunisie</h1>
-                        <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                            Perdez jusqu&apos;à 60% de votre excès de poids. Séjour de luxe tout compris à partir de <b className="text-secondary text-2xl">3 500€</b> <span className="line-through text-sm opacity-60 ml-2">8 000€ en France</span>.
-                        </p>
-                        <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                            Obtenir un devis personnalisé <ArrowRight className="ml-2 w-5 h-5" />
-                        </Button>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Sleeve Gastrique en Tunisie : perdez jusqu'à 60% de votre excès de poids"
+                    subtitle="Reprenez le contrôle de votre santé grâce à la chirurgie bariatrique. Intervention réalisée par un spécialiste de l'obésité dans une clinique agréée."
+                    price="3 500 €"
+                    priceOld="8 000 €"
+                    imageSrc="/images/heroes/bariatrique-hero.jpg"
+                    imageAlt="Sleeve gastrique en Tunisie - Venus Estetika"
+                    badge="Chirurgie de l'obésité"
+                    devisSlug="sleeve-gastrique"
+                    stats="+1 200 patients accompagnés | IMC > 35 | Suivi nutritionnel 12 mois"
+                    doctorName="Dr Ramzi Nouira"
+                    doctorImage="/images/doctors/dr-ramzi-nouira.jpg"
+                    doctorSpecialty="Chirurgie Bariatrique"
+                />
 
                 {/* CONTENT */}
                 <section className="py-16 px-4">
@@ -91,11 +97,30 @@ export default function SleeveGastriquePage() {
 
                 <section className="py-16 px-4 bg-white">
                     <div className="container mx-auto max-w-4xl">
-                        {/* Synchronized AI/UI FAQ */}
                         <FAQAccordion data={getFaqData('sleeve-gastrique')} />
-
                     </div>
                 </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages sleeve gastrique"
+                    testimonials={[
+                        { name: "Mohamed R.", city: "Paris", quote: "J'ai perdu 45 kg en 8 mois après ma sleeve. Le Dr Nouira m'a suivi avec un vrai programme nutritionnel. Ma vie a changé.", intervention: "Sleeve gastrique", savings: "4 500 €", rating: 5 },
+                        { name: "Isabelle T.", city: "Nice", quote: "Après des années de régimes yo-yo, la sleeve m'a enfin libérée. L'équipe Venus est bienveillante et le suivi est sérieux.", intervention: "Sleeve gastrique", savings: "5 000 €", rating: 5 },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIEN RÉFÉRENT */}
+                <SurgeonReferenceSection
+                    title="Votre chirurgien bariatrique"
+                    surgeons={[
+                        { name: "Dr Ramzi Nouira", specialty: "Chirurgie Bariatrique (Obésité)", image: "/images/doctors/dr-ramzi-nouira.jpg", experience: "Spécialiste sleeve & bypass" },
+                    ]}
+                    devisSlug="sleeve-gastrique"
+                />
             </div>
         </>
     );

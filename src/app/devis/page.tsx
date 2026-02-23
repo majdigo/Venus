@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default async function DevisPage({
     searchParams,
 }: {
-    searchParams: Promise<{ intervention?: string; bmi?: string }>;
+    searchParams: Promise<{ intervention?: string; bmi?: string; norwood?: string }>;
 }) {
     const resolvedParams = await searchParams;
 
@@ -25,7 +25,7 @@ export default async function DevisPage({
                     </p>
                 </div>
 
-                <QuoteFunnel initialIntervention={resolvedParams.intervention} />
+                <QuoteFunnel initialIntervention={resolvedParams.intervention} initialBmi={resolvedParams.bmi} initialNorwood={resolvedParams.norwood} />
             </div>
         </div>
     );

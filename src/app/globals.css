@@ -15,78 +15,82 @@ html {
 @layer base {
   :root {
     /* Luxury Medical Theme - Light */
-    --background: 0 0% 100%; /* Pure White */
-    --foreground: 222.2 47.4% 11.2%; /* Deep Navy / Dark Slate */
+    --background: 0 0% 100%;
+    /* Pure White */
+    --foreground: 229 50% 23%;
+    /* Venus Deep Navy #20295b */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card-foreground: 229 50% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 229 50% 23%;
 
-    /* Primary buttons & headings: Deep Navy */
-    --primary: 222.2 47.4% 11.2%;
+    /* Primary buttons & headings: Venus Deep Navy #20295b */
+    --primary: 229 50% 23%;
     --primary-foreground: 210 40% 98%;
 
-    /* Secondary/Accent: Luxury Gold/Champagne for highlights/CTAs */
-    --secondary: 42 63% 62%;
+    /* Secondary/Accent: Venus Teal #7ac2d7 */
+    --secondary: 193 54% 66%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Brand tokens (referenced by Tailwind brand-navy / brand-gold) */
-    --brand-navy: 222.2 47.4% 11.2%;
-    --brand-gold: 42 63% 62%;
-    
+    /* Brand tokens (referenced by Tailwind brand-navy / brand-blue) */
+    --brand-navy: 229 50% 23%;
+    --brand-blue: 193 54% 66%;
+    --brand-teal: 193 52% 47%;
+
     /* Muted/Clinical tones: Soft Blue-Gray */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    
-    /* Accent in UI (Hover states) - Light Gold/Beige */
-    --accent: 42 30% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    
+
+    /* Accent in UI (Hover states) - Light Teal */
+    --accent: 193 54% 95%;
+    --accent-foreground: 229 50% 23%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 47.4% 11.2%;
-    
+    --ring: 231 48% 24%;
+
     --radius: 0.5rem;
   }
 
   .dark {
     /* Luxury Medical Theme - Dark Mode (Rich & Deep) */
-    --background: 222.2 47.4% 11.2%;
+    --background: 229 50% 15%;
     --foreground: 210 40% 98%;
-    
-    --card: 217.2 32.6% 17.5%;
+
+    --card: 229 50% 20%;
     --card-foreground: 210 40% 98%;
-    
-    --popover: 222.2 47.4% 11.2%;
+
+    --popover: 229 50% 15%;
     --popover-foreground: 210 40% 98%;
-    
+
     --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    
-    --secondary: 42 63% 62%; /* Gold remains the same */
+    --primary-foreground: 229 50% 23%;
+
+    --secondary: 193 54% 66%;
     --secondary-foreground: 0 0% 100%;
 
     /* Brand tokens remain consistent in dark mode */
-    --brand-navy: 222.2 47.4% 11.2%;
-    --brand-gold: 42 63% 62%;
+    --brand-navy: 229 50% 23%;
+    --brand-blue: 193 54% 66%;
+    --brand-teal: 193 52% 47%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 229 50% 20%;
     --muted-foreground: 215 20.2% 65.1%;
-    
-    --accent: 217.2 32.6% 17.5%;
+
+    --accent: 229 50% 20%;
     --accent-foreground: 210 40% 98%;
-    
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+
+    --border: 229 50% 20%;
+    --input: 229 50% 20%;
+    --ring: 193 54% 66%;
   }
 }
 
@@ -94,6 +98,7 @@ html {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

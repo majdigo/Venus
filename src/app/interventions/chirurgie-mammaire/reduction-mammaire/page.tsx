@@ -1,10 +1,14 @@
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Shield, Award, Plane, Clock, Heart } from 'lucide-react';
+import { CheckCircle2, Shield, Award, Plane, Clock, Heart } from 'lucide-react';
 import { TrackedLink } from '@/components/tracking/TrackedLink';
 import { GuidedTourTimeline } from '@/components/ui/GuidedTourTimeline';
 import { FAQAccordion } from '@/components/ui/faq-accordion';
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 
 export const metadata: Metadata = {
     title: 'Réduction Mammaire Tunisie | Dès 2 800€ Tout Compris — Venus Estetika',
@@ -102,43 +106,20 @@ export default function ReductionMammairePage() {
             <div className="min-h-screen bg-slate-50">
 
                 {/* HERO INTERVENTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Chirurgie Mammaire Experte
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Réduction mammaire en Tunisie : libérez-vous du poids de l'hypertrophie
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Douleurs dorsales, mauvaise posture, complexes vestimentaires — l'hypertrophie mammaire
-                            impacte votre quotidien. Notre chirurgien diplômé en France vous propose une réduction
-                            précise et harmonieuse. Forfait tout compris à partir de{' '}
-                            <b className="text-brand-gold text-3xl mx-2">2 800 €</b>{' '}
-                            <span className="line-through text-sm opacity-60">5 000-8 000 € en France</span>.
-                            Hôtel 5 étoiles et suivi 12 mois inclus.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <TrackedLink
-                                href="/devis?intervention=reduction-mammaire"
-                                className="w-full sm:w-auto"
-                                ctaText="Obtenir mon devis gratuit"
-                                ctaLocation="hero_reduction_mammaire"
-                            >
-                                <Button
-                                    size="lg"
-                                    className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full"
-                                >
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Button>
-                            </TrackedLink>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">
-                            +2 500 patientes accompagnées | Note 4.8/5 sur Google | Chirurgien diplômé en France
-                        </p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Réduction mammaire en Tunisie : libérez-vous du poids de l'hypertrophie"
+                    subtitle="Douleurs dorsales, mauvaise posture, complexes vestimentaires — l'hypertrophie mammaire impacte votre quotidien. Notre chirurgien diplômé en France vous propose une réduction précise et harmonieuse."
+                    price="2 800 €"
+                    priceOld="5 000-8 000 €"
+                    imageSrc="/images/heroes/chirurgie-mammaire-hero.jpg"
+                    imageAlt="Réduction mammaire Tunisie - Venus Estetika"
+                    badge="Chirurgie Mammaire Experte"
+                    devisSlug="reduction-mammaire"
+                    stats="+2 500 patientes accompagnées | Note 4.8/5 sur Google | Chirurgien diplômé en France"
+                    doctorName="Dr Walid Balti"
+                    doctorImage="/images/doctors/dr-walid-balti.jpg"
+                    doctorSpecialty="Chirurgie Plastique et Reconstructrice"
+                />
 
                 {/* INTRODUCTION MÉDICALE */}
                 <section className="py-20 px-4 bg-white">
@@ -253,46 +234,46 @@ export default function ReductionMammairePage() {
                                     <span className="text-lg font-medium">Réduction mammaire — Technique T inversé</span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">8 000 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">2 800 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">2 800 €</span>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center border-b border-white/10 pb-4 pt-2">
                                     <span className="text-lg font-medium">Réduction mammaire — Technique Verticale</span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">5 000 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">2 800 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">2 800 €</span>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center pt-2">
                                     <span className="text-lg font-medium">Réduction + Lifting (mastopexie)</span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">9 500 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">3 500 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">3 500 €</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-10 p-6 bg-brand-gold/10 rounded-2xl border border-brand-gold/30">
-                                <h4 className="font-bold text-brand-gold mb-4 text-lg">
+                            <div className="mt-10 p-6 bg-brand-blue/10 rounded-2xl border border-brand-blue/30">
+                                <h4 className="font-bold text-brand-blue mb-4 text-lg">
                                     Inclus dans notre forfait tout compris :
                                 </h4>
                                 <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/90">
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Chirurgien plasticien
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Chirurgien plasticien
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Clinique 2 nuits
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Clinique 2 nuits
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Soutien-gorge médical
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Soutien-gorge médical
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Hôtel 5★ 5 nuits
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Hôtel 5★ 5 nuits
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Transferts VIP inclus
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Transferts VIP inclus
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Suivi post-opératoire 12 mois
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Suivi post-opératoire 12 mois
                                     </li>
                                 </ul>
                             </div>
@@ -309,6 +290,60 @@ export default function ReductionMammairePage() {
                         />
                     </div>
                 </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages réduction mammaire"
+                    testimonials={[
+                        {
+                            name: "Isabelle C.",
+                            city: "Paris",
+                            quote: "J'avais des douleurs dorsales chroniques depuis des années. Après ma réduction avec le Dr Balti, c'est une libération totale. Je peux enfin faire du sport sans souffrir. Le résultat est proportionné et très naturel.",
+                            intervention: "Réduction mammaire",
+                            savings: "5 200 €",
+                            rating: 5,
+                        },
+                        {
+                            name: "Laura M.",
+                            city: "Genève",
+                            quote: "La prise en charge de Venus Estetika est vraiment complète. L'hôtel 5 étoiles, les transferts, le suivi post-op... tout était parfait. Ma cicatrisation s'est très bien passée et mes cicatrices s'estompent rapidement.",
+                            intervention: "Mammoplastie de réduction",
+                            savings: "4 800 €",
+                            rating: 5,
+                        },
+                        {
+                            name: "Amandine F.",
+                            city: "Toulouse",
+                            quote: "En France j'avais un devis à 7 500 €, chez Venus j'ai payé moins de la moitié pour une qualité équivalente. Le Dr Ghedira est très professionnel et à l'écoute. Je referai mes soins esthétiques en Tunisie sans hésiter.",
+                            intervention: "Réduction mammaire",
+                            savings: "4 700 €",
+                            rating: 5,
+                        },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <SurgeonReferenceSection
+                    title="Nos chirurgiens pour la réduction mammaire"
+                    surgeons={[
+                        {
+                            name: "Dr Walid Balti",
+                            specialty: "Chirurgie Plastique et Reconstructrice",
+                            image: "/images/doctors/dr-walid-balti.jpg",
+                            experience: "+15 ans d'expérience",
+                        },
+                        {
+                            name: "Dr Atef Ghedira",
+                            specialty: "Chirurgie Plastique et Reconstructrice",
+                            image: "/images/doctors/dr-atef-ghedira.jpg",
+                            experience: "+10 ans d'expérience",
+                        },
+                    ]}
+                    devisSlug="reduction-mammaire"
+                />
 
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
@@ -328,7 +363,7 @@ export default function ReductionMammairePage() {
                         >
                             <Button
                                 size="lg"
-                                className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
+                                className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
                             >
                                 Recevoir ma simulation de devis
                             </Button>

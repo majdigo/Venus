@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C87A"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Sparkles -->
+  <circle cx="100" cy="90" r="2.5" fill="url(#gold)" opacity="0.7"/>
+  <circle cx="280" cy="180" r="1.5" fill="url(#gold)" opacity="0.5"/>
+  <circle cx="300" cy="100" r="3" fill="url(#gold)" opacity="0.8"/>
+  
+  <g transform="translate(140, 60)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Tooth / Dental Implant Base -->
+    <path d="M 20,40 C 20,10 40,0 60,0 C 80,0 100,10 100,40 C 100,70 100,100 80,130 C 60,110 60,110 60,130 C 60,110 40,110 20,130 C 20,100 20,70 20,40 Z" stroke="#0f172a" opacity="0.9"/>
+    
+    <!-- Sparkle on the tooth -->
+    <path d="M 75,15 L 80,25 L 90,30 L 80,35 L 75,45 L 70,35 L 60,30 L 70,25 Z" fill="url(#gold)" stroke="none"/>
+    
+    <!-- Implant screw base (optional representation) -->
+    <path d="M 40,140 L 80,140 M 45,155 L 75,155 M 50,170 L 70,170" stroke="url(#gold)" stroke-width="2.5" opacity="0.8"/>
+  </g>
+</svg>

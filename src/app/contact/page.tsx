@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
     title: "Contact Venus Estetika | Chirurgie Esthétique Tunisie",
@@ -16,8 +17,8 @@ const contactCards = [
     {
         id: "phone",
         icon: Phone,
-        iconColor: "text-brand-gold",
-        iconBg: "bg-brand-gold/10",
+        iconColor: "text-brand-blue",
+        iconBg: "bg-brand-blue/10",
         label: "Téléphone",
         primary: "+216 50 606 780",
         secondary: "Lundi – Samedi, 9h – 18h (Tunis)",
@@ -38,8 +39,8 @@ const contactCards = [
     {
         id: "email",
         icon: Mail,
-        iconColor: "text-brand-gold",
-        iconBg: "bg-brand-gold/10",
+        iconColor: "text-brand-blue",
+        iconBg: "bg-brand-blue/10",
         label: "Email",
         primary: "contact@venus-estetika.com",
         secondary: "Réponse sous 24h",
@@ -49,8 +50,8 @@ const contactCards = [
     {
         id: "address",
         icon: MapPin,
-        iconColor: "text-brand-gold",
-        iconBg: "bg-brand-gold/10",
+        iconColor: "text-brand-blue",
+        iconBg: "bg-brand-blue/10",
         label: "Adresse",
         primary: "Lac Malaren, Les Berges du Lac",
         secondary: "1053 Tunis, Tunisie",
@@ -82,7 +83,7 @@ const sujetOptions = [
 // ---------------------------------------------------------------------------
 
 const inputClass =
-    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold";
+    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue";
 
 // ---------------------------------------------------------------------------
 // Page component (Server Component — no 'use client')
@@ -95,20 +96,22 @@ export default function ContactPage() {
             {/* ============================================================
                 1. HERO SECTION
             ============================================================ */}
-            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                {/* Layered gradient backdrop */}
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                    {/* Decorative gold orb — top-right */}
-                    <div className="absolute -top-32 -right-32 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl" />
-                    {/* Decorative gold orb — bottom-left */}
-                    <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-brand-gold/8 rounded-full blur-3xl" />
-                </div>
+            <section className="relative min-h-[500px] flex items-center overflow-hidden mt-20">
+                <Image
+                    src="/images/hero/hero-contact.png"
+                    alt="Contactez Venus Estetika — Chirurgie esthétique en Tunisie"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="100vw"
+                    quality={85}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/75 to-brand-navy/50 z-10" />
 
-                <div className="container relative z-10 mx-auto px-4 text-center">
+                <div className="container mx-auto max-w-4xl px-4 relative z-20 py-20 text-center">
                     {/* Eyebrow badge */}
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white/90 mb-6">
-                        <Clock className="w-4 h-4 text-brand-gold" />
+                        <Clock className="w-4 h-4 text-brand-blue" />
                         Réponse garantie sous 24h
                     </div>
 
@@ -118,7 +121,7 @@ export default function ContactPage() {
 
                     <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto leading-relaxed">
                         Notre équipe vous répond sous 24h.{" "}
-                        <span className="text-brand-gold font-semibold">Devis gratuit</span> et sans engagement.
+                        <span className="text-brand-blue font-semibold">Devis gratuit</span> et sans engagement.
                     </p>
                 </div>
             </section>
@@ -139,7 +142,7 @@ export default function ContactPage() {
                                 return (
                                     <div
                                         key={card.id}
-                                        className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-brand-gold/30 hover:shadow-md transition-all duration-300 group"
+                                        className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-brand-blue/30 hover:shadow-md transition-all duration-300 group"
                                     >
                                         <div className="flex items-start gap-4">
                                             {/* Icon badge */}
@@ -165,7 +168,7 @@ export default function ContactPage() {
                                                         href={card.href}
                                                         target={card.href.startsWith("http") ? "_blank" : undefined}
                                                         rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                                        className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-brand-gold hover:text-brand-gold/80 transition-colors"
+                                                        className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-brand-blue hover:text-brand-blue/80 transition-colors"
                                                     >
                                                         {card.linkLabel}
                                                         <ArrowRight className="w-3.5 h-3.5" />
@@ -219,7 +222,7 @@ export default function ContactPage() {
                                                 htmlFor="prenom"
                                                 className="block text-sm font-semibold text-gray-700 mb-1.5"
                                             >
-                                                Prénom <span className="text-brand-gold">*</span>
+                                                Prénom <span className="text-brand-blue">*</span>
                                             </label>
                                             <input
                                                 id="prenom"
@@ -235,7 +238,7 @@ export default function ContactPage() {
                                                 htmlFor="nom"
                                                 className="block text-sm font-semibold text-gray-700 mb-1.5"
                                             >
-                                                Nom <span className="text-brand-gold">*</span>
+                                                Nom <span className="text-brand-blue">*</span>
                                             </label>
                                             <input
                                                 id="nom"
@@ -255,7 +258,7 @@ export default function ContactPage() {
                                                 htmlFor="email"
                                                 className="block text-sm font-semibold text-gray-700 mb-1.5"
                                             >
-                                                Email <span className="text-brand-gold">*</span>
+                                                Email <span className="text-brand-blue">*</span>
                                             </label>
                                             <input
                                                 id="email"
@@ -291,7 +294,7 @@ export default function ContactPage() {
                                                 htmlFor="pays"
                                                 className="block text-sm font-semibold text-gray-700 mb-1.5"
                                             >
-                                                Pays <span className="text-brand-gold">*</span>
+                                                Pays <span className="text-brand-blue">*</span>
                                             </label>
                                             <select
                                                 id="pays"
@@ -311,7 +314,7 @@ export default function ContactPage() {
                                                 htmlFor="sujet"
                                                 className="block text-sm font-semibold text-gray-700 mb-1.5"
                                             >
-                                                Sujet <span className="text-brand-gold">*</span>
+                                                Sujet <span className="text-brand-blue">*</span>
                                             </label>
                                             <select
                                                 id="sujet"
@@ -334,7 +337,7 @@ export default function ContactPage() {
                                             htmlFor="message"
                                             className="block text-sm font-semibold text-gray-700 mb-1.5"
                                         >
-                                            Message <span className="text-brand-gold">*</span>
+                                            Message <span className="text-brand-blue">*</span>
                                         </label>
                                         <textarea
                                             id="message"
@@ -350,7 +353,7 @@ export default function ContactPage() {
                                         <Button
                                             type="submit"
                                             size="lg"
-                                            className="w-full bg-brand-gold text-white hover:bg-brand-gold/90 text-base font-semibold h-14 rounded-xl shadow-lg shadow-brand-gold/20 hover:shadow-brand-gold/30 transition-all duration-300"
+                                            className="w-full bg-brand-blue text-white hover:bg-brand-blue/90 text-base font-semibold h-14 rounded-xl shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/30 transition-all duration-300"
                                         >
                                             Envoyer mon message
                                             <ArrowRight className="ml-2 w-5 h-5" />
@@ -381,7 +384,7 @@ export default function ContactPage() {
                     {/* Section header */}
                     <div className="text-center mb-10">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-navy/5 border border-brand-navy/10 text-sm font-semibold text-brand-navy mb-4">
-                            <MapPin className="w-4 h-4 text-brand-gold" />
+                            <MapPin className="w-4 h-4 text-brand-blue" />
                             Notre localisation
                         </div>
                         <h2 className="text-2xl md:text-3xl font-heading font-bold text-brand-navy">
@@ -415,12 +418,12 @@ export default function ContactPage() {
             <section className="py-16 bg-brand-navy">
                 {/* Decorative orbs */}
                 <div className="relative overflow-hidden">
-                    <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="container relative mx-auto px-4 max-w-3xl text-center">
                         {/* Gold divider line */}
-                        <div className="w-16 h-0.5 bg-brand-gold mx-auto mb-8" />
+                        <div className="w-16 h-0.5 bg-brand-blue mx-auto mb-8" />
 
                         <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-5 leading-tight">
                             Préférez-vous un devis détaillé ?
@@ -434,7 +437,7 @@ export default function ContactPage() {
                         <Button
                             size="lg"
                             asChild
-                            className="bg-brand-gold text-white hover:bg-brand-gold/90 text-base font-semibold px-10 h-14 rounded-xl shadow-lg shadow-brand-gold/20 hover:shadow-brand-gold/30 transition-all duration-300"
+                            className="bg-brand-blue text-white hover:bg-brand-blue/90 text-base font-semibold px-10 h-14 rounded-xl shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/30 transition-all duration-300"
                         >
                             <Link href="/devis">
                                 Accéder au formulaire de devis

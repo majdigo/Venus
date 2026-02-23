@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useGtmEvent } from '@/hooks/useGtmEvent';
+import { useGtmEvent } from '@/lib/tracking/useGtmEvent';
 
 interface TrackedLinkProps extends React.ComponentProps<typeof Link> {
     ctaText: string;

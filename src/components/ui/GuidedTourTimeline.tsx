@@ -18,7 +18,7 @@ const steps = [
         title: "2. Bilan & Rencontre avec le Chirurgien",
         description: "Installation dans votre chambre privée ultra-moderne à la clinique. Prise de sang, électrocardiogramme et rencontre personnalisée avec votre chirurgien et l'anesthésiste pour valider l'intervention étape par étape.",
         image: "/images/guided-tour/clinic-room.png",
-        color: "bg-brand-gold"
+        color: "bg-brand-blue"
     },
     {
         icon: <HeartPulse className="w-6 h-6 text-white" />,
@@ -57,10 +57,10 @@ export function GuidedTourTimeline() {
             <div className="container mx-auto max-w-5xl px-4 relative z-10">
 
                 <div className="text-center mb-16">
-                    <span className="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4 block">Déroulement Visite Guidée</span>
+                    <span className="text-brand-blue font-bold tracking-widest uppercase text-sm mb-4 block">Déroulement Visite Guidée</span>
                     <h2 className="text-3xl md:text-5xl font-heading font-bold text-brand-navy mb-4">Votre Séjour, Étape par Étape</h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        Nous nous occupons de tout. De votre arrivée à l'aéroport jusqu'à votre retour chez vous, vous êtes au centre de toutes nos attentions.
+                        Nous nous occupons de tout. De votre arrivée à l&apos;aéroport jusqu&apos;à votre retour chez vous, vous êtes au centre de toutes nos attentions.
                     </p>
                 </div>
 
@@ -68,14 +68,14 @@ export function GuidedTourTimeline() {
                     {/* Animated Line */}
                     <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 -translate-x-1/2 rounded-full overflow-hidden hidden md:block">
                         <motion.div
-                            className="absolute top-0 w-full bg-gradient-to-b from-brand-gold to-brand-navy"
+                            className="absolute top-0 w-full bg-gradient-to-b from-brand-blue to-brand-navy"
                             style={{ height: lineHeight }}
                         />
                     </div>
                     {/* Mobile Line */}
                     <div className="absolute left-6 top-0 bottom-0 w-1 bg-slate-200 rounded-full overflow-hidden md:hidden">
                         <motion.div
-                            className="absolute top-0 w-full bg-gradient-to-b from-brand-gold to-brand-navy"
+                            className="absolute top-0 w-full bg-gradient-to-b from-brand-blue to-brand-navy"
                             style={{ height: lineHeight }}
                         />
                     </div>

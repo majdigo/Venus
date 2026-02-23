@@ -54,6 +54,7 @@ export const step2Schema = z.object({
 
     // Greffe Capillaire
     hairLossType: z.string().optional(),
+    norwoodStage: z.number().min(1).max(7).optional(),
     beardTransplant: z.boolean().optional(),
 
     // Dentisterie

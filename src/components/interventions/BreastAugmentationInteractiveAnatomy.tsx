@@ -39,7 +39,7 @@ export function BreastAugmentationInteractiveAnatomy() {
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute top-4 left-4 bg-white px-4 py-2 rounded-full text-xs font-bold text-brand-navy shadow-sm flex items-center gap-2 z-10"
                 >
-                    <Info className="w-4 h-4 text-brand-gold" />
+                    <Info className="w-4 h-4 text-brand-blue" />
                     Interagissez avec l'anatomie
                 </motion.div>
 
@@ -156,7 +156,7 @@ export function BreastAugmentationInteractiveAnatomy() {
 
             {/* RIGHT: DYNAMIC INFO PANEL */}
             <div className="w-full md:w-1/2 flex flex-col justify-center min-h-[300px]">
-                <h3 className="text-sm font-bold tracking-widest text-brand-gold uppercase mb-4">Architecture & Volumes</h3>
+                <h3 className="text-sm font-bold tracking-widest text-brand-blue uppercase mb-4">Architecture & Volumes</h3>
                 <h2 className="text-3xl font-heading font-bold text-brand-navy mb-6">Explorez l'Intervention</h2>
 
                 <div className="relative h-[200px]">

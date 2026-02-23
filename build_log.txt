@@ -1,0 +1,100 @@
+
+> 03_website_app@0.1.0 build
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 23.5s
+  Running TypeScript ...
+  Collecting page data using 31 workers ...
+The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+  Generating static pages using 31 workers (0/49) ...
+The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+  Generating static pages using 31 workers (12/49) 
+Sanity configuration missing or dataset not found. Using fallback static data.
+  Generating static pages using 31 workers (24/49) 
+  Generating static pages using 31 workers (36/49) 
+✓ Generating static pages using 31 workers (49/49) in 1284.5ms
+  Finalizing page optimization ...
+
+Route (app)                                                  Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/contact
+├ ƒ /api/leads
+├ ƒ /api/newsletter
+├ ○ /blog
+├ ○ /calculateur-imc
+├ ○ /chirurgiens                                                     1m      1y
+├ ○ /cliniques-partenaires
+├ ○ /contact
+├ ƒ /devis
+├ ○ /guide
+├ ○ /interventions/bariatrique/anneau-gastrique
+├ ○ /interventions/bariatrique/bypass-gastrique
+├ ○ /interventions/bariatrique/sleeve-gastrique
+├ ○ /interventions/capillaire/greffe-barbe
+├ ○ /interventions/capillaire/greffe-cheveux
+├ ○ /interventions/capillaire/greffe-dhi
+├ ○ /interventions/chirurgie-mammaire/augmentation-mammaire
+├ ○ /interventions/chirurgie-mammaire/lifting-seins
+├ ○ /interventions/chirurgie-mammaire/lipofilling-mammaire
+├ ○ /interventions/chirurgie-mammaire/reduction-mammaire
+├ ○ /interventions/chirurgie-silhouette/abdominoplastie
+├ ○ /interventions/chirurgie-silhouette/bbl
+├ ○ /interventions/chirurgie-silhouette/lifting-bras
+├ ○ /interventions/chirurgie-silhouette/lifting-cuisses
+├ ○ /interventions/chirurgie-silhouette/liposuccion
+├ ○ /interventions/chirurgie-silhouette/mommy-makeover
+├ ○ /interventions/chirurgie-visage/blepharoplastie
+├ ○ /interventions/chirurgie-visage/genioplastie
+├ ○ /interventions/chirurgie-visage/lifting-cervico-facial
+├ ○ /interventions/chirurgie-visage/lipofilling-visage
+├ ○ /interventions/chirurgie-visage/otoplastie
+├ ○ /interventions/chirurgie-visage/rhinoplastie
+├ ○ /interventions/dentaire/blanchiment
+├ ○ /interventions/dentaire/couronnes
+├ ○ /interventions/dentaire/facettes
+├ ○ /interventions/dentaire/implants-dentaires
+├ ○ /interventions/medecine-esthetique/acide-hyaluronique
+├ ○ /interventions/medecine-esthetique/botox
+├ ○ /interventions/medecine-esthetique/mesolift
+├ ○ /interventions/medecine-esthetique/peeling
+├ ○ /mentions-legales
+├ ○ /politique-confidentialite
+├ ○ /sejour-medical
+├ ƒ /studio/[[...index]]
+├ ○ /tarifs
+└ ○ /temoignages
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> 03_website_app@0.1.0 postbuild
+> next-sitemap
+
+✨ [next-sitemap] Loading next-sitemap config: file:///C:/Users/majdi/Dropbox%20(Personal)/Projets/venus-estetika-project/03_website_app/next-sitemap.config.js
+✅ [next-sitemap] Generation completed
+┌───────────────┬────────┐
+│ (index)       │ Values │
+├───────────────┼────────┤
+│ indexSitemaps │ 1      │
+│ sitemaps      │ 1      │
+└───────────────┴────────┘
+-----------------------------------------------------
+ SITEMAP INDICES 
+-----------------------------------------------------
+
+   ○ https://venus-estetika.com/sitemap.xml
+
+
+-----------------------------------------------------
+ SITEMAPS 
+-----------------------------------------------------
+
+   ○ https://venus-estetika.com/sitemap-0.xml
+
+

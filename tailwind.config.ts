@@ -15,7 +15,8 @@ const config: Config = {
 			},
 			colors: {
 				'brand-navy': 'hsl(var(--brand-navy) / <alpha-value>)',
-				'brand-gold': 'hsl(var(--brand-gold) / <alpha-value>)',
+				'brand-blue': 'hsl(var(--brand-blue) / <alpha-value>)',
+				'brand-teal': 'hsl(var(--brand-teal) / <alpha-value>)',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {

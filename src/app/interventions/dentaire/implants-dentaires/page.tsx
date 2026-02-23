@@ -4,9 +4,14 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Award, Shield, Star, Sparkles } from "lucide-react";
+import { CheckCircle2, Award, Shield, Star, Sparkles } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { ImplantsDentairesInteractiveAnatomy } from "@/components/interventions/ImplantsDentairesInteractiveAnatomy";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -32,34 +37,20 @@ export default function ImplantsDentairesPage() {
 
             <div className="min-h-screen bg-white">
                 {/* HERO SECTION */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Implantologie Premium
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Implants dentaires en Tunisie : retrouvez un sourire complet et fonctionnel
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Remplacez vos dents manquantes avec des implants Straumann ou Nobel, les références mondiales de l&apos;implantologie. Dès <b className="text-brand-gold text-2xl">600€/implant</b> <span className="line-through text-sm opacity-60 ml-2">1 800-2 500€ en France</span>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis?intervention=implants-dentaires">
-                                        Devis gratuit en 24h <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Implants dentaires en Tunisie : retrouvez un sourire complet et fonctionnel"
+                    subtitle="Remplacez vos dents manquantes avec des implants Straumann ou Nobel, les références mondiales de l'implantologie."
+                    price="600 €"
+                    priceOld="1 800-2 500 €"
+                    imageSrc="/images/heroes/dentaire-hero.jpg"
+                    imageAlt="Implants Dentaires Straumann Tunisie - Venus Estetika"
+                    badge="Implantologie Premium"
+                    devisSlug="implants-dentaires"
+                    stats="+2 500 implants posés | Note 4.9/5 sur Google | Implants Straumann & Nobel"
+                    doctorName="Dr Ramses Mouelhi"
+                    doctorImage="/images/doctors/dr-ramses-mouelhi.jpg"
+                    doctorSpecialty="Chirurgien Dentiste, Implantologie & Facettes"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -75,13 +66,13 @@ export default function ImplantsDentairesPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Implant Unitaire</h4>
                                         <p className="text-sm text-gray-500">Racine artificielle en titane + couronne zircone, pour remplacer une dent manquante sans toucher aux dents adjacentes.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">All-on-4 / All-on-6</h4>
                                         <p className="text-sm text-gray-500">4 à 6 implants pour une arcade complète. Prothèse fixe en zircone, idéal pour l&apos;édentement total ou quasi-total.</p>
                                     </div>
@@ -101,7 +92,7 @@ export default function ImplantsDentairesPage() {
                                         "Suivi et contrôle 12 mois"
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -110,6 +101,9 @@ export default function ImplantsDentairesPage() {
                         </div>
                     </div>
                 </section>
+
+                {/* 3D INTERACTIVE SVG SHOWCASE */}
+                <ImplantsDentairesInteractiveAnatomy />
 
                 {/* PATIENT JOURNEY / VISITE GUIDEE */}
                 <GuidedTourTimeline />
@@ -131,33 +125,33 @@ export default function ImplantsDentairesPage() {
                                     <h3 className="text-2xl font-bold text-brand-navy mb-8">Nos Forfaits Implants</h3>
 
                                     <div className="space-y-6 mb-8">
-                                        <div className="border border-gray-100 rounded-xl p-5 hover:border-brand-gold transition-colors">
+                                        <div className="border border-gray-100 rounded-xl p-5 hover:border-brand-blue transition-colors">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-bold text-brand-navy">Implant unitaire complet</span>
-                                                <span className="text-2xl font-bold text-brand-gold">600 €</span>
+                                                <span className="text-2xl font-bold text-brand-blue">600 €</span>
                                             </div>
                                             <p className="text-sm text-gray-500">Implant + couronne zircone. <span className="line-through">1 800-2 500€ en France</span></p>
                                         </div>
-                                        <div className="border border-brand-gold rounded-xl p-5 bg-brand-gold/5">
+                                        <div className="border border-brand-blue rounded-xl p-5 bg-brand-blue/5">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-bold text-brand-navy">All-on-4 (une arcade)</span>
-                                                <span className="text-2xl font-bold text-brand-gold">4 500 €</span>
+                                                <span className="text-2xl font-bold text-brand-blue">4 500 €</span>
                                             </div>
                                             <p className="text-sm text-gray-500">Arcade complète fixe. <span className="line-through">12 000-18 000€ en France</span></p>
                                             <div className="mt-2 flex items-center gap-1">
-                                                <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
-                                                <span className="text-xs font-semibold text-brand-gold">Le plus populaire</span>
+                                                <Star className="w-4 h-4 text-brand-blue fill-brand-blue" />
+                                                <span className="text-xs font-semibold text-brand-blue">Le plus populaire</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <ul className="space-y-3">
                                         <li className="flex items-center gap-3 text-gray-700 text-sm">
-                                            <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                                             Scanner 3D et plan de traitement personnalisé inclus
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700 text-sm">
-                                            <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                                             Hôtel 5 étoiles et transferts inclus
                                         </li>
                                     </ul>
@@ -165,7 +159,7 @@ export default function ImplantsDentairesPage() {
 
                                 {/* Experience Details */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Sparkles className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Sparkles className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Le Déroulement de Votre Séjour</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Votre plan de traitement est établi en amont grâce à un scanner 3D. La pose des implants est réalisée sous anesthésie locale lors de votre premier séjour. Après la période d&apos;ostéo-intégration (3-6 mois), les couronnes définitives en zircone sont posées lors d&apos;une seconde visite courte, ou livrées avec fixation par votre dentiste local.
@@ -188,6 +182,55 @@ export default function ImplantsDentairesPage() {
                         <FAQAccordion data={getFaqData('implants-dentaires')} />
                     </div>
                 </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Ils ont retrouvé un sourire complet et fonctionnel"
+                    testimonials={[
+                        {
+                            name: "Bernard L.",
+                            city: "Paris",
+                            quote: "J'avais perdu 3 dents suite à des caries profondes. Les implants Straumann posés à Tunis sont d'une qualité irréprochable. Aucune douleur post-opératoire, le résultat est naturel à 100%. Un gain de 4 000€ par rapport à mon dentiste parisien.",
+                            intervention: "3 implants unitaires Straumann",
+                            savings: "4 200 €",
+                            rating: 5
+                        },
+                        {
+                            name: "Christine V.",
+                            city: "Toulouse",
+                            quote: "All-on-4 sur l'arcade inférieure. J'avais peur de l'intervention mais le Dr Mouelhi est extrêmement compétent et rassurant. Résultat bluffant : des dents fixes, stables, comme les vraies. Le séjour à l'hôtel était un bonus appréciable.",
+                            intervention: "All-on-4 arcade inférieure",
+                            savings: "8 500 €",
+                            rating: 5
+                        },
+                        {
+                            name: "Philippe T.",
+                            city: "Genève",
+                            quote: "Édenté depuis des années, j'hésitais à me lancer. Venus Estetika a tout pris en charge : le scanner 3D en amont, le séjour, et le suivi. Mes deux arcades All-on-6 en zircone sont magnifiques. Je peux manger normalement pour la première fois depuis 10 ans.",
+                            intervention: "All-on-6 deux arcades",
+                            savings: "22 000 €",
+                            rating: 5
+                        }
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIEN RÉFÉRENT */}
+                <SurgeonReferenceSection
+                    title="Votre implantologiste référent"
+                    subtitle="Un chirurgien dentiste spécialisé en implantologie orale, formé aux techniques les plus avancées et aux marques mondiales de référence."
+                    surgeons={[
+                        {
+                            name: "Dr Ramses Mouelhi",
+                            specialty: "Chirurgien Dentiste — Implantologie & Facettes",
+                            image: "/images/doctors/dr-ramses-mouelhi.jpg",
+                            experience: "15 ans d'expertise en implantologie orale"
+                        }
+                    ]}
+                    devisSlug="implants-dentaires"
+                />
             </div>
         </>
     );

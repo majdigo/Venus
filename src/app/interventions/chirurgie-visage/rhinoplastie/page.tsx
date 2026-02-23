@@ -1,10 +1,16 @@
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Shield, Award, Plane, Clock, Heart } from "lucide-react";
+import { CheckCircle2, Shield, Award, Plane, Clock, Heart } from "lucide-react";
 import { TrackedLink } from "@/components/tracking/TrackedLink";
 import { RhinoplastyInteractiveAnatomy } from "@/components/interventions/RhinoplastyInteractiveAnatomy";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { DynamicDoctors } from "@/components/interventions/DynamicDoctors";
+import { DynamicReviews } from "@/components/interventions/DynamicReviews";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
+import { AuthenticLandingSection } from '@/components/interventions/AuthenticLandingSection';
 import { FAQAccordion } from "@/components/ui/faq-accordion";
+import { AvantApresGallery } from "@/components/interventions/AvantApresGallery";
 
 export const metadata: Metadata = {
     title: 'Rhinoplastie Tunisie | Prix Tout Compris 2 200€ — Venus Estetika',
@@ -71,28 +77,20 @@ export default function RhinoplastiePage() {
 
             <div className="min-h-screen bg-slate-50">
                 {/* HERO INTERVENTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Intervention N°1 en chirurgie esthétique
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Rhinoplastie en Tunisie : un nez harmonieux, par un chirurgien diplômé en France
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Corrigez les imperfections de votre nez et retrouvez un profil équilibré. Intervention réalisée dans une clinique agréée par un chirurgien formé en France, avec un forfait tout compris à partir de <b className="text-brand-gold text-3xl mx-2">2 200 €</b> <span className="line-through text-sm opacity-60">5 500 € en France</span>. Hôtel 5 étoiles, transferts et suivi post-opératoire 12 mois inclus.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <TrackedLink href="/devis" className="w-full sm:w-auto" ctaText="Obtenir mon devis gratuit" ctaLocation="hero_rhinoplastie">
-                                <Button size="lg" className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Button>
-                            </TrackedLink>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">+2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS</p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Rhinoplastie en Tunisie : un nez harmonieux, par un chirurgien diplômé en France"
+                    subtitle="Corrigez les imperfections de votre nez et retrouvez un profil équilibré. Intervention réalisée dans une clinique agréée par un chirurgien formé en France."
+                    price="2 200 €"
+                    priceOld="5 500 €"
+                    imageSrc="/images/interventions/rhinoplastie.jpg"
+                    imageAlt="Rhinoplastie en Tunisie - Venus Estetika"
+                    badge="Intervention N°1 en chirurgie esthétique"
+                    devisSlug="rhinoplastie"
+                    stats="+2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS"
+                    doctorName="Dr Walid Balti"
+                    doctorImage="/images/doctors/dr-walid-balti.jpg"
+                    doctorSpecialty="Chirurgie Plastique, diplômé en France"
+                />
 
                 {/* INTRODUCTION MÉDICALE */}
                 <section className="py-20 px-4 bg-white">
@@ -115,6 +113,24 @@ export default function RhinoplastiePage() {
                         </div>
                     </div>
                 </section>
+
+                {/* AUTHENTIC CONTENT SCRAPED FROM ORIGINAL SITE */}
+                <AuthenticLandingSection
+                    title="La Rhinoplastie en Tunisie"
+                    description="La rhinoplastie simple, est une opération de chirurgie esthétique dont l’objectif est de réparer et remodeler le nez ; sa morphologie, et de le rendre plus parfait, esthétiquement en harmonie avec le visage."
+                    images={[
+                        "https://venus-estetika.com/wp-content/uploads/2017/12/rhinoplastie-1.jpg",
+                        "https://venus-estetika.com/wp-content/uploads/2017/12/rhinoplastie.jpg"
+                    ]}
+                    contentSnippets={[
+                        "Ces défauts sont soit congénitaux, c’est-à-dire qui existent dès la naissance et s’accentuent lors du développement et de la croissance, ou consécutifs à des traumatismes que le nez va subir accidentellement au cours de la vie.",
+                        "L'opération s'attache à remodeler délicatement l'os de l'appendice nasal et à corriger les défauts du cartilage.",
+                        "Une incision à l'intérieur des narines permet l'accès chirurgical (une micro incision presque invisible peut également être effectuée sur la columelle).",
+                        "Qu’il s’agisse d’une chirurgie du nez ou de toute autre chirurgie d’embellissement du visage, un interrogatoire vous concernant est toujours effectué.",
+                        "A la fin de l’intervention, des mèches grasses sont placées dans les fosses nasales et une attelle est apposée pour la consolidation."
+                    ]}
+                    mainColor="navy"
+                />
 
                 {/* ANIMATION A++ INTERACTIVE */}
                 <section className="py-12 bg-slate-50 border-y border-slate-200 overflow-hidden">
@@ -149,6 +165,9 @@ export default function RhinoplastiePage() {
                     </div>
                 </section>
 
+                {/* GALERIE AVANT/APRÈS */}
+                <AvantApresGallery interventionSlug="rhinoplastie" />
+
                 {/* PRIX ET FORFAIT */}
                 <section className="py-20 px-4 bg-brand-navy text-white">
                     <div className="container mx-auto max-w-4xl text-center">
@@ -159,32 +178,32 @@ export default function RhinoplastiePage() {
                                     <span className="text-lg font-medium">Rhinoplastie simple</span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">4 500 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">2 000 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">2 000 €</span>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center border-b border-white/10 pb-4 pt-2">
                                     <span className="text-lg font-medium">Rhinoplastie complète</span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">5 500 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">2 200 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">2 200 €</span>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center pt-2">
                                     <span className="text-lg font-medium">Rhinoplastie ultrasonique (piézo)</span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">7 000 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">2 800 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">2 800 €</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-10 p-6 bg-brand-gold/10 rounded-2xl border border-brand-gold/30">
-                                <h4 className="font-bold text-brand-gold mb-4 text-lg">Inclus dans notre forfait tout compris :</h4>
+                            <div className="mt-10 p-6 bg-brand-blue/10 rounded-2xl border border-brand-blue/30">
+                                <h4 className="font-bold text-brand-blue mb-4 text-lg">Inclus dans notre forfait tout compris :</h4>
                                 <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/90">
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-gold" /> Intervention & anesthésie</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-gold" /> Séjour en clinique (1 nuit)</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-gold" /> Hôtel 5 étoiles (6 nuits)</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-gold" /> Transferts VIP aéroport/hôtel</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-gold" /> Suivi post-opératoire 12 mois</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Intervention & anesthésie</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Séjour en clinique (1 nuit)</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Hôtel 5 étoiles (6 nuits)</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Transferts VIP aéroport/hôtel</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Suivi post-opératoire 12 mois</li>
                                 </ul>
                             </div>
                         </div>
@@ -196,6 +215,15 @@ export default function RhinoplastiePage() {
                     <FAQAccordion data={faqSchema} title="Questions fréquentes sur la rhinoplastie" />
                 </section>
 
+                {/* TÉMOIGNAGES PATIENTS */}
+                <DynamicReviews interventionSlug="rhinoplastie" title="Témoignages rhinoplastie" />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <DynamicDoctors interventionSlug="rhinoplastie" title="Nos chirurgiens pour la rhinoplastie" />
+
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
                     <div className="container mx-auto max-w-3xl">
@@ -203,8 +231,8 @@ export default function RhinoplastiePage() {
                         <p className="text-xl text-slate-600 mb-10">
                             Chaque mois, des patients de France et de Suisse nous confient leur rhinoplastie. Obtenez votre devis maintenant pour réserver votre date opératoire.
                         </p>
-                        <TrackedLink href="/devis" ctaText="Obtenir mon devis gratuit" ctaLocation="footer_rhinoplastie">
-                            <Button size="lg" className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
+                        <TrackedLink href="/devis?intervention=rhinoplastie" ctaText="Obtenir mon devis gratuit" ctaLocation="footer_rhinoplastie">
+                            <Button size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
                                 Obtenir mon devis gratuit
                             </Button>
                         </TrackedLink>

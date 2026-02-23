@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api
+Disallow: /studio
+
+# Host
+Host: https://venus-estetika.com
+
+# Sitemaps
+Sitemap: https://venus-estetika.com/sitemap.xml

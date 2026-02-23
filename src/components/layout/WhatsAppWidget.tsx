@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { TrackedLink } from '@/components/tracking/TrackedLink';
 import { MessageCircle, X } from 'lucide-react';
 import { WHATSAPP_URL } from '@/lib/navigation-data';
 
@@ -36,17 +36,20 @@ export function WhatsAppWidget() {
       )}
 
       {/* WhatsApp button */}
-      <Link
+      <TrackedLink
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="group relative w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
         aria-label="Contacter via WhatsApp"
+        ctaText="WhatsApp Widget"
+        ctaLocation="floating_widget"
+        ctaType="whatsapp"
       >
         <MessageCircle className="w-7 h-7 text-white" />
         {/* Pulse animation */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
-      </Link>
+      </TrackedLink>
     </div>
   );
 }

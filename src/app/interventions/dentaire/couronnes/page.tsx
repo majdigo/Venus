@@ -4,9 +4,13 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Award, Shield, Sparkles } from "lucide-react";
+import { CheckCircle2, Award, Shield, Sparkles } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -32,34 +36,20 @@ export default function CouronnesDentairesPage() {
 
             <div className="min-h-screen bg-white">
                 {/* HERO SECTION */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Prothèse Dentaire Premium
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Couronnes dentaires en Tunisie : restaurez vos dents avec précision
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Reconstituez une dent abîmée, dévitalisée ou fracturée avec nos couronnes zircone sur-mesure, fabriquées en 72h dans notre laboratoire intégré. Dès <b className="text-brand-gold text-2xl">250€/couronne</b> <span className="line-through text-sm opacity-60 ml-2">700-1 200€ en France</span>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis?intervention=couronnes">
-                                        Obtenir mon devis en 24h <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Couronnes dentaires en Tunisie : restaurez vos dents avec précision"
+                    subtitle="Reconstituez une dent abîmée, dévitalisée ou fracturée avec nos couronnes zircone sur-mesure, fabriquées en 72h dans notre laboratoire intégré."
+                    price="250 €"
+                    priceOld="700-1 200 €"
+                    imageSrc="/images/heroes/dentaire-hero.jpg"
+                    imageAlt="Couronnes Dentaires Zircone Tunisie - Venus Estetika"
+                    badge="Prothèse Dentaire Premium"
+                    devisSlug="couronnes"
+                    stats="+4 000 couronnes posées | Note 4.9/5 sur Google | Labo certifié ISO"
+                    doctorName="Dr Ramses Mouelhi"
+                    doctorImage="/images/doctors/dr-ramses-mouelhi.jpg"
+                    doctorSpecialty="Chirurgien Dentiste, Implantologie & Facettes"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -75,13 +65,13 @@ export default function CouronnesDentairesPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Couronne Zircone</h4>
                                         <p className="text-sm text-gray-500">Matériau le plus résistant et esthétique. Translucidité naturelle identique à l&apos;émail, sans métal, sans noircissement des gencives.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Couronne Céramo-Métallique</h4>
                                         <p className="text-sm text-gray-500">Option économique robuste. Armature en métal + céramique. Idéale pour les molaires soumises à de fortes contraintes masticatoires.</p>
                                     </div>
@@ -101,7 +91,7 @@ export default function CouronnesDentairesPage() {
                                         "Suivi et ajustement post-pose"
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -131,17 +121,17 @@ export default function CouronnesDentairesPage() {
                                     <h3 className="text-2xl font-bold text-brand-navy mb-8">Nos Tarifs par Couronne</h3>
 
                                     <div className="space-y-6 mb-8">
-                                        <div className="border border-brand-gold rounded-xl p-5 bg-brand-gold/5">
+                                        <div className="border border-brand-blue rounded-xl p-5 bg-brand-blue/5">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-bold text-brand-navy">Couronne Zircone</span>
-                                                <span className="text-2xl font-bold text-brand-gold">250 €</span>
+                                                <span className="text-2xl font-bold text-brand-blue">250 €</span>
                                             </div>
                                             <p className="text-sm text-gray-500">Matériau premium, esthétique maximale. <span className="line-through">700-1 200€ en France</span></p>
                                         </div>
-                                        <div className="border border-gray-100 rounded-xl p-5 hover:border-brand-gold transition-colors">
+                                        <div className="border border-gray-100 rounded-xl p-5 hover:border-brand-blue transition-colors">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-bold text-brand-navy">Couronne Céramo-Métallique</span>
-                                                <span className="text-2xl font-bold text-brand-gold">180 €</span>
+                                                <span className="text-2xl font-bold text-brand-blue">180 €</span>
                                             </div>
                                             <p className="text-sm text-gray-500">Robuste et économique. <span className="line-through">500-800€ en France</span></p>
                                         </div>
@@ -149,11 +139,11 @@ export default function CouronnesDentairesPage() {
 
                                     <ul className="space-y-3">
                                         <li className="flex items-center gap-3 text-gray-700 text-sm">
-                                            <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                                             Pack 6+ couronnes : hôtel et transferts inclus
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700 text-sm">
-                                            <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                                             Fabrication laboratoire intégré certifié ISO
                                         </li>
                                     </ul>
@@ -161,7 +151,7 @@ export default function CouronnesDentairesPage() {
 
                                 {/* Experience Details */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Sparkles className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Sparkles className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Le Déroulement (4-5 Jours)</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Jour 1 : consultation, empreinte optique 3D et préparation des dents. Des couronnes provisoires sont posées pendant que notre laboratoire intégré fabrique vos couronnes définitives en zircone ou céramo-métallique en 72h. Jour 4-5 : pose des couronnes définitives et ajustements fins de l&apos;occlusion.
@@ -184,6 +174,55 @@ export default function CouronnesDentairesPage() {
                         <FAQAccordion data={getFaqData('couronnes')} />
                     </div>
                 </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Ils ont retrouvé un sourire fonctionnel et esthétique"
+                    testimonials={[
+                        {
+                            name: "Stéphane M.",
+                            city: "Lyon",
+                            quote: "J'avais 8 dents à couronner suite à des caries profondes. Le labo intégré a tout fabriqué en 72h. Les couronnes zircone sont parfaites, indiscernables des vraies dents. Un séjour très bien organisé.",
+                            intervention: "8 couronnes zircone",
+                            savings: "3 800 €",
+                            rating: 5
+                        },
+                        {
+                            name: "Nathalie F.",
+                            city: "Marseille",
+                            quote: "Ma dent dévitalisée s'était fracturée. La couronne zircone posée à Tunis est d'une qualité irréprochable. Ajustement parfait de l'occlusion, aucune gêne depuis la pose. Je reviens pour les 3 autres.",
+                            intervention: "Couronne zircone unitaire",
+                            savings: "650 €",
+                            rating: 5
+                        },
+                        {
+                            name: "Antoine B.",
+                            city: "Bruxelles",
+                            quote: "Pack 12 couronnes avec séjour hôtel inclus. Rapport qualité-prix exceptionnel par rapport à la Belgique. Le Dr Mouelhi prend le temps d'expliquer chaque étape. Je repars avec un sourire entièrement refait.",
+                            intervention: "Pack 12 couronnes tout inclus",
+                            savings: "9 000 €",
+                            rating: 5
+                        }
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIEN RÉFÉRENT */}
+                <SurgeonReferenceSection
+                    title="Votre prothésiste dentaire référent"
+                    subtitle="Un chirurgien dentiste expert en prothèse et restauration coronaire, travaillant avec notre laboratoire intégré certifié ISO."
+                    surgeons={[
+                        {
+                            name: "Dr Ramses Mouelhi",
+                            specialty: "Chirurgien Dentiste — Implantologie & Facettes",
+                            image: "/images/doctors/dr-ramses-mouelhi.jpg",
+                            experience: "15 ans d'expertise en prothèse dentaire"
+                        }
+                    ]}
+                    devisSlug="couronnes"
+                />
             </div>
         </>
     );

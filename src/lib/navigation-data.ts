@@ -38,11 +38,11 @@ export const NAVIGATION_CATEGORIES: NavCategory[] = [
     ],
   },
   {
-    name: 'Chirurgie de la Silhouette',
+    name: 'Chirurgie Silhouette',
     slug: 'chirurgie-silhouette',
     interventions: [
-      { name: 'Liposuccion', slug: 'liposuccion', price: 'dès 2 000€' },
-      { name: 'Abdominoplastie', slug: 'abdominoplastie', price: 'dès 2 900€' },
+      { name: 'Liposuccion', slug: 'liposuccion', price: 'dès 2 000€', isPopular: true },
+      { name: 'Abdominoplastie', slug: 'abdominoplastie', price: 'dès 2 900€', isPopular: true },
       { name: 'BBL', slug: 'bbl', price: 'dès 3 200€' },
       { name: 'Mommy Makeover', slug: 'mommy-makeover', price: 'dès 4 500€' },
       { name: 'Lifting des Bras', slug: 'lifting-bras', price: 'dès 2 000€' },
@@ -59,12 +59,12 @@ export const NAVIGATION_CATEGORIES: NavCategory[] = [
     ],
   },
   {
-    name: 'Dentisterie Esthétique',
+    name: 'Santé Dentaire',
     slug: 'dentaire',
     interventions: [
-      { name: 'Facettes Dentaires', slug: 'facettes', price: 'dès 300€/dent', isPopular: true },
+      { name: 'Facettes', slug: 'facettes', price: 'dès 300€/dent', isPopular: true },
       { name: 'Implants Dentaires', slug: 'implants-dentaires', price: 'dès 500€' },
-      { name: 'Couronnes Dentaires', slug: 'couronnes', price: 'dès 200€' },
+      { name: 'Couronnes', slug: 'couronnes', price: 'dès 200€' },
       { name: 'Blanchiment', slug: 'blanchiment', price: 'dès 250€' },
     ],
   },
@@ -75,16 +75,6 @@ export const NAVIGATION_CATEGORIES: NavCategory[] = [
       { name: 'Greffe FUE', slug: 'greffe-cheveux', price: 'dès 1 900€', isPopular: true },
       { name: 'Greffe DHI', slug: 'greffe-dhi', price: 'dès 2 200€' },
       { name: 'Greffe de Barbe', slug: 'greffe-barbe', price: 'dès 1 500€' },
-    ],
-  },
-  {
-    name: 'Médecine Esthétique',
-    slug: 'medecine-esthetique',
-    interventions: [
-      { name: 'Botox', slug: 'botox', price: 'dès 200€' },
-      { name: 'Acide Hyaluronique', slug: 'acide-hyaluronique', price: 'dès 250€' },
-      { name: 'Peeling', slug: 'peeling', price: 'dès 150€' },
-      { name: 'Mésolift', slug: 'mesolift', price: 'dès 200€' },
     ],
   },
 ];

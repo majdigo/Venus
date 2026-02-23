@@ -34,7 +34,7 @@ export default function MentionsLegalesPage() {
                             <span className="font-medium text-brand-navy">Téléphone :</span>{' '}
                             <a
                                 href="tel:+21650606780"
-                                className="text-brand-gold hover:underline"
+                                className="text-brand-blue hover:underline"
                             >
                                 +216 50 606 780
                             </a>
@@ -43,7 +43,7 @@ export default function MentionsLegalesPage() {
                             <span className="font-medium text-brand-navy">Email :</span>{' '}
                             <a
                                 href="mailto:contact@venus-estetika.com"
-                                className="text-brand-gold hover:underline"
+                                className="text-brand-blue hover:underline"
                             >
                                 contact@venus-estetika.com
                             </a>
@@ -72,7 +72,7 @@ export default function MentionsLegalesPage() {
                                 href="https://vercel.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-brand-gold hover:underline"
+                                className="text-brand-blue hover:underline"
                             >
                                 vercel.com
                             </a>
@@ -146,7 +146,7 @@ export default function MentionsLegalesPage() {
                         de vos droits, veuillez consulter notre{' '}
                         <Link
                             href="/politique-confidentialite"
-                            className="text-brand-gold font-medium hover:underline"
+                            className="text-brand-blue font-medium hover:underline"
                         >
                             Politique de Confidentialité
                         </Link>
@@ -168,14 +168,14 @@ export default function MentionsLegalesPage() {
                         Pour toute question ou réclamation, vous pouvez nous contacter par email à{' '}
                         <a
                             href="mailto:contact@venus-estetika.com"
-                            className="text-brand-gold hover:underline"
+                            className="text-brand-blue hover:underline"
                         >
                             contact@venus-estetika.com
                         </a>{' '}
                         ou par téléphone au{' '}
                         <a
                             href="tel:+21650606780"
-                            className="text-brand-gold hover:underline"
+                            className="text-brand-blue hover:underline"
                         >
                             +216 50 606 780
                         </a>

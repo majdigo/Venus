@@ -15,7 +15,7 @@ const MOCK_POSTS = [
         category: "Silhouette",
         excerpt: "Comprendre pourquoi la technologie Vaser est devenue la nouvelle norme pour l'aspiration des graisses tout en sculptant la haute définition abdominale.",
         date: "20 Février 2026",
-        imageUrl: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "/images/heroes/chirurgie-visage-hero.jpg"
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const MOCK_POSTS = [
         category: "Obésité",
         excerpt: "Quelles sont les étapes de la réalimentation après une Sleeve Gastrectomie ? Du liquide au solide, suivez nos conseils nutritionnels.",
         date: "15 Février 2026",
-        imageUrl: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop"
+        imageUrl: "/images/heroes/chirurgie-silhouette-hero.jpg"
     },
     {
         id: 3,
@@ -31,7 +31,7 @@ const MOCK_POSTS = [
         category: "Capillaire",
         excerpt: "Découvrez pourquoi la lame en Saphir a révolutionné l'ouverture des canaux folliculaires pour une densité maximale et aucune cicatrice.",
         date: "05 Février 2026",
-        imageUrl: "https://images.unsplash.com/photo-1620331311520-246422fd82f9?q=80&w=1972&auto=format&fit=crop"
+        imageUrl: "/images/heroes/chirurgie-mammaire-hero.jpg"
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ const MOCK_POSTS = [
         category: "Dentaire",
         excerpt: "La grande question du Hollywood Smile décryptée. Le surfaçage ultra-léger de l'émail expliqué simplement par nos dentistes esthétiques.",
         date: "28 Janvier 2026",
-        imageUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974&auto=format&fit=crop"
+        imageUrl: "/images/heroes/chirurgie-bariatrique-hero.jpg"
     },
     {
         id: 5,
@@ -47,7 +47,7 @@ const MOCK_POSTS = [
         category: "Visage",
         excerpt: "Détails du séjour de 6 jours nécessaire pour un lifting cervico-facial. Du bloc opératoire à votre hôtel de convalescence en bord de mer.",
         date: "12 Janvier 2026",
-        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
+        imageUrl: "/images/heroes/greffe-cheveux-hero.jpg"
     }
 ];
 
@@ -63,11 +63,11 @@ export default function BlogPage() {
 
                 <div className="container mx-auto max-w-5xl relative z-10 text-center text-white">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 font-semibold text-sm mb-6">
-                        <BookOpen className="w-4 h-4 text-brand-gold" />
+                        <BookOpen className="w-4 h-4 text-brand-blue" />
                         Journal Médical
                     </div>
                     <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight leading-tight">
-                        Actualités & Conseils <span className="text-brand-gold">Esthétiques</span>
+                        Actualités & Conseils <span className="text-brand-blue">Esthétiques</span>
                     </h1>
                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
                         Lisez nos articles rédigés par des experts médicaux. Tout savoir sur les opérations, les prix, et la préparation de votre séjour en Tunisie.
@@ -110,7 +110,7 @@ export default function BlogPage() {
                                         {post.date}
                                     </div>
                                     <h3 className="text-xl font-bold text-brand-navy mb-3 line-clamp-2">
-                                        <Link href="#" className="hover:text-brand-gold transition-colors">
+                                        <Link href="#" className="hover:text-brand-blue transition-colors">
                                             {post.title}
                                         </Link>
                                     </h3>

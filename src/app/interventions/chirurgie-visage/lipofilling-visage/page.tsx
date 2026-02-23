@@ -2,10 +2,14 @@ import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Droplets, Clock, Sparkles } from 'lucide-react';
+import { CheckCircle2, Droplets, Clock, Sparkles } from 'lucide-react';
 import { FAQAccordion } from '@/components/ui/faq-accordion';
 import { GuidedTourTimeline } from '@/components/ui/GuidedTourTimeline';
 import Link from 'next/link';
+import { InterventionHero } from '@/components/interventions/InterventionHero';
+import { SurgeonReferenceSection } from '@/components/interventions/SurgeonReferenceSection';
+import { PatientTestimonialSection } from '@/components/interventions/PatientTestimonialSection';
+import { GuaranteeSection } from '@/components/interventions/GuaranteeSection';
 
 export const metadata: Metadata = {
     title: 'Lipofilling Visage Tunisie | Injection de Graisse dès 1 800€ — Venus Estetika',
@@ -106,33 +110,20 @@ export default function LipofillingVisagePage() {
             <div className="min-h-screen bg-white">
 
                 {/* HERO SECTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Rajeunissement Naturel
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Lipofilling visage en Tunisie : rajeunissez naturellement avec votre propre graisse
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Un rajeunissement 100% naturel, sans corps étranger. Restaurez les volumes perdus
-                            avec votre propre graisse. Forfait tout compris à partir de{' '}
-                            <b className="text-brand-gold text-3xl mx-2">1 800€</b>{' '}
-                            <span className="line-through text-sm opacity-60">3 500-7 000€ en France</span>.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full sm:w-auto">
-                                <Link href="/devis?intervention=lipofilling-visage">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">
-                            +2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS
-                        </p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Lipofilling visage en Tunisie : rajeunissez naturellement avec votre propre graisse"
+                    subtitle="Un rajeunissement 100% naturel, sans corps étranger. Restaurez les volumes perdus avec votre propre graisse."
+                    price="1 800€"
+                    priceOld="3 500-7 000€"
+                    imageSrc="/images/heroes/chirurgie-visage-hero.jpg"
+                    imageAlt="Lipofilling visage en Tunisie - Venus Estetika"
+                    badge="Rajeunissement Naturel"
+                    devisSlug="lipofilling-visage"
+                    stats="+2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS"
+                    doctorName="Dr Imen Ben Gaied"
+                    doctorImage="/images/doctors/dr-imen-ben-gaied.jpeg"
+                    doctorSpecialty="Chirurgie Plastique & Lipostructure"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -158,7 +149,7 @@ export default function LipofillingVisagePage() {
 
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Droplets className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Droplets className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Lipostructure de Coleman</h4>
                                         <p className="text-sm text-gray-500">
                                             Prélèvement, purification et réinjection de graisse autologue pour
@@ -166,7 +157,7 @@ export default function LipofillingVisagePage() {
                                         </p>
                                     </div>
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Sparkles className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Sparkles className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Nanofat</h4>
                                         <p className="text-sm text-gray-500">
                                             Micro-injection de graisse ultra-filtrée pour traitement fin
@@ -187,7 +178,7 @@ export default function LipofillingVisagePage() {
                                             key={index}
                                             className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100"
                                         >
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -236,7 +227,7 @@ export default function LipofillingVisagePage() {
                                                     </p>
                                                 </div>
                                                 <div className="text-right">
-                                                    <p className="font-bold text-2xl text-brand-gold">{price.tn}</p>
+                                                    <p className="font-bold text-2xl text-brand-blue">{price.tn}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -245,7 +236,7 @@ export default function LipofillingVisagePage() {
 
                                 {/* Convalescence Info */}
                                 <div className="p-8 bg-slate-50">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Convalescence &amp; Résultats</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Oedème 10 à 15 jours. Résultat définitif à 3-4 mois après résorption
@@ -276,6 +267,46 @@ export default function LipofillingVisagePage() {
                     </div>
                 </section>
 
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages lipofilling visage"
+                    testimonials={[
+                        {
+                            name: 'Sophie L.',
+                            city: 'Paris',
+                            quote: "J'avais essayé les fillers d'acide hyaluronique pendant 3 ans — résultats temporaires, coûts récurrents. Le lipofilling a tout changé : ma propre graisse, résultat durable, qualité de peau améliorée. Le Dr Ben Gaied a repositionné mes volumes avec une précision artistique. Je n'aurais pas pu espérer mieux.",
+                            intervention: 'Lipofilling visage complet',
+                            savings: '3 800€',
+                            rating: 5,
+                        },
+                        {
+                            name: 'Valérie T.',
+                            city: 'Nice',
+                            quote: "Mes pommettes creuses me vieillissaient énormément. Après le lipofilling pommettes et sillons chez Venus Estetika, j'ai retrouvé le visage de mes 40 ans. La technique Coleman utilisée par l'équipe est irréprochable. Aucune cicatrice visible et un résultat que je n'aurais jamais obtenu avec des injections.",
+                            intervention: 'Lipofilling pommettes + sillons',
+                            savings: '2 900€',
+                            rating: 5,
+                        },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <SurgeonReferenceSection
+                    title="Nos chirurgiens pour le lipofilling visage"
+                    surgeons={[
+                        {
+                            name: 'Dr Imen Ben Gaied',
+                            specialty: 'Chirurgie Plastique & Lipostructure',
+                            image: '/images/doctors/dr-imen-ben-gaied.jpeg',
+                            experience: 'Spécialiste Coleman',
+                        },
+                    ]}
+                    devisSlug="lipofilling-visage"
+                />
+
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
                     <div className="container mx-auto max-w-3xl">
@@ -286,9 +317,9 @@ export default function LipofillingVisagePage() {
                             Votre propre graisse comme médicament. Résultats durables, sans corps étranger,
                             enrichis en cellules souches. Obtenez votre devis gratuit maintenant.
                         </p>
-                        <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
+                        <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
                             <Link href="/devis?intervention=lipofilling-visage">
-                                Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
+                                Obtenir mon devis gratuit
                             </Link>
                         </Button>
                         <p className="mt-6 text-sm font-medium text-slate-500">

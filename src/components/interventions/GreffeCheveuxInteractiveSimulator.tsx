@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Info, Sparkles, User, UserPlus } from "lucide-react";
+import { Sparkles, User, UserPlus } from "lucide-react";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
+import { useGtmEvent } from "@/lib/tracking/useGtmEvent";
 
 type NorwoodStage = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
@@ -76,18 +77,63 @@ const STAGES: Record<NorwoodStage, StageData> = {
     }
 };
 
+const PRICE_TUNISIA: Record<NorwoodStage, string> = {
+    1: "1 500€", 2: "1 900€", 3: "2 200€", 4: "2 500€", 5: "2 800€", 6: "3 200€", 7: "Sur devis"
+};
+const PRICE_FRANCE: Record<NorwoodStage, string> = {
+    1: "4 000€", 2: "5 500€", 3: "6 500€", 4: "8 000€", 5: "10 000€", 6: "12 000€", 7: "15 000€+"
+};
+
 export function GreffeCheveuxInteractiveSimulator() {
     const [activeStage, setActiveStage] = useState<NorwoodStage>(3);
     const data = STAGES[activeStage];
+    const pushGtmEvent = useGtmEvent();
+    const sectionRef = useRef<HTMLElement>(null);
+    const hasTrackedView = useRef(false);
+    const hasTrackedInteraction = useRef(false);
 
-    // Calcul visuel simple pour SVG : on anime les path en fonction du stade
-    // Stage 1 = tout rempli
-    // Stage 7 = presque vide
-    // On va jouer sur l'opacité et l'echélle de mask
+    // Intersection Observer — track view
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el || hasTrackedView.current) return;
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting && !hasTrackedView.current) {
+                hasTrackedView.current = true;
+                pushGtmEvent({ event: 'hair_simulator_start' });
+                observer.disconnect();
+            }
+        }, { threshold: 0.3 });
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [pushGtmEvent]);
+
+    const handleStageChange = (stage: NorwoodStage) => {
+        setActiveStage(stage);
+        if (!hasTrackedInteraction.current) {
+            hasTrackedInteraction.current = true;
+            pushGtmEvent({ event: 'hair_simulator_interaction', norwood_stage: stage });
+        }
+        pushGtmEvent({
+            event: 'hair_simulator_complete',
+            norwood_stage: stage,
+            estimated_grafts: STAGES[stage].grafts,
+            recommended_intervention: STAGES[stage].technique,
+        });
+    };
+
+    const handleCtaClick = () => {
+        pushGtmEvent({
+            event: 'hair_simulator_cta_click',
+            norwood_stage: activeStage,
+            estimated_grafts: data.grafts,
+            recommended_intervention: data.technique,
+            price_tunisia: PRICE_TUNISIA[activeStage],
+        });
+    };
 
     return (
-        <section className="py-24 bg-brand-navy relative overflow-hidden text-white">
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+        <section ref={sectionRef} className="py-24 bg-brand-navy relative overflow-hidden text-white">
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
 
             <div className="container mx-auto px-4 relative z-10">
@@ -99,7 +145,7 @@ export function GreffeCheveuxInteractiveSimulator() {
                         transition={{ duration: 0.6 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium text-sm mb-6"
                     >
-                        <Sparkles className="w-4 h-4 text-brand-gold" />
+                        <Sparkles className="w-4 h-4 text-brand-blue" />
                         Simulateur Interactif
                     </motion.div>
                     <motion.h2
@@ -109,7 +155,7 @@ export function GreffeCheveuxInteractiveSimulator() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-3xl md:text-5xl font-bold mb-6"
                     >
-                        Découvrez votre niveau sur <span className="text-brand-gold">l'Échelle de Norwood</span>
+                        Découvrez votre niveau sur <span className="text-brand-blue">l'Échelle de Norwood</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -199,10 +245,10 @@ export function GreffeCheveuxInteractiveSimulator() {
                                 max="7"
                                 step="1"
                                 value={activeStage}
-                                onChange={(e) => setActiveStage(parseInt(e.target.value) as NorwoodStage)}
-                                className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-brand-gold"
+                                onChange={(e) => handleStageChange(parseInt(e.target.value) as NorwoodStage)}
+                                className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-brand-blue"
                             />
-                            <div className="mt-4 text-center text-sm text-brand-gold font-medium">Glissez pour ajuster</div>
+                            <div className="mt-4 text-center text-sm text-brand-blue font-medium">Glissez pour ajuster</div>
                         </div>
 
                     </div>
@@ -243,8 +289,22 @@ export function GreffeCheveuxInteractiveSimulator() {
                                     </div>
                                 </div>
 
+                                {/* Price Comparison */}
+                                <div className="grid grid-cols-2 gap-4 mb-8">
+                                    <div className="bg-brand-blue/10 p-4 rounded-xl border border-brand-blue/20 text-center">
+                                        <div className="text-xs font-bold uppercase tracking-wider text-brand-blue mb-1">Tunisie</div>
+                                        <div className="text-2xl font-black text-brand-navy">{PRICE_TUNISIA[activeStage]}</div>
+                                        <div className="text-xs text-gray-500">Tout compris</div>
+                                    </div>
+                                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center opacity-60">
+                                        <div className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">France</div>
+                                        <div className="text-2xl font-black text-gray-400 line-through">{PRICE_FRANCE[activeStage]}</div>
+                                        <div className="text-xs text-gray-400">Intervention seule</div>
+                                    </div>
+                                </div>
+
                                 <div className="pt-6 border-t border-gray-100">
-                                    <Button asChild className="w-full h-14 bg-brand-navy text-white hover:bg-brand-navy/90 text-lg">
+                                    <Button asChild className="w-full h-14 bg-brand-navy text-white hover:bg-brand-navy/90 text-lg" onClick={handleCtaClick}>
                                         <Link href={`/devis?intervention=greffe-cheveux&norwood=${activeStage}`}>
                                             Obtenir un devis exact <UserPlus className="ml-2 w-5 h-5" />
                                         </Link>

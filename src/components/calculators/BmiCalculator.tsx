@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-import { useGtmEvent } from "@/hooks/useGtmEvent";
+import { useGtmEvent } from "@/lib/tracking/useGtmEvent";
 
 interface BmiCalculatorProps {
     variant?: "full" | "compact";
@@ -20,12 +20,39 @@ export function BmiCalculator({ variant = "full", onEligible, className = "" }: 
     const [height, setHeight] = useState<number>(170);
     const [weight, setWeight] = useState<number>(75);
     const [bmi, setBmi] = useState<number>(0);
-    const hasOpened = React.useRef(false);
+    const hasOpened = useRef(false);
+    const hasTrackedView = useRef(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const debounceRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Intersection Observer — track when calculator enters viewport
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el || hasTrackedView.current) return;
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting && !hasTrackedView.current) {
+                hasTrackedView.current = true;
+                pushGtmEvent({ event: 'bmi_calculator_view', page_path: pathname });
+                observer.disconnect();
+            }
+        }, { threshold: 0.3 });
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [pushGtmEvent, pathname]);
+
+    const getBmiInfo = useCallback((bmiValue: number) => {
+        if (bmiValue < 18.5) return { color: "bg-blue-500", label: "Insuffisance pondérale", msg: "Votre poids est insuffisant.", cta: "Consulter un nutritionniste", isEligible: false, intervention: "none", gtmCategory: "insuffisance" };
+        if (bmiValue < 25) return { color: "bg-green-500", label: "Poids normal", msg: "Votre poids est normal.", cta: "Découvrir nos interventions", isEligible: false, intervention: "none", gtmCategory: "normal" };
+        if (bmiValue < 30) return { color: "bg-yellow-500", label: "Surpoids", msg: "Vous êtes en surpoids. La chirurgie n'est pas recommandée sauf comorbidités.", cta: "Consulter votre médecin", isEligible: false, intervention: "none", gtmCategory: "surpoids" };
+        if (bmiValue < 35) return { color: "bg-orange-500", label: "Obésité modérée", msg: "Éligible sous conditions (comorbidités).", cta: "Obtenir l'avis du chirurgien", isEligible: true, intervention: "sleeve-gastrique", gtmCategory: "obesite_moderee" };
+        if (bmiValue < 40) return { color: "bg-red-500", label: "Obésité sévère", msg: "Sleeve gastrique recommandée.", cta: "Obtenir un devis gratuit", isEligible: true, intervention: "sleeve-gastrique", gtmCategory: "obesite_severe" };
+        return { color: "bg-rose-700", label: "Obésité morbide", msg: "Sleeve ou Bypass recommandé.", cta: "Avis chirurgical urgent", isEligible: true, intervention: "sleeve-ou-bypass", gtmCategory: "obesite_morbide" };
+    }, []);
 
     useEffect(() => {
         if (!hasOpened.current) {
             pushGtmEvent({
-                event: 'bmi_calculator_open',
+                event: 'bmi_calculator_start',
                 page_path: pathname,
                 widget_location: variant === 'full' ? 'page_body' : 'sidebar'
             });
@@ -36,29 +63,23 @@ export function BmiCalculator({ variant = "full", onEligible, className = "" }: 
             const calculatedBmi = weight / Math.pow(height / 100, 2);
             setBmi(calculatedBmi);
 
-            // Only push result if BMI is fully calculated and > 10 to avoid initial 0 renders
+            // Debounced GTM event (300ms) to avoid firing on every keystroke
+            if (debounceRef.current) clearTimeout(debounceRef.current);
             if (calculatedBmi > 10) {
-                const infoObj = getBmiInfo(calculatedBmi);
-                pushGtmEvent({
-                    event: 'bmi_calculator_result',
-                    bmi_value: calculatedBmi,
-                    bmi_category: infoObj.gtmCategory,
-                    eligible_procedures: infoObj.isEligible ? [infoObj.intervention] : [],
-                    page_path: pathname
-                });
+                debounceRef.current = setTimeout(() => {
+                    const infoObj = getBmiInfo(calculatedBmi);
+                    pushGtmEvent({
+                        event: 'bmi_calculator_complete',
+                        bmi_result: calculatedBmi,
+                        bmi_category: infoObj.label,
+                        recommended_intervention: infoObj.isEligible ? infoObj.intervention : 'none',
+                        page_path: pathname
+                    });
+                }, 300);
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [height, weight, pathname, variant]);
-
-    const getBmiInfo = (bmiValue: number) => {
-        if (bmiValue < 18.5) return { color: "bg-blue-500", label: "Insuffisance pondérale", msg: "Votre poids est insuffisant.", cta: "Consulter un nutritionniste", isEligible: false, intervention: "none", gtmCategory: "insuffisance" };
-        if (bmiValue < 25) return { color: "bg-green-500", label: "Poids normal", msg: "Votre poids est normal.", cta: "Découvrir nos interventions", isEligible: false, intervention: "none", gtmCategory: "normal" };
-        if (bmiValue < 30) return { color: "bg-yellow-500", label: "Surpoids", msg: "Vous êtes en surpoids. La chirurgie n'est pas recommandée sauf comorbidités.", cta: "Consulter votre médecin", isEligible: false, intervention: "none", gtmCategory: "surpoids" };
-        if (bmiValue < 35) return { color: "bg-orange-500", label: "Obésité modérée", msg: "Éligible sous conditions (comorbidités).", cta: "Obtenir l'avis du chirurgien", isEligible: true, intervention: "sleeve-gastrique", gtmCategory: "obesite_moderee" };
-        if (bmiValue < 40) return { color: "bg-red-500", label: "Obésité sévère", msg: "Sleeve gastrique recommandée.", cta: "Obtenir un devis gratuit", isEligible: true, intervention: "sleeve-gastrique", gtmCategory: "obesite_severe" };
-        return { color: "bg-rose-700", label: "Obésité morbide", msg: "Sleeve ou Bypass recommandé.", cta: "Avis chirurgical urgent", isEligible: true, intervention: "sleeve-ou-bypass", gtmCategory: "obesite_morbide" };
-    };
 
     const info = getBmiInfo(bmi);
 
@@ -81,7 +102,7 @@ export function BmiCalculator({ variant = "full", onEligible, className = "" }: 
     };
 
     return (
-        <div className={`bg-white rounded-3xl shadow-xl overflow-hidden border border-border/50 ${className}`}>
+        <div ref={containerRef} className={`bg-white rounded-3xl shadow-xl overflow-hidden border border-border/50 ${className}`}>
             {/* Header */}
             <div className="bg-primary p-6 text-primary-foreground text-center">
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">

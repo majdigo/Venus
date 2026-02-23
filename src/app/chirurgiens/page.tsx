@@ -3,6 +3,7 @@ import { doctorsQuery } from '@/sanity/lib/queries';
 import { urlForImage } from '@/sanity/lib/image';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, ShieldCheck, Stethoscope, Star } from "lucide-react";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -38,7 +39,7 @@ export default async function ChirurgiensPage() {
                 { title: 'Augmentation Mammaire', slug: 'augmentation-mammaire' },
             ],
             // Placeholder image if not in CMS
-            imageUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop'
+            imageUrl: '/images/heroes/chirurgie-silhouette-hero.jpg'
         },
         {
             _id: 'dr-ghedira',
@@ -53,7 +54,7 @@ export default async function ChirurgiensPage() {
                 { title: 'Lifting du Visage', slug: 'lifting-visage' },
                 { title: 'Greffe de Cheveux', slug: 'greffe-cheveux' },
             ],
-            imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop'
+            imageUrl: '/images/heroes/chirurgie-visage-hero.jpg'
         },
         {
             _id: 'dr-bariatrique',
@@ -67,7 +68,7 @@ export default async function ChirurgiensPage() {
                 { title: 'Sleeve Gastrique', slug: 'sleeve-gastrique' },
                 { title: 'Bypass Gastrique', slug: 'bypass-gastrique' },
             ],
-            imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop'
+            imageUrl: '/images/heroes/chirurgie-bariatrique-hero.jpg'
         }
     ];
 
@@ -75,18 +76,25 @@ export default async function ChirurgiensPage() {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-24">
-            {/* HERO SECTION - Magazine Dental/Medical Look */}
-            <section className="relative pt-32 pb-20 px-4 bg-white border-b border-gray-100 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(15,23,42,0.03),transparent_50%)]" />
-                <div className="container mx-auto max-w-5xl relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navy/5 text-brand-navy font-semibold text-sm mb-6 border border-brand-navy/10">
-                        <ShieldCheck className="w-4 h-4 text-brand-gold" />
+            {/* HERO SECTION */}
+            <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
+                <Image
+                    src="/images/hero/hero-chirurgiens.png"
+                    alt="Équipe médicale Venus Estetika — Chirurgiens en Tunisie"
+                    fill
+                    priority
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/90 via-brand-navy/80 to-brand-navy/70" />
+                <div className="container mx-auto max-w-5xl relative z-10 text-center px-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold text-sm mb-6">
+                        <ShieldCheck className="w-4 h-4 text-brand-blue" />
                         Label d'Excellence Médicale
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-heading font-bold text-brand-navy mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 tracking-tight">
                         L'Élite de la Chirurgie Esthétique
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-600 mb-0 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg md:text-xl text-white/85 mb-0 max-w-3xl mx-auto leading-relaxed">
                         Chez Venus Estetika, nous ne collaborons qu'avec des chirurgiens plasticiens inscrits à l'Ordre des Médecins, justifiant d'une expérience internationale et d'une maîtrise absolue de leur spécialité.
                     </p>
                 </div>
@@ -97,20 +105,20 @@ export default async function ChirurgiensPage() {
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
                         <div className="px-4">
-                            <div className="text-3xl font-bold text-brand-gold mb-2">15+</div>
+                            <div className="text-3xl font-bold text-brand-blue mb-2">15+</div>
                             <div className="text-sm text-white/80">Années d'expérience moyenne</div>
                         </div>
                         <div className="px-4">
-                            <div className="text-3xl font-bold text-brand-gold mb-2">10k+</div>
+                            <div className="text-3xl font-bold text-brand-blue mb-2">10k+</div>
                             <div className="text-sm text-white/80">Interventions réussies</div>
                         </div>
                         <div className="px-4">
-                            <div className="text-3xl font-bold text-brand-gold mb-2">100%</div>
+                            <div className="text-3xl font-bold text-brand-blue mb-2">100%</div>
                             <div className="text-sm text-white/80">Inscrits à l'Ordre des Médecins</div>
                         </div>
                         <div className="px-4">
-                            <div className="text-3xl font-bold text-brand-gold mb-2 flex justify-center items-center gap-1">
-                                4.9 <Star className="w-5 h-5 fill-brand-gold" />
+                            <div className="text-3xl font-bold text-brand-blue mb-2 flex justify-center items-center gap-1">
+                                4.9 <Star className="w-5 h-5 fill-brand-blue" />
                             </div>
                             <div className="text-sm text-white/80">Avis Patients (Trustpilot)</div>
                         </div>
@@ -131,7 +139,7 @@ export default async function ChirurgiensPage() {
                                 <div key={doc._id} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 items-center overflow-hidden relative group`}>
 
                                     {/* Abstract background shape */}
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-gold/10 transition-colors duration-700" />
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-blue/10 transition-colors duration-700" />
 
                                     {/* Image Column */}
                                     <div className="w-full lg:w-1/3 relative z-10 shrink-0">
@@ -156,7 +164,7 @@ export default async function ChirurgiensPage() {
                                         <div className="flex items-start justify-between mb-4">
                                             <div>
                                                 <h2 className="text-3xl font-bold text-brand-navy mb-2">{doc.name}</h2>
-                                                <h3 className="text-xl text-brand-gold font-medium">{doc.specialty}</h3>
+                                                <h3 className="text-xl text-brand-blue font-medium">{doc.specialty}</h3>
                                             </div>
                                             {doc.isapsMember && (
                                                 <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-lg border border-blue-100" title="Membre de l'International Society of Aesthetic Plastic Surgery">
@@ -167,7 +175,7 @@ export default async function ChirurgiensPage() {
                                         </div>
 
                                         <div className="flex items-center gap-4 mb-6 text-sm text-gray-500 font-medium border-b border-gray-100 pb-6">
-                                            <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-brand-gold" /> {doc.experienceYears} ans d'expertise</span>
+                                            <span className="flex items-center gap-1.5"><Star className="w-4 h-4 text-brand-blue" /> {doc.experienceYears} ans d'expertise</span>
                                             {doc.isapsMember && <span className="sm:hidden flex items-center gap-1.5 text-blue-600"><Award className="w-4 h-4" /> ISAPS</span>}
                                         </div>
 
@@ -202,6 +210,9 @@ export default async function ChirurgiensPage() {
                     </div>
                 </div>
             </section>
+
+            {/* GARANTIES */}
+            <GuaranteeSection />
         </div>
     );
 }

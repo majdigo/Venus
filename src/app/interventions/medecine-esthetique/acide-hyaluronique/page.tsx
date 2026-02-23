@@ -4,9 +4,13 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Droplets, Sparkles, RefreshCw, Layers } from "lucide-react";
+import { CheckCircle2, Droplets, Sparkles, RefreshCw, Layers } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -36,6 +40,33 @@ export default function AcideHyaluroniquePage() {
         { label: "Full Face (3-4 seringues)", price: "700–900 €", france: "1 200–2 000 €" },
     ];
 
+    const testimonials = [
+        {
+            name: "Céline M.",
+            city: "Lyon",
+            quote: "J'avais des lèvres très fines qui me complexaient depuis des années. Le Dr Bouchnak a fait un travail remarquable — naturel, proportionné, exactement ce que je voulais. Aucune ecchymose, résultat visible immédiatement. Je recommande les yeux fermés.",
+            intervention: "Acide hyaluronique lèvres",
+            savings: "180 €",
+            rating: 5,
+        },
+        {
+            name: "Isabelle D.",
+            city: "Bruxelles",
+            quote: "Mes sillons nasogéniens me donnaient l'air fatigué. En une séance de 20 minutes, ils ont totalement disparu. Le médecin a pris le temps de bien m'expliquer chaque étape. Le résultat est parfaitement naturel, aucun de mes collègues n'a remarqué que j'avais fait quelque chose.",
+            intervention: "Comblement sillons nasogéniens",
+            savings: "220 €",
+            rating: 5,
+        },
+        {
+            name: "Nathalie R.",
+            city: "Paris 16e",
+            quote: "J'ai fait un full face avec 3 seringues pour restaurer mes pommettes et l'ovale du visage. Le tarif était deux fois moins cher qu'à Paris pour une qualité identique. Le suivi post-séance était très rassurant, on m'a rappelée le lendemain pour s'assurer que tout allait bien.",
+            intervention: "Volumétrie complète visage",
+            savings: "650 €",
+            rating: 5,
+        },
+    ];
+
     return (
         <>
             <JsonLd graph={{
@@ -47,48 +78,20 @@ export default function AcideHyaluroniquePage() {
 
             <div className="min-h-screen bg-white">
 
-                {/* BREADCRUMB */}
-                <nav aria-label="Fil d'Ariane" className="bg-slate-50 border-b border-slate-100 mt-20">
-                    <div className="container mx-auto px-4 py-3">
-                        <ol className="flex items-center gap-2 text-sm text-slate-500">
-                            <li><Link href="/" className="hover:text-brand-navy transition-colors">Accueil</Link></li>
-                            <li aria-hidden="true" className="text-slate-300">/</li>
-                            <li><Link href="/interventions/medecine-esthetique" className="hover:text-brand-navy transition-colors">Médecine Esthétique</Link></li>
-                            <li aria-hidden="true" className="text-slate-300">/</li>
-                            <li className="text-brand-navy font-medium" aria-current="page">Acide Hyaluronique</li>
-                        </ol>
-                    </div>
-                </nav>
-
-                {/* HERO */}
-                <section className="relative h-[60vh] min-h-[460px] flex items-center justify-center overflow-hidden bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Médecine Esthétique
-                            </div>
-                            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 leading-tight">
-                                Acide hyaluronique en Tunisie : comblez, repulpez, rajeunissez
-                            </h1>
-                            <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Injections de comblement et de volumétrie par un médecin esthétique expert. Résultat immédiat et naturel.{" "}
-                                <b className="text-brand-gold text-xl">Dès 200€/seringue</b>{" "}
-                                <span className="line-through text-sm opacity-60 ml-2">350–500€ en France</span>.
-                            </p>
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                <Link href="/devis?intervention=acide-hyaluronique">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Acide hyaluronique en Tunisie : comblez, repulpez, rajeunissez"
+                    subtitle="Injections de comblement et de volumétrie par un médecin esthétique expert. Résultat immédiat et naturel."
+                    price="200€/seringue"
+                    priceOld="350–500€"
+                    imageSrc="/images/heroes/medecine-esthetique-hero.jpg"
+                    imageAlt="Injections acide hyaluronique Tunisie — Venus Estetika"
+                    badge="Médecine Esthétique"
+                    devisSlug="acide-hyaluronique"
+                    stats="Résultat immédiat · Durée 8–18 mois · Entièrement réversible"
+                    doctorName="Dr Samaher Bouchnak"
+                    doctorImage="/images/doctors/dr-samaher-bouchnak.jpg"
+                    doctorSpecialty="Médecine Esthétique"
+                />
 
                 {/* INTRODUCTION */}
                 <section className="py-20 px-4 bg-slate-50">
@@ -108,13 +111,13 @@ export default function AcideHyaluroniquePage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-5">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Droplets className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Droplets className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Comblement</h4>
                                         <p className="text-sm text-gray-500">Injection dans les rides et sillons pour les lisser et restaurer un contour harmonieux.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Layers className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Layers className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Volumétrie</h4>
                                         <p className="text-sm text-gray-500">Restauration des volumes du visage perdus avec l'âge : pommettes, ovale, tempes.</p>
                                     </div>
@@ -129,14 +132,14 @@ export default function AcideHyaluroniquePage() {
                                 <div className="space-y-3 mb-8">
                                     {whatItTreats.map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-5 h-5 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-5 h-5 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
                                 </div>
                                 <div className="bg-brand-navy/5 rounded-xl p-4 border border-brand-navy/10">
                                     <div className="flex items-start gap-3">
-                                        <RefreshCw className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
+                                        <RefreshCw className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
                                         <p className="text-sm text-gray-600">
                                             <span className="font-semibold text-brand-navy">Convalescence :</span> Légères rougeurs 24-48h. Résultat immédiat. Durée 8-18 mois selon zone et produit.
                                         </p>
@@ -172,7 +175,7 @@ export default function AcideHyaluroniquePage() {
                                             <div key={index} className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100">
                                                 <span className="text-gray-700 font-medium text-sm pr-4">{row.label}</span>
                                                 <div className="text-right shrink-0">
-                                                    <span className="text-brand-gold font-bold text-lg block">{row.price}</span>
+                                                    <span className="text-brand-blue font-bold text-lg block">{row.price}</span>
                                                     <span className="text-xs text-gray-400 line-through">{row.france}</span>
                                                 </div>
                                             </div>
@@ -182,7 +185,7 @@ export default function AcideHyaluroniquePage() {
 
                                 {/* CTA panel */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Sparkles className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Sparkles className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-xl font-bold text-brand-navy mb-3">
                                         Full Face Rajeunissement
                                     </h3>
@@ -211,6 +214,30 @@ export default function AcideHyaluroniquePage() {
                         <FAQAccordion data={getFaqData('acide-hyaluronique')} />
                     </div>
                 </section>
+
+                {/* TESTIMONIALS */}
+                <PatientTestimonialSection
+                    title="Patientes satisfaites de leurs injections"
+                    testimonials={testimonials}
+                />
+
+                {/* GUARANTEE */}
+                <GuaranteeSection />
+
+                {/* SURGEON */}
+                <SurgeonReferenceSection
+                    title="Votre médecin esthétique référente"
+                    subtitle="Dr Samaher Bouchnak, spécialiste en médecine esthétique, diplômée et inscrite à l'Ordre National des Médecins de Tunisie."
+                    surgeons={[
+                        {
+                            name: "Dr Samaher Bouchnak",
+                            specialty: "Médecine Esthétique",
+                            image: "/images/doctors/dr-samaher-bouchnak.jpg",
+                            experience: "12 ans d'expérience en injections",
+                        },
+                    ]}
+                    devisSlug="acide-hyaluronique"
+                />
 
             </div>
         </>

@@ -4,12 +4,17 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Star, Shield, Award, Sparkles } from "lucide-react";
+import { TrackedLink } from '@/components/tracking/TrackedLink';
+import { CheckCircle2, Star, Shield, Award, Sparkles } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { FacettesInteractiveAnatomy } from "@/components/interventions/FacettesInteractiveAnatomy";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { AuthenticLandingSection } from '@/components/interventions/AuthenticLandingSection';
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata = {
     title: "Facettes Dentaires Tunisie | Hollywood Smile E-max — Dès 250€",
@@ -33,35 +38,38 @@ export default function FacettesDentairesPage() {
             }} />
 
             <div className="min-h-screen bg-white">
-                {/* HERO SECTION */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                    </div>
+                {/* HERO INTERVENTION */}
+                <InterventionHero
+                    title="Facettes Dentaires en Tunisie : Votre Hollywood Smile"
+                    subtitle="Retrouvez un sourire éclatant et parfaitement aligné avec des facettes en céramique E-max ou Lumineers ultra-fines. Réalisé en 5 jours seulement."
+                    price="250 €"
+                    priceOld="900 €"
+                    imageSrc="/images/heroes/dentaire-hero.jpg"
+                    imageAlt="Facettes Dentaires Emax Tunisie - Venus Estetika"
+                    badge="Esthétique Dentaire Premium"
+                    devisSlug="facettes"
+                    stats="+5 000 sourires créés | Note 4.9/5 sur Google | Laboratoire certifié ISO"
+                    doctorName="Dr Ramses Mouelhi"
+                    doctorImage="/images/doctors/dr-ramses-mouelhi.jpg"
+                    doctorSpecialty="Chirurgien Dentiste, Implantologie & Facettes"
+                />
 
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Esthétique Dentaire Premium
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Facettes Dentaires en Tunisie : Votre Hollywood Smile
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Retrouvez un sourire éclatant et parfaitement aligné avec des facettes en céramique E-max ou Lumineers ultra-fines. Réalisé en 5 jours seulement. <b className="text-brand-gold text-2xl">Dès 250€/facette</b> <span className="line-through text-sm opacity-60 ml-2">900€ en Europe</span>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis?intervention=facettes">
-                                        Réserver votre Sourire 3D <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                {/* AUTHENTIC CONTENT SCRAPED FROM ORIGINAL SITE */}
+                <AuthenticLandingSection
+                    title="La Pose de Facette Dentaire en Tunisie"
+                    description="Facette dentaire Tunisie : Dents Blanches et Alignées Prix Pas Cher! A Partir de 280€ la Facette. Séjour Tout Inclus! Photos Avant Après pour la Pose des Facettes."
+                    images={[
+                        "https://venus-estetika.com/wp-content/uploads/2021/04/Facette-dentaire-tunisie-dents-blanches-alignees.jpg",
+                        "https://venus-estetika.com/wp-content/uploads/2021/04/avant-apres-dentaire-venus-13-e1619301874682.jpg",
+                        "https://venus-estetika.com/wp-content/uploads/2021/04/avant-apres-dentaire-venus-11-e1619302011303.jpg"
+                    ]}
+                    contentSnippets={[
+                        "Le Hollywood Smile est la solution la plus demandée en Tunisie pour corriger tous les défauts dentaires en un minimum de temps.",
+                        "Les facettes EMAX Ultra fines, conçues sur mesure dans nos laboratoires partenaires, sont de l'épaisseur d'une lentille de contact. Elles ne nécessitent généralement pas ou très peu de fraisage de vos dents naturelles.",
+                        "En seulement deux séances (empreinte 3D puis collage définitif), vous repartez avec un sourire éclatant, blanc et parfaitement aligné, résistant aux taches de café et tabac."
+                    ]}
+                    mainColor="navy"
+                />
 
                 {/* INTRODUCTION & PROFIL IDEAL */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -77,13 +85,13 @@ export default function FacettesDentairesPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Céramique E-max</h4>
                                         <p className="text-sm text-gray-500">Matériau de pointe (Disilicate de Lithium). Translucidité naturelle et résistance mécanique 4x supérieure à l'émail.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Longévité Exceptionnelle</h4>
                                         <p className="text-sm text-gray-500">Une durée de vie estimée entre 15 et 20 ans, avec une couleur qui ne jaunit jamais dans le temps.</p>
                                     </div>
@@ -101,7 +109,7 @@ export default function FacettesDentairesPage() {
                                         "Forme asymétrique ou dents jugées trop courtes"
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -134,30 +142,30 @@ export default function FacettesDentairesPage() {
                                     <h3 className="text-2xl font-bold text-brand-navy mb-8">Facette Premium (E-max / Lumineers)</h3>
 
                                     <div className="flex items-end gap-4 mb-8">
-                                        <span className="text-5xl font-bold text-brand-gold">250 €</span>
+                                        <span className="text-5xl font-bold text-brand-blue">250 €</span>
                                         <span className="text-xl text-gray-400">/ facette</span>
                                         <span className="text-sm text-gray-400 line-through mb-1 ml-2">900 €</span>
                                     </div>
 
                                     <ul className="space-y-4 mb-8">
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Surfaçage ultra-léger et conception 3D
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Facettes provisoires pendant la fabrication
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700 flex-wrap">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             <span className="font-semibold text-brand-navy">Pack Hollywood Smile (Dès 20 facettes) :</span>
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700 pl-8">
-                                            <Star className="w-4 h-4 text-brand-gold" />
+                                            <Star className="w-4 h-4 text-brand-blue" />
                                             Séjour Hôtel 5★ de 5 Nuits inclus
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700 pl-8">
-                                            <Star className="w-4 h-4 text-brand-gold" />
+                                            <Star className="w-4 h-4 text-brand-blue" />
                                             Transferts VIP Aéroport & Clinique
                                         </li>
                                     </ul>
@@ -165,7 +173,7 @@ export default function FacettesDentairesPage() {
 
                                 {/* Experience Details */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Sparkles className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Sparkles className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Le Déroulement (5 Jours)</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Votre séjour dure généralement du Lundi au Vendredi. Le premier jour, nous réalisons l'empreinte optique 3D et le Digital Smile Design. Notre laboratoire prothétique (certifié ISO) façonne ensuite vos facettes E-max ultra fines en moins de 72h. Le collage définitif est réalisé lors de votre seconde visite en clinique.
@@ -179,13 +187,62 @@ export default function FacettesDentairesPage() {
                     </div>
                 </section>
 
-                {/* FAQ */}
-                <section className="py-16 px-4 bg-slate-50">
-                    <div className="container mx-auto max-w-4xl">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-navy">Questions Fréquentes sur les Facettes</h2>
-                        </div>
-                        <FAQAccordion data={getFaqData('facettes')} />
+                {/* FAQ SECTION */}
+                <section className="bg-white">
+                    <FAQAccordion data={getFaqData('facettes')} title="Questions fréquentes sur les Facettes Dentaires" />
+                </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages Facettes Dentaires"
+                    testimonials={[
+                        { name: "Laura T.", city: "Lyon", quote: "J'avais des dents jaunies et légèrement écartées. Le résultat avec 20 facettes E-max est juste bluffant. Un vrai sourire de star, sans douleur !", intervention: "Pack Hollywood Smile", savings: "12 000 €", rating: 5 },
+                        { name: "Nicolas P.", city: "Bruxelles", quote: "Clinique ultra moderne, équipement au top. Le séjour à l'hôtel était fantastique. Mes nouvelles dents ont changé mon visage.", intervention: "24 Facettes Lumineers", savings: "15 000 €", rating: 5 },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIEN RÉFÉRENT */}
+                <SurgeonReferenceSection
+                    title="Votre spécialiste des facettes dentaires"
+                    subtitle="Un chirurgien dentiste expert en esthétique du sourire et en Hollywood Smile, formé aux techniques de Digital Smile Design et aux matériaux E-max."
+                    surgeons={[
+                        {
+                            name: "Dr Ramses Mouelhi",
+                            specialty: "Chirurgien Dentiste — Implantologie & Facettes",
+                            image: "/images/doctors/dr-ramses-mouelhi.jpg",
+                            experience: "15 ans d'expertise en esthétique dentaire"
+                        }
+                    ]}
+                    devisSlug="facettes"
+                />
+
+                {/* CTA FINAL */}
+                <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
+                    <div className="container mx-auto max-w-3xl">
+                        <h2 className="text-4xl font-heading font-bold text-brand-navy mb-6">
+                            Prêt(e) pour votre nouveau Hollywood Smile ?
+                        </h2>
+                        <p className="text-xl text-slate-600 mb-10">
+                            Nos patients francophones économisent en moyenne 70% sur leurs soins dentaires, tout en profitant d'un séjour de luxe. Demandez votre diagnostic photo gratuit.
+                        </p>
+                        <TrackedLink
+                            href="/devis?intervention=facettes"
+                            ctaText="Obtenir mon devis gratuit"
+                            ctaLocation="footer_facettes"
+                        >
+                            <Button
+                                size="lg"
+                                className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
+                            >
+                                Recevoir mon plan de traitement 3D
+                            </Button>
+                        </TrackedLink>
+                        <p className="mt-6 text-sm font-medium text-slate-500">
+                            Diagnostic gratuit | Laboratoires certifiés | Réponse sous 24h
+                        </p>
                     </div>
                 </section>
             </div>

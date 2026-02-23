@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Shield, XCircle, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 
 // ---------------------------------------------------------------------------
 // Metadata
@@ -420,7 +422,7 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
         </h3>
         <Link
           href={category.categorySlug}
-          className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-brand-gold hover:underline underline-offset-2 transition-colors"
+          className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline underline-offset-2 transition-colors"
           aria-label={`Découvrir toutes les interventions : ${category.title}`}
         >
           Voir toutes les interventions <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -470,8 +472,8 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
                 key={row.intervention}
                 className={
                   idx % 2 === 0
-                    ? "bg-white hover:bg-brand-gold/5 transition-colors"
-                    : "bg-slate-50 hover:bg-brand-gold/5 transition-colors"
+                    ? "bg-white hover:bg-brand-blue/5 transition-colors"
+                    : "bg-slate-50 hover:bg-brand-blue/5 transition-colors"
                 }
               >
                 {/* Intervention name */}
@@ -481,7 +483,7 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
 
                 {/* Venus price — bold gold */}
                 <td className="px-6 py-4 text-center">
-                  <span className="text-xl font-bold text-brand-gold whitespace-nowrap">
+                  <span className="text-xl font-bold text-brand-blue whitespace-nowrap">
                     {row.venusPrice}
                   </span>
                 </td>
@@ -505,7 +507,7 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
                   {row.slug ? (
                     <Link
                       href={row.slug}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-brand-gold hover:underline underline-offset-2 whitespace-nowrap transition-colors"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-brand-blue hover:underline underline-offset-2 whitespace-nowrap transition-colors"
                       aria-label={`En savoir plus sur ${row.intervention}`}
                     >
                       En savoir plus <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
@@ -513,7 +515,7 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
                   ) : (
                     <Link
                       href={`/devis?intervention=${encodeURIComponent(row.intervention)}`}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-brand-gold hover:underline underline-offset-2 whitespace-nowrap transition-colors"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-brand-blue hover:underline underline-offset-2 whitespace-nowrap transition-colors"
                       aria-label={`Demander un devis pour ${row.intervention}`}
                     >
                       Devis <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -530,7 +532,7 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
       <div className="mt-3 sm:hidden text-right">
         <Link
           href={category.categorySlug}
-          className="inline-flex items-center gap-1 text-sm font-semibold text-brand-gold hover:underline underline-offset-2"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline underline-offset-2"
         >
           Voir toutes les interventions <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
@@ -557,32 +559,28 @@ export default function TarifsPage() {
       {/* ================================================================
           1. HERO SECTION
       ================================================================ */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20 bg-gradient-to-br from-brand-navy via-[#0f172a] to-brand-navy/90">
-        {/* Decorative gold circles */}
-        <div
-          className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-gold/8 pointer-events-none"
-          aria-hidden="true"
+      <section className="relative min-h-[500px] flex items-center overflow-hidden mt-20">
+        <Image
+          src="/images/hero/hero-clinique-venus.jpeg"
+          alt="Clinique Venus Estetika — tarifs chirurgie esthétique Tunisie"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          quality={85}
         />
-        <div
-          className="absolute -bottom-12 -left-12 w-56 h-56 rounded-full bg-brand-gold/5 pointer-events-none"
-          aria-hidden="true"
-        />
-        {/* Gold top-edge line */}
-        <div
-          className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/75 to-brand-navy/50 z-10" />
 
-        <div className="container mx-auto max-w-4xl px-4 relative z-10 text-center">
+        <div className="container mx-auto max-w-4xl px-4 relative z-20 py-20 text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold text-white mb-6">
-            <Shield className="w-4 h-4 text-brand-gold" aria-hidden="true" />
+            <Shield className="w-4 h-4 text-brand-blue" aria-hidden="true" />
             Prix Garantis par Devis
           </div>
 
           <h1 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6">
             Nos tarifs :{" "}
-            <span className="text-brand-gold">
+            <span className="text-brand-blue">
               des prix transparents, tout compris, sans surprise
             </span>
           </h1>
@@ -595,7 +593,7 @@ export default function TarifsPage() {
           <Link href="/devis">
             <Button
               size="lg"
-              className="bg-brand-gold text-white hover:bg-brand-gold/85 text-base font-bold h-13 px-9 rounded-full shadow-xl hover:shadow-2xl transition-all"
+              className="bg-brand-blue text-white hover:bg-brand-blue/85 text-base font-bold h-13 px-9 rounded-full shadow-xl hover:shadow-2xl transition-all"
             >
               Demander un devis personnalisé{" "}
               <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
@@ -641,7 +639,7 @@ export default function TarifsPage() {
               className="text-3xl md:text-4xl font-heading font-black text-brand-navy mb-4"
             >
               Inclus dans{" "}
-              <span className="text-brand-gold">TOUS</span> nos forfaits
+              <span className="text-brand-blue">TOUS</span> nos forfaits
             </h2>
             <p className="text-slate-500 text-base max-w-2xl mx-auto">
               Une seule facture. Zéro surprise à l&apos;arrivée. Voici exactement ce que vous
@@ -664,7 +662,7 @@ export default function TarifsPage() {
                 {includedItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2
-                      className="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5"
+                      className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"
                       aria-hidden="true"
                     />
                     <span className="text-sm text-slate-700 leading-relaxed font-medium">
@@ -720,7 +718,7 @@ export default function TarifsPage() {
                 <Link href="/devis">
                   <Button
                     size="sm"
-                    className="bg-brand-gold hover:bg-brand-gold/85 text-white font-bold rounded-full px-5"
+                    className="bg-brand-blue hover:bg-brand-blue/85 text-white font-bold rounded-full px-5"
                   >
                     Demander mon devis{" "}
                     <ArrowRight className="w-4 h-4 ml-1" aria-hidden="true" />
@@ -817,7 +815,7 @@ export default function TarifsPage() {
                   </th>
                   <th
                     scope="col"
-                    className="px-5 py-4 text-center text-sm font-bold text-brand-gold uppercase tracking-wider"
+                    className="px-5 py-4 text-center text-sm font-bold text-brand-blue uppercase tracking-wider"
                   >
                     Tunisie
                   </th>
@@ -845,16 +843,16 @@ export default function TarifsPage() {
           </div>
 
           {/* Ce qui NE change PAS */}
-          <div className="bg-white rounded-2xl border border-brand-gold/30 shadow-sm p-7 md:p-10">
+          <div className="bg-white rounded-2xl border border-brand-blue/30 shadow-sm p-7 md:p-10">
             <h3 className="text-xl font-heading font-bold text-brand-navy mb-6 flex items-center gap-2">
-              <Shield className="w-5 h-5 text-brand-gold" aria-hidden="true" />
+              <Shield className="w-5 h-5 text-brand-blue" aria-hidden="true" />
               Ce qui NE change PAS
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
               {unchangedItems.map((point) => (
                 <div key={point} className="flex items-start gap-3">
                   <CheckCircle2
-                    className="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5"
+                    className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
                   <span className="text-sm text-slate-700 leading-relaxed">{point}</span>
@@ -866,7 +864,12 @@ export default function TarifsPage() {
       </section>
 
       {/* ================================================================
-          6. FINAL CTA
+          6. GUARANTEE SECTION
+      ================================================================ */}
+      <GuaranteeSection />
+
+      {/* ================================================================
+          7. FINAL CTA
       ================================================================ */}
       <section
         className="bg-brand-navy py-16 md:py-24 px-4 text-center relative overflow-hidden"
@@ -879,16 +882,16 @@ export default function TarifsPage() {
         />
         {/* Gold divider line */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent pointer-events-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent pointer-events-none"
           aria-hidden="true"
         />
         {/* Decorative circles */}
         <div
-          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-brand-gold/8 pointer-events-none"
+          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-brand-blue/8 pointer-events-none"
           aria-hidden="true"
         />
         <div
-          className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-brand-gold/5 pointer-events-none"
+          className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-brand-blue/5 pointer-events-none"
           aria-hidden="true"
         />
 
@@ -898,7 +901,7 @@ export default function TarifsPage() {
             className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6"
           >
             Recevez votre devis personnalisé{" "}
-            <span className="text-brand-gold">sous 24h</span>
+            <span className="text-brand-blue">sous 24h</span>
           </h2>
 
           <p className="text-lg text-white/75 mb-4 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -915,7 +918,7 @@ export default function TarifsPage() {
             <Link href="/devis">
               <Button
                 size="lg"
-                className="bg-brand-gold text-white hover:bg-brand-gold/85 text-base font-bold h-14 px-10 rounded-full w-full sm:w-auto shadow-xl hover:shadow-2xl transition-all"
+                className="bg-brand-blue text-white hover:bg-brand-blue/85 text-base font-bold h-14 px-10 rounded-full w-full sm:w-auto shadow-xl hover:shadow-2xl transition-all"
               >
                 Demander mon devis gratuit{" "}
                 <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />

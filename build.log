@@ -2,34 +2,5 @@
 > 03_website_app@0.1.0 build
 > next build
 
-▲ Next.js 16.1.6 (Turbopack)
-
-  Creating an optimized production build ...
-✓ Compiled successfully in 33.2s
-  Running TypeScript ...
-  Collecting page data using 31 workers ...
-The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
-  Generating static pages using 31 workers (0/16) ...
-The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
-  Generating static pages using 31 workers (4/16) 
-Error occurred prerendering page "/chirurgiens". Read more: https://nextjs.org/docs/messages/prerender-error
-Error: Dataset not found - Dataset "production" not found for project ID "1xy2z3v"
-    at onResponse (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:10:919)
-    at f (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:10:1382)
-    at <unknown> (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:10:1581)
-    at <unknown> (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:10:1690)
-    at <unknown> (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:2:1405)
-    at g.onreadystatechange (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:2:1608)
-    at <unknown> (C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\server\chunks\ssr\_2b2d73f7._.js:2:237) {
-  response: [Object],
-  statusCode: 404,
-  responseBody: '{\n' +
-    '  "statusCode": 404,\n' +
-    '  "error": "Dataset not found",\n' +
-    '  "message": "Dataset \\"production\\" not found for project ID \\"1xy2z3v\\""\n' +
-    '}',
-  details: undefined,
-  digest: '1077610695'
-}
-Export encountered an error on /chirurgiens/page: /chirurgiens, exiting the build.
-⨯ Next.js build worker exited with code: 1 and signal: null
+⨯ Unable to acquire lock at C:\Users\majdi\Dropbox (Personal)\Projets\venus-estetika-project\03_website_app\.next\lock, is another instance of next build running?
+  Suggestion: If you intended to restart next build, terminate the other process, and then try again.

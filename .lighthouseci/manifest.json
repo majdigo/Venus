@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://localhost:3000/",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\majdi\\Dropbox (Personal)\\Projets\\venus-estetika-project\\03_website_app\\.lighthouseci\\localhost--2026_02_22_04_02_58.report.html",
+    "jsonPath": "C:\\Users\\majdi\\Dropbox (Personal)\\Projets\\venus-estetika-project\\03_website_app\\.lighthouseci\\localhost--2026_02_22_04_02_58.report.json",
+    "summary": {
+      "performance": 0.76,
+      "accessibility": 0.94,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:3000/interventions/bariatrique/sleeve-gastrique",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\majdi\\Dropbox (Personal)\\Projets\\venus-estetika-project\\03_website_app\\.lighthouseci\\localhost-interventions_bariatrique_sleeve_gastrique-2026_02_22_04_03_15.report.html",
+    "jsonPath": "C:\\Users\\majdi\\Dropbox (Personal)\\Projets\\venus-estetika-project\\03_website_app\\.lighthouseci\\localhost-interventions_bariatrique_sleeve_gastrique-2026_02_22_04_03_15.report.json",
+    "summary": {
+      "performance": 0.74,
+      "accessibility": 0.92,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:3000/devis",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\majdi\\Dropbox (Personal)\\Projets\\venus-estetika-project\\03_website_app\\.lighthouseci\\localhost-devis-2026_02_22_04_03_29.report.html",
+    "jsonPath": "C:\\Users\\majdi\\Dropbox (Personal)\\Projets\\venus-estetika-project\\03_website_app\\.lighthouseci\\localhost-devis-2026_02_22_04_03_29.report.json",
+    "summary": {
+      "performance": 0.85,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  }
+]

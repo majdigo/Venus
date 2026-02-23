@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Shield, Building2, Car, HeartPulse, CheckCircle2 } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
+import { MedicalEquipmentShowcase } from "@/components/ui/MedicalEquipmentShowcase";
 
 export const metadata = {
     title: "Cliniques Partenaires & Hôtels 5★ | Le Luxe Médical Venus Estetika",
@@ -15,7 +16,7 @@ export default function CliniquesPartenairesPage() {
             <section className="relative pt-32 pb-20 px-4 bg-brand-navy overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop"
+                        src="/images/heroes/medecine-esthetique-hero.jpg"
                         alt="Clinique de luxe"
                         fill
                         className="object-cover opacity-20"
@@ -25,18 +26,18 @@ export default function CliniquesPartenairesPage() {
 
                 <div className="container mx-auto max-w-5xl relative z-10 text-center text-white">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 font-semibold text-sm mb-6">
-                        <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
+                        <Star className="w-4 h-4 text-brand-blue fill-brand-blue" />
                         L'Excellence Hôtelière & Médicale
                     </div>
                     <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight leading-tight">
-                        Vos Infrastructures <span className="text-brand-gold">VIP</span> en Tunisie
+                        Vos Infrastructures <span className="text-brand-blue">VIP</span> en Tunisie
                     </h1>
                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
                         Chez Venus Estetika, nous considérons que votre confort psychologique est aussi important que la rigueur chirurgicale. C'est pourquoi nous ne collaborons qu'avec des établissements accrédités à l'international et des hôtels 5 étoiles.
                     </p>
                     <div className="flex justify-center flex-wrap gap-6 text-sm font-medium">
-                        <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-brand-gold" /> Certification ISO 9001</div>
-                        <div className="flex items-center gap-2"><Building2 className="w-5 h-5 text-brand-gold" /> Cliniques JCI (Joint Commission International)</div>
+                        <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-brand-blue" /> Certification ISO 9001</div>
+                        <div className="flex items-center gap-2"><Building2 className="w-5 h-5 text-brand-blue" /> Cliniques JCI (Joint Commission International)</div>
                     </div>
                 </div>
             </section>
@@ -47,21 +48,21 @@ export default function CliniquesPartenairesPage() {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                             <Image
-                                src="https://images.unsplash.com/photo-1538108149393-cebb47acddb2?q=80&w=2069&auto=format&fit=crop"
+                                src="/images/heroes/chirurgie-visage-hero.jpg"
                                 alt="Bloc Opératoire Ultra-Moderne"
                                 fill
                                 className="object-cover"
                             />
                             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg">
                                 <h4 className="font-bold text-brand-navy flex items-center gap-2 mb-2">
-                                    <HeartPulse className="text-brand-gold" /> Technologie de Pointe
+                                    <HeartPulse className="text-brand-blue" /> Technologie de Pointe
                                 </h4>
                                 <p className="text-sm text-gray-600">Blocs équipés des derniers standards européens (Flux laminaire, scopie 3D).</p>
                             </div>
                         </div>
 
                         <div>
-                            <span className="text-brand-gold font-bold tracking-wider uppercase text-sm mb-2 block">L'Hôpital V.I.P</span>
+                            <span className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">L'Hôpital V.I.P</span>
                             <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-navy mb-6">
                                 Des Cliniques à la Pointe de la Technologie
                             </h2>
@@ -77,7 +78,7 @@ export default function CliniquesPartenairesPage() {
                                     "Stérilisation centrale de dernière génération"
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-3 text-gray-700">
-                                        <CheckCircle2 className="w-6 h-6 text-brand-gold shrink-0 mt-0.5" />
+                                        <CheckCircle2 className="w-6 h-6 text-brand-blue shrink-0 mt-0.5" />
                                         <span className="text-lg">{item}</span>
                                     </li>
                                 ))}
@@ -87,6 +88,9 @@ export default function CliniquesPartenairesPage() {
                 </div>
             </section>
 
+            {/* MEDICAL EQUIPMENT SHOWCASE */}
+            <MedicalEquipmentShowcase />
+
             {/* SECTIONS: HOTEL & CONCIERGERIE */}
             <section className="py-24 px-4 bg-slate-50 border-y border-gray-100">
                 <div className="container mx-auto max-w-6xl">
@@ -94,16 +98,16 @@ export default function CliniquesPartenairesPage() {
 
                         <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                             <Image
-                                src="https://images.unsplash.com/photo-1542314831-c6a4d14d23dd?q=80&w=2070&auto=format&fit=crop"
+                                src="/images/heroes/chirurgie-silhouette-hero.jpg"
                                 alt="Hôtel 5 Étoiles Convalescence"
                                 fill
                                 className="object-cover"
                             />
-                            <div className="absolute -left-6 -bottom-6 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl" />
+                            <div className="absolute -left-6 -bottom-6 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl" />
                         </div>
 
                         <div>
-                            <span className="text-brand-gold font-bold tracking-wider uppercase text-sm mb-2 block">La Convalescence</span>
+                            <span className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">La Convalescence</span>
                             <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-navy mb-6">
                                 Le Confort d'un Palace 5 Étoiles
                             </h2>
@@ -116,12 +120,12 @@ export default function CliniquesPartenairesPage() {
 
                             <div className="grid sm:grid-cols-2 gap-6">
                                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                                    <Star className="w-8 h-8 text-brand-gold mb-4" />
+                                    <Star className="w-8 h-8 text-brand-blue mb-4" />
                                     <h4 className="font-bold text-brand-navy mb-2">Pension Complète</h4>
                                     <p className="text-sm text-gray-500">Repas sains et adaptés à votre régime post-opératoire préparés par des chefs étoilés.</p>
                                 </div>
                                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                                    <Car className="w-8 h-8 text-brand-gold mb-4" />
+                                    <Car className="w-8 h-8 text-brand-blue mb-4" />
                                     <h4 className="font-bold text-brand-navy mb-2">Chauffeur Privé</h4>
                                     <p className="text-sm text-gray-500">Transferts assurés entre l'aéroport, la clinique et l'hôtel dans des véhicules haut de gamme.</p>
                                 </div>
@@ -139,7 +143,7 @@ export default function CliniquesPartenairesPage() {
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                         Tous nos forfaits incluent la clinique, l'hôtel 5★ et la conciergerie privée pour que vous n'ayez qu'à vous soucier de votre nouvelle apparence.
                     </p>
-                    <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8 h-14 rounded-xl shadow-lg shadow-brand-gold/20">
+                    <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-8 h-14 rounded-xl shadow-lg shadow-brand-blue/20">
                         <Link href="/devis">
                             Demander un devis sur-mesure <ArrowRight className="ml-2 w-5 h-5" />
                         </Link>

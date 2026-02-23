@@ -1076,5 +1076,495 @@ export function getFaqData(slug: string) {
             ]
         };
     }
+    if (slug === 'rhinoplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/rhinoplastie#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'une rhinoplastie en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'une rhinoplastie en Tunisie chez Venus Estetika est de 2 500€ tout compris : chirurgie, anesthésie, clinique 1 nuit, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 5 000€ et 8 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de récupération après une rhinoplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Après une rhinoplastie, un plâtre nasal est porté pendant 7 jours. Les ecchymoses et l'œdème diminuent progressivement sur 2 à 3 semaines. Le résultat définitif est apprécié à 12 mois, lorsque l'œdème résiduel est entièrement résorbé et que les tissus ont pris leur forme finale."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels sont les risques d'une rhinoplastie en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Comme toute chirurgie, la rhinoplastie comporte des risques : œdème, ecchymoses, asymétrie, difficulté respiratoire temporaire, insatisfaction esthétique nécessitant une retouche. Chez Venus Estetika, nos chirurgiens plasticiens diplômés en France minimisent ces risques grâce à une planification précise et une technique maîtrisée. Le taux de retouche est inférieur à 5%."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la différence entre rhinoplastie ouverte et fermée ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La rhinoplastie fermée (endonasale) est réalisée par des incisions internes, sans cicatrice visible. La rhinoplastie ouverte comporte une petite incision sur la columelle (entre les narines) pour un accès direct aux structures nasales. Le choix dépend de la complexité de la correction. Votre chirurgien détermine la technique la plus adaptée lors de la consultation préopératoire."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on améliorer la respiration en même temps qu'une rhinoplastie esthétique ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, il est tout à fait possible de corriger une déviation de la cloison nasale ou une hypertrophie des cornets pendant la rhinoplastie esthétique. Cette intervention combinée (rhinoseptoplastie) permet d'améliorer à la fois l'apparence du nez et la fonction respiratoire en une seule opération."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'blepharoplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/blepharoplastie#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'une blépharoplastie en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'une blépharoplastie en Tunisie chez Venus Estetika est de 1 800€ tout compris : chirurgie, anesthésie, clinique, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 3 000€ et 5 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la différence entre blépharoplastie supérieure et inférieure ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La blépharoplastie supérieure corrige l'excès de peau et de graisse sur les paupières supérieures qui alourdit le regard. La blépharoplastie inférieure traite les poches sous les yeux et le relâchement cutané de la paupière inférieure. Les deux interventions peuvent être réalisées simultanément lors d'une même opération (blépharoplastie complète)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Les cicatrices sont-elles visibles après une blépharoplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Non, les cicatrices d'une blépharoplastie sont quasiment invisibles. Pour la paupière supérieure, l'incision est dissimulée dans le pli naturel de la paupière. Pour la paupière inférieure, l'incision est réalisée juste sous les cils ou par voie transconjonctivale (à l'intérieur de la paupière), ne laissant aucune cicatrice externe."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de récupération après une blépharoplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La récupération après une blépharoplastie est rapide : les œdèmes et ecchymoses sont maximaux à J2-J3 puis diminuent rapidement. Les fils sont retirés entre J5 et J7. L'éviction sociale est de 7 à 10 jours. Le maquillage peut être repris après 10 jours. Le résultat définitif est apprécié à 3 mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on combiner une blépharoplastie avec un lifting du visage ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, la blépharoplastie se combine très fréquemment avec un lifting cervico-facial pour un rajeunissement complet du visage. Cette association permet de traiter simultanément le regard et l'ovale du visage en une seule intervention et une seule convalescence. Venus Estetika propose des packages combinés avantageux pour ces chirurgies associées."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'lifting-cervico-facial') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/lifting-cervico-facial#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'un lifting cervico-facial en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'un lifting cervico-facial en Tunisie chez Venus Estetika est de 3 500€ tout compris : chirurgie, anesthésie, clinique 1 à 2 nuits, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 7 000€ et 12 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien de temps dure le résultat d'un lifting cervico-facial ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le résultat d'un lifting cervico-facial dure en moyenne 8 à 12 ans. Le vieillissement naturel reprend progressivement après l'intervention, mais le visage conserve un aspect plus jeune que si le lifting n'avait pas été réalisé. L'hygiène de vie (protection solaire, non-tabagisme) influence la longévité du résultat."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quel est l'âge idéal pour un lifting cervico-facial ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'âge idéal pour un lifting cervico-facial se situe entre 45 et 65 ans, lorsque le relâchement cutané est suffisamment marqué pour justifier l'intervention tout en conservant une bonne élasticité résiduelle de la peau. Cependant, chaque cas est unique et l'indication dépend davantage de l'état des tissus que de l'âge chronologique."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Où se trouvent les cicatrices après un lifting cervico-facial ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Les cicatrices d'un lifting cervico-facial sont soigneusement dissimulées : elles suivent le contour de l'oreille, se prolongent derrière le lobe et dans le cuir chevelu. Elles deviennent pratiquement invisibles après quelques mois. Les cheveux les masquent naturellement, même avec les cheveux relevés."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de convalescence après un lifting cervico-facial ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La convalescence après un lifting cervico-facial est de 2 à 3 semaines. Les œdèmes et ecchymoses sont maximaux à J3-J5 puis se résorbent progressivement. Le bandage compressif est porté pendant 48 à 72 heures. L'éviction sociale recommandée est de 2 à 3 semaines. La reprise du sport est possible après 4 à 6 semaines."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'otoplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/otoplastie#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'une otoplastie en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'une otoplastie en Tunisie chez Venus Estetika est de 1 500€ tout compris : chirurgie, anesthésie, clinique, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 2 500€ et 4 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "À partir de quel âge peut-on réaliser une otoplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'otoplastie peut être réalisée à partir de 7 ans, âge auquel le cartilage auriculaire a atteint sa taille quasi définitive. Chez l'enfant, l'intervention est motivée par l'impact psychologique des oreilles décollées (moqueries scolaires). Chez l'adulte, il n'y a pas de limite d'âge supérieure."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien de temps doit-on porter le bandage après une otoplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Après une otoplastie, un bandage compressif est porté en continu pendant 7 jours, puis un bandeau de contention est porté la nuit pendant 15 jours supplémentaires pour protéger les oreilles pendant le sommeil. Ce bandage est essentiel pour maintenir la nouvelle position des oreilles et garantir un résultat optimal."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le résultat d'une otoplastie est-il définitif ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, le résultat d'une otoplastie est définitif. Le cartilage remodelé conserve sa nouvelle forme de manière permanente. Les oreilles gardent un aspect naturel et proportionné. Le résultat final est apprécié dès la fin du premier mois, une fois l'œdème post-opératoire résorbé."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'otoplastie se fait-elle sous anesthésie locale ou générale ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'otoplastie peut être réalisée sous anesthésie locale avec sédation chez l'adulte (plus confortable) ou sous anesthésie générale, notamment chez l'enfant. Le choix est discuté avec le chirurgien et l'anesthésiste lors de la consultation préopératoire en fonction de l'âge du patient et de ses préférences."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'lipofilling-visage') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/lipofilling-visage#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'un lipofilling du visage en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'un lipofilling du visage en Tunisie chez Venus Estetika est de 2 000€ tout compris : lipoaspiration, purification et réinjection de graisse, anesthésie, clinique, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 3 500€ et 5 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Pourquoi utiliser sa propre graisse plutôt que de l'acide hyaluronique ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le lipofilling utilise votre propre graisse (graisse autologue), ce qui élimine tout risque de réaction allergique ou de rejet. Le résultat est plus naturel et plus durable qu'avec l'acide hyaluronique. De plus, la graisse réinjectée apporte des cellules souches qui améliorent la qualité de la peau (effet régénérant)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelles zones du visage peut-on traiter par lipofilling ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le lipofilling du visage permet de traiter de nombreuses zones : les cernes creux (vallée des larmes), les pommettes (restauration du volume), les tempes creuses, les sillons nasogéniens, les lèvres, le menton et l'ovale du visage. Le chirurgien définit un plan d'injection personnalisé lors de la consultation pour un résultat harmonieux."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de récupération après un lipofilling du visage ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La récupération après un lipofilling du visage est rapide : un œdème et des ecchymoses modérés apparaissent pendant 5 à 10 jours. L'éviction sociale recommandée est de 7 à 10 jours. Les ecchymoses peuvent être masquées par du maquillage dès J7. Le résultat définitif est visible à 3 mois, une fois la graisse stabilisée."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le lipofilling du visage est-il permanent ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le lipofilling du visage est semi-permanent. Environ 60 à 70% de la graisse réinjectée s'intègre définitivement dans les tissus. Les 30 à 40% restants sont résorbés naturellement dans les 3 premiers mois. Le chirurgien anticipe cette résorption en injectant un volume légèrement supérieur. Le résultat obtenu à 3-6 mois est stable sur plusieurs années."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'genioplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/genioplastie#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'une génioplastie en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'une génioplastie en Tunisie chez Venus Estetika est de 2 200€ tout compris : chirurgie, anesthésie, clinique 1 nuit, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 4 000€ et 6 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la différence entre un implant mentonnier et une ostéotomie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'implant mentonnier (prothèse en silicone) est posé par voie intra-buccale pour augmenter la projection du menton. L'ostéotomie consiste à sectionner l'os du menton et à le repositionner (avancement, recul ou recentrage). L'ostéotomie est plus polyvalente car elle permet de modifier le menton dans les trois dimensions, tandis que l'implant est réservé aux augmentations simples."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Où se situe la cicatrice après une génioplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La cicatrice d'une génioplastie est entièrement dissimulée à l'intérieur de la bouche (voie intra-orale), au niveau du sillon entre la lèvre inférieure et la gencive. Il n'y a donc aucune cicatrice visible sur le visage. Les fils résorbables se dissolvent naturellement en 2 à 3 semaines."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de récupération après une génioplastie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La récupération après une génioplastie est de 1 à 2 semaines. Un œdème du menton et de la lèvre inférieure est normal les premiers jours. Une alimentation molle est recommandée pendant 10 jours. Le résultat définitif est apprécié à 2-3 mois, une fois l'œdème entièrement résorbé."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on combiner une génioplastie avec une rhinoplastie (profiloplastie) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, la combinaison génioplastie + rhinoplastie est appelée profiloplastie. C'est l'une des associations les plus demandées car elle permet d'harmoniser l'ensemble du profil facial en une seule intervention. Venus Estetika propose un tarif préférentiel pour cette chirurgie combinée, avec une seule convalescence et un résultat facial global très harmonieux."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'augmentation-mammaire') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'une augmentation mammaire en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'une augmentation mammaire en Tunisie chez Venus Estetika est de 2 800€ tout compris : prothèses en silicone de marque certifiée, chirurgie, anesthésie, clinique 1 nuit, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 5 000€ et 8 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels types d'implants mammaires sont utilisés ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Venus Estetika utilise exclusivement des implants en silicone cohésif de marques certifiées CE. Deux formes sont disponibles : les implants ronds (effet push-up, décolleté bombé) et les implants anatomiques (forme en goutte d'eau, résultat plus naturel). Le choix de la forme, du volume et du profil est déterminé avec votre chirurgien lors de la consultation en fonction de votre morphologie et de vos souhaits."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien de temps durent les implants mammaires ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Les implants mammaires de dernière génération ont une durée de vie moyenne de 10 à 15 ans. Ils ne sont pas à vie et un remplacement peut être nécessaire. Cependant, en l'absence de complication (coque, rupture), de nombreuses patientes conservent leurs prothèses bien au-delà de 15 ans. Un suivi échographique régulier est recommandé."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Où se situe la cicatrice après une augmentation mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La voie d'abord la plus courante est le sillon sous-mammaire (incision de 4-5 cm dans le pli naturel sous le sein), très discrète une fois cicatrisée. D'autres voies sont possibles : péri-aréolaire (autour de l'aréole) ou axillaire (dans le creux de l'aisselle). Votre chirurgien vous recommandera la voie la plus adaptée à votre anatomie."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on allaiter après une augmentation mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, l'allaitement est possible après une augmentation mammaire dans la grande majorité des cas. La glande mammaire n'est pas altérée par la pose de prothèses, surtout avec la voie sous-mammaire et le positionnement rétro-musculaire (derrière le muscle). Votre chirurgien vous informera en détail lors de la consultation préopératoire."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'reduction-mammaire') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/reduction-mammaire#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'une réduction mammaire en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'une réduction mammaire en Tunisie chez Venus Estetika est de 2 800€ tout compris : chirurgie, anesthésie, clinique 1 à 2 nuits, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, bien que partiellement prise en charge par la Sécurité sociale (à partir de 300g par sein), le reste à charge est souvent supérieur au tarif tout compris en Tunisie."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "La réduction mammaire est-elle prise en charge par la Sécurité sociale ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En France, la réduction mammaire est prise en charge par la Sécurité sociale à partir de 300g de tissu retiré par sein. Cependant, les dépassements d'honoraires et les frais annexes restent élevés. En Tunisie, l'intervention n'est pas remboursable mais le tarif tout compris de 2 800€ chez Venus Estetika est souvent inférieur au reste à charge en France, avec un séjour hôtel 5★ inclus."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de récupération après une réduction mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La convalescence après une réduction mammaire est de 2 à 3 semaines. Le soutien-gorge médical est porté jour et nuit pendant 4 à 6 semaines. Les fils résorbables se dissolvent naturellement. La reprise du travail est possible après 2 semaines (travail de bureau). Le sport est repris progressivement après 6 semaines. Le résultat définitif est apprécié à 6 mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels types de cicatrices laisse une réduction mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La réduction mammaire laisse des cicatrices dont la forme dépend du volume à retirer. La technique en T inversé (ancre) est la plus courante pour les hypertrophies importantes, avec une cicatrice autour de l'aréole, verticale et dans le sillon sous-mammaire. Pour les réductions plus modérées, la technique verticale (cicatrice autour de l'aréole et verticale uniquement) est privilégiée. Les cicatrices s'estompent progressivement sur 12 à 18 mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on allaiter après une réduction mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'allaitement après une réduction mammaire est possible mais pas garanti. La capacité d'allaitement dépend de la technique utilisée et du volume de tissu retiré. Les techniques modernes préservent au maximum le pédicule de l'aréole et les canaux galactophores. Votre chirurgien discutera de cet aspect si vous envisagez une grossesse future."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'lifting-seins') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/lifting-seins#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'un lifting des seins en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'un lifting des seins (mastopexie) en Tunisie chez Venus Estetika est de 2 500€ tout compris : chirurgie, anesthésie, clinique 1 nuit, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 4 500€ et 7 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on réaliser un lifting des seins avec ou sans implants ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, le lifting des seins peut être réalisé seul (mastopexie simple) pour remonter et remodeler les seins sans changer le volume. Il peut également être associé à la pose d'implants (mastopexie avec augmentation) si vous souhaitez remonter et augmenter le volume de votre poitrine. Votre chirurgien vous orientera lors de la consultation selon vos souhaits et votre morphologie."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels types de cicatrices laisse un lifting des seins ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Les cicatrices d'un lifting des seins dépendent du degré de ptose. Pour une ptose légère, une cicatrice péri-aréolaire (autour de l'aréole uniquement) suffit. Pour une ptose modérée à importante, une cicatrice verticale (autour de l'aréole + ligne verticale jusqu'au sillon) ou en T inversé est nécessaire. Les cicatrices s'estompent progressivement sur 12 à 18 mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la durée de récupération après un lifting des seins ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La convalescence après un lifting des seins est d'environ 2 semaines. Le soutien-gorge médical est porté jour et nuit pendant 4 à 6 semaines. Les douleurs sont modérées et bien contrôlées par les antalgiques. La reprise du sport est possible après 6 semaines. Le résultat définitif est apprécié à 3-6 mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien de temps dure le résultat d'un lifting des seins ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le résultat d'un lifting des seins est durable mais pas permanent. La gravité, le vieillissement cutané et les variations de poids continuent d'agir sur les tissus. En moyenne, le résultat est optimal pendant 8 à 10 ans. Pour prolonger le résultat, il est recommandé de maintenir un poids stable, de porter un soutien-gorge adapté et d'éviter les variations pondérales importantes."
+                    }
+                }
+            ]
+        };
+    }
+    if (slug === 'lipofilling-mammaire') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/lipofilling-mammaire#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le prix d'un lipofilling mammaire en Tunisie ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le prix d'un lipofilling mammaire en Tunisie chez Venus Estetika est de 2 800€ tout compris : lipoaspiration, purification et réinjection de graisse dans les seins, anesthésie, clinique 1 nuit, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport et suivi post-opératoire 12 mois. En France, la même intervention coûte entre 4 500€ et 7 000€."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quel gain de volume peut-on espérer avec un lipofilling mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le lipofilling mammaire permet un gain de volume d'environ 1 bonnet (1 cup) par séance. Pour un résultat plus important, une deuxième séance peut être envisagée après 6 mois. Cette technique est idéale pour les femmes souhaitant une augmentation modérée et naturelle, sans prothèse."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le résultat du lipofilling mammaire est-il naturel ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, le lipofilling mammaire offre le résultat le plus naturel de toutes les techniques d'augmentation mammaire. La graisse réinjectée se comporte exactement comme le tissu mammaire naturel au toucher et en mouvement. Il n'y a pas de prothèse palpable, pas de risque de coque, et le résultat évolue naturellement avec les variations de poids."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quel pourcentage de graisse survit après un lipofilling mammaire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En moyenne, 60 à 70% de la graisse réinjectée dans les seins survit et s'intègre définitivement. Les 30 à 40% restants sont résorbés naturellement par l'organisme dans les 3 à 6 premiers mois. Le chirurgien anticipe cette résorption dans le volume initial injecté. Le résultat stabilisé à 6 mois est permanent."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on combiner un lipofilling mammaire avec un lifting des seins ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, la combinaison lipofilling mammaire + lifting des seins (mastopexie) est une association fréquente et très harmonieuse. Le lifting remonte et remodèle le sein tandis que le lipofilling apporte un complément de volume naturel. Cette combinaison est particulièrement adaptée aux femmes ayant des seins ptosés et légèrement dégonflés après une grossesse ou une perte de poids."
+                    }
+                }
+            ]
+        };
+    }
     return {};
 }

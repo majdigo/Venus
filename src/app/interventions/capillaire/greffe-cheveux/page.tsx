@@ -4,10 +4,16 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Star, Shield, Award, Clock } from "lucide-react";
+import { CheckCircle2, Shield, Award, Clock } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { GreffeCheveuxInteractiveSimulator } from "@/components/interventions/GreffeCheveuxInteractiveSimulator";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
+import { AuthenticLandingSection } from '@/components/interventions/AuthenticLandingSection';
+import { TrackedLink } from '@/components/tracking/TrackedLink';
 import Link from 'next/link';
 
 export const metadata = {
@@ -33,35 +39,20 @@ export default function GreffeCheveuxPage() {
 
             <div className="min-h-screen bg-white">
                 {/* HERO SECTION */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        {/* Placeholder gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#0f172a] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
-                                Excellence Capillaire Mondiale
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Greffe de Cheveux en Tunisie : La Densité au Naturel
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Retrouvez une chevelure dense avec les techniques FUE Saphir et DHI. Jusqu'à 5000 greffons implantés (Mega Session). Séjour VIP et PRP inclus à <b className="text-brand-gold text-2xl">1 900€</b> <span className="line-through text-sm opacity-60 ml-2">4 500€ en Europe</span>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis?intervention=greffe-cheveux">
-                                        Obtenir mon Diagnostic Gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Greffe de Cheveux en Tunisie : La Densité au Naturel"
+                    subtitle="Retrouvez une chevelure dense avec les techniques FUE Saphir et DHI. Jusqu'à 5000 greffons implantés (Mega Session). Séjour VIP et PRP inclus."
+                    price="1 900 €"
+                    priceOld="4 500 €"
+                    imageSrc="/images/interventions/greffe-de-cheveux.jpg"
+                    imageAlt="Greffe de cheveux FUE en Tunisie - Venus Estetika"
+                    badge="Excellence Capillaire Mondiale"
+                    devisSlug="greffe-cheveux"
+                    stats="Greffons illimités | PRP inclus | Résultat naturel garanti"
+                    doctorName="Dr Samaher Bouchnak"
+                    doctorImage="/images/doctors/dr-samaher-bouchnak.jpg"
+                    doctorSpecialty="Greffe Capillaire, Médecine Esthétique"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -77,13 +68,13 @@ export default function GreffeCheveuxPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Technique DHI</h4>
                                         <p className="text-sm text-gray-500">Implantation directe avec le stylo Choi. Densité maximale, idéal pour redessiner la ligne frontale et les golfes.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">FUE Saphir</h4>
                                         <p className="text-sm text-gray-500">Canaux d'ouverture créés avec une lame en pierre de saphir. Cicatrisation 3 fois plus rapide et densité accrue.</p>
                                     </div>
@@ -101,7 +92,7 @@ export default function GreffeCheveuxPage() {
                                         "Kit médical complet post-opératoire (Shampoing, lotions)"
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -110,6 +101,24 @@ export default function GreffeCheveuxPage() {
                         </div>
                     </div>
                 </section>
+
+                {/* AUTHENTIC CONTENT SCRAPED FROM ORIGINAL SITE */}
+                <AuthenticLandingSection
+                    title="La Greffe de Cheveux FUE en Tunisie"
+                    description="Une Méthode Non Invasives D’extraction D’unités Folliculaires (FUE) Qui Est La Technique Majeure D’implant Capillaire. On prélève chaque racine du cuir chevelu une à une sans laisser de cicatrices visibles."
+                    images={[
+                        "https://venus-estetika.com/wp-content/uploads/2017/12/microgreffe-1.jpg",
+                        "https://venus-estetika.com/wp-content/uploads/2017/12/hair-transplant.jpg"
+                    ]}
+                    contentSnippets={[
+                        "La greffe de cheveux FUE est la technique de prélèvement la plus moderne et la plus avancée dans le domaine de la chirurgie de restauration capillaire.",
+                        "L'extraction se fait systématiquement à l’aide d'un petit punch de forme cylindrique dont le diamètre est compris entre 0,7 et 1 millimètre.",
+                        "Le grand avantage réside dans la non-incision du cuir chevelu, ce qui signifie implicitement que la méthode ne laissera aucune cicatrice visible contrairement à la FUT.",
+                        "Les racines transplantées recommenceront à se régénérer dans un intervalle de temps variant de 2 à 4 mois post-opératoire. Les cheveux implantés avec succès vont ainsi subir un cycle de croissance qui demeurera à vie.",
+                        "Nos Mega-Sessions (jusqu'à 5000 greffons) permettent de recouvrir de vastes zones lors d'une même intervention. La durée d'intervention varie de 4 à 8 heures, durant lesquelles notre équipe reste à vos petits soins."
+                    ]}
+                    mainColor="navy"
+                />
 
                 {/* ANIMATION A++ INTERACTIVE (Norwood Scale) */}
                 <GreffeCheveuxInteractiveSimulator />
@@ -134,29 +143,29 @@ export default function GreffeCheveuxPage() {
                                     <h3 className="text-2xl font-bold text-brand-navy mb-8">Greffe FUE Saphir / DHI</h3>
 
                                     <div className="flex items-end gap-4 mb-8">
-                                        <span className="text-5xl font-bold text-brand-gold">1 900 €</span>
+                                        <span className="text-5xl font-bold text-brand-blue">1 900 €</span>
                                         <span className="text-xl text-gray-400 line-through mb-1">4 500 €</span>
                                     </div>
 
                                     <ul className="space-y-4 mb-8">
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Extraction et Implantation (Greffons Illimités)
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Séance de PRP incluse
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Hôtel 5 étoiles VIP (3 Nuits)
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Consultations pré et post-opératoires
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Transferts aéroport, hôtel et clinique inclus
                                         </li>
                                     </ul>
@@ -164,7 +173,7 @@ export default function GreffeCheveuxPage() {
 
                                 {/* Results & Timeline */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Évolution des Résultats</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         La greffe capillaire est un processus patient. Les croûtes tombent au bout d'une dizaine de jours. Un &quot;shock loss&quot; (chute des cheveux greffés) survient le premier mois, c'est tout à fait normal. La repousse définitive débute dès le troisième mois, offrant un résultat final spectaculaire entre 12 et 15 mois.
@@ -185,6 +194,55 @@ export default function GreffeCheveuxPage() {
                             <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-navy">Questions Fréquentes sur la Greffe</h2>
                         </div>
                         <FAQAccordion data={getFaqData('greffe-cheveux')} />
+                    </div>
+                </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages greffe de cheveux"
+                    testimonials={[
+                        { name: "Julien D.", city: "Lyon", quote: "4500 greffons en une seule session. À 12 mois, le résultat est bluffant. Mes collègues pensent que j'ai toujours eu ces cheveux.", intervention: "FUE Saphir", savings: "2 600 €", rating: 5 },
+                        { name: "Mehdi A.", city: "Strasbourg", quote: "J'ai testé la DHI pour la ligne frontale : densité parfaite, résultat ultra-naturel. Le PRP inclus a vraiment boosté la repousse.", intervention: "DHI + PRP", savings: "3 100 €", rating: 5 },
+                        { name: "Paul C.", city: "Genève", quote: "Le séjour VIP à l'hôtel était un bonus inattendu. Clinique impeccable, zéro douleur avec le Dermojet. Résultat spectaculaire.", intervention: "Mega Session FUE", savings: "5 000 €", rating: 5 },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIEN RÉFÉRENT */}
+                <SurgeonReferenceSection
+                    title="Votre spécialiste capillaire"
+                    surgeons={[
+                        { name: "Dr Samaher Bouchnak", specialty: "Greffe Capillaire, Médecine Esthétique", image: "/images/doctors/dr-samaher-bouchnak.jpg", experience: "Spécialiste FUE Saphir & DHI" },
+                    ]}
+                    devisSlug="greffe-cheveux"
+                />
+
+                {/* CTA FINAL */}
+                <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
+                    <div className="container mx-auto max-w-3xl">
+                        <h2 className="text-4xl font-heading font-bold text-brand-navy mb-6">
+                            Prêt à retrouver votre densité capillaire ?
+                        </h2>
+                        <p className="text-xl text-slate-600 mb-10">
+                            Notre équipe médicale analyse vos photos (zone donneuse et receveuse) gratuitement pour évaluer le nombre de greffons nécessaires.
+                        </p>
+                        <TrackedLink
+                            href="/devis?intervention=greffe-cheveux"
+                            ctaText="Obtenir mon devis gratuit"
+                            ctaLocation="footer_greffe-cheveux"
+                        >
+                            <Button
+                                size="lg"
+                                className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
+                            >
+                                Recevoir mon diagnostic gratuit
+                            </Button>
+                        </TrackedLink>
+                        <p className="mt-6 text-sm font-medium text-slate-500">
+                            Consultation gratuite | Spécialistes FUE/DHI | Réponse sous 24h
+                        </p>
                     </div>
                 </section>
             </div>

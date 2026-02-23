@@ -2,10 +2,14 @@ import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Shield, Star, Clock } from 'lucide-react';
+import { CheckCircle2, Shield, Star, Clock } from 'lucide-react';
 import { FAQAccordion } from '@/components/ui/faq-accordion';
 import { GuidedTourTimeline } from '@/components/ui/GuidedTourTimeline';
 import Link from 'next/link';
+import { InterventionHero } from '@/components/interventions/InterventionHero';
+import { SurgeonReferenceSection } from '@/components/interventions/SurgeonReferenceSection';
+import { PatientTestimonialSection } from '@/components/interventions/PatientTestimonialSection';
+import { GuaranteeSection } from '@/components/interventions/GuaranteeSection';
 
 export const metadata: Metadata = {
     title: 'Otoplastie Tunisie | Chirurgie des Oreilles dès 1 500€ — Venus Estetika',
@@ -107,33 +111,20 @@ export default function OtoplastiePage() {
             <div className="min-h-screen bg-white">
 
                 {/* HERO SECTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Chirurgie des Oreilles
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Otoplastie en Tunisie : corrigez les oreilles décollées définitivement
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Une intervention simple et efficace pour retrouver des oreilles harmonieuses.
-                            Résultat définitif, cicatrice invisible. Forfait tout compris à partir de{' '}
-                            <b className="text-brand-gold text-3xl mx-2">1 500€</b>{' '}
-                            <span className="line-through text-sm opacity-60">3 000-4 500€ en France</span>.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full sm:w-auto">
-                                <Link href="/devis?intervention=otoplastie">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">
-                            +2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS
-                        </p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Otoplastie en Tunisie : corrigez les oreilles décollées définitivement"
+                    subtitle="Une intervention simple et efficace pour retrouver des oreilles harmonieuses. Résultat définitif, cicatrice invisible."
+                    price="1 500€"
+                    priceOld="3 000-4 500€"
+                    imageSrc="/images/heroes/chirurgie-visage-hero.jpg"
+                    imageAlt="Otoplastie en Tunisie - Venus Estetika"
+                    badge="Chirurgie des Oreilles"
+                    devisSlug="otoplastie"
+                    stats="+2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS"
+                    doctorName="Dr Walid Balti"
+                    doctorImage="/images/doctors/dr-walid-balti.jpg"
+                    doctorSpecialty="Chirurgie Plastique & Esthétique"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -159,7 +150,7 @@ export default function OtoplastiePage() {
 
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Star className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Star className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Technique EarFold</h4>
                                         <p className="text-sm text-gray-500">
                                             Mise en place d&apos;un implant fin sous la peau pour remodeler le cartilage.
@@ -167,7 +158,7 @@ export default function OtoplastiePage() {
                                         </p>
                                     </div>
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Technique Classique</h4>
                                         <p className="text-sm text-gray-500">
                                             Remodelage du cartilage par voie rétro-auriculaire. Cicatrice invisible
@@ -188,7 +179,7 @@ export default function OtoplastiePage() {
                                             key={index}
                                             className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100"
                                         >
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -237,7 +228,7 @@ export default function OtoplastiePage() {
                                                     </p>
                                                 </div>
                                                 <div className="text-right">
-                                                    <p className="font-bold text-2xl text-brand-gold">{price.tn}</p>
+                                                    <p className="font-bold text-2xl text-brand-blue">{price.tn}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -246,7 +237,7 @@ export default function OtoplastiePage() {
 
                                 {/* Convalescence Info */}
                                 <div className="p-8 bg-slate-50">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Convalescence &amp; Résultats</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Port du bandeau de contention 3 semaines la nuit. Le résultat est
@@ -277,6 +268,46 @@ export default function OtoplastiePage() {
                     </div>
                 </section>
 
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages otoplastie"
+                    testimonials={[
+                        {
+                            name: 'Julien F.',
+                            city: 'Toulouse',
+                            quote: "J'ai souffert de mes oreilles décollées depuis l'enfance — les moqueries à l'école m'ont longtemps suivi. À 32 ans, j'ai enfin osé passer à l'acte chez Venus Estetika. L'otoplastie a duré moins d'une heure, la douleur était minime, et une semaine plus tard je suis rentré à Toulouse avec des oreilles parfaitement harmonieuses. Un soulagement immense.",
+                            intervention: 'Otoplastie bilatérale',
+                            savings: '2 300€',
+                            rating: 5,
+                        },
+                        {
+                            name: 'Cécile M.',
+                            city: 'Nantes',
+                            quote: "Je voulais corriger les oreilles décollées de ma fille de 12 ans avant son entrée au collège. Venus Estetika nous a accueillies avec un professionnalisme et une bienveillance remarquables. Le résultat est parfaitement naturel. Ma fille n'a plus à se cacher les oreilles sous ses cheveux. Je recommande vivement.",
+                            intervention: 'Otoplastie (enfant)',
+                            savings: '2 100€',
+                            rating: 5,
+                        },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <SurgeonReferenceSection
+                    title="Nos chirurgiens pour l'otoplastie"
+                    surgeons={[
+                        {
+                            name: 'Dr Walid Balti',
+                            specialty: 'Chirurgie Plastique & Esthétique',
+                            image: '/images/doctors/dr-walid-balti.jpg',
+                            experience: '15+ ans d\'expérience',
+                        },
+                    ]}
+                    devisSlug="otoplastie"
+                />
+
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
                     <div className="container mx-auto max-w-3xl">
@@ -287,9 +318,9 @@ export default function OtoplastiePage() {
                             Une intervention simple, un résultat définitif. Obtenez votre devis gratuit
                             et réservez votre date opératoire dès aujourd&apos;hui.
                         </p>
-                        <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
+                        <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
                             <Link href="/devis?intervention=otoplastie">
-                                Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
+                                Obtenir mon devis gratuit
                             </Link>
                         </Button>
                         <p className="mt-6 text-sm font-medium text-slate-500">

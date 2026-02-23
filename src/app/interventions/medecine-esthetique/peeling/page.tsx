@@ -4,9 +4,13 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Zap, Sparkles, RefreshCw, Sun } from "lucide-react";
+import { CheckCircle2, Zap, Sparkles, RefreshCw, Sun } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -35,6 +39,33 @@ export default function PeelingPage() {
         { label: "Cure 3 séances (superficiel)", price: "400 €", france: "600–1 200 €" },
     ];
 
+    const testimonials = [
+        {
+            name: "Amandine C.",
+            city: "Marseille",
+            quote: "J'avais des taches pigmentaires importantes sur le front et les joues, séquelles d'une grossesse. Après le peeling TCA, le résultat au bout de 3 semaines était bluffant. La moitié des taches avaient disparu et le teint était parfaitement unifié. Le Dr Bouchnak m'a très bien préparée au protocole de soin post-peeling.",
+            intervention: "Peeling moyen TCA — taches pigmentaires",
+            savings: "300 €",
+            rating: 5,
+        },
+        {
+            name: "Justine F.",
+            city: "Lille",
+            quote: "Des cicatrices d'acné me complexaient depuis l'adolescence. J'avais essayé des produits en pharmacie sans succès. Le peeling chimique a vraiment creusé dans ces cicatrices — la peau s'est renouvelée et les marques se sont considérablement atténuées. Je suis enfin à l'aise sans fond de teint.",
+            intervention: "Peeling TCA — cicatrices acné",
+            savings: "250 €",
+            rating: 5,
+        },
+        {
+            name: "Patricia G.",
+            city: "Nice",
+            quote: "J'ai opté pour la cure de 3 séances de peeling superficiel pendant mon séjour à Tunis. C'était parfait : aucune éviction sociale, je pouvais profiter de mon séjour entre les séances. Mon teint est maintenant lumineux et mes pores sont nettement moins visibles. Je reviendrai chaque année.",
+            intervention: "Cure peeling glycolique 3 séances",
+            savings: "400 €",
+            rating: 5,
+        },
+    ];
+
     return (
         <>
             <JsonLd graph={{
@@ -46,48 +77,20 @@ export default function PeelingPage() {
 
             <div className="min-h-screen bg-white">
 
-                {/* BREADCRUMB */}
-                <nav aria-label="Fil d'Ariane" className="bg-slate-50 border-b border-slate-100 mt-20">
-                    <div className="container mx-auto px-4 py-3">
-                        <ol className="flex items-center gap-2 text-sm text-slate-500">
-                            <li><Link href="/" className="hover:text-brand-navy transition-colors">Accueil</Link></li>
-                            <li aria-hidden="true" className="text-slate-300">/</li>
-                            <li><Link href="/interventions/medecine-esthetique" className="hover:text-brand-navy transition-colors">Médecine Esthétique</Link></li>
-                            <li aria-hidden="true" className="text-slate-300">/</li>
-                            <li className="text-brand-navy font-medium" aria-current="page">Peeling</li>
-                        </ol>
-                    </div>
-                </nav>
-
-                {/* HERO */}
-                <section className="relative h-[60vh] min-h-[460px] flex items-center justify-center overflow-hidden bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Médecine Esthétique
-                            </div>
-                            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 leading-tight">
-                                Peeling en Tunisie : renouvelez votre peau en profondeur
-                            </h1>
-                            <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Peeling chimique TCA ou glycolique réalisé par un médecin esthétique. Taches, cicatrices d'acné, teint terne — une solution dermatologique éprouvée.{" "}
-                                <b className="text-brand-gold text-xl">Dès 250€</b>{" "}
-                                <span className="line-through text-sm opacity-60 ml-2">400–700€ en France</span>.
-                            </p>
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                <Link href="/devis?intervention=peeling">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Peeling en Tunisie : renouvelez votre peau en profondeur"
+                    subtitle="Peeling chimique TCA ou glycolique réalisé par un médecin esthétique. Taches, cicatrices d'acné, teint terne — une solution dermatologique éprouvée."
+                    price="250€"
+                    priceOld="400–700€"
+                    imageSrc="/images/heroes/medecine-esthetique-hero.jpg"
+                    imageAlt="Peeling chimique TCA Tunisie — Venus Estetika"
+                    badge="Médecine Esthétique"
+                    devisSlug="peeling"
+                    stats="Résultats visibles en 2–3 semaines · TCA ou glycolique · Sur mesure"
+                    doctorName="Dr Samaher Bouchnak"
+                    doctorImage="/images/doctors/dr-samaher-bouchnak.jpg"
+                    doctorSpecialty="Médecine Esthétique"
+                />
 
                 {/* INTRODUCTION */}
                 <section className="py-20 px-4 bg-slate-50">
@@ -107,13 +110,13 @@ export default function PeelingPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-5">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Zap className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Zap className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Peeling Moyen (TCA)</h4>
                                         <p className="text-sm text-gray-500">Acide trichloroacétique pour traitement en profondeur. Résultat marqué sur taches et cicatrices.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Sun className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Sun className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Peeling Superficiel</h4>
                                         <p className="text-sm text-gray-500">Acide glycolique pour éclat et entretien. Aucune éviction sociale, idéal en cure répétée.</p>
                                     </div>
@@ -128,14 +131,14 @@ export default function PeelingPage() {
                                 <div className="space-y-3 mb-8">
                                     {whatItTreats.map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-5 h-5 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-5 h-5 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
                                 </div>
                                 <div className="bg-brand-navy/5 rounded-xl p-4 border border-brand-navy/10">
                                     <div className="flex items-start gap-3">
-                                        <RefreshCw className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
+                                        <RefreshCw className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
                                         <p className="text-sm text-gray-600">
                                             <span className="font-semibold text-brand-navy">Convalescence :</span> Peeling moyen TCA — desquamation 5-7 jours, éviction sociale 1 semaine. Peeling superficiel — léger tiraillement 24h, reprise immédiate.
                                         </p>
@@ -171,7 +174,7 @@ export default function PeelingPage() {
                                             <div key={index} className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100">
                                                 <span className="text-gray-700 font-medium text-sm pr-4">{row.label}</span>
                                                 <div className="text-right shrink-0">
-                                                    <span className="text-brand-gold font-bold text-lg block">{row.price}</span>
+                                                    <span className="text-brand-blue font-bold text-lg block">{row.price}</span>
                                                     <span className="text-xs text-gray-400 line-through">{row.france}</span>
                                                 </div>
                                             </div>
@@ -181,7 +184,7 @@ export default function PeelingPage() {
 
                                 {/* CTA panel */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Sparkles className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Sparkles className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-xl font-bold text-brand-navy mb-3">
                                         Intégré à votre séjour médical
                                     </h3>
@@ -210,6 +213,30 @@ export default function PeelingPage() {
                         <FAQAccordion data={getFaqData('peeling')} />
                     </div>
                 </section>
+
+                {/* TESTIMONIALS */}
+                <PatientTestimonialSection
+                    title="Teint transformé, patientes conquises"
+                    testimonials={testimonials}
+                />
+
+                {/* GUARANTEE */}
+                <GuaranteeSection />
+
+                {/* SURGEON */}
+                <SurgeonReferenceSection
+                    title="Votre médecin esthétique référente"
+                    subtitle="Dr Samaher Bouchnak, spécialiste en médecine esthétique, diplômée et inscrite à l'Ordre National des Médecins de Tunisie."
+                    surgeons={[
+                        {
+                            name: "Dr Samaher Bouchnak",
+                            specialty: "Médecine Esthétique",
+                            image: "/images/doctors/dr-samaher-bouchnak.jpg",
+                            experience: "12 ans d'expérience en injections",
+                        },
+                    ]}
+                    devisSlug="peeling"
+                />
 
             </div>
         </>

@@ -8,28 +8,49 @@ import { StepIntervention } from "./StepIntervention";
 import { StepMedicalInfo } from "./StepMedicalInfo";
 import { StepContact } from "./StepContact";
 import { StepConfirmation } from "./StepConfirmation";
-import { useGtmEvent } from "@/hooks/useGtmEvent";
-import { useEffect } from "react";
+import { useGtmEvent } from "@/lib/tracking/useGtmEvent";
+import { useEffect, useRef } from "react";
 
 type FunnelStep = 1 | 2 | 3 | "confirmation";
 
-export function QuoteFunnel({ initialIntervention }: { initialIntervention?: string }) {
+export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }: { initialIntervention?: string, initialBmi?: string, initialNorwood?: string }) {
     const [step, setStep] = useState<FunnelStep>(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState<Partial<FullQuoteData>>({
         intervention: initialIntervention || "",
+        ...(initialBmi ? { bmi: parseFloat(initialBmi) } : {}),
+        ...(initialNorwood ? { norwoodStage: parseInt(initialNorwood) } : {})
     });
     const pushGtmEvent = useGtmEvent();
+    const hasCompletedRef = useRef(false);
 
-    // Track funnel entry
+    // Track funnel entry & Abandonment setup
     useEffect(() => {
         pushGtmEvent({
             event: 'funnel_step_1_start',
             funnel_source: initialIntervention ? 'direct_link' : 'cta_hero',
             pre_selected_intervention: initialIntervention || null
         });
+
+        const handleUnload = () => {
+            if (!hasCompletedRef.current) {
+                // Determine the last completed step based on current step
+                const lastCompleted = step === 1 ? 0 : step === 2 ? 1 : step === 3 ? 2 : 3;
+                pushGtmEvent({
+                    event: 'funnel_abandon',
+                    last_completed_step: lastCompleted,
+                    intervention: formData.intervention || "unknown",
+                });
+            }
+        };
+
+        window.addEventListener('beforeunload', handleUnload);
+        return () => {
+            handleUnload(); // trigger on component unmount as well
+            window.removeEventListener('beforeunload', handleUnload);
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [step, formData.intervention]);
 
     const goNext = async (stepData: Partial<FullQuoteData>) => {
         const newData = { ...formData, ...stepData };
@@ -47,6 +68,7 @@ export function QuoteFunnel({ initialIntervention }: { initialIntervention?: str
                 const result = await response.json();
 
                 if (result.success) {
+                    hasCompletedRef.current = true;
                     pushGtmEvent({
                         event: 'funnel_complete',
                         transaction_id: result.transaction_id,

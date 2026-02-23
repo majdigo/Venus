@@ -39,7 +39,7 @@ export function SleeveGastriqueInteractiveAnatomy() {
                     animate={{ opacity: 1, y: 0 }}
                     className="absolute top-4 left-4 bg-white px-4 py-2 rounded-full text-xs font-bold text-brand-navy shadow-sm flex items-center gap-2 z-10"
                 >
-                    <Info className="w-4 h-4 text-brand-gold" />
+                    <Info className="w-4 h-4 text-brand-blue" />
                     Cliquez sur les différentes zones
                 </motion.div>
 

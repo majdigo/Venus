@@ -3,6 +3,7 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import {
     ArrowRight,
     CheckCircle2,
@@ -19,6 +20,7 @@ import {
     Star,
 } from "lucide-react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
     title: "Séjour Médical Tunisie | Forfait Tout Compris — Venus Estetika",
@@ -140,37 +142,37 @@ const notIncludedItems = [
 
 const practicalInfoCards = [
     {
-        icon: <MapPin className="w-6 h-6 text-brand-gold" />,
+        icon: <MapPin className="w-6 h-6 text-brand-blue" />,
         label: "Passeport",
         value: "Valide 6 mois minimum",
     },
     {
-        icon: <Shield className="w-6 h-6 text-brand-gold" />,
+        icon: <Shield className="w-6 h-6 text-brand-blue" />,
         label: "Visa",
         value: "Non requis (FR, BE, CH, LU, CA)",
     },
     {
-        icon: <Plane className="w-6 h-6 text-brand-gold" />,
+        icon: <Plane className="w-6 h-6 text-brand-blue" />,
         label: "Vol",
         value: "2h depuis Paris, 2h15 Lyon, 2h30 Genève",
     },
     {
-        icon: <Clock className="w-6 h-6 text-brand-gold" />,
+        icon: <Clock className="w-6 h-6 text-brand-blue" />,
         label: "Décalage horaire",
         value: "UTC+1 (0 à 1h avec la France)",
     },
     {
-        icon: <Star className="w-6 h-6 text-brand-gold" />,
+        icon: <Star className="w-6 h-6 text-brand-blue" />,
         label: "Monnaie",
         value: "Dinar tunisien (1€ ≈ 3,4 TND)",
     },
     {
-        icon: <Phone className="w-6 h-6 text-brand-gold" />,
+        icon: <Phone className="w-6 h-6 text-brand-blue" />,
         label: "Langue",
         value: "Français très largement parlé",
     },
     {
-        icon: <Calendar className="w-6 h-6 text-brand-gold" />,
+        icon: <Calendar className="w-6 h-6 text-brand-blue" />,
         label: "Climat",
         value: "Méditerranéen (10-35°C)",
     },
@@ -200,33 +202,37 @@ export default function SejourMedicalPage() {
             <div className="min-h-screen bg-white">
 
                 {/* =========================================================
-                    1. HERO SECTION — Navy gradient, no image
+                    1. HERO SECTION
                 ========================================================= */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#0f172a] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-                    </div>
+                <section className="relative min-h-[500px] flex items-center overflow-hidden mt-20">
+                    <Image
+                        src="/images/guided-tour/hotel-room.png"
+                        alt="Hôtel 5 étoiles inclus dans votre séjour médical en Tunisie — Venus Estetika"
+                        fill
+                        priority
+                        className="object-cover"
+                        sizes="100vw"
+                        quality={85}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/75 to-brand-navy/50 z-10" />
 
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Forfait Tout Compris
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Votre séjour médical en Tunisie : tout est organisé, vous n&apos;avez qu&apos;à vous concentrer sur vous
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                De l&apos;aéroport à votre retour, Venus Estetika prend tout en charge. Clinique agréée, hôtel 5 étoiles, transferts privés, accompagnement francophone 24/7. Vivez votre transformation en toute sérénité.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis">
-                                        Planifier mon séjour médical <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
+                    <div className="container mx-auto max-w-4xl px-4 relative z-20 py-20 text-center">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white mb-6">
+                            <Sparkles className="w-4 h-4 text-brand-blue" />
+                            Forfait Tout Compris
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+                            Votre séjour médical en Tunisie : tout est organisé, vous n&apos;avez qu&apos;à vous concentrer sur vous
+                        </h1>
+                        <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+                            De l&apos;aéroport à votre retour, Venus Estetika prend tout en charge. Clinique agréée, hôtel 5 étoiles, transferts privés, accompagnement francophone 24/7. Vivez votre transformation en toute sérénité.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-8">
+                                <Link href="/devis">
+                                    Planifier mon séjour médical <ArrowRight className="ml-2 w-5 h-5" />
+                                </Link>
+                            </Button>
                         </div>
                     </div>
                 </section>
@@ -248,14 +254,14 @@ export default function SejourMedicalPage() {
                         {/* Timeline */}
                         <div className="relative">
                             {/* Vertical connecting line */}
-                            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-gold via-brand-gold/50 to-transparent hidden md:block" />
+                            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-blue via-brand-blue/50 to-transparent hidden md:block" />
 
                             <div className="space-y-8">
                                 {journeySteps.map((step) => (
                                     <div key={step.number} className="relative flex gap-6 md:gap-8">
                                         {/* Step number circle */}
                                         <div className="relative z-10 flex-shrink-0">
-                                            <div className="w-12 h-12 rounded-full bg-brand-gold flex items-center justify-center shadow-lg">
+                                            <div className="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center shadow-lg">
                                                 <span className="text-white font-heading font-bold text-lg leading-none">
                                                     {step.number}
                                                 </span>
@@ -268,7 +274,7 @@ export default function SejourMedicalPage() {
                                                 <h3 className="text-xl font-heading font-bold text-brand-navy">
                                                     {step.title}
                                                 </h3>
-                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-sm font-semibold">
+                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-semibold">
                                                     <Clock className="w-3.5 h-3.5" />
                                                     {step.duration}
                                                 </span>
@@ -280,7 +286,7 @@ export default function SejourMedicalPage() {
                                                 <ul className="space-y-1.5">
                                                     {step.bullets.map((bullet, idx) => (
                                                         <li key={idx} className="flex items-center gap-2 text-sm text-gray-500">
-                                                            <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                                                            <CheckCircle2 className="w-4 h-4 text-brand-blue flex-shrink-0" />
                                                             {bullet}
                                                         </li>
                                                     ))}
@@ -312,8 +318,8 @@ export default function SejourMedicalPage() {
                             {/* Included */}
                             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                                        <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                    <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                                        <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                     </div>
                                     <h3 className="text-2xl font-heading font-bold text-brand-navy">
                                         Inclus
@@ -325,7 +331,7 @@ export default function SejourMedicalPage() {
                                             key={idx}
                                             className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100"
                                         >
-                                            <CheckCircle2 className="text-brand-gold w-5 h-5 flex-shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-5 h-5 flex-shrink-0" />
                                             <span className="text-gray-700 font-medium text-sm">{item}</span>
                                         </div>
                                     ))}
@@ -354,7 +360,7 @@ export default function SejourMedicalPage() {
                                     ))}
                                 </div>
                                 {/* Reassurance note */}
-                                <div className="rounded-2xl bg-brand-gold/5 border border-brand-gold/20 p-4">
+                                <div className="rounded-2xl bg-brand-blue/5 border border-brand-blue/20 p-4">
                                     <p className="text-sm text-gray-600 leading-relaxed">
                                         <strong className="text-brand-navy">Bon à savoir :</strong> Un billet Paris-Tunis s&apos;obtient dès 80€ A/R sur Tunisair, Transavia ou Nouvelair. Votre coordinateur vous communique les créneaux optimaux selon votre date d&apos;intervention.
                                     </p>
@@ -385,7 +391,7 @@ export default function SejourMedicalPage() {
                                     key={idx}
                                     className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-3"
                                 >
-                                    <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                                    <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center">
                                         {card.icon}
                                     </div>
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
@@ -401,7 +407,7 @@ export default function SejourMedicalPage() {
                         {/* Best season table */}
                         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                             <div className="px-8 py-6 border-b border-gray-100 flex items-center gap-3">
-                                <Calendar className="w-6 h-6 text-brand-gold" />
+                                <Calendar className="w-6 h-6 text-brand-blue" />
                                 <h3 className="text-xl font-heading font-bold text-brand-navy">
                                     Meilleures périodes pour votre séjour médical
                                 </h3>
@@ -439,12 +445,17 @@ export default function SejourMedicalPage() {
                 </section>
 
                 {/* =========================================================
-                    6. CTA FINAL
+                    6. GUARANTEE SECTION
+                ========================================================= */}
+                <GuaranteeSection />
+
+                {/* =========================================================
+                    7. CTA FINAL
                 ========================================================= */}
                 <section className="py-24 px-4 bg-brand-navy text-white">
                     <div className="container mx-auto max-w-4xl text-center">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                            <Hotel className="w-4 h-4 text-brand-gold" />
+                            <Hotel className="w-4 h-4 text-brand-blue" />
                             Séjour Médical Premium
                         </div>
                         <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">
@@ -457,7 +468,7 @@ export default function SejourMedicalPage() {
                             <Button
                                 size="lg"
                                 asChild
-                                className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8"
+                                className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-8"
                             >
                                 <Link href="/devis">
                                     Demander mon devis personnalisé <ArrowRight className="ml-2 w-5 h-5" />
@@ -479,10 +490,10 @@ export default function SejourMedicalPage() {
                         {/* Trust signals */}
                         <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6">
                             {[
-                                { icon: <Stethoscope className="w-5 h-5 text-brand-gold" />, text: "Chirurgiens diplômés en France" },
-                                { icon: <Shield className="w-5 h-5 text-brand-gold" />, text: "Cliniques agréées Ministère Santé" },
-                                { icon: <Star className="w-5 h-5 text-brand-gold fill-brand-gold" />, text: "Hôtel 5 étoiles inclus" },
-                                { icon: <Clock className="w-5 h-5 text-brand-gold" />, text: "Suivi 12 mois post-opératoire" },
+                                { icon: <Stethoscope className="w-5 h-5 text-brand-blue" />, text: "Chirurgiens diplômés en France" },
+                                { icon: <Shield className="w-5 h-5 text-brand-blue" />, text: "Cliniques agréées Ministère Santé" },
+                                { icon: <Star className="w-5 h-5 text-brand-blue fill-brand-blue" />, text: "Hôtel 5 étoiles inclus" },
+                                { icon: <Clock className="w-5 h-5 text-brand-blue" />, text: "Suivi 12 mois post-opératoire" },
                             ].map((trust, idx) => (
                                 <div key={idx} className="flex flex-col items-center gap-2">
                                     {trust.icon}

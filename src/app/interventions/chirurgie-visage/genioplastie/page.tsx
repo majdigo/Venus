@@ -2,10 +2,14 @@ import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Shield, Award, Clock } from 'lucide-react';
+import { CheckCircle2, Shield, Award, Clock } from 'lucide-react';
 import { FAQAccordion } from '@/components/ui/faq-accordion';
 import { GuidedTourTimeline } from '@/components/ui/GuidedTourTimeline';
 import Link from 'next/link';
+import { InterventionHero } from '@/components/interventions/InterventionHero';
+import { SurgeonReferenceSection } from '@/components/interventions/SurgeonReferenceSection';
+import { PatientTestimonialSection } from '@/components/interventions/PatientTestimonialSection';
+import { GuaranteeSection } from '@/components/interventions/GuaranteeSection';
 
 export const metadata: Metadata = {
     title: 'Génioplastie Tunisie | Chirurgie du Menton dès 2 000€ — Venus Estetika',
@@ -106,33 +110,20 @@ export default function GenioplastiePage() {
             <div className="min-h-screen bg-white">
 
                 {/* HERO SECTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Harmonie du Profil
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Génioplastie en Tunisie : harmonisez votre profil par la chirurgie du menton
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Corrigez un menton fuyant ou proéminent pour un profil parfaitement équilibré.
-                            Prothèse ou ostéotomie. Profiloplastie possible. Forfait tout compris à partir de{' '}
-                            <b className="text-brand-gold text-3xl mx-2">2 000€</b>{' '}
-                            <span className="line-through text-sm opacity-60">3 500-10 000€ en France</span>.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full sm:w-auto">
-                                <Link href="/devis?intervention=genioplastie">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">
-                            +2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS
-                        </p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Génioplastie en Tunisie : harmonisez votre profil par la chirurgie du menton"
+                    subtitle="Corrigez un menton fuyant ou proéminent pour un profil parfaitement équilibré. Prothèse ou ostéotomie. Profiloplastie possible."
+                    price="2 000€"
+                    priceOld="3 500-10 000€"
+                    imageSrc="/images/heroes/chirurgie-visage-hero.jpg"
+                    imageAlt="Génioplastie en Tunisie - Venus Estetika"
+                    badge="Harmonie du Profil"
+                    devisSlug="genioplastie"
+                    stats="+2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS"
+                    doctorName="Dr Walid Balti"
+                    doctorImage="/images/doctors/dr-walid-balti.jpg"
+                    doctorSpecialty="Chirurgie Plastique & Esthétique"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -158,7 +149,7 @@ export default function GenioplastiePage() {
 
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Prothèse Mentonnière</h4>
                                         <p className="text-sm text-gray-500">
                                             Implant en silicone posé par voie intra-buccale. Pas de cicatrice
@@ -166,7 +157,7 @@ export default function GenioplastiePage() {
                                         </p>
                                     </div>
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Ostéotomie</h4>
                                         <p className="text-sm text-gray-500">
                                             Avancement ou recul de l&apos;os du menton pour les modifications
@@ -187,7 +178,7 @@ export default function GenioplastiePage() {
                                             key={index}
                                             className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100"
                                         >
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -236,7 +227,7 @@ export default function GenioplastiePage() {
                                                     </p>
                                                 </div>
                                                 <div className="text-right">
-                                                    <p className="font-bold text-2xl text-brand-gold">{price.tn}</p>
+                                                    <p className="font-bold text-2xl text-brand-blue">{price.tn}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -245,7 +236,7 @@ export default function GenioplastiePage() {
 
                                 {/* Convalescence Info */}
                                 <div className="p-8 bg-slate-50">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Convalescence &amp; Résultats</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Oedème résorbé en 2 semaines. Alimentation molle 10 jours. Résultat
@@ -276,6 +267,46 @@ export default function GenioplastiePage() {
                     </div>
                 </section>
 
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages génioplastie"
+                    testimonials={[
+                        {
+                            name: 'Thomas R.',
+                            city: 'Paris',
+                            quote: "Mon menton fuyant me donnait un profil que je n'aimais pas depuis l'adolescence. La profiloplastie (rhinoplastie + génioplastie) réalisée à Tunis a complètement harmonisé mon visage. Mon chirurgien a parfaitement analysé les proportions. Le résultat est naturel et exactement ce que j'espérais.",
+                            intervention: 'Profiloplastie',
+                            savings: '6 500€',
+                            rating: 5,
+                        },
+                        {
+                            name: 'Aurélie C.',
+                            city: 'Genève',
+                            quote: "J'avais peur que la prothèse mentonnière soit visible ou artificielle au toucher. Il n'en est rien — deux mois après, même mes proches ne devinent pas que j'ai été opérée. Ils remarquent juste que mon visage est plus harmonieux. L'équipe de Venus Estetika a été parfaite du devis au suivi.",
+                            intervention: 'Génioplastie par prothèse',
+                            savings: '3 200€',
+                            rating: 5,
+                        },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <SurgeonReferenceSection
+                    title="Nos chirurgiens pour la génioplastie"
+                    surgeons={[
+                        {
+                            name: 'Dr Walid Balti',
+                            specialty: 'Chirurgie Plastique & Esthétique',
+                            image: '/images/doctors/dr-walid-balti.jpg',
+                            experience: '15+ ans d\'expérience',
+                        },
+                    ]}
+                    devisSlug="genioplastie"
+                />
+
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
                     <div className="container mx-auto max-w-3xl">
@@ -286,9 +317,9 @@ export default function GenioplastiePage() {
                             La génioplastie est l&apos;une des interventions les plus transformatrices du visage.
                             Obtenez votre devis gratuit et découvrez votre simulation de profil.
                         </p>
-                        <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
+                        <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
                             <Link href="/devis?intervention=genioplastie">
-                                Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
+                                Obtenir mon devis gratuit
                             </Link>
                         </Button>
                         <p className="mt-6 text-sm font-medium text-slate-500">

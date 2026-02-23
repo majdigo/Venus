@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C87A"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Sparkles -->
+  <circle cx="130" cy="70" r="2" fill="url(#gold)" opacity="0.6"/>
+  <circle cx="280" cy="110" r="2.5" fill="url(#gold)" opacity="0.8"/>
+  
+  <g transform="translate(130, 40)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Abstract Head Profile -->
+    <path d="M 40,30 C 10,60 20,110 20,150 C 20,200 50,230 70,260" stroke="#0f172a" opacity="0.9"/>
+    <path d="M 40,30 C 70,0 120,20 120,60 C 120,110 100,140 100,180" stroke="#0f172a" opacity="0.9"/>
+    
+    <!-- Hair Follicles / Implants Line Art -->
+    <path d="M 25,60 C 35,50 45,60 55,50 M 35,40 C 45,30 55,40 65,30 M 55,20 C 65,10 75,20 85,10" stroke="url(#gold)" opacity="0.9"/>
+    <!-- Beard Line Art -->
+    <path d="M 30,190 C 40,200 40,230 65,250" stroke="url(#gold)" stroke-dasharray="2 3" opacity="0.7"/>
+    
+    <!-- Follicle Bulb Extraction Tool Abstract -->
+    <circle cx="100" cy="20" r="4" fill="url(#gold)" stroke="none"/>
+    <line x1="85" y1="35" x2="100" y2="20" stroke="url(#gold)" stroke-width="2"/>
+  </g>
+</svg>

@@ -6,11 +6,13 @@ import { step3Schema, Step3Data } from "@/lib/validations/quote-schemas";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useGtmEvent } from "@/lib/tracking/useGtmEvent";
+import { useEffect } from "react";
 
 interface StepContactProps {
     onNext: (data: Step3Data) => void;
     onBack: () => void;
-    defaultValues: Partial<Step3Data>;
+    defaultValues: Partial<Step3Data> & { intervention?: string };
 }
 
 export function StepContact({ onNext, onBack, defaultValues }: StepContactProps) {
@@ -19,7 +21,7 @@ export function StepContact({ onNext, onBack, defaultValues }: StepContactProps)
         handleSubmit,
         watch,
         setValue,
-        formState: { errors },
+        formState: { errors, submitCount },
     } = useForm<Step3Data>({
         resolver: zodResolver(step3Schema),
         defaultValues: {
@@ -33,6 +35,42 @@ export function StepContact({ onNext, onBack, defaultValues }: StepContactProps)
         },
     });
 
+    const pushGtmEvent = useGtmEvent();
+    const interventionStr = (defaultValues as Partial<Step3Data> & { intervention?: string }).intervention || "unknown";
+
+    useEffect(() => {
+        if (submitCount > 0) {
+            Object.entries(errors).forEach(([field, error]) => {
+                if (error && error.message) {
+                    pushGtmEvent({
+                        event: 'funnel_validation_error',
+                        field_name: field,
+                        error_message: error.message as string,
+                        funnel_step: 3,
+                        intervention: interventionStr
+                    });
+                }
+            });
+        }
+    }, [errors, submitCount, pushGtmEvent, interventionStr]);
+
+    const handleFocusIn = (e: React.FocusEvent<HTMLFormElement>) => {
+        const target = e.target as unknown;
+        if (
+            (target instanceof HTMLInputElement ||
+                target instanceof HTMLSelectElement ||
+                target instanceof HTMLTextAreaElement) &&
+            target.name
+        ) {
+            pushGtmEvent({
+                event: 'funnel_field_interaction',
+                field_name: target.name,
+                funnel_step: 3,
+                intervention: interventionStr
+            });
+        }
+    };
+
     const selectedContact = watch("preferredContact");
     const selectedCountry = watch("country");
 
@@ -41,7 +79,7 @@ export function StepContact({ onNext, onBack, defaultValues }: StepContactProps)
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+        <form onSubmit={handleSubmit(onSubmit)} onFocusCapture={handleFocusIn} className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
             <div>
                 <h2 className="text-2xl md:text-3xl font-heading font-bold text-center text-primary mb-2">Vos coordonnées</h2>
                 <p className="text-center text-muted-foreground mb-8 text-sm md:text-base">Où devons-nous vous envoyer votre devis 100% gratuit ?</p>
@@ -156,7 +194,7 @@ export function StepContact({ onNext, onBack, defaultValues }: StepContactProps)
                             className="mt-1 w-5 h-5 rounded border-gray-300 text-secondary focus:ring-secondary/50"
                         />
                         <span className="text-sm text-muted-foreground leading-relaxed">
-                            J&apos;accepte que mes données soient traitées par Venus Estetika pour la préparation de mon devis. <a href="#" className="underline">Politique de confidentialité</a>. *
+                            J&apos;accepte que mes données soient traitées par Venus Estetika pour la préparation de mon devis. <a href="/politique-confidentialite/" className="underline">Politique de confidentialité</a>. *
                         </span>
                     </label>
                     {errors.consentRGPD && <p className="text-destructive text-sm">{errors.consentRGPD.message}</p>}

@@ -545,6 +545,323 @@ export function getMedicalProcedureData(slug: string) {
             }
         };
     }
+    if (slug === 'implants-dentaires') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/dentaire/implants-dentaires#procedure",
+            "name": "Implants Dentaires en Tunisie",
+            "alternateName": ["Implant dentaire", "Dental implant", "Implantologie dentaire"],
+            "description": "Pose d'implants dentaires en titane de marque premium par des chirurgiens-dentistes qualifiés en Tunisie. Technique d'ostéo-intégration garantissant une durabilité à vie. Greffe osseuse disponible si nécessaire.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Mâchoire",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Dent manquante, édentement partiel ou total, remplacement de prothèses amovibles, échec d'un bridge dentaire"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Volume osseux insuffisant sans possibilité de greffe, diabète non contrôlé, tabagisme actif, traitement par bisphosphonates, maladie parodontale non traitée"
+            },
+            "preparation": "Radiographie panoramique et scanner 3D (cone beam) pour évaluer le volume osseux. Bilan bucco-dentaire complet. Traitement des caries et maladies parodontales préalable. Arrêt du tabac recommandé.",
+            "howPerformed": "Intervention réalisée sous anesthésie locale. Durée : 1 à 2 heures par implant. Incision gingivale, forage osseux progressif et insertion de l'implant en titane. Suture et pose d'une prothèse provisoire. Phase d'ostéo-intégration de 3 à 6 mois avant la pose de la couronne définitive.",
+            "followup": "Contrôle à 7 jours pour retrait des points. Suivi radiographique à 3 et 6 mois pour vérifier l'ostéo-intégration. Pose de la couronne définitive après validation. Suivi annuel recommandé.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Remplacement définitif de la dent manquante avec un résultat esthétique et fonctionnel identique à une dent naturelle. Durée de vie de l'implant : à vie avec un entretien approprié.",
+            "image": "https://venus-estetika.com/images/interventions/implants-dentaires-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/dentaire/implants-dentaires",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/dentaire/implants-dentaires",
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/dentaire/implants-dentaires#offer",
+                "name": "Implant Dentaire — par implant",
+                "description": "Prix par implant tout compris : implant titane premium, pilier, chirurgie, anesthésie locale, radiographie panoramique, hôtel, transferts",
+                "price": "500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'couronnes') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/dentaire/couronnes#procedure",
+            "name": "Couronnes Dentaires en Tunisie",
+            "alternateName": ["Couronne dentaire", "Dental crown", "Prothèse dentaire fixe"],
+            "description": "Pose de couronnes dentaires en zircone, céramique ou E-Max par des dentistes qualifiés en Tunisie. Fabrication sur mesure au laboratoire avec empreinte numérique pour un ajustement parfait et un rendu naturel.",
+            "procedureType": { "@type": "MedicalProcedureType", "name": "Non-Surgical" },
+            "bodyLocation": "Dents",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Dent fragilisée par une carie importante, dent dévitalisée, dent fracturée, remplacement d'une ancienne couronne, finition sur implant dentaire"
+            },
+            "followup": "Contrôle d'occlusion et ajustement si nécessaire dans les 2 semaines suivant la pose. Hygiène bucco-dentaire rigoureuse. Contrôle annuel recommandé.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Restauration esthétique et fonctionnelle de la dent. Durée de vie de 10 à 15 ans selon le matériau et l'entretien. Résultat naturel indiscernable d'une dent saine.",
+            "image": "https://venus-estetika.com/images/interventions/couronnes-dentaires-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/dentaire/couronnes",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/dentaire/couronnes",
+            "location": { "@type": "MedicalClinic", "@id": "https://venus-estetika.com/#clinic" },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/dentaire/couronnes#offer",
+                "name": "Couronne Dentaire — par couronne",
+                "description": "Prix par couronne tout compris : préparation, empreinte numérique, fabrication sur mesure, pose et ajustement",
+                "price": "250",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": { "@type": "MedicalClinic", "@id": "https://venus-estetika.com/#clinic" }
+            }
+        };
+    }
+    if (slug === 'blanchiment') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/dentaire/blanchiment#procedure",
+            "name": "Blanchiment Dentaire en Tunisie",
+            "alternateName": ["Blanchiment des dents", "Teeth whitening", "Éclaircissement dentaire"],
+            "description": "Blanchiment dentaire professionnel au fauteuil avec lampe LED réalisé par un dentiste qualifié en Tunisie. Gain de 2 à 8 teintes en une seule séance. Gouttières de maintien personnalisées incluses.",
+            "procedureType": { "@type": "MedicalProcedureType", "name": "Non-Surgical" },
+            "bodyLocation": "Dents",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Dents jaunies ou tachées par le café, thé, vin rouge, tabac. Coloration intrinsèque légère à modérée. Souhait d'un sourire plus blanc et lumineux."
+            },
+            "followup": "Sensibilité dentaire possible 24-48h. Éviter les aliments colorants pendant 48h. Utilisation des gouttières de maintien à domicile pour prolonger les résultats.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Gain de 2 à 8 teintes sur l'échelle VITA. Sourire plus blanc et lumineux. Résultats durables 6 à 12 mois avec entretien.",
+            "image": "https://venus-estetika.com/images/interventions/blanchiment-dentaire-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/dentaire/blanchiment",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/dentaire/blanchiment",
+            "location": { "@type": "MedicalClinic", "@id": "https://venus-estetika.com/#clinic" },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/dentaire/blanchiment#offer",
+                "name": "Blanchiment Dentaire Professionnel",
+                "description": "Séance tout compris : détartrage, blanchiment au fauteuil avec lampe LED, gouttières de maintien personnalisées",
+                "price": "200",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": { "@type": "MedicalClinic", "@id": "https://venus-estetika.com/#clinic" }
+            }
+        };
+    }
+    if (slug === 'facettes') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/dentaire/facettes#procedure",
+            "name": "Facettes Dentaires en Tunisie",
+            "alternateName": ["Facette dentaire", "Dental veneers", "Hollywood Smile", "Facettes E-Max"],
+            "description": "Pose de facettes dentaires en céramique E-Max ou Lumineers par des dentistes esthétiques qualifiés en Tunisie. Fabrication sur mesure pour un sourire Hollywood Smile naturel et éclatant. Package 8 à 10 facettes disponible.",
+            "procedureType": { "@type": "MedicalProcedureType", "name": "Non-Surgical" },
+            "bodyLocation": "Dents",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Dents tachées résistant au blanchiment, dents légèrement mal alignées, diastème (espaces entre les dents), dents usées ou ébréchées, souhait d'un Hollywood Smile"
+            },
+            "followup": "Contrôle d'occlusion à 1 semaine. Hygiène bucco-dentaire rigoureuse. Éviter de mordre des objets durs. Contrôle annuel chez le dentiste.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Sourire harmonieux et éclatant. Facettes résistantes aux taches. Durée de vie de 15 à 20 ans avec un entretien approprié.",
+            "image": "https://venus-estetika.com/images/interventions/facettes-dentaires-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/dentaire/facettes",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/dentaire/facettes",
+            "location": { "@type": "MedicalClinic", "@id": "https://venus-estetika.com/#clinic" },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/dentaire/facettes#offer",
+                "name": "Facette Dentaire — par facette",
+                "description": "Prix par facette E-Max tout compris : bilan dentaire, empreinte numérique, fabrication sur mesure, pose et ajustement",
+                "price": "350",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": { "@type": "MedicalClinic", "@id": "https://venus-estetika.com/#clinic" }
+            }
+        };
+    }
+    if (slug === 'greffe-cheveux') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/capillaire/greffe-cheveux#procedure",
+            "name": "Greffe de Cheveux FUE Saphir en Tunisie",
+            "alternateName": ["Greffe capillaire FUE", "Hair transplant FUE Sapphire", "Transplantation capillaire"],
+            "description": "Greffe de cheveux par technique FUE Saphir réalisée par des chirurgiens spécialisés en Tunisie. Extraction folliculaire unitaire avec lames en saphir pour une cicatrisation optimale et un résultat naturel. Jusqu'à 4 000 greffons en une seule séance.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Cuir chevelu",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Alopécie androgénétique masculine (Norwood II à VI), calvitie frontale, golfes temporaux dégarnis, vertex clairsemé, cicatrices du cuir chevelu"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Zone donneuse insuffisante, alopécie diffuse non stabilisée, troubles de la coagulation, dermatose du cuir chevelu non traitée, attentes irréalistes"
+            },
+            "preparation": "Bilan capillaire complet avec analyse de la zone donneuse et receveuse. Photos selon la classification Norwood. Arrêt des anticoagulants et du minoxidil 1 semaine avant. Pas de rasage préalable nécessaire.",
+            "howPerformed": "Intervention réalisée sous anesthésie locale. Durée : 6 à 8 heures. Extraction individuelle des greffons de la zone occipitale avec micro-punch de 0,7-0,9mm. Ouverture des canaux de réception avec lames en saphir. Implantation manuelle des greffons un par un.",
+            "followup": "Croûtes pendant 7-10 jours. Chute des cheveux greffés à S2-S4 (normale). Repousse à partir de M3. Résultat visible à M6-M8. Résultat définitif à M12-M18. Suivi photographique inclus.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Chevelure naturelle et dense sur les zones traitées. Résultat définitif et permanent. Taux de repousse de 90 à 95% des greffons implantés.",
+            "image": "https://venus-estetika.com/images/interventions/greffe-cheveux-fue-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/capillaire/greffe-cheveux",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/capillaire/greffe-cheveux",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/capillaire/greffe-cheveux#offer",
+                "name": "Greffe de Cheveux FUE Saphir Tout Compris",
+                "description": "Séjour tout compris : greffe FUE Saphir jusqu'à 4 000 greffons, anesthésie locale, kit de soins post-opératoires, hôtel 5★ (4 nuits), transferts aéroport, suivi 12 mois",
+                "price": "2200",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'greffe-dhi') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/capillaire/greffe-dhi#procedure",
+            "name": "Greffe DHI en Tunisie",
+            "alternateName": ["Greffe capillaire DHI", "Direct Hair Implantation", "Implantation directe au stylo Choi"],
+            "description": "Greffe de cheveux par technique DHI (Direct Hair Implantation) au stylo Choi réalisée par des chirurgiens spécialisés en Tunisie. Implantation directe sans incision préalable pour une densité maximale et un résultat ultra-naturel.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Cuir chevelu",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Alopécie androgénétique Norwood II à IV, densification de la ligne frontale, renforcement d'une greffe précédente, zones nécessitant une haute densité"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Zone donneuse insuffisante, calvitie trop étendue (Norwood VI-VII), troubles de la coagulation, dermatose du cuir chevelu non traitée"
+            },
+            "preparation": "Bilan capillaire complet avec analyse de la zone donneuse et receveuse. Photos selon la classification Norwood. Arrêt des anticoagulants 1 semaine avant. Rasage minimal de la zone donneuse uniquement.",
+            "howPerformed": "Intervention réalisée sous anesthésie locale. Durée : 6 à 8 heures. Extraction individuelle des greffons de la zone occipitale. Implantation directe avec stylo Choi (implanter) qui contrôle simultanément la profondeur, l'angle et la direction de chaque greffon.",
+            "followup": "Croûtes pendant 7-10 jours. Reprise d'activité à J3. Chute des cheveux greffés à S2-S4. Repousse à partir de M3. Résultat visible à M6-M8. Résultat définitif à M12-M18. Suivi photographique inclus.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Densité capillaire maximale sur les zones ciblées. Ligne frontale ultra-naturelle. Taux de repousse de 90 à 95%. Résultat permanent.",
+            "image": "https://venus-estetika.com/images/interventions/greffe-dhi-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/capillaire/greffe-dhi",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/capillaire/greffe-dhi",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/capillaire/greffe-dhi#offer",
+                "name": "Greffe DHI Tout Compris",
+                "description": "Séjour tout compris : greffe DHI au stylo Choi jusqu'à 3 500 greffons, anesthésie locale, kit de soins post-opératoires, hôtel 5★ (4 nuits), transferts aéroport, suivi 12 mois",
+                "price": "2500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'greffe-barbe') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/capillaire/greffe-barbe#procedure",
+            "name": "Greffe de Barbe en Tunisie",
+            "alternateName": ["Greffe de barbe FUE", "Beard transplant", "Implantation de barbe"],
+            "description": "Greffe de barbe par technique FUE réalisée par des chirurgiens spécialisés en Tunisie. Implantation de greffons prélevés sur le cuir chevelu pour une barbe dense, fournie et naturelle. Résultat définitif et permanent.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Visage (barbe)",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Barbe clairsemée ou inexistante, zones sans poils sur les joues ou le menton, cicatrices dans la zone de barbe, asymétrie de la pilosité faciale"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Zone donneuse insuffisante, dermatose faciale non traitée, acné active sur la zone de barbe, troubles de la coagulation"
+            },
+            "preparation": "Bilan capillaire avec analyse de la zone donneuse et du visage. Photos de la barbe souhaitée. Définition du dessin de barbe avec le chirurgien. Arrêt des anticoagulants 1 semaine avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie locale. Durée : 4 à 6 heures selon le nombre de greffons. Extraction FUE des greffons de la zone occipitale. Implantation manuelle respectant le sens de pousse, l'angle et la densité naturelle du poil de barbe.",
+            "followup": "Micro-croûtes pendant 7-10 jours. Rougeurs 2-3 semaines. Chute des poils greffés à S2-S4. Repousse à partir de M3. Premier rasage doux à S3. Résultat définitif à M8-M12.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Barbe dense, fournie et naturelle. Résultat définitif et permanent. Les poils greffés poussent et se rasent comme des poils de barbe naturels.",
+            "image": "https://venus-estetika.com/images/interventions/greffe-barbe-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/capillaire/greffe-barbe",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/capillaire/greffe-barbe",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/capillaire/greffe-barbe#offer",
+                "name": "Greffe de Barbe Tout Compris",
+                "description": "Séjour tout compris : greffe de barbe FUE jusqu'à 3 000 greffons, anesthésie locale, kit de soins post-opératoires, hôtel 5★ (3 nuits), transferts aéroport, suivi 12 mois",
+                "price": "1800",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
     if (slug === 'lifting-cuisses') {
         return {
             "@context": "https://schema.org",
@@ -588,6 +905,546 @@ export function getMedicalProcedureData(slug: string) {
                 "name": "Cruroplastie Bilatérale Tout Compris",
                 "description": "Séjour tout compris : cruroplastie bilatérale, anesthésie, hospitalisation 1-2 nuits, hôtel 5* (5 nuits), transferts aéroport, gaine de compression, suivi 12 mois",
                 "price": "2500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'rhinoplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/rhinoplastie#procedure",
+            "name": "Rhinoplastie en Tunisie",
+            "alternateName": ["Chirurgie du nez", "Rhinoplasty", "Rhinoseptoplastie"],
+            "description": "La rhinoplastie est une intervention de chirurgie esthétique qui corrige la forme et la taille du nez pour un résultat harmonieux avec le visage. Technique ouverte ou fermée selon l'indication. Possibilité de corriger une déviation septale dans le même temps. Réalisée par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Nez",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Bosse nasale, nez trop large ou trop long, pointe tombante ou bulbeuse, déviation de la cloison nasale, asymétrie nasale, gêne respiratoire"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Croissance osseuse non terminée (avant 16-17 ans), attentes irréalistes, troubles de la coagulation, contre-indications à l'anesthésie générale, tabagisme actif"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil, 3/4). Simulation numérique du résultat. Bilan pré-opératoire complet. Arrêt du tabac 4 semaines avant. Arrêt aspirine et anticoagulants 10 jours avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie générale. Durée : 1h30 à 2h30. Technique fermée (incisions intranasales) ou ouverte (incision columellaire) selon la complexité. Remodelage du cartilage et de l'os nasal. Pose d'un plâtre nasal en fin d'intervention.",
+            "followup": "Plâtre nasal porté 7 jours. Œdème et ecchymoses 2-3 semaines. Résultat visible à 3 mois. Résultat définitif à 12 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Nez harmonieux, proportionné et naturel. Amélioration possible de la respiration nasale en cas de septoplastie associée. Résultat définitif à 12 mois.",
+            "image": "https://venus-estetika.com/images/interventions/rhinoplastie-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-visage/rhinoplastie",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-visage/rhinoplastie",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-visage/rhinoplastie#offer",
+                "name": "Rhinoplastie Tout Compris",
+                "description": "Séjour tout compris : intervention chirurgicale, anesthésie, clinique 1 nuit, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'blepharoplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/blepharoplastie#procedure",
+            "name": "Blépharoplastie en Tunisie",
+            "alternateName": ["Chirurgie des paupières", "Blepharoplasty", "Lifting des paupières"],
+            "description": "La blépharoplastie est une intervention de chirurgie esthétique qui corrige l'excès de peau, de graisse et le relâchement des paupières supérieures et/ou inférieures pour rajeunir le regard. Cicatrices invisibles dissimulées dans le pli naturel. Réalisée par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Paupières",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Paupières supérieures tombantes, poches sous les yeux, regard fatigué, excès de peau palpébrale, gêne du champ visuel"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Sécheresse oculaire sévère, glaucome non contrôlé, troubles de la coagulation, maladie thyroïdienne non stabilisée, contre-indications à l'anesthésie"
+            },
+            "preparation": "Consultation à distance avec photos du regard. Bilan ophtalmologique si nécessaire. Bilan pré-opératoire complet. Arrêt aspirine et anticoagulants 10 jours avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie locale avec sédation ou générale. Durée : 1h à 1h30. Incision dans le pli naturel de la paupière supérieure et/ou sous les cils (paupière inférieure). Retrait de l'excès de peau et des poches graisseuses. Suture fine résorbable.",
+            "followup": "Œdème et ecchymoses maximaux à J2-J3. Fils retirés J5-J7. Maquillage possible à J10. Résultat visible à 1 mois. Résultat définitif à 3 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Regard rajeuni et reposé. Cicatrices invisibles dans le pli naturel. Résultat durable 7 à 10 ans.",
+            "image": "https://venus-estetika.com/images/interventions/blepharoplastie-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-visage/blepharoplastie",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-visage/blepharoplastie",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-visage/blepharoplastie#offer",
+                "name": "Blépharoplastie Tout Compris",
+                "description": "Séjour tout compris : intervention chirurgicale, anesthésie, clinique, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "1800",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'lifting-cervico-facial') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/lifting-cervico-facial#procedure",
+            "name": "Lifting Cervico-Facial en Tunisie",
+            "alternateName": ["Lifting du visage", "Facelift", "Rhytidectomie"],
+            "description": "Le lifting cervico-facial est une intervention de chirurgie esthétique qui corrige le relâchement cutané du visage et du cou pour un rajeunissement global et naturel. Résultat durable 8 à 12 ans. Cicatrices dissimulées derrière les oreilles et dans le cuir chevelu. Réalisé par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Visage et Cou",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Relâchement cutané du visage et du cou, bajoues, ovale du visage affaissé, plis profonds, cou relâché avec bandes platismales"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Troubles de la coagulation, tabagisme actif, pathologie cardiaque non stabilisée, contre-indications à l'anesthésie générale, attentes irréalistes"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil, 3/4). Bilan pré-opératoire complet. Arrêt du tabac 4 semaines avant. Arrêt aspirine et anticoagulants 10 jours avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie générale. Durée : 3 à 4 heures. Incision péri-auriculaire (devant et derrière l'oreille) se prolongeant dans le cuir chevelu. Décollement et remise en tension du SMAS (couche musculaire profonde). Retrait de l'excès cutané. Suture en deux plans.",
+            "followup": "Bandage compressif 48-72h. Hospitalisation 1-2 nuits. Œdème et ecchymoses 2-3 semaines. Résultat visible à 1 mois. Résultat définitif à 3-6 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Visage rajeuni de 8 à 12 ans. Ovale du visage restauré, bajoues corrigées, cou redéfini. Cicatrices invisibles derrière les oreilles. Résultat naturel et durable.",
+            "image": "https://venus-estetika.com/images/interventions/lifting-cervico-facial-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-visage/lifting-cervico-facial",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-visage/lifting-cervico-facial",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-visage/lifting-cervico-facial#offer",
+                "name": "Lifting Cervico-Facial Tout Compris",
+                "description": "Séjour tout compris : intervention chirurgicale, anesthésie, clinique 1-2 nuits, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "3500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'otoplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/otoplastie#procedure",
+            "name": "Otoplastie en Tunisie",
+            "alternateName": ["Chirurgie des oreilles décollées", "Otoplasty", "Correction oreilles proéminentes"],
+            "description": "L'otoplastie est une intervention de chirurgie esthétique qui corrige les oreilles décollées en remodelant le cartilage auriculaire pour un positionnement naturel. Réalisable dès 7 ans. Cicatrice cachée derrière l'oreille. Réalisée par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Oreilles",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Oreilles décollées (proéminentes), asymétrie auriculaire, absence de pli de l'anthélix, hypertrophie de la conque"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Enfant de moins de 7 ans (cartilage non mature), infection auriculaire active, troubles de la coagulation, contre-indications à l'anesthésie"
+            },
+            "preparation": "Consultation à distance avec photos des oreilles (face et dos). Bilan pré-opératoire. Pas d'aspirine ou anticoagulants 10 jours avant.",
+            "howPerformed": "Intervention sous anesthésie locale avec sédation (adulte) ou générale (enfant). Durée : 1h à 1h30. Incision derrière l'oreille. Remodelage du cartilage par scoring et/ou sutures de plicature. Repositionnement de l'oreille contre le crâne.",
+            "followup": "Bandage compressif 7 jours. Bandeau de contention nocturne 15 jours. Douleurs légères 3-5 jours. Résultat visible dès le retrait du bandage. Résultat définitif à 1 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Oreilles naturellement positionnées contre le crâne. Résultat définitif et permanent. Cicatrice invisible derrière l'oreille.",
+            "image": "https://venus-estetika.com/images/interventions/otoplastie-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-visage/otoplastie",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-visage/otoplastie",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-visage/otoplastie#offer",
+                "name": "Otoplastie Bilatérale Tout Compris",
+                "description": "Séjour tout compris : otoplastie bilatérale, anesthésie, clinique, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "1500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'lipofilling-visage') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/lipofilling-visage#procedure",
+            "name": "Lipofilling Visage en Tunisie",
+            "alternateName": ["Injection de graisse visage", "Facial fat grafting", "Lipostructure du visage"],
+            "description": "Le lipofilling du visage consiste à prélever de la graisse autologue (propre graisse du patient), la purifier, puis la réinjecter dans le visage pour restaurer les volumes, combler les cernes et rajeunir le teint. Résultat naturel et semi-permanent. Réalisé par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Visage",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Cernes creux, pommettes affaissées, tempes creuses, sillons nasogéniens marqués, perte de volume liée au vieillissement, rajeunissement global du visage"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Réserves graisseuses insuffisantes, troubles de la coagulation, infection cutanée active, contre-indications à l'anesthésie, tabagisme actif"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil, 3/4). Bilan pré-opératoire complet. Arrêt aspirine et anticoagulants 10 jours avant. Pas de régime amaigrissant avant l'intervention.",
+            "howPerformed": "Intervention sous anesthésie locale avec sédation ou générale. Durée : 1h à 1h30. Phase 1 : lipoaspiration douce d'une petite quantité de graisse (ventre, hanches). Phase 2 : purification par centrifugation. Phase 3 : micro-injections précises dans les zones à traiter avec des canules ultra-fines.",
+            "followup": "Œdème et ecchymoses modérés 5-10 jours. Éviction sociale 7-10 jours. Résultat visible à 1 mois. Résultat définitif à 3-6 mois (après stabilisation de la graisse). Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Visage rajeuni et repulpé avec un résultat 100% naturel. 60 à 70% de la graisse s'intègre définitivement. Effet régénérant sur la qualité de la peau grâce aux cellules souches adipeuses.",
+            "image": "https://venus-estetika.com/images/interventions/lipofilling-visage-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-visage/lipofilling-visage",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-visage/lipofilling-visage",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-visage/lipofilling-visage#offer",
+                "name": "Lipofilling Visage Tout Compris",
+                "description": "Séjour tout compris : lipoaspiration + lipofilling visage, anesthésie, clinique, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2000",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'genioplastie') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-visage/genioplastie#procedure",
+            "name": "Génioplastie en Tunisie",
+            "alternateName": ["Chirurgie du menton", "Mentoplastie", "Chin surgery"],
+            "description": "La génioplastie est une intervention de chirurgie esthétique qui modifie la forme et la projection du menton par implant ou ostéotomie pour harmoniser le profil facial. Cicatrice invisible à l'intérieur de la bouche. Se combine idéalement avec une rhinoplastie (profiloplastie). Réalisée par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Menton",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Menton fuyant (rétrogénie), menton trop projeté (progénie), asymétrie du menton, disharmonie du profil facial"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Croissance osseuse non terminée, malocclusion dentaire non traitée, troubles de la coagulation, infection buccale active, contre-indications à l'anesthésie générale"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil). Analyse céphalométrique si nécessaire. Bilan pré-opératoire complet. Arrêt aspirine et anticoagulants 10 jours avant.",
+            "howPerformed": "Intervention sous anesthésie générale. Durée : 1h à 1h30. Incision intra-orale (entre la lèvre inférieure et la gencive). Pose d'un implant en silicone ou ostéotomie avec avancement/recul osseux selon l'indication. Suture résorbable.",
+            "followup": "Œdème du menton et lèvre inférieure 7-10 jours. Alimentation molle 10 jours. Bains de bouche antiseptiques. Résultat visible à 1 mois. Résultat définitif à 2-3 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Profil facial harmonieux et équilibré. Menton proportionné au nez et au front. Aucune cicatrice visible (voie intra-orale). Résultat définitif et stable.",
+            "image": "https://venus-estetika.com/images/interventions/genioplastie-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-visage/genioplastie",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-visage/genioplastie",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-visage/genioplastie#offer",
+                "name": "Génioplastie Tout Compris",
+                "description": "Séjour tout compris : intervention chirurgicale, anesthésie, clinique 1 nuit, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2200",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'augmentation-mammaire') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire#procedure",
+            "name": "Augmentation Mammaire en Tunisie",
+            "alternateName": ["Implants mammaires", "Breast augmentation", "Prothèses mammaires"],
+            "description": "L'augmentation mammaire est une intervention de chirurgie esthétique qui augmente le volume de la poitrine par la pose d'implants en silicone cohésif de marques certifiées CE. Choix entre implants ronds et anatomiques. Réalisée par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Poitrine",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Hypoplasie mammaire (poitrine trop petite), asymétrie mammaire, perte de volume après grossesse ou perte de poids, souhait d'une poitrine plus volumineuse"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Grossesse en cours ou allaitement, cancer du sein non traité, troubles de la coagulation, contre-indications à l'anesthésie générale, tabagisme actif"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil, 3/4). Choix du volume et de la forme des implants avec le chirurgien. Mammographie si plus de 35 ans. Bilan pré-opératoire complet. Arrêt du tabac 4 semaines avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie générale. Durée : 1h à 1h30. Incision sous-mammaire (la plus courante), péri-aréolaire ou axillaire. Création de la loge rétro-musculaire ou prépectorale. Insertion de l'implant en silicone cohésif. Suture en deux plans.",
+            "followup": "Soutien-gorge médical porté jour et nuit pendant 4-6 semaines. Douleurs modérées 5-7 jours. Résultat visible immédiatement. Résultat définitif à 3 mois (descente naturelle de l'implant). Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Poitrine plus volumineuse, harmonieuse et naturelle. Décolleté amélioré. Implants de dernière génération à durée de vie de 10-15 ans. Allaitement possible dans la majorité des cas.",
+            "image": "https://venus-estetika.com/images/interventions/augmentation-mammaire-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/augmentation-mammaire#offer",
+                "name": "Augmentation Mammaire Tout Compris",
+                "description": "Séjour tout compris : prothèses silicone certifiées, intervention chirurgicale, anesthésie, clinique 1 nuit, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2800",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'reduction-mammaire') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/reduction-mammaire#procedure",
+            "name": "Réduction Mammaire en Tunisie",
+            "alternateName": ["Plastie mammaire de réduction", "Breast reduction", "Réduction de la poitrine"],
+            "description": "La réduction mammaire est une intervention de chirurgie esthétique et reconstructrice qui réduit le volume des seins hypertrophiés, soulageant les douleurs dorsales et améliorant la silhouette. Technique en T inversé ou verticale selon le volume à retirer. Réalisée par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Poitrine",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Hypertrophie mammaire causant douleurs dorsales, cervicales et d'épaules, gêne fonctionnelle et sportive, macération sous les seins, complexe esthétique"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Grossesse en cours ou projet de grossesse immédiat, allaitement en cours, cancer du sein non traité, troubles de la coagulation, contre-indications à l'anesthésie générale, tabagisme actif"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil, 3/4). Mammographie préalable. Bilan pré-opératoire complet. Arrêt du tabac 4 semaines avant. Arrêt aspirine et anticoagulants 10 jours avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie générale. Durée : 2h à 3h. Technique en T inversé (ancre) ou verticale selon le volume à retirer. Résection du tissu mammaire excédentaire, repositionnement de l'aréole et du mamelon, suture en plusieurs plans.",
+            "followup": "Soutien-gorge médical porté jour et nuit pendant 4-6 semaines. Drains retirés à J1-J2. Résultat visible immédiatement. Cicatrices évoluent sur 12-18 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Poitrine proportionnée et allégée. Soulagement des douleurs dorsales et cervicales. Cicatrices en T inversé ou verticales qui s'estompent progressivement. Résultat définitif à 6 mois.",
+            "image": "https://venus-estetika.com/images/interventions/reduction-mammaire-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-mammaire/reduction-mammaire",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-mammaire/reduction-mammaire",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/reduction-mammaire#offer",
+                "name": "Réduction Mammaire Tout Compris",
+                "description": "Séjour tout compris : intervention chirurgicale, anesthésie, clinique 1-2 nuits, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2800",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'lifting-seins') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/lifting-seins#procedure",
+            "name": "Lifting des Seins (Mastopexie) en Tunisie",
+            "alternateName": ["Mastopexie", "Breast lift", "Lifting mammaire"],
+            "description": "Le lifting des seins (mastopexie) est une intervention de chirurgie esthétique qui remonte et remodèle les seins ptosés (tombants) pour restaurer une poitrine ferme et galbée. Réalisable avec ou sans implants. Réalisé par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Poitrine",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Ptose mammaire (seins tombants) après grossesse, allaitement, perte de poids ou vieillissement, aréoles orientées vers le bas, perte de fermeté"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Grossesse en cours ou projet de grossesse immédiat, allaitement en cours, cancer du sein non traité, troubles de la coagulation, contre-indications à l'anesthésie générale, tabagisme actif"
+            },
+            "preparation": "Consultation à distance avec photos (face, profil, 3/4). Mammographie préalable si plus de 35 ans. Bilan pré-opératoire complet. Arrêt du tabac 4 semaines avant.",
+            "howPerformed": "Intervention réalisée sous anesthésie générale. Durée : 1h30 à 2h30. Technique péri-aréolaire (ptose légère), verticale (ptose modérée) ou en T inversé (ptose importante). Repositionnement de l'aréole et du mamelon, retrait de l'excès cutané, remodelage du cône mammaire. Pose d'implants possible dans le même temps.",
+            "followup": "Soutien-gorge médical porté jour et nuit pendant 4-6 semaines. Douleurs modérées 5-7 jours. Résultat visible immédiatement. Résultat définitif à 3-6 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Poitrine remontée, ferme et galbée. Aréoles repositionnées. Résultat naturel et durable 8 à 10 ans avec maintien d'un poids stable.",
+            "image": "https://venus-estetika.com/images/interventions/lifting-seins-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-mammaire/lifting-seins",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-mammaire/lifting-seins",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/lifting-seins#offer",
+                "name": "Lifting des Seins (Mastopexie) Tout Compris",
+                "description": "Séjour tout compris : intervention chirurgicale, anesthésie, clinique 1 nuit, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2500",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2026-01-01",
+                "seller": {
+                    "@type": "MedicalClinic",
+                    "@id": "https://venus-estetika.com/#clinic"
+                }
+            }
+        };
+    }
+    if (slug === 'lipofilling-mammaire') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/lipofilling-mammaire#procedure",
+            "name": "Lipofilling Mammaire en Tunisie",
+            "alternateName": ["Augmentation mammaire par graisse", "Breast fat transfer", "Lipofilling seins"],
+            "description": "Le lipofilling mammaire est une intervention de chirurgie esthétique qui augmente le volume des seins en utilisant la propre graisse de la patiente. Alternative naturelle aux implants. Gain d'environ 1 bonnet par séance. Réalisé par nos chirurgiens diplômés en France, dans des cliniques agréées en Tunisie.",
+            "procedureType": {
+                "@type": "MedicalProcedureType",
+                "name": "Surgical"
+            },
+            "bodyLocation": "Poitrine",
+            "indication": {
+                "@type": "MedicalIndication",
+                "name": "Augmentation mammaire modérée sans implant, correction d'asymétrie mammaire, comblement de défauts après chirurgie mammaire, complément d'un lifting des seins"
+            },
+            "contraindication": {
+                "@type": "MedicalContraindication",
+                "name": "Réserves graisseuses insuffisantes, cancer du sein non traité, grossesse en cours ou allaitement, troubles de la coagulation, contre-indications à l'anesthésie générale"
+            },
+            "preparation": "Consultation à distance avec photos. Mammographie préalable si plus de 35 ans. Bilan pré-opératoire complet. Arrêt du tabac 4 semaines avant. Pas de régime amaigrissant avant l'intervention (les réserves graisseuses doivent être maintenues).",
+            "howPerformed": "Intervention réalisée sous anesthésie générale. Durée : 2h à 2h30. Phase 1 : lipoaspiration douce des zones donneuses (ventre, hanches, cuisses). Phase 2 : purification de la graisse par centrifugation. Phase 3 : réinjection en micro-gouttelettes dans les seins à différents niveaux.",
+            "followup": "Soutien-gorge médical porté 4-6 semaines. Écchymoses zones donneuses 2 semaines. Résultat visible immédiatement. Résorption de 30-40% du volume sur 3-6 mois. Résultat définitif à 6 mois. Suivi post-opératoire inclus pendant 12 mois.",
+            "status": "https://schema.org/ActiveActionStatus",
+            "outcome": "Augmentation mammaire naturelle d'environ 1 bonnet. Résultat 100% naturel au toucher et en mouvement. 60-70% de la graisse survit définitivement. Double bénéfice : silhouette affinée par la liposuccion.",
+            "image": "https://venus-estetika.com/images/interventions/lipofilling-mammaire-tunisie.jpg",
+            "url": "https://venus-estetika.com/interventions/chirurgie-mammaire/lipofilling-mammaire",
+            "mainEntityOfPage": "https://venus-estetika.com/interventions/chirurgie-mammaire/lipofilling-mammaire",
+            "performer": {
+                "@type": "Physician",
+                "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician"
+            },
+            "location": {
+                "@type": "MedicalClinic",
+                "@id": "https://venus-estetika.com/#clinic"
+            },
+            "offers": {
+                "@type": "Offer",
+                "@id": "https://venus-estetika.com/interventions/chirurgie-mammaire/lipofilling-mammaire#offer",
+                "name": "Lipofilling Mammaire Tout Compris",
+                "description": "Séjour tout compris : lipoaspiration + lipofilling mammaire, anesthésie, clinique 1 nuit, soutien-gorge médical, hôtel 5★ (5 nuits), transferts aéroport, suivi post-opératoire 12 mois",
+                "price": "2800",
                 "priceCurrency": "EUR",
                 "priceValidUntil": "2026-12-31",
                 "availability": "https://schema.org/InStock",

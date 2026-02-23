@@ -54,7 +54,7 @@ export default function PolitiqueConfidentialitePage() {
                             <span className="font-medium text-brand-navy">Email :</span>{' '}
                             <a
                                 href="mailto:contact@venus-estetika.com"
-                                className="text-brand-gold hover:underline"
+                                className="text-brand-blue hover:underline"
                             >
                                 contact@venus-estetika.com
                             </a>
@@ -63,7 +63,7 @@ export default function PolitiqueConfidentialitePage() {
                             <span className="font-medium text-brand-navy">Téléphone :</span>{' '}
                             <a
                                 href="tel:+21650606780"
-                                className="text-brand-gold hover:underline"
+                                className="text-brand-blue hover:underline"
                             >
                                 +216 50 606 780
                             </a>
@@ -334,7 +334,7 @@ export default function PolitiqueConfidentialitePage() {
                         Pour exercer l'un de ces droits, adressez une demande écrite à :{' '}
                         <a
                             href="mailto:contact@venus-estetika.com"
-                            className="text-brand-gold font-medium hover:underline"
+                            className="text-brand-blue font-medium hover:underline"
                         >
                             contact@venus-estetika.com
                         </a>
@@ -415,14 +415,14 @@ export default function PolitiqueConfidentialitePage() {
                         Pour toute question relative à la présente politique, contactez-nous à :{' '}
                         <a
                             href="mailto:contact@venus-estetika.com"
-                            className="text-brand-gold font-medium hover:underline"
+                            className="text-brand-blue font-medium hover:underline"
                         >
                             contact@venus-estetika.com
                         </a>
                         . Voir également nos{' '}
                         <Link
                             href="/mentions-legales"
-                            className="text-brand-gold font-medium hover:underline"
+                            className="text-brand-blue font-medium hover:underline"
                         >
                             Mentions Légales
                         </Link>

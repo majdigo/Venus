@@ -67,7 +67,7 @@ export function BypassGastriqueInteractiveAnatomy() {
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-navy/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
@@ -88,7 +88,7 @@ export function BypassGastriqueInteractiveAnatomy() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-3xl md:text-5xl font-bold text-brand-navy mb-6"
                     >
-                        Comment fonctionne un <span className="text-brand-gold">Bypass</span> ?
+                        Comment fonctionne un <span className="text-brand-blue">Bypass</span> ?
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -246,7 +246,7 @@ export function BypassGastriqueInteractiveAnatomy() {
                                 </div>
 
                                 <div className="relative z-10">
-                                    <span className="text-brand-gold font-bold text-sm tracking-wider uppercase mb-2 block">{activeStep.label}</span>
+                                    <span className="text-brand-blue font-bold text-sm tracking-wider uppercase mb-2 block">{activeStep.label}</span>
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">
                                         {activeStep.title}
                                     </h3>
@@ -262,8 +262,8 @@ export function BypassGastriqueInteractiveAnatomy() {
                                         <ul className="space-y-3">
                                             {activeStep.benefits.map((benefit, idx) => (
                                                 <li key={idx} className="flex items-start gap-3">
-                                                    <div className="w-6 h-6 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                        <CheckCircle2 size={14} className="text-brand-gold" />
+                                                    <div className="w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                        <CheckCircle2 size={14} className="text-brand-blue" />
                                                     </div>
                                                     <span className="text-gray-700">{benefit}</span>
                                                 </li>

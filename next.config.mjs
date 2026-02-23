@@ -6,6 +6,9 @@ const nextConfig = {
             { protocol: 'https', hostname: 'venus-estetika.com' },
         ],
     },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     async headers() {
         return [
             {

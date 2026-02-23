@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C87A"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Sparkles for Rejuvenation effect -->
+  <circle cx="280" cy="80" r="3" fill="url(#gold)" opacity="0.8"/>
+  <circle cx="310" cy="110" r="2" fill="url(#gold)" opacity="0.5"/>
+  <circle cx="260" cy="140" r="1.5" fill="url(#gold)" opacity="0.6"/>
+  
+  <g transform="translate(130, 40)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Syringe / Injection Tool Outline -->
+    <!-- Barrel -->
+    <rect x="50" y="70" width="30" height="90" rx="5" stroke="#0f172a" opacity="0.9"/>
+    <!-- Plunger -->
+    <line x1="65" y1="20" x2="65" y2="70" stroke="#0f172a" stroke-width="4" opacity="0.6"/>
+    <line x1="50" y1="20" x2="80" y2="20" stroke="#0f172a" stroke-width="4" opacity="0.8"/>
+    <!-- Liquid Level Inside Barrel -->
+    <path d="M 50,110 L 80,110" stroke="url(#gold)" opacity="0.9"/>
+    <!-- Liquid / Gel gradient -->
+    <rect x="52" y="112" width="26" height="46" rx="2" fill="url(#gold)" stroke="none" opacity="0.2"/>
+    
+    <!-- Needle / Micro Injection -->
+    <line x1="65" y1="160" x2="65" y2="200" stroke="#0f172a" stroke-width="1.5" opacity="0.6"/>
+    
+    <path d="M 65,210 L 65,220" stroke="url(#gold)" stroke-width="2" opacity="0.9"/>
+    
+    <!-- Face Contour Curve / Injection target -->
+    <path d="M -10,180 C 10,210 20,240 50,260 C 80,240 100,220 120,180" stroke="url(#gold)" stroke-width="2" stroke-dasharray="4 6" opacity="0.8"/>
+  </g>
+</svg>

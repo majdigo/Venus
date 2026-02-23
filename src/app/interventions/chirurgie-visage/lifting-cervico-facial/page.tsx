@@ -2,10 +2,14 @@ import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Award, Clock, Sparkles } from 'lucide-react';
+import { CheckCircle2, Award, Clock, Sparkles } from 'lucide-react';
 import { FAQAccordion } from '@/components/ui/faq-accordion';
 import { GuidedTourTimeline } from '@/components/ui/GuidedTourTimeline';
 import Link from 'next/link';
+import { InterventionHero } from '@/components/interventions/InterventionHero';
+import { SurgeonReferenceSection } from '@/components/interventions/SurgeonReferenceSection';
+import { PatientTestimonialSection } from '@/components/interventions/PatientTestimonialSection';
+import { GuaranteeSection } from '@/components/interventions/GuaranteeSection';
 
 export const metadata: Metadata = {
     title: 'Lifting Visage Tunisie | Lifting Cervico-Facial dès 3 500€ — Venus Estetika',
@@ -105,34 +109,20 @@ export default function LiftingCervicoFacialPage() {
             <div className="min-h-screen bg-white">
 
                 {/* HERO SECTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Rajeunissement Facial Premium
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Lifting cervico-facial en Tunisie : rajeunissez visage et cou durablement
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Repositionnez les tissus relâchés du visage et du cou pour un résultat naturel de 8 à 12 ans.
-                            Forfait tout compris à partir de{' '}
-                            <b className="text-brand-gold text-3xl mx-2">3 500€</b>{' '}
-                            <span className="line-through text-sm opacity-60">6 000-10 000€ en France</span>.
-                            Clinique agréée, hôtel 5 étoiles, suivi 12 mois inclus.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full sm:w-auto">
-                                <Link href="/devis?intervention=lifting-visage">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">
-                            +2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS
-                        </p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Lifting cervico-facial en Tunisie : rajeunissez visage et cou durablement"
+                    subtitle="Repositionnez les tissus relâchés du visage et du cou pour un résultat naturel de 8 à 12 ans. Clinique agréée, hôtel 5 étoiles, suivi 12 mois inclus."
+                    price="3 500€"
+                    priceOld="6 000-10 000€"
+                    imageSrc="/images/heroes/chirurgie-visage-hero.jpg"
+                    imageAlt="Lifting cervico-facial en Tunisie - Venus Estetika"
+                    badge="Rajeunissement Facial Premium"
+                    devisSlug="lifting-visage"
+                    stats="+2 500 patients accompagnés | Note 4.8/5 sur Google | Chirurgiens membres ISAPS"
+                    doctorName="Dr Atef Ghedira"
+                    doctorImage="/images/doctors/dr-atef-ghedira.jpg"
+                    doctorSpecialty="Chirurgie Plastique & Reconstructrice"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -157,7 +147,7 @@ export default function LiftingCervicoFacialPage() {
 
                                 <div className="grid sm:grid-cols-2 gap-6">
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">SMAS Lifting</h4>
                                         <p className="text-sm text-gray-500">
                                             Repositionnement musculaire profond pour un résultat naturel et durable.
@@ -165,7 +155,7 @@ export default function LiftingCervicoFacialPage() {
                                         </p>
                                     </div>
                                     <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                                        <Sparkles className="w-8 h-8 text-brand-gold mb-3" />
+                                        <Sparkles className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Mini-Lift</h4>
                                         <p className="text-sm text-gray-500">
                                             Version allégée pour relâchement modéré. Cicatrices réduites et
@@ -186,7 +176,7 @@ export default function LiftingCervicoFacialPage() {
                                             key={index}
                                             className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100"
                                         >
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -235,7 +225,7 @@ export default function LiftingCervicoFacialPage() {
                                                     </p>
                                                 </div>
                                                 <div className="text-right">
-                                                    <p className="font-bold text-2xl text-brand-gold">{price.tn}</p>
+                                                    <p className="font-bold text-2xl text-brand-blue">{price.tn}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -244,7 +234,7 @@ export default function LiftingCervicoFacialPage() {
 
                                 {/* Convalescence Info */}
                                 <div className="p-8 bg-slate-50">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Convalescence &amp; Résultats</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         L&apos;oedème se résorbe en 2 à 3 semaines. Le résultat définitif s&apos;apprécie à
@@ -275,6 +265,60 @@ export default function LiftingCervicoFacialPage() {
                     </div>
                 </section>
 
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages lifting cervico-facial"
+                    testimonials={[
+                        {
+                            name: 'Sylvie B.',
+                            city: 'Marseille',
+                            quote: "À 58 ans, j'avais le visage qui ne correspondait plus à l'énergie que je ressentais. Mon lifting chez Venus Estetika m'a rendu 12 ans. Le Dr Ghedira a réalisé un travail d'une précision remarquable — le résultat est naturel, personne ne voit que j'ai été opérée. Je me sens simplement mieux dans ma peau.",
+                            intervention: 'Lifting cervico-facial SMAS',
+                            savings: '5 800€',
+                            rating: 5,
+                        },
+                        {
+                            name: 'Nathalie P.',
+                            city: 'Strasbourg',
+                            quote: "J'avais demandé des devis en France — entre 8 000 et 11 000 euros. Venus Estetika m'a proposé un forfait complet à 3 500 euros avec hôtel 5 étoiles inclus. La qualité du soin a été exemplaire. Six mois après, mon ovale de visage est redéfini et mon cou est parfaitement galbe.",
+                            intervention: 'Lifting cervico-facial complet',
+                            savings: '6 200€',
+                            rating: 5,
+                        },
+                        {
+                            name: 'Françoise M.',
+                            city: 'Bordeaux',
+                            quote: "Le suivi post-opératoire à distance via téléconsultation est une vraie valeur ajoutée. Mon chirurgien a été disponible à chaque étape de la cicatrisation. Résultat à 6 mois : naturel, durable, et exactement ce que je voulais. Je recommande Venus Estetika sans hésitation.",
+                            intervention: 'Mini-lift',
+                            savings: '4 100€',
+                            rating: 5,
+                        },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <SurgeonReferenceSection
+                    title="Nos chirurgiens pour le lifting cervico-facial"
+                    surgeons={[
+                        {
+                            name: 'Dr Atef Ghedira',
+                            specialty: 'Chirurgie Plastique & Reconstructrice',
+                            image: '/images/doctors/dr-atef-ghedira.jpg',
+                            experience: 'Expert lifting facial',
+                        },
+                        {
+                            name: 'Dr Borhene Belkhiria',
+                            specialty: 'Chirurgie Esthétique du Visage',
+                            image: '/images/doctors/dr-borhene-belkhiria.jpg',
+                            experience: '20+ ans d\'expérience',
+                        },
+                    ]}
+                    devisSlug="lifting-visage"
+                />
+
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
                     <div className="container mx-auto max-w-3xl">
@@ -285,9 +329,9 @@ export default function LiftingCervicoFacialPage() {
                             Des patients de France, de Belgique et de Suisse nous confient leur lifting chaque mois.
                             Obtenez votre devis gratuit et réservez votre date opératoire.
                         </p>
-                        <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
+                        <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
                             <Link href="/devis?intervention=lifting-visage">
-                                Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
+                                Obtenir mon devis gratuit
                             </Link>
                         </Button>
                         <p className="mt-6 text-sm font-medium text-slate-500">

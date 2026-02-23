@@ -1,10 +1,14 @@
 import { Metadata } from 'next';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Shield, Award, Plane, Clock, Heart } from 'lucide-react';
+import { CheckCircle2, Shield, Award, Plane, Clock, Heart } from 'lucide-react';
 import { TrackedLink } from '@/components/tracking/TrackedLink';
 import { GuidedTourTimeline } from '@/components/ui/GuidedTourTimeline';
 import { FAQAccordion } from '@/components/ui/faq-accordion';
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 
 export const metadata: Metadata = {
     title: 'Lipofilling Mammaire Tunisie | Augmentation Naturelle dès 2 800€ — Venus Estetika',
@@ -103,43 +107,20 @@ export default function LipofillingMammairePage() {
             <div className="min-h-screen bg-slate-50">
 
                 {/* HERO INTERVENTION */}
-                <section className="bg-brand-navy text-white py-24 px-4 mt-20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10" />
-                    <div className="container mx-auto max-w-5xl text-center relative z-20">
-                        <span className="inline-block px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold tracking-wider text-sm mb-6 border border-brand-gold/50">
-                            Augmentation Naturelle
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                            Lipofilling mammaire en Tunisie : augmentation naturelle sans prothèse
-                        </h1>
-                        <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Augmentez vos seins d'1 à 1,5 bonnet avec votre propre graisse — sans implant, sans
-                            corps étranger, avec un résultat 100 % naturel au toucher. Double bénéfice : seins
-                            augmentés et silhouette affinée. Forfait tout compris à partir de{' '}
-                            <b className="text-brand-gold text-3xl mx-2">2 800 €</b>{' '}
-                            <span className="line-through text-sm opacity-60">5 000-7 000 € en France</span>.
-                            Hôtel 5 étoiles et suivi 12 mois inclus.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <TrackedLink
-                                href="/devis?intervention=lipofilling-mammaire"
-                                className="w-full sm:w-auto"
-                                ctaText="Obtenir mon devis gratuit"
-                                ctaLocation="hero_lipofilling_mammaire"
-                            >
-                                <Button
-                                    size="lg"
-                                    className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-14 px-8 text-lg w-full"
-                                >
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Button>
-                            </TrackedLink>
-                        </div>
-                        <p className="mt-8 text-sm font-medium opacity-80">
-                            +2 500 patientes accompagnées | Note 4.8/5 sur Google | Graisse autologue 100% naturelle
-                        </p>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Lipofilling mammaire en Tunisie : augmentation naturelle sans prothèse"
+                    subtitle="Augmentez vos seins d'1 à 1,5 bonnet avec votre propre graisse — sans implant, sans corps étranger, avec un résultat 100 % naturel au toucher. Double bénéfice : seins augmentés et silhouette affinée."
+                    price="2 800 €"
+                    priceOld="5 000-7 000 €"
+                    imageSrc="/images/heroes/chirurgie-mammaire-hero.jpg"
+                    imageAlt="Lipofilling mammaire Tunisie - Venus Estetika"
+                    badge="Augmentation Naturelle"
+                    devisSlug="lipofilling-mammaire"
+                    stats="+2 500 patientes accompagnées | Note 4.8/5 sur Google | Graisse autologue 100% naturelle"
+                    doctorName="Dr Imen Ben Gaied"
+                    doctorImage="/images/doctors/dr-imen-ben-gaied.jpeg"
+                    doctorSpecialty="Chirurgie Plastique et Reconstructrice"
+                />
 
                 {/* INTRODUCTION MÉDICALE */}
                 <section className="py-20 px-4 bg-white">
@@ -220,7 +201,7 @@ export default function LipofillingMammairePage() {
                                 {
                                     icon: Clock,
                                     title: 'Suivi post-op 12 mois',
-                                    desc: "Téléconsultations à 1, 3, 6 et 12 mois pour suivre la prise de greffe et l'évolution du volume.Votre chirurgien reste disponible pour toute question.",
+                                    desc: "Téléconsultations à 1, 3, 6 et 12 mois pour suivre la prise de greffe et l'évolution du volume. Votre chirurgien reste disponible pour toute question.",
                                 },
                                 {
                                     icon: Heart,
@@ -257,7 +238,7 @@ export default function LipofillingMammairePage() {
                                     </span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">5 000-7 000 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">2 800 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">2 800 €</span>
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center pt-2">
@@ -266,32 +247,32 @@ export default function LipofillingMammairePage() {
                                     </span>
                                     <div className="text-right">
                                         <span className="text-sm line-through opacity-50 block">8 000-10 000 €</span>
-                                        <span className="text-2xl font-bold text-brand-gold">3 800 €</span>
+                                        <span className="text-2xl font-bold text-brand-blue">3 800 €</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-10 p-6 bg-brand-gold/10 rounded-2xl border border-brand-gold/30">
-                                <h4 className="font-bold text-brand-gold mb-4 text-lg">
+                            <div className="mt-10 p-6 bg-brand-blue/10 rounded-2xl border border-brand-blue/30">
+                                <h4 className="font-bold text-brand-blue mb-4 text-lg">
                                     Inclus dans notre forfait tout compris :
                                 </h4>
                                 <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/90">
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Chirurgien plasticien
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Chirurgien plasticien
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Liposuccion zone donneuse incluse
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Liposuccion zone donneuse incluse
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Clinique 1 nuit
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Clinique 1 nuit
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Soutien-gorge médical
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Soutien-gorge médical
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Hôtel 5★ 5 nuits
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Hôtel 5★ 5 nuits
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-brand-gold" /> Suivi post-opératoire 12 mois
+                                        <CheckCircle2 className="w-4 h-4 text-brand-blue" /> Suivi post-opératoire 12 mois
                                     </li>
                                 </ul>
                             </div>
@@ -308,6 +289,54 @@ export default function LipofillingMammairePage() {
                         />
                     </div>
                 </section>
+
+                {/* TÉMOIGNAGES PATIENTS */}
+                <PatientTestimonialSection
+                    title="Témoignages lipofilling mammaire"
+                    testimonials={[
+                        {
+                            name: "Camille R.",
+                            city: "Lyon",
+                            quote: "Je voulais quelque chose de naturel, sans prothèse. Le Dr Ben Gaied a utilisé ma graisse abdominale et le résultat est bluffant — personne ne se doute que j'ai été opérée. Mes seins sont plus ronds et totalement naturels au toucher.",
+                            intervention: "Lipofilling mammaire",
+                            savings: "3 500 €",
+                            rating: 5,
+                        },
+                        {
+                            name: "Nathalie V.",
+                            city: "Bruxelles",
+                            quote: "J'avais une petite poitrine et de la graisse en trop sur les hanches. Le lipofilling a résolu les deux en même temps ! Six mois après, le volume s'est bien stabilisé. Je recommande à 100%.",
+                            intervention: "Lipofilling mammaire + affinement hanches",
+                            savings: "4 200 €",
+                            rating: 5,
+                        },
+                        {
+                            name: "Sophie M.",
+                            city: "Paris",
+                            quote: "L'équipe de Venus Estetika m'a expliqué chaque étape avant et après. La convalescence a été plus douce que prévu. Mon résultat à 4 mois est exactement ce que j'espérais : discret, féminin et 100% naturel.",
+                            intervention: "Lipofilling mammaire",
+                            savings: "2 800 €",
+                            rating: 5,
+                        },
+                    ]}
+                />
+
+                {/* GARANTIES */}
+                <GuaranteeSection />
+
+                {/* CHIRURGIENS RÉFÉRENTS */}
+                <SurgeonReferenceSection
+                    title="Notre chirurgienne pour le lipofilling mammaire"
+                    surgeons={[
+                        {
+                            name: "Dr Imen Ben Gaied",
+                            specialty: "Chirurgie Plastique et Reconstructrice",
+                            image: "/images/doctors/dr-imen-ben-gaied.jpeg",
+                            experience: "+12 ans d'expérience",
+                        },
+                    ]}
+                    devisSlug="lipofilling-mammaire"
+                />
 
                 {/* CTA FINAL */}
                 <section className="py-24 px-4 bg-slate-50 text-center border-t border-slate-200">
@@ -327,7 +356,7 @@ export default function LipofillingMammairePage() {
                         >
                             <Button
                                 size="lg"
-                                className="bg-brand-gold text-white hover:bg-brand-gold/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
+                                className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl"
                             >
                                 Recevoir ma simulation de devis
                             </Button>

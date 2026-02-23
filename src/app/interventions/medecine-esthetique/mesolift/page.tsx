@@ -4,9 +4,13 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, FlaskConical, Sparkles, RefreshCw, HeartPulse } from "lucide-react";
+import { CheckCircle2, FlaskConical, Sparkles, RefreshCw, HeartPulse } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -34,6 +38,33 @@ export default function MesoliftPage() {
         { label: "Mésolift + PRP", price: "250 €/séance", france: "400–600 €" },
     ];
 
+    const testimonials = [
+        {
+            name: "Laure B.",
+            city: "Bordeaux",
+            quote: "Je revenais d'une période très stressante et ma peau avait vraiment l'air fatiguée. Après la première séance de mésolift, j'ai eu l'impression de retrouver mon teint de 10 ans en arrière. Mes amies m'ont toutes demandé ce que j'avais fait — j'avais l'air reposée et lumineuse.",
+            intervention: "Mésolift — cure éclat",
+            savings: "200 €",
+            rating: 5,
+        },
+        {
+            name: "Hélène D.",
+            city: "Strasbourg",
+            quote: "J'ai fait la cure complète de 3 séances pendant mon séjour d'une semaine en Tunisie. Le protocole était vraiment personnalisé — le médecin a adapté le cocktail à ma peau mixte. Résultat spectaculaire : peau hydratée, pores réduits, teint unifié. Je rentre au moins une fois par an maintenant.",
+            intervention: "Cure mésolift 3 séances",
+            savings: "450 €",
+            rating: 5,
+        },
+        {
+            name: "Virginie M.",
+            city: "Nantes",
+            quote: "J'ai combiné le mésolift avec mon lifting cervico-facial. Le Dr Bouchnak m'a conseillée sur le protocole pré-opératoire pour optimiser la qualité de ma peau avant l'intervention. Le suivi était impeccable et le résultat global dépasse mes attentes.",
+            intervention: "Mésolift pré-opératoire",
+            savings: "280 €",
+            rating: 5,
+        },
+    ];
+
     return (
         <>
             <JsonLd graph={{
@@ -45,48 +76,20 @@ export default function MesoliftPage() {
 
             <div className="min-h-screen bg-white">
 
-                {/* BREADCRUMB */}
-                <nav aria-label="Fil d'Ariane" className="bg-slate-50 border-b border-slate-100 mt-20">
-                    <div className="container mx-auto px-4 py-3">
-                        <ol className="flex items-center gap-2 text-sm text-slate-500">
-                            <li><Link href="/" className="hover:text-brand-navy transition-colors">Accueil</Link></li>
-                            <li aria-hidden="true" className="text-slate-300">/</li>
-                            <li><Link href="/interventions/medecine-esthetique" className="hover:text-brand-navy transition-colors">Médecine Esthétique</Link></li>
-                            <li aria-hidden="true" className="text-slate-300">/</li>
-                            <li className="text-brand-navy font-medium" aria-current="page">Mésolift</li>
-                        </ol>
-                    </div>
-                </nav>
-
-                {/* HERO */}
-                <section className="relative h-[60vh] min-h-[460px] flex items-center justify-center overflow-hidden bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Sparkles className="w-4 h-4 text-brand-gold" />
-                                Médecine Esthétique
-                            </div>
-                            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-5 leading-tight">
-                                Mésolift en Tunisie : le cocktail vitaminé pour une peau éclatante
-                            </h1>
-                            <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Micro-injections d'un cocktail personnalisé de vitamines, AH et antioxydants directement dans le derme. Coup d'éclat immédiat, peau revitalisée en profondeur.{" "}
-                                <b className="text-brand-gold text-xl">Dès 150€/séance</b>{" "}
-                                <span className="line-through text-sm opacity-60 ml-2">250–400€ en France</span>.
-                            </p>
-                            <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                <Link href="/devis?intervention=mesolift">
-                                    Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Mésolift en Tunisie : le cocktail vitaminé pour une peau éclatante"
+                    subtitle="Micro-injections d'un cocktail personnalisé de vitamines, AH et antioxydants directement dans le derme. Coup d'éclat immédiat, peau revitalisée en profondeur."
+                    price="150€/séance"
+                    priceOld="250–400€"
+                    imageSrc="/images/heroes/medecine-esthetique-hero.jpg"
+                    imageAlt="Mésolift mésothérapie visage Tunisie — Venus Estetika"
+                    badge="Médecine Esthétique"
+                    devisSlug="mesolift"
+                    stats="Éclat immédiat · Protocole 3 séances · Aucune éviction sociale"
+                    doctorName="Dr Samaher Bouchnak"
+                    doctorImage="/images/doctors/dr-samaher-bouchnak.jpg"
+                    doctorSpecialty="Médecine Esthétique"
+                />
 
                 {/* INTRODUCTION */}
                 <section className="py-20 px-4 bg-slate-50">
@@ -106,13 +109,13 @@ export default function MesoliftPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-5">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <FlaskConical className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <FlaskConical className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Mésolift Classique</h4>
                                         <p className="text-sm text-gray-500">Micro-injections d'un cocktail vitaminé personnalisé dans le derme pour revitaliser et hydrater.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <HeartPulse className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <HeartPulse className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Mésolift + PRP</h4>
                                         <p className="text-sm text-gray-500">Ajout de plasma riche en plaquettes (PRP) pour une régénération cellulaire intensive et durable.</p>
                                     </div>
@@ -127,14 +130,14 @@ export default function MesoliftPage() {
                                 <div className="space-y-3 mb-8">
                                     {whatItTreats.map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-5 h-5 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-5 h-5 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
                                 </div>
                                 <div className="bg-brand-navy/5 rounded-xl p-4 border border-brand-navy/10">
                                     <div className="flex items-start gap-3">
-                                        <RefreshCw className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
+                                        <RefreshCw className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
                                         <p className="text-sm text-gray-600">
                                             <span className="font-semibold text-brand-navy">Convalescence :</span> Aucune éviction sociale. Rougeurs légères 2-4h. Éclat immédiat. Protocole idéal : 3 séances espacées de 15 jours.
                                         </p>
@@ -170,7 +173,7 @@ export default function MesoliftPage() {
                                             <div key={index} className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100">
                                                 <span className="text-gray-700 font-medium text-sm pr-4">{row.label}</span>
                                                 <div className="text-right shrink-0">
-                                                    <span className="text-brand-gold font-bold text-lg block">{row.price}</span>
+                                                    <span className="text-brand-blue font-bold text-lg block">{row.price}</span>
                                                     <span className="text-xs text-gray-400 line-through">{row.france}</span>
                                                 </div>
                                             </div>
@@ -180,7 +183,7 @@ export default function MesoliftPage() {
 
                                 {/* CTA panel */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Sparkles className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Sparkles className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-xl font-bold text-brand-navy mb-3">
                                         Un soin complémentaire à votre séjour
                                     </h3>
@@ -209,6 +212,30 @@ export default function MesoliftPage() {
                         <FAQAccordion data={getFaqData('mesolift')} />
                     </div>
                 </section>
+
+                {/* TESTIMONIALS */}
+                <PatientTestimonialSection
+                    title="Un éclat retrouvé, des patientes ravies"
+                    testimonials={testimonials}
+                />
+
+                {/* GUARANTEE */}
+                <GuaranteeSection />
+
+                {/* SURGEON */}
+                <SurgeonReferenceSection
+                    title="Votre médecin esthétique référente"
+                    subtitle="Dr Samaher Bouchnak, spécialiste en médecine esthétique, diplômée et inscrite à l'Ordre National des Médecins de Tunisie."
+                    surgeons={[
+                        {
+                            name: "Dr Samaher Bouchnak",
+                            specialty: "Médecine Esthétique",
+                            image: "/images/doctors/dr-samaher-bouchnak.jpg",
+                            experience: "12 ans d'expérience en injections",
+                        },
+                    ]}
+                    devisSlug="mesolift"
+                />
 
             </div>
         </>

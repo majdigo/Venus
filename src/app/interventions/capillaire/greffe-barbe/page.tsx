@@ -4,9 +4,13 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Award, Shield, Star, Clock } from "lucide-react";
+import { CheckCircle2, Award, Shield, Star, Clock } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -32,34 +36,20 @@ export default function GreffeBarbe() {
 
             <div className="min-h-screen bg-white">
                 {/* HERO SECTION */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#0f172a] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
-                                Greffe Capillaire Spécialisée
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Greffe de barbe en Tunisie : une barbe dense et naturelle
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Comblez les zones clairsemées ou créez une barbe complète et dense grâce à la greffe FUE ou DHI. Résultat définitif, naturel, et rasable. Dès <b className="text-brand-gold text-2xl">1 600€</b> <span className="line-through text-sm opacity-60 ml-2">4 000-10 000€ en France</span>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis?intervention=greffe-barbe">
-                                        Obtenir mon Diagnostic Gratuit <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Greffe de barbe en Tunisie : une barbe dense et naturelle"
+                    subtitle="Comblez les zones clairsemées ou créez une barbe complète et dense grâce à la greffe FUE ou DHI. Résultat définitif, naturel, et rasable."
+                    price="1 600€"
+                    priceOld="4 000-10 000€"
+                    imageSrc="/images/interventions/greffe-de-cheveux.jpg"
+                    imageAlt="Greffe de Barbe en Tunisie - Venus Estetika"
+                    badge="Greffe Capillaire Spécialisée"
+                    devisSlug="greffe-barbe"
+                    stats="Résultat définitif — technique FUE & DHI — diagnostic gratuit en 24h"
+                    doctorName="Dr Samaher Bouchnak"
+                    doctorImage="/images/doctors/dr-samaher-bouchnak.jpg"
+                    doctorSpecialty="Greffe Capillaire"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -75,13 +65,13 @@ export default function GreffeBarbe() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">FUE Barbe</h4>
                                         <p className="text-sm text-gray-500">Prélèvement zone occipitale + implantation sur le visage. Technique éprouvée pour de grands volumes de greffons.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">DHI Barbe</h4>
                                         <p className="text-sm text-gray-500">Stylo Choi pour un contrôle parfait de la direction et de la densité des poils. Idéal pour les zones frontales et le contour.</p>
                                     </div>
@@ -101,7 +91,7 @@ export default function GreffeBarbe() {
                                         "Transferts VIP aéroport-clinique"
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -131,33 +121,33 @@ export default function GreffeBarbe() {
                                     <h3 className="text-2xl font-bold text-brand-navy mb-8">Nos Forfaits Greffe de Barbe</h3>
 
                                     <div className="space-y-6 mb-8">
-                                        <div className="border border-gray-100 rounded-xl p-5 hover:border-brand-gold transition-colors">
+                                        <div className="border border-gray-100 rounded-xl p-5 hover:border-brand-blue transition-colors">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-bold text-brand-navy">Barbe Partielle</span>
-                                                <span className="text-2xl font-bold text-brand-gold">1 600 €</span>
+                                                <span className="text-2xl font-bold text-brand-blue">1 600 €</span>
                                             </div>
                                             <p className="text-sm text-gray-500">Joues ou menton seulement. <span className="line-through">4 000-6 000€ en France</span></p>
                                         </div>
-                                        <div className="border border-brand-gold rounded-xl p-5 bg-brand-gold/5">
+                                        <div className="border border-brand-blue rounded-xl p-5 bg-brand-blue/5">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-bold text-brand-navy">Barbe Complète</span>
-                                                <span className="text-2xl font-bold text-brand-gold">2 400 €</span>
+                                                <span className="text-2xl font-bold text-brand-blue">2 400 €</span>
                                             </div>
                                             <p className="text-sm text-gray-500">Joues + menton + moustache + favoris. <span className="line-through">8 000-10 000€ en France</span></p>
                                             <div className="mt-2 flex items-center gap-1">
-                                                <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
-                                                <span className="text-xs font-semibold text-brand-gold">Le plus demandé</span>
+                                                <Star className="w-4 h-4 text-brand-blue fill-brand-blue" />
+                                                <span className="text-xs font-semibold text-brand-blue">Le plus demandé</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <ul className="space-y-3">
                                         <li className="flex items-center gap-3 text-gray-700 text-sm">
-                                            <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                                             PRP et kit post-op inclus dans tous les forfaits
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700 text-sm">
-                                            <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-brand-blue shrink-0" />
                                             Hôtel 5 étoiles et transferts inclus
                                         </li>
                                     </ul>
@@ -165,7 +155,7 @@ export default function GreffeBarbe() {
 
                                 {/* Results & Timeline */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Évolution Post-Greffe</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         Les croûtes tombent entre le 7e et le 10e jour. Une chute temporaire des poils greffés survient au premier mois, c&apos;est tout à fait normal. La repousse démarre dès le 3e mois, avec un résultat final visible entre 8 et 12 mois. La barbe greffée se rase, se taille et repousse exactement comme une barbe naturelle — définitivement.
@@ -178,6 +168,55 @@ export default function GreffeBarbe() {
                         </div>
                     </div>
                 </section>
+
+                {/* TESTIMONIALS */}
+                <PatientTestimonialSection
+                    title="Témoignages Greffe de Barbe"
+                    testimonials={[
+                        {
+                            name: "Karim S.",
+                            city: "Paris",
+                            quote: "J'avais des zones complètement imberbes sur les joues depuis l'adolescence. Après la greffe DHI chez Venus Estetika, ma barbe est enfin complète et uniforme. Le Dr Bouchnak a dessiné le contour parfaitement selon ma morphologie. Résultat bluffant à 10 mois.",
+                            intervention: "Greffe de Barbe DHI",
+                            savings: "6 400€",
+                            rating: 5
+                        },
+                        {
+                            name: "Sébastien R.",
+                            city: "Lyon",
+                            quote: "J'avais peur que ça fasse non naturel. Franchement, même mon coiffeur ne voit pas la différence. La direction des poils est parfaite, la densité est homogène. Séjour très bien organisé, hôtel superbe, et Dr Bouchnak très pédagogue.",
+                            intervention: "Greffe de Barbe FUE",
+                            savings: "3 800€",
+                            rating: 5
+                        },
+                        {
+                            name: "Alexandre T.",
+                            city: "Nantes",
+                            quote: "Opération indolore grâce à l'anesthésie Dermojet. J'ai passé une bonne semaine à Tunis et je suis rentré avec un bandage discret. À 9 mois, la barbe est bien fournie et entièrement rasable. Je recommande à tous les hommes qui souffrent de clairsemé.",
+                            intervention: "Greffe de Barbe Complète",
+                            savings: "5 200€",
+                            rating: 5
+                        }
+                    ]}
+                />
+
+                {/* GUARANTEES */}
+                <GuaranteeSection />
+
+                {/* SURGEON REFERENCE */}
+                <SurgeonReferenceSection
+                    title="Votre spécialiste capillaire référente"
+                    subtitle="Experte en greffe de barbe FUE et DHI, reconnue pour la précision de son tracé et la naturalité de ses résultats."
+                    surgeons={[
+                        {
+                            name: "Dr Samaher Bouchnak",
+                            specialty: "Spécialiste Greffe Capillaire & Barbe",
+                            image: "/images/doctors/dr-samaher-bouchnak.jpg",
+                            experience: "Plus de 2 000 greffes capillaires réalisées"
+                        }
+                    ]}
+                    devisSlug="greffe-barbe"
+                />
 
                 {/* FAQ */}
                 <section className="py-16 px-4 bg-slate-50">

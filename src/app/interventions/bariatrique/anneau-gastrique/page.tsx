@@ -4,9 +4,13 @@ import { getFaqData } from '@/lib/schema/faq';
 import { getHowToData } from '@/lib/schema/howto';
 import { getBreadcrumbData } from '@/lib/schema/breadcrumb';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Shield, Award, Clock } from "lucide-react";
+import { CheckCircle2, Shield, Award, Clock } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
+import { InterventionHero } from "@/components/interventions/InterventionHero";
+import { SurgeonReferenceSection } from "@/components/interventions/SurgeonReferenceSection";
+import { PatientTestimonialSection } from "@/components/interventions/PatientTestimonialSection";
+import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Link from 'next/link';
 
 export const metadata = {
@@ -32,34 +36,20 @@ export default function AnneauGastriquePage() {
 
             <div className="min-h-screen bg-white">
                 {/* HERO SECTION */}
-                <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden mt-20 bg-brand-navy">
-                    <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                    </div>
-
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="max-w-3xl text-white">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-6">
-                                <Shield className="w-4 h-4 text-brand-gold" />
-                                Chirurgie Bariatrique
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                                Anneau gastrique en Tunisie : une solution réversible contre l&apos;obésité
-                            </h1>
-                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-                                Perdez durablement du poids avec l&apos;anneau gastrique ajustable, la seule intervention bariatrique 100% réversible. Séjour tout compris à <b className="text-brand-gold text-2xl">2 800€</b> <span className="line-through text-sm opacity-60 ml-2">5 000-8 000€ en France</span>.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" asChild className="bg-brand-gold text-white hover:bg-brand-gold/90 text-lg px-8">
-                                    <Link href="/devis?intervention=anneau-gastrique">
-                                        Obtenir mon devis personnalisé <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <InterventionHero
+                    title="Anneau gastrique en Tunisie : une solution réversible contre l'obésité"
+                    subtitle="Perdez durablement du poids avec l'anneau gastrique ajustable, la seule intervention bariatrique 100% réversible."
+                    price="2 800€"
+                    priceOld="5 000-8 000€"
+                    imageSrc="/images/heroes/bariatrique-hero.jpg"
+                    imageAlt="Anneau Gastrique en Tunisie - Venus Estetika"
+                    badge="Chirurgie Bariatrique"
+                    devisSlug="anneau-gastrique"
+                    stats="Séjour tout compris — clinique accréditée — suivi nutritionnel 12 mois"
+                    doctorName="Dr Ramzi Nouira"
+                    doctorImage="/images/doctors/dr-ramzi-nouira.jpg"
+                    doctorSpecialty="Chirurgie Bariatrique"
+                />
 
                 {/* INTRODUCTION & TECHNIQUES */}
                 <section className="py-24 px-4 bg-slate-50">
@@ -75,13 +65,13 @@ export default function AnneauGastriquePage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6">
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Award className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Award className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Anneau Ajustable</h4>
                                         <p className="text-sm text-gray-500">Anneau en silicone placé autour de l&apos;estomac, ajustable par un boîtier sous-cutané sans nouvelle intervention chirurgicale.</p>
                                     </div>
-                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-gold transition-colors">
-                                        <Shield className="w-8 h-8 text-brand-gold mb-3" />
+                                    <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:border-brand-blue transition-colors">
+                                        <Shield className="w-8 h-8 text-brand-blue mb-3" />
                                         <h4 className="font-bold text-brand-navy mb-2">Réversibilité</h4>
                                         <p className="text-sm text-gray-500">Seule intervention bariatrique 100% réversible. Retrait possible à tout moment, sans modification permanente de l&apos;anatomie digestive.</p>
                                     </div>
@@ -100,7 +90,7 @@ export default function AnneauGastriquePage() {
                                         "Suivi nutritionnel personnalisé 12 mois"
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
-                                            <CheckCircle2 className="text-brand-gold w-6 h-6 shrink-0" />
+                                            <CheckCircle2 className="text-brand-blue w-6 h-6 shrink-0" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -130,30 +120,30 @@ export default function AnneauGastriquePage() {
                                     <h3 className="text-2xl font-bold text-brand-navy mb-8">Anneau Gastrique Ajustable</h3>
 
                                     <div className="flex items-end gap-4 mb-8">
-                                        <span className="text-5xl font-bold text-brand-gold">2 800 €</span>
+                                        <span className="text-5xl font-bold text-brand-blue">2 800 €</span>
                                         <span className="text-xl text-gray-400">tout compris</span>
                                         <span className="text-sm text-gray-400 line-through mb-1 ml-2">5 000-8 000€</span>
                                     </div>
 
                                     <ul className="space-y-4 mb-8">
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Alimentation liquide 2 semaines post-op
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Alimentation mixée les 2 semaines suivantes
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Perte de poids attendue : 15-25 kg la 1re année
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Ajustements réguliers du serrage inclus
                                         </li>
                                         <li className="flex items-center gap-3 text-gray-700">
-                                            <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+                                            <CheckCircle2 className="w-5 h-5 text-brand-blue" />
                                             Profil idéal : IMC entre 30 et 40
                                         </li>
                                     </ul>
@@ -161,7 +151,7 @@ export default function AnneauGastriquePage() {
 
                                 {/* Convalescence Details */}
                                 <div className="p-8 bg-slate-50 flex flex-col justify-center">
-                                    <Clock className="w-10 h-10 text-brand-gold mb-4" />
+                                    <Clock className="w-10 h-10 text-brand-blue mb-4" />
                                     <h3 className="text-2xl font-bold text-brand-navy mb-4">Convalescence & Résultats</h3>
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         La reprise des activités légères est possible dès 5 à 7 jours. L&apos;alimentation évolue progressivement sur 4 semaines. Des ajustements réguliers du serrage de l&apos;anneau sont planifiés lors du suivi nutritionnel sur 12 mois pour optimiser votre perte de poids.
@@ -174,6 +164,55 @@ export default function AnneauGastriquePage() {
                         </div>
                     </div>
                 </section>
+
+                {/* TESTIMONIALS */}
+                <PatientTestimonialSection
+                    title="Témoignages Anneau Gastrique"
+                    testimonials={[
+                        {
+                            name: "Isabelle M.",
+                            city: "Lyon",
+                            quote: "J'ai longtemps hésité entre la sleeve et l'anneau. Le fait que l'anneau soit réversible a été décisif pour moi. L'équipe du Dr Nouira m'a accompagnée à chaque étape. En 10 mois, j'ai perdu 22 kg et je me sens enfin libre.",
+                            intervention: "Anneau Gastrique",
+                            savings: "3 800€",
+                            rating: 5
+                        },
+                        {
+                            name: "Patrick D.",
+                            city: "Bordeaux",
+                            quote: "Opération sans douleur, récupération rapide. Le séjour à l'hôtel 5 étoiles à Tunis était vraiment agréable. Le suivi nutritionnel sur 12 mois m'a aidé à changer mes habitudes durablement. Je recommande Venus Estetika sans hésiter.",
+                            intervention: "Anneau Gastrique",
+                            savings: "4 200€",
+                            rating: 5
+                        },
+                        {
+                            name: "Nathalie B.",
+                            city: "Marseille",
+                            quote: "Mon IMC était à 36, avec des douleurs articulaires. En France, les délais étaient de 18 mois. En Tunisie, tout s'est fait en 3 semaines. L'anneau est bien ajusté, la perte de poids progressive, et je suis enfin hors de danger pour mes genoux.",
+                            intervention: "Anneau Gastrique",
+                            savings: "5 000€",
+                            rating: 5
+                        }
+                    ]}
+                />
+
+                {/* GUARANTEES */}
+                <GuaranteeSection />
+
+                {/* SURGEON REFERENCE */}
+                <SurgeonReferenceSection
+                    title="Votre chirurgien bariatrique référent"
+                    subtitle="Expert en chirurgie bariatrique, formé en France et membre de l'Ordre National des Médecins de Tunisie."
+                    surgeons={[
+                        {
+                            name: "Dr Ramzi Nouira",
+                            specialty: "Chirurgie Bariatrique & Viscérale",
+                            image: "/images/doctors/dr-ramzi-nouira.jpg",
+                            experience: "Plus de 1 200 interventions bariatriques"
+                        }
+                    ]}
+                    devisSlug="anneau-gastrique"
+                />
 
                 {/* FAQ */}
                 <section className="py-16 px-4 bg-slate-50">
