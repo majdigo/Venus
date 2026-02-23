@@ -11,6 +11,8 @@ import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
 import { UrgencyBanner } from "@/components/cro/UrgencyBanner";
 import { ExitIntentPopup } from "@/components/cro/ExitIntentPopup";
 import { SocialProofToast } from "@/components/cro/SocialProofToast";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -94,8 +96,10 @@ export default function RootLayout({
             <Footer />
             <WhatsAppWidget />
             <MobileStickyBar />
+            <ScrollToTop />
             <SocialProofToast />
             <ExitIntentPopup />
+            <CookieConsent />
           </GtmProvider>
         </Suspense>
       </body>

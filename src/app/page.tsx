@@ -16,6 +16,7 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import { TrustBar } from "@/components/cro/TrustBar";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -141,6 +142,35 @@ export default async function Home() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* CHIFFRES CLÉS — ANIMATED COUNTERS */}
+      <section className="py-16 bg-gradient-to-b from-brand-navy to-[#1a2248]">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { target: 2500, suffix: "+", label: "Patients opérés", prefix: "" },
+              { target: 15, suffix: " ans", label: "D'expérience", prefix: "" },
+              { target: 60, suffix: "%", label: "D'économie vs France", prefix: "-" },
+              { target: 4.8, suffix: "/5", label: "Avis Google", prefix: "", decimals: 1 },
+            ].map((stat, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div>
+                  <div className="text-4xl md:text-5xl font-heading font-black text-brand-blue mb-2">
+                    <AnimatedCounter
+                      target={stat.target}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                      decimals={stat.decimals || 0}
+                      duration={2.5}
+                    />
+                  </div>
+                  <div className="text-sm text-white/70 font-medium">{stat.label}</div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,8 @@
+"use client";
+
 import { Shield, CheckCircle2, Clock, UserCheck } from "lucide-react";
+import { FadeIn } from "@/components/animations/FadeIn";
+import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
 interface GuaranteeSectionProps {
   variant?: 'light' | 'dark';
@@ -33,39 +37,40 @@ export function GuaranteeSection({ variant = 'light' }: GuaranteeSectionProps) {
   return (
     <section className={isDark ? "py-20 px-4 bg-brand-navy text-white" : "py-20 px-4 bg-white"}>
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
+        <FadeIn className="text-center mb-12">
           <h2 className={`text-3xl md:text-4xl font-heading font-bold mb-4 ${isDark ? 'text-white' : 'text-brand-navy'}`}>
             Nos engagements qualité
           </h2>
           <p className={isDark ? "text-white/70 text-lg max-w-2xl mx-auto" : "text-slate-600 text-lg max-w-2xl mx-auto"}>
-            Venus Estetika s'engage contractuellement sur la qualité de votre prise en charge.
+            Venus Estetika s&apos;engage contractuellement sur la qualité de votre prise en charge.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {guarantees.map((g, i) => (
-            <div
-              key={i}
-              className={`p-6 rounded-2xl text-center ${
-                isDark
-                  ? 'bg-white/5 border border-white/10'
-                  : 'bg-slate-50 border border-slate-200'
-              }`}
-            >
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 ${
-                isDark ? 'bg-brand-blue/20' : 'bg-brand-navy/10'
-              }`}>
-                <g.icon className={`w-7 h-7 ${isDark ? 'text-brand-blue' : 'text-brand-navy'}`} />
+            <StaggerItem key={i}>
+              <div
+                className={`p-6 rounded-2xl text-center h-full ${
+                  isDark
+                    ? 'bg-white/5 border border-white/10'
+                    : 'bg-slate-50 border border-slate-200'
+                }`}
+              >
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 ${
+                  isDark ? 'bg-brand-blue/20' : 'bg-brand-navy/10'
+                }`}>
+                  <g.icon className={`w-7 h-7 ${isDark ? 'text-brand-blue' : 'text-brand-navy'}`} />
+                </div>
+                <h3 className={`font-bold text-lg mb-2 ${isDark ? 'text-white' : 'text-brand-navy'}`}>
+                  {g.title}
+                </h3>
+                <p className={`text-sm leading-relaxed ${isDark ? 'text-white/70' : 'text-slate-600'}`}>
+                  {g.description}
+                </p>
               </div>
-              <h3 className={`font-bold text-lg mb-2 ${isDark ? 'text-white' : 'text-brand-navy'}`}>
-                {g.title}
-              </h3>
-              <p className={`text-sm leading-relaxed ${isDark ? 'text-white/70' : 'text-slate-600'}`}>
-                {g.description}
-              </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

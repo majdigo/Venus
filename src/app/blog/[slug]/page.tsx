@@ -77,16 +77,30 @@ export default async function BlogPostPage({ params }: Props) {
     const articleSchema = {
         '@context': 'https://schema.org',
         '@type': 'Article',
+        '@id': `https://venus-estetika.com/blog/${slug}#article`,
         headline: post.title,
         description: post.excerpt,
         datePublished: post.publishedAt,
-        author: post.author ? { '@type': 'Person', name: post.author.name } : undefined,
+        dateModified: post.publishedAt,
+        inLanguage: 'fr-FR',
+        image: typeof post.mainImage === 'string' ? `https://venus-estetika.com${post.mainImage}` : undefined,
+        author: post.author ? {
+            '@type': 'Person',
+            name: post.author.name,
+        } : undefined,
         publisher: {
             '@type': 'Organization',
             name: 'Venus Estetika',
             url: 'https://venus-estetika.com',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://venus-estetika.com/images/logo/logo-venus-estetika.png',
+            },
         },
-        mainEntityOfPage: `https://venus-estetika.com/blog/${slug}`,
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://venus-estetika.com/blog/${slug}`,
+        },
     };
 
     return (

@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { TrackedLink } from "@/components/tracking/TrackedLink";
 import { useScrollDepth } from "@/lib/tracking/useScrollDepth";
 import { useGtmTimer } from "@/lib/tracking/useGtmTimer";
+import { motion } from "framer-motion";
 
 interface InterventionHeroProps {
   title: string;
@@ -58,7 +59,12 @@ export function InterventionHero({
       <div className="container mx-auto px-4 max-w-7xl relative z-20 py-16">
         <div className="grid lg:grid-cols-3 gap-8 items-center">
           {/* Text content - takes 2 cols */}
-          <div className="lg:col-span-2 text-white">
+          <motion.div
+            className="lg:col-span-2 text-white"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+          >
             {badge && (
               <span className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/20 text-brand-blue font-semibold tracking-wider text-sm mb-6 border border-brand-blue/40">
                 {badge}
@@ -99,11 +105,16 @@ export function InterventionHero({
             {stats && (
               <p className="mt-8 text-sm font-medium text-white/70">{stats}</p>
             )}
-          </div>
+          </motion.div>
 
           {/* Doctor card - optional right column */}
           {doctorName && doctorImage && (
-            <div className="hidden lg:flex flex-col items-center">
+            <motion.div
+              className="hidden lg:flex flex-col items-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+            >
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
                 <div className="w-32 h-32 relative rounded-full overflow-hidden mx-auto mb-4 border-4 border-brand-blue/40">
                   <Image
@@ -122,7 +133,7 @@ export function InterventionHero({
                   {'★★★★★'} <span className="text-white/60 ml-1">4.8/5</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
