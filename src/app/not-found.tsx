@@ -9,6 +9,15 @@ export const metadata: Metadata = {
     description: "La page que vous recherchez n'existe plus.",
 };
 
+const SUGGESTED_PAGES = [
+    { label: "Rhinoplastie", href: "/interventions/chirurgie-visage/rhinoplastie" },
+    { label: "Sleeve Gastrique", href: "/interventions/bariatrique/sleeve-gastrique" },
+    { label: "Greffe de Cheveux", href: "/interventions/capillaire/greffe-cheveux" },
+    { label: "Augmentation Mammaire", href: "/interventions/chirurgie-mammaire/augmentation-mammaire" },
+    { label: "Nos Tarifs", href: "/tarifs" },
+    { label: "Devis Gratuit", href: "/devis" },
+];
+
 export default function NotFound() {
     return (
         <div className="min-h-screen bg-brand-navy flex flex-col items-center justify-center relative overflow-hidden px-4">
@@ -36,9 +45,23 @@ export default function NotFound() {
                     Page introuvable
                 </h2>
 
-                <p className="text-white/80 text-lg mb-10 max-w-md mx-auto leading-relaxed">
-                    Il semble que vous vous soyez égaré. La page que vous recherchez a peut-être été déplacée ou n'existe plus sur notre site.
+                <p className="text-white/80 text-lg mb-8 max-w-md mx-auto leading-relaxed">
+                    La page que vous recherchez a peut-être été déplacée ou n'existe plus. Découvrez nos interventions populaires :
                 </p>
+
+                {/* Suggested pages grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-10 max-w-lg mx-auto">
+                    {SUGGESTED_PAGES.map((page) => (
+                        <Link
+                            key={page.href}
+                            href={page.href}
+                            className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/10 border border-white/10 text-sm font-medium text-white hover:bg-brand-blue/20 hover:border-brand-blue/30 transition-colors"
+                        >
+                            <Search className="w-3 h-3 text-brand-blue flex-shrink-0" />
+                            {page.label}
+                        </Link>
+                    ))}
+                </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/90 shadow-lg h-14 px-8 text-lg rounded-xl">
@@ -57,7 +80,7 @@ export default function NotFound() {
 
                 <div className="mt-12 pt-8 border-t border-white/10">
                     <p className="text-white/60 text-sm">
-                        Besoin d'aide immédiate ? Contactez-nous sur <a href="https://wa.me/21655180000" className="text-brand-blue hover:underline">WhatsApp</a>.
+                        Besoin d'aide immédiate ? Contactez-nous sur <a href="https://wa.me/21650606780" className="text-brand-blue hover:underline">WhatsApp</a>.
                     </p>
                 </div>
             </div>

@@ -1,142 +1,104 @@
-import { ArrowRight, BookOpen, Calendar, ChevronRight } from "lucide-react";
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from "@/components/ui/button";
+import { getAllPosts, getCategories } from '@/lib/api/sanity-blog';
+import { BlogCard } from '@/components/blog/BlogCard';
+import { TrackedLink } from '@/components/tracking/TrackedLink';
+import { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
-export const metadata = {
-    title: "Blog Chirurgie Esthétique & Actualités Médicales | Venus Estetika",
-    description: "Découvrez nos articles d'experts sur la chirurgie esthétique, bariatrique et les greffes de cheveux en Tunisie. Conseils pré et post-opératoires.",
+export const metadata: Metadata = {
+    title: 'Blog Chirurgie Esthétique & Conseils | Venus Estetika',
+    description: 'Découvrez tous nos conseils en chirurgie esthétique, bariatrique et soins capillaires en Tunisie. Articles rédigés par nos chirurgiens experts.',
+    alternates: {
+        canonical: 'https://venus-estetika.com/blog',
+    },
 };
 
-const MOCK_POSTS = [
-    {
-        id: 1,
-        title: "Liposuccion Vaser vs Classique : Quelles différences ?",
-        category: "Silhouette",
-        excerpt: "Comprendre pourquoi la technologie Vaser est devenue la nouvelle norme pour l'aspiration des graisses tout en sculptant la haute définition abdominale.",
-        date: "20 Février 2026",
-        imageUrl: "/images/heroes/chirurgie-visage-hero.jpg"
-    },
-    {
-        id: 2,
-        title: "Sleeve Gastrique : Le guide de l'alimentation post-opératoire",
-        category: "Obésité",
-        excerpt: "Quelles sont les étapes de la réalimentation après une Sleeve Gastrectomie ? Du liquide au solide, suivez nos conseils nutritionnels.",
-        date: "15 Février 2026",
-        imageUrl: "/images/heroes/chirurgie-silhouette-hero.jpg"
-    },
-    {
-        id: 3,
-        title: "Greffe de cheveux FUE Saphir : Avantages et résultats",
-        category: "Capillaire",
-        excerpt: "Découvrez pourquoi la lame en Saphir a révolutionné l'ouverture des canaux folliculaires pour une densité maximale et aucune cicatrice.",
-        date: "05 Février 2026",
-        imageUrl: "/images/heroes/chirurgie-mammaire-hero.jpg"
-    },
-    {
-        id: 4,
-        title: "Facettes E-Max vs Lumineers : Faut-il limer ses dents ?",
-        category: "Dentaire",
-        excerpt: "La grande question du Hollywood Smile décryptée. Le surfaçage ultra-léger de l'émail expliqué simplement par nos dentistes esthétiques.",
-        date: "28 Janvier 2026",
-        imageUrl: "/images/heroes/chirurgie-bariatrique-hero.jpg"
-    },
-    {
-        id: 5,
-        title: "Combien de temps faut-il rester en Tunisie pour un lifting ?",
-        category: "Visage",
-        excerpt: "Détails du séjour de 6 jours nécessaire pour un lifting cervico-facial. Du bloc opératoire à votre hôtel de convalescence en bord de mer.",
-        date: "12 Janvier 2026",
-        imageUrl: "/images/heroes/greffe-cheveux-hero.jpg"
-    }
-];
+export default async function BlogIndexPage() {
+    const posts = await getAllPosts();
+    const categories = await getCategories();
 
-export default function BlogPage() {
     return (
-        <div className="min-h-screen bg-slate-50 pb-24">
-            {/* HERO SECTION */}
-            <section className="relative pt-32 pb-20 px-4 bg-brand-navy overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-brand-navy/90" />
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                </div>
-
-                <div className="container mx-auto max-w-5xl relative z-10 text-center text-white">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 font-semibold text-sm mb-6">
-                        <BookOpen className="w-4 h-4 text-brand-blue" />
-                        Journal Médical
-                    </div>
-                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight leading-tight">
-                        Actualités & Conseils <span className="text-brand-blue">Esthétiques</span>
+        <div className="min-h-screen bg-slate-50 pt-32 pb-24">
+            <div className="container mx-auto px-4 max-w-7xl">
+                {/* Header Section */}
+                <div className="mb-16">
+                    <TrackedLink href="/" ctaText="Retour à l'accueil" ctaLocation="blog-index-header" className="inline-flex items-center text-sm font-medium text-brand-blue hover:text-brand-navy transition-colors mb-6 pb-2 border-b border-transparent hover:border-brand-navy">
+                        <ArrowLeft className="w-4 h-4 mr-2" />
+                        Retour à l&apos;accueil
+                    </TrackedLink>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-navy mb-6 leading-tight">
+                        Le Blog <span className="text-brand-blue">Venus Estetika</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Lisez nos articles rédigés par des experts médicaux. Tout savoir sur les opérations, les prix, et la préparation de votre séjour en Tunisie.
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed">
+                        Conseils d&apos;experts, nouveautés médicales et guides complets pour préparer votre séjour médical en Tunisie. L&apos;information médicale fiable, par des chirurgiens reconnus.
                     </p>
                 </div>
-            </section>
 
-            {/* MAIN BLOG GRID */}
-            <section className="py-20 px-4">
-                <div className="container mx-auto max-w-6xl">
+                {/* Main Content: Posts Grid */}
+                <div className="grid lg:grid-cols-4 gap-12 items-start">
+                    {/* Categories Sidebar (Desktop) */}
+                    <div className="hidden lg:block space-y-8 sticky top-32">
+                        <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+                            <h3 className="font-bold text-brand-navy text-xl mb-4">Catégories</h3>
+                            <div className="flex flex-col gap-2">
+                                <TrackedLink href="/blog" ctaText="Tous les articles" ctaLocation="blog-sidebar-categories" className="text-brand-blue font-medium py-2 px-3 bg-brand-navy/5 rounded-lg transition-colors">
+                                    Tous les articles
+                                </TrackedLink>
+                                {categories.map((cat) => (
+                                    <TrackedLink
+                                        key={cat._id}
+                                        href={`/blog?category=${cat.title.toLowerCase()}`}
+                                        ctaText={cat.title}
+                                        ctaLocation="blog-sidebar-categories"
+                                        className="text-gray-600 hover:text-brand-navy hover:bg-slate-50 font-medium py-2 px-3 rounded-lg transition-colors"
+                                    >
+                                        {cat.title}
+                                    </TrackedLink>
+                                ))}
+                            </div>
+                        </div>
 
-                    <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
-                        <h2 className="text-3xl font-heading font-bold text-brand-navy">Derniers Articles</h2>
-                        <div className="flex gap-2">
-                            {["Tous", "Visage", "Silhouette", "Obésité", "Dentaire", "Capillaire"].map((cat) => (
-                                <button key={cat} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${cat === "Tous" ? "bg-brand-navy text-white" : "bg-white text-gray-600 border border-gray-200 hover:border-brand-navy"}`}>
-                                    {cat}
-                                </button>
-                            ))}
+                        {/* CTA Widget */}
+                        <div className="bg-gradient-to-br from-brand-navy to-[#1e3a5f] rounded-3xl p-8 text-white relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full pointer-events-none" />
+                            <h3 className="font-bold text-xl mb-3">Un projet esthétique ?</h3>
+                            <p className="text-white/80 text-sm mb-6 leading-relaxed">
+                                Obtenez un diagnostic gratuit et un devis personnalisé sous 24h par notre équipe médicale.
+                            </p>
+                            <Button asChild className="w-full bg-white text-brand-navy hover:bg-slate-50 transition-colors">
+                                <TrackedLink href="/devis" ctaText="Demander un devis" ctaLocation="blog-sidebar-cta">
+                                    Demander un devis
+                                </TrackedLink>
+                            </Button>
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {MOCK_POSTS.map((post) => (
-                            <article key={post.id} className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300 group flex flex-col">
-                                <div className="relative aspect-video overflow-hidden">
-                                    <Image
-                                        src={post.imageUrl}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-navy px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                        {post.category}
+                    {/* Posts Grid */}
+                    <div className="lg:col-span-3">
+                        {posts.length > 0 ? (
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {posts.map((post) => (
+                                    <div key={post._id} className="h-full">
+                                        <BlogCard post={post} />
                                     </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="bg-white rounded-3xl border border-gray-100 p-16 text-center shadow-sm">
+                                <div className="w-20 h-20 bg-brand-navy/5 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <svg className="w-10 h-10 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                                    </svg>
                                 </div>
-                                <div className="p-6 flex flex-col flex-grow">
-                                    <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
-                                        <Calendar className="w-4 h-4" />
-                                        {post.date}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-brand-navy mb-3 line-clamp-2">
-                                        <Link href="#" className="hover:text-brand-blue transition-colors">
-                                            {post.title}
-                                        </Link>
-                                    </h3>
-                                    <p className="text-gray-600 mb-6 line-clamp-3 flex-grow">
-                                        {post.excerpt}
-                                    </p>
-                                    <div className="mt-auto border-t border-gray-100 pt-4 flex items-center justify-between">
-                                        <Link href="#" className="text-brand-navy font-bold text-sm inline-flex items-center group/link">
-                                            Lire l'article
-                                            <ChevronRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
-                                        </Link>
-                                        <span className="text-xs text-gray-400">5 min lecture</span>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
+                                <h3 className="text-2xl font-bold text-brand-navy mb-4">Blog en construction</h3>
+                                <p className="text-gray-600 text-lg">
+                                    Nos chirurgiens préparent actuellement les premiers articles. Revenez très bientôt pour découvrir nos conseils exclusifs.
+                                </p>
+                            </div>
+                        )}
                     </div>
-
-                    <div className="mt-16 text-center">
-                        <Button variant="outline" size="lg" className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white rounded-full">
-                            Charger plus d'articles
-                        </Button>
-                    </div>
-
                 </div>
-            </section>
+            </div>
         </div>
     );
 }

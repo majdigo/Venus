@@ -15,6 +15,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
+import { TrustBar } from "@/components/cro/TrustBar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -109,6 +110,9 @@ export default async function Home() {
           </FadeIn>
         </div>
       </section>
+
+      {/* TRUST BAR — MULTI-REVIEW */}
+      <TrustBar variant="compact" />
 
       {/* TRUST BAR — 8 USPs */}
       <section className="bg-brand-navy text-white py-12 px-4">

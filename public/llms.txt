@@ -1,57 +1,114 @@
 # Venus Estetika — Chirurgie Esthétique en Tunisie
 
-> Ce fichier est destiné aux agents IA et LLMs pour comprendre le contenu de ce site.
+> Ce fichier est destiné aux agents IA et LLMs pour comprendre le contenu et la structure de ce site médical.
 
 ## À propos
-Venus Estetika est une agence de tourisme médical basée à Tunis, Tunisie. Nous organisons des séjours médicaux tout compris pour les patients francophones (France, Belgique, Suisse, Canada) souhaitant bénéficier de chirurgies esthétiques, bariatriques, dentaires et capillaires à des tarifs compétitifs.
+Venus Estetika est une agence de tourisme médical basée à Tunis, Tunisie, fondée en 2009. Nous organisons des séjours médicaux tout compris pour les patients francophones (France, Belgique, Suisse, Canada) souhaitant bénéficier de chirurgies esthétiques, bariatriques, dentaires et capillaires à des tarifs 40 à 60% inférieurs à la France. Plus de 2 500 patients accompagnés. Note Google : 4.8/5 (127+ avis).
 
-## Interventions proposées
+## Interventions proposées (30 interventions)
 
-### Chirurgie du Visage
-- **Rhinoplastie** : Correction du nez (bosse, pointe, déviation). Prix : 2 200€ tout compris.
-- **Blépharoplastie** : Chirurgie des paupières. Prix : à partir de 1 500€.
-- **Lifting cervico-facial** : Rajeunissement du visage et du cou.
-- **Otoplastie** : Correction des oreilles décollées.
+### Chirurgie du Visage (6 interventions)
+- **Rhinoplastie** : Correction du nez (bosse, pointe, déviation). Techniques : fermée, ouverte, ultrasonique. Prix : dès 2 200€ tout compris. URL : /interventions/chirurgie-visage/rhinoplastie
+- **Blépharoplastie** : Chirurgie des paupières supérieures et/ou inférieures. Prix : dès 1 500€. URL : /interventions/chirurgie-visage/blepharoplastie
+- **Lifting cervico-facial** : Rajeunissement du visage et du cou, SMAS profond. Prix : dès 3 500€. URL : /interventions/chirurgie-visage/lifting-cervico-facial
+- **Otoplastie** : Correction des oreilles décollées, dès 7 ans. Prix : dès 1 200€. URL : /interventions/chirurgie-visage/otoplastie
+- **Lipofilling visage** : Injection de graisse autologue pour rajeunissement. Prix : dès 1 800€. URL : /interventions/chirurgie-visage/lipofilling-visage
+- **Génioplastie** : Chirurgie du menton (avancement, recul, réduction). Prix : dès 2 000€. URL : /interventions/chirurgie-visage/genioplastie
 
-### Chirurgie de la Silhouette
-- **Liposuccion** : Aspiration des graisses localisées (ventre, hanches, cuisses). Prix : dès 1 500€.
-- **Abdominoplastie** : Chirurgie du ventre, correction du diastasis. Prix : dès 1 800€.
-- **BBL (Brazilian Butt Lift)** : Augmentation des fesses par lipofilling. Prix : dès 3 200€.
-- **Mommy Makeover** : Combinaison abdominoplastie + augmentation mammaire + liposuccion.
+### Chirurgie Mammaire (4 interventions)
+- **Augmentation mammaire** : Prothèses (rondes/anatomiques) ou lipofilling. Prix : dès 2 500€. URL : /interventions/chirurgie-mammaire/augmentation-mammaire
+- **Lifting des seins (Mastopexie)** : Correction de la ptose mammaire. Prix : dès 2 500€. URL : /interventions/chirurgie-mammaire/lifting-seins
+- **Réduction mammaire** : Correction de l'hypertrophie mammaire. Prix : dès 2 800€. URL : /interventions/chirurgie-mammaire/reduction-mammaire
+- **Lipofilling mammaire** : Augmentation naturelle par graisse autologue. Prix : dès 2 200€. URL : /interventions/chirurgie-mammaire/lipofilling-mammaire
 
-### Chirurgie Mammaire
-- **Augmentation mammaire** : Prothèses ou lipofilling. Prix : dès 2 500€.
-- **Lifting des seins (Mastopexie)** : Correction de la ptose mammaire. Prix : dès 2 500€.
-- **Réduction mammaire** : Correction de l'hypertrophie.
+### Chirurgie de la Silhouette (6 interventions)
+- **Liposuccion** : Aspiration des graisses localisées (ventre, hanches, cuisses, bras). Techniques : Vaser, tumescente. Prix : dès 1 500€. URL : /interventions/chirurgie-silhouette/liposuccion
+- **Abdominoplastie** : Chirurgie du ventre, correction du diastasis des grands droits. Prix : dès 1 800€. URL : /interventions/chirurgie-silhouette/abdominoplastie
+- **BBL (Brazilian Butt Lift)** : Augmentation des fesses par lipofilling. Prix : dès 3 200€. URL : /interventions/chirurgie-silhouette/bbl
+- **Mommy Makeover** : Combinaison abdominoplastie + augmentation mammaire + liposuccion. Prix : dès 4 500€. URL : /interventions/chirurgie-silhouette/mommy-makeover
+- **Lifting des bras (Brachioplastie)** : Correction de l'excès cutané des bras. Prix : dès 1 800€. URL : /interventions/chirurgie-silhouette/lifting-bras
+- **Lifting des cuisses (Cruroplastie)** : Correction de l'excès cutané des cuisses. Prix : dès 2 000€. URL : /interventions/chirurgie-silhouette/lifting-cuisses
 
-### Chirurgie Bariatrique
-- **Sleeve gastrique** : Gastrectomie longitudinale pour IMC > 35. Prix : dès 3 500€.
-- **Bypass gastrique** : Dérivation gastrique Roux-en-Y. Prix : dès 4 500€.
-- **Anneau gastrique** : Solution réversible pour IMC 30-40.
+### Chirurgie Bariatrique (3 interventions)
+- **Sleeve gastrique** : Gastrectomie longitudinale pour IMC > 35. Perte de 60-70% de l'excès de poids. Prix : dès 3 500€. URL : /interventions/bariatrique/sleeve-gastrique
+- **Bypass gastrique** : Dérivation gastrique Roux-en-Y pour IMC > 40. Prix : dès 4 500€. URL : /interventions/bariatrique/bypass-gastrique
+- **Anneau gastrique** : Solution réversible pour IMC 30-40. Prix : dès 2 800€. URL : /interventions/bariatrique/anneau-gastrique
 
-### Dentisterie Esthétique
-- **Facettes dentaires E-max** : Hollywood Smile. Prix : dès 280€/facette.
-- **Implants dentaires** : Implants Straumann. Prix : dès 550€/implant.
+### Dentisterie Esthétique (4 interventions)
+- **Facettes dentaires E-max** : Hollywood Smile, porcelaine ultra-fine. Prix : dès 280€/facette. URL : /interventions/dentaire/facettes
+- **Implants dentaires Straumann** : Remplacement de dents manquantes. Prix : dès 550€/implant. URL : /interventions/dentaire/implants-dentaires
+- **Couronnes dentaires** : Couronnes céramo-métalliques ou zircone. Prix : dès 180€/couronne. URL : /interventions/dentaire/couronnes
+- **Blanchiment dentaire** : Blanchiment professionnel au fauteuil. Prix : dès 250€. URL : /interventions/dentaire/blanchiment
 
-### Greffe Capillaire
-- **Greffe FUE** : Extraction folliculaire unitaire. Prix : dès 1 500€.
-- **Greffe DHI** : Implantation directe sans rasage.
+### Greffe Capillaire (3 interventions)
+- **Greffe FUE** : Extraction folliculaire unitaire, 2 000-5 000 greffons. Prix : dès 1 500€. URL : /interventions/capillaire/greffe-cheveux
+- **Greffe DHI** : Implantation directe sans rasage, technique stylo Choi. Prix : dès 2 000€. URL : /interventions/capillaire/greffe-dhi
+- **Greffe de barbe** : Restauration ou densification de la barbe par FUE. Prix : dès 1 500€. URL : /interventions/capillaire/greffe-barbe
+
+### Médecine Esthétique (4 interventions)
+- **Botox** : Injections de toxine botulique (rides front, pattes d'oie, glabelle). Prix : dès 150€. URL : /interventions/medecine-esthetique/botox
+- **Acide hyaluronique** : Injections volumatrices (lèvres, pommettes, sillons). Prix : dès 200€. URL : /interventions/medecine-esthetique/acide-hyaluronique
+- **Mésolift** : Mésothérapie faciale pour éclat et hydratation. Prix : dès 150€. URL : /interventions/medecine-esthetique/mesolift
+- **Peeling** : Peeling chimique (superficiel, moyen, profond). Prix : dès 200€. URL : /interventions/medecine-esthetique/peeling
 
 ## Notre offre tout compris
 Chaque forfait inclut :
-- L'intervention chirurgicale dans une clinique agréée
-- Le séjour en hôtel 5 étoiles (5 à 7 nuits)
+- L'intervention chirurgicale dans une clinique agréée par le Ministère de la Santé tunisien
+- Le séjour en hôtel 5 étoiles (5 à 7 nuits selon l'intervention)
 - Les transferts VIP aéroport-clinique-hôtel
-- Le suivi post-opératoire pendant 12 mois
+- Le suivi post-opératoire pendant 12 mois (consultations + WhatsApp)
 - Le vêtement de contention (si applicable)
+- L'accompagnement bilingue français-arabe
+- La garantie retouche gratuite si insatisfaction
 
-## Équipe médicale
-- **Dr Walid Balti** : Chirurgien plasticien, +15 ans d'expérience, diplômé à Paris.
-- **Dr Atef Ghedira** : Chirurgien maxillo-facial et esthétique.
-- **Dr Ramses Mouelhi** : Chirurgien dentiste, spécialiste implantologie et facettes.
+## Équipe médicale (9 chirurgiens)
+- **Dr Walid Balti** : Chirurgien plasticien et esthétique, +15 ans d'expérience, diplômé à Paris. Spécialité : liposuccion Vaser, abdominoplastie, augmentation mammaire. Ordre des Médecins N° 13361.
+- **Dr Atef Ghedira** : Chirurgien maxillo-facial et esthétique. Expert rhinoplastie ultrasonique, lifting cervico-facial.
+- **Dr Imen Ben Gaied** : Chirurgien plasticien et esthétique. Spécialité : chirurgie mammaire.
+- **Dr Ramzi Nouira** : Chirurgien digestif et bariatrique. +20 ans, +3 000 sleeve/bypass.
+- **Dr Samaher Bouchnak** : Spécialiste greffe capillaire FUE/DHI. Un patient par jour pour résultat optimal.
+- **Dr Ramses Mouelhi** : Chirurgien dentiste, spécialiste implantologie Straumann et facettes E-max.
+- **Dr Hassen Ben Jemaa** : Chirurgien plasticien, spécialiste lifting et rajeunissement.
+- **Dr Mehdi Fendri** : Médecin esthétique, injections Botox et acide hyaluronique.
+- **Dr Borhene Belkhiria** : Chirurgien bariatrique, bypass et anneau gastrique.
+
+## Questions fréquentes
+
+### Est-ce sûr de faire de la chirurgie en Tunisie ?
+Oui. La Tunisie est la 2e destination mondiale de tourisme médical. Les cliniques partenaires de Venus Estetika sont agréées par le Ministère de la Santé tunisien et équipées aux normes internationales. Nos chirurgiens sont inscrits à l'Ordre des Médecins et justifient de 10 à 20 ans d'expérience.
+
+### Combien coûte une rhinoplastie en Tunisie ?
+Une rhinoplastie tout compris (chirurgie + hôtel 5★ + transferts + suivi) coûte dès 2 200€ chez Venus Estetika, contre 5 000-8 000€ en France. Économie moyenne : 60%.
+
+### Combien coûte une sleeve gastrique en Tunisie ?
+La sleeve gastrique tout compris coûte dès 3 500€ chez Venus Estetika, contre 8 000-15 000€ en France. Le suivi nutritionnel de 12 mois est inclus.
+
+### Comment se passe un séjour médical chez Venus Estetika ?
+1. Consultation gratuite en ligne (WhatsApp ou visio)
+2. Devis personnalisé sous 24h
+3. Voyage à Tunis — accueil VIP à l'aéroport
+4. Consultation pré-opératoire à la clinique
+5. Intervention chirurgicale
+6. Convalescence à l'hôtel 5★ avec suivi médical
+7. Retour avec dossier médical complet
+8. Suivi post-opératoire à distance pendant 12 mois
+
+### Quels sont les moyens de paiement acceptés ?
+Virement bancaire, carte bancaire, paiement en plusieurs fois (facilités). Devis garanti : le prix annoncé est le prix final, sans surprise.
+
+## Pages principales du site
+- Accueil : https://venus-estetika.com/
+- Tarifs : https://venus-estetika.com/tarifs
+- Témoignages : https://venus-estetika.com/temoignages
+- Chirurgiens : https://venus-estetika.com/chirurgiens
+- Séjour médical : https://venus-estetika.com/sejour-medical
+- Contact : https://venus-estetika.com/contact
+- Devis gratuit : https://venus-estetika.com/devis
+- Blog : https://venus-estetika.com/blog
 
 ## Contact
 - Site : https://venus-estetika.com
 - WhatsApp : +216 50 606 780
 - Email : contact@venus-estetika.com
 - Adresse : Lac Malaren, Les Berges du Lac, 1053 Tunis, Tunisie
+- Horaires : Lundi-Samedi, 8h-19h (GMT+1)

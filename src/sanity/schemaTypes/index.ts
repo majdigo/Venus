@@ -4,7 +4,9 @@ import doctor from './doctor'
 import galleryCase from './galleryCase'
 import intervention from './intervention'
 import review from './review'
+import { post } from './post'
+import { category } from './category'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-    types: [doctor, galleryCase, intervention, review],
+    types: [doctor, galleryCase, intervention, review, post, category],
 }

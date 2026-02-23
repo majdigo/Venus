@@ -8,6 +8,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
 import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
+import { UrgencyBanner } from "@/components/cro/UrgencyBanner";
+import { ExitIntentPopup } from "@/components/cro/ExitIntentPopup";
+import { SocialProofToast } from "@/components/cro/SocialProofToast";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -83,6 +86,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GtmProvider>
             <JsonLd data={getClinicData()} />
+            <UrgencyBanner />
             <Header />
             <main className="min-h-screen pb-16 lg:pb-0">
               {children}
@@ -90,6 +94,8 @@ export default function RootLayout({
             <Footer />
             <WhatsAppWidget />
             <MobileStickyBar />
+            <SocialProofToast />
+            <ExitIntentPopup />
           </GtmProvider>
         </Suspense>
       </body>
