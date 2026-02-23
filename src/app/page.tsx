@@ -15,6 +15,24 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Chirurgie Esthétique Tunisie | Prix Tout Compris — Venus Estetika",
+  description: "Venus Estetika : Chirurgie esthétique en Tunisie au meilleur prix. Rhinoplastie, liposuccion, augmentation mammaire, BBL, facettes dentaires. Séjour tout compris : clinique agréée, hôtel 5★, transferts VIP. Devis gratuit.",
+  keywords: ["chirurgie esthétique tunisie", "chirurgie tunisie prix", "clinique esthétique tunisie", "rhinoplastie tunisie", "liposuccion tunisie", "augmentation mammaire tunisie", "facettes dentaires tunisie", "tourisme médical tunisie"],
+  alternates: {
+    canonical: "https://venus-estetika.com",
+  },
+  openGraph: {
+    title: "Venus Estetika — Chirurgie Esthétique en Tunisie | Prix Tout Compris",
+    description: "Clinique N°1 en tourisme médical. Chirurgiens diplômés, clinique agréée, hôtel 5★. Devis gratuit sous 24h.",
+    url: "https://venus-estetika.com",
+    siteName: "Venus Estetika",
+    type: "website",
+    locale: "fr_FR",
+  },
+};
 
 export default async function Home() {
   const doctors = await getDoctors(true);

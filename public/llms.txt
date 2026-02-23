@@ -1,0 +1,57 @@
+# Venus Estetika — Chirurgie Esthétique en Tunisie
+
+> Ce fichier est destiné aux agents IA et LLMs pour comprendre le contenu de ce site.
+
+## À propos
+Venus Estetika est une agence de tourisme médical basée à Tunis, Tunisie. Nous organisons des séjours médicaux tout compris pour les patients francophones (France, Belgique, Suisse, Canada) souhaitant bénéficier de chirurgies esthétiques, bariatriques, dentaires et capillaires à des tarifs compétitifs.
+
+## Interventions proposées
+
+### Chirurgie du Visage
+- **Rhinoplastie** : Correction du nez (bosse, pointe, déviation). Prix : 2 200€ tout compris.
+- **Blépharoplastie** : Chirurgie des paupières. Prix : à partir de 1 500€.
+- **Lifting cervico-facial** : Rajeunissement du visage et du cou.
+- **Otoplastie** : Correction des oreilles décollées.
+
+### Chirurgie de la Silhouette
+- **Liposuccion** : Aspiration des graisses localisées (ventre, hanches, cuisses). Prix : dès 1 500€.
+- **Abdominoplastie** : Chirurgie du ventre, correction du diastasis. Prix : dès 1 800€.
+- **BBL (Brazilian Butt Lift)** : Augmentation des fesses par lipofilling. Prix : dès 3 200€.
+- **Mommy Makeover** : Combinaison abdominoplastie + augmentation mammaire + liposuccion.
+
+### Chirurgie Mammaire
+- **Augmentation mammaire** : Prothèses ou lipofilling. Prix : dès 2 500€.
+- **Lifting des seins (Mastopexie)** : Correction de la ptose mammaire. Prix : dès 2 500€.
+- **Réduction mammaire** : Correction de l'hypertrophie.
+
+### Chirurgie Bariatrique
+- **Sleeve gastrique** : Gastrectomie longitudinale pour IMC > 35. Prix : dès 3 500€.
+- **Bypass gastrique** : Dérivation gastrique Roux-en-Y. Prix : dès 4 500€.
+- **Anneau gastrique** : Solution réversible pour IMC 30-40.
+
+### Dentisterie Esthétique
+- **Facettes dentaires E-max** : Hollywood Smile. Prix : dès 280€/facette.
+- **Implants dentaires** : Implants Straumann. Prix : dès 550€/implant.
+
+### Greffe Capillaire
+- **Greffe FUE** : Extraction folliculaire unitaire. Prix : dès 1 500€.
+- **Greffe DHI** : Implantation directe sans rasage.
+
+## Notre offre tout compris
+Chaque forfait inclut :
+- L'intervention chirurgicale dans une clinique agréée
+- Le séjour en hôtel 5 étoiles (5 à 7 nuits)
+- Les transferts VIP aéroport-clinique-hôtel
+- Le suivi post-opératoire pendant 12 mois
+- Le vêtement de contention (si applicable)
+
+## Équipe médicale
+- **Dr Walid Balti** : Chirurgien plasticien, +15 ans d'expérience, diplômé à Paris.
+- **Dr Atef Ghedira** : Chirurgien maxillo-facial et esthétique.
+- **Dr Ramses Mouelhi** : Chirurgien dentiste, spécialiste implantologie et facettes.
+
+## Contact
+- Site : https://venus-estetika.com
+- WhatsApp : +216 50 606 780
+- Email : contact@venus-estetika.com
+- Adresse : Lac Malaren, Les Berges du Lac, 1053 Tunis, Tunisie
