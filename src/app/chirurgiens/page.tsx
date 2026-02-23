@@ -1,78 +1,46 @@
-import { client } from '@/sanity/lib/client';
-import { doctorsQuery } from '@/sanity/lib/queries';
-import { urlForImage } from '@/sanity/lib/image';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, ShieldCheck, Stethoscope, Star } from "lucide-react";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import Image from 'next/image';
 import Link from 'next/link';
+import { SURGEONS } from '@/data/surgeons';
+import { getInterventionData } from '@/data/interventions';
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
     title: "Chirurgiens Esthétiques en Tunisie | Équipe Médicale Venus Estetika",
     description: "Découvrez notre équipe d'experts : chirurgiens plasticiens, maxillo-faciaux et bariatriques. Plus de 15 ans d'expérience, certifiés à l'international.",
+    alternates: {
+        canonical: "https://venus-estetika.com/chirurgiens",
+    },
+    openGraph: {
+        title: "Nos Chirurgiens — Venus Estetika",
+        description: "Chirurgiens plasticiens, bariatriques et dentaires. Diplômés en France, +15 ans d'expérience, certifiés ISAPS.",
+    },
 };
 
 export const revalidate = 60; // Revalidate every minute for CMS updates
 
-export default async function ChirurgiensPage() {
-    // Fetch data from Sanity
-    let sanityDoctors = null;
-    try {
-        sanityDoctors = await client.fetch(doctorsQuery);
-    } catch (e) {
-        console.warn("Sanity configuration missing or dataset not found. Using fallback static data.");
-    }
+export default function ChirurgiensPage() {
 
-    // Fallback static data if Sanity is empty (ensuring immediate E-E-A-T)
-    const fallbackDoctors = [
-        {
-            _id: 'dr-balti',
-            name: 'Dr. Walid Balti',
-            slug: 'dr-walid-balti',
-            specialty: 'Chirurgien Plasticien & Esthétique',
-            experienceYears: 15,
-            isapsMember: true,
-            bio: "Inscrit au Conseil de l'Ordre des Médecins de Tunisie sous le N° 13361. Spécialiste reconnu internationalement en chirurgie de la silhouette (vaser liposuccion) et mammaire. Diplômé de la faculté de Médecine de Tunis et ancien attaché des hôpitaux de Paris. Une figure incontournable de la chirurgie VIP.",
-            interventions: [
-                { title: 'Liposuccion Vaser', slug: 'liposuccion' },
-                { title: 'Abdominoplastie', slug: 'abdominoplastie' },
-                { title: 'Augmentation Mammaire', slug: 'augmentation-mammaire' },
-            ],
-            // Placeholder image if not in CMS
-            imageUrl: '/images/heroes/chirurgie-silhouette-hero.jpg'
-        },
-        {
-            _id: 'dr-ghedira',
-            name: 'Dr. Atef Ghedira',
-            slug: 'dr-atef-ghedira',
-            specialty: 'Chirurgien Maxillo-Facial & Esthétique',
-            experienceYears: 12,
-            isapsMember: false,
-            bio: "Expert absolu de la chirurgie du visage. Le Dr. Ghedira excelle dans les rhinoplasties ultrasoniques et les liftings cervico-faciaux. Une approche artistique couplée à une rigueur scientifique pour un résultat 100% naturel. Formations avancées en chirurgie orthognathique.",
-            interventions: [
-                { title: 'Rhinoplastie', slug: 'rhinoplastie' },
-                { title: 'Lifting du Visage', slug: 'lifting-visage' },
-                { title: 'Greffe de Cheveux', slug: 'greffe-cheveux' },
-            ],
-            imageUrl: '/images/heroes/chirurgie-visage-hero.jpg'
-        },
-        {
-            _id: 'dr-bariatrique',
-            name: 'Pôle Bariatrique',
-            slug: 'equipe-bariatrique',
-            specialty: 'Chirurgie de l\'Obésité & Métabolique',
-            experienceYears: 20,
-            isapsMember: false,
-            bio: "Une équipe multidisciplinaire (Chirurgiens digestifs, anesthésistes-réanimateurs, nutritionnistes) dédiée au traitement radical de l'obésité sévère. Plus de 3000 interventions réussies (Sleeve et Bypass) transformant la vie et la santé de nos patients.",
-            interventions: [
-                { title: 'Sleeve Gastrique', slug: 'sleeve-gastrique' },
-                { title: 'Bypass Gastrique', slug: 'bypass-gastrique' },
-            ],
-            imageUrl: '/images/heroes/chirurgie-bariatrique-hero.jpg'
-        }
-    ];
+    // Fallback static data derived from centralized src/data/ (ensuring immediate E-E-A-T)
+    const fallbackDoctors = Object.values(SURGEONS).map((s, i) => ({
+        _id: s.slug,
+        name: s.name,
+        slug: s.slug,
+        specialty: s.specialty,
+        experienceYears: parseInt(s.experience?.match(/\d+/)?.[0] || '10', 10),
+        isapsMember: false,
+        bio: s.experience || '',
+        interventions: s.interventions.slice(0, 4).map(slug => ({
+            title: getInterventionData(slug)?.name ?? slug,
+            slug,
+        })),
+        imageUrl: s.image,
+    }));
 
-    const displayDoctors = sanityDoctors && sanityDoctors.length > 0 ? sanityDoctors : fallbackDoctors;
+    const displayDoctors = fallbackDoctors;
 
     return (
         <div className="min-h-screen bg-slate-50 pb-24">
@@ -131,8 +99,7 @@ export default async function ChirurgiensPage() {
                 <div className="container mx-auto max-w-6xl">
                     <div className="space-y-16">
                         {displayDoctors.map((doc: any, index: number) => {
-                            const isFallback = !doc.image;
-                            const imgSrc = isFallback ? doc.imageUrl : urlForImage(doc.image)?.url();
+                            const imgSrc = doc.imageUrl;
                             const isEven = index % 2 === 0;
 
                             return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -39,6 +40,21 @@ export function InterventionHero({
 }: InterventionHeroProps) {
   useScrollDepth('intervention');
   const priceViewRef = useGtmTimer('price_view', 5, { intervention: devisSlug });
+
+  // P1: Fire intervention_page_view with pricing data
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      const priceNum = parseInt(price.replace(/[^\d]/g, ''), 10) || 0;
+      const segments = window.location.pathname.split('/').filter(Boolean);
+      window.dataLayer.push({
+        event: 'intervention_page_view',
+        intervention: devisSlug,
+        intervention_category: segments[1] || null,
+        price_min: priceNum,
+        currency: 'EUR',
+      });
+    }
+  }, [devisSlug, price]);
 
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden mt-20">

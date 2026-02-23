@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Droplet, ArrowRightLeft, Sparkles, CheckCircle } from "lucide-react";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
-import { useGtmEvent } from "@/hooks/useGtmEvent";
+import { useGtmEvent } from "@/lib/tracking/useGtmEvent";
 
 type SurgeryStep = 1 | 2 | 3;
 

@@ -1,42 +1,22 @@
-import { client } from "@/sanity/lib/client";
-import { galleryCasesByInterventionQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
-import { Image as SanityImage } from "sanity";
 import { Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
-interface GalleryCase {
-    _id: string;
-    title: string;
-    beforeImage: SanityImage;
-    afterImage: SanityImage;
-    delay?: string;
-    details?: string;
-}
+import { getGalleryCasesForIntervention } from "@/data/gallery";
 
 interface AvantApresGalleryProps {
     interventionSlug: string;
 }
 
-export async function AvantApresGallery({ interventionSlug }: AvantApresGalleryProps) {
-    // Fetch cases
-    let cases: GalleryCase[] = [];
-    try {
-        cases = await client.fetch(galleryCasesByInterventionQuery, { interventionSlug }, { next: { revalidate: 3600 } });
-    } catch (error) {
-        console.error(`Failed to fetch gallery cases for ${interventionSlug} from Sanity. Check config.`, error);
-        return null;
-    }
+export function AvantApresGallery({ interventionSlug }: AvantApresGalleryProps) {
+    const cases = getGalleryCasesForIntervention(interventionSlug);
 
     if (!cases || cases.length === 0) {
-        return null; // Don't render if no cases
+        return null;
     }
 
     return (
         <section className="py-24 bg-slate-50 relative overflow-hidden" id="avant-apres">
-            {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
 
@@ -57,8 +37,8 @@ export async function AvantApresGallery({ interventionSlug }: AvantApresGalleryP
                     {cases.map((c) => (
                         <div key={c._id} className="flex flex-col gap-5 group">
                             <BeforeAfterSlider
-                                beforeImageSrc={urlForImage(c.beforeImage)?.url() || ""}
-                                afterImageSrc={urlForImage(c.afterImage)?.url() || ""}
+                                beforeImageSrc={c.beforeImage}
+                                afterImageSrc={c.afterImage}
                                 className="w-full transition-transform duration-500 group-hover:-translate-y-2"
                             />
                             <div className="bg-white p-6 rounded-2xl shadow-sm border border-border/50 text-center transition-all duration-300 group-hover:shadow-md group-hover:border-brand-blue/20 h-full flex flex-col">

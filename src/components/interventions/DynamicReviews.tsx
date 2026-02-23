@@ -1,18 +1,6 @@
-import { client } from "@/sanity/lib/client";
-import { reviewsQuery, reviewsByInterventionQuery } from "@/sanity/lib/queries";
 import { Star, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface Review {
-    _id: string;
-    author: string;
-    rating: number;
-    comment: string;
-    date: string;
-    intervention?: {
-        title: string;
-    };
-}
+import { getAllReviews, getReviewsForIntervention } from "@/data/reviews";
 
 interface DynamicReviewsProps {
     interventionSlug?: string;
@@ -20,19 +8,10 @@ interface DynamicReviewsProps {
     title?: string;
 }
 
-export async function DynamicReviews({ interventionSlug, className, title = "Avis de nos patients" }: DynamicReviewsProps) {
-    let reviews: Review[] = [];
-
-    try {
-        if (interventionSlug) {
-            reviews = await client.fetch(reviewsByInterventionQuery, { interventionSlug }, { next: { revalidate: 3600 } });
-        } else {
-            reviews = await client.fetch(reviewsQuery, {}, { next: { revalidate: 3600 } });
-        }
-    } catch (error) {
-        console.error("Failed to fetch reviews from Sanity:", error);
-        return null; // Graceful fallback
-    }
+export function DynamicReviews({ interventionSlug, className, title = "Avis de nos patients" }: DynamicReviewsProps) {
+    const reviews = interventionSlug
+        ? getReviewsForIntervention(interventionSlug)
+        : getAllReviews();
 
     if (!reviews || reviews.length === 0) {
         return null;
