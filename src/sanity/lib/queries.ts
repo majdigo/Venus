@@ -47,15 +47,48 @@ export const galleryCasesByInterventionQuery = groq`
   }
 `
 
-// Query to get general site interventions
+// Query to get general site interventions with category and pricing
 export const interventionsQuery = groq`
   *[_type == "intervention"] | order(title asc) {
     _id,
     title,
     "slug": slug.current,
-    category,
+    "category": category->title,
     basePrice,
-    shortDescription
+    oldPrice,
+    seoTitle,
+    seoDescription
+  }
+`
+
+// Query to get a full single intervention by slug (The Golden Goose Page Data)
+export const interventionBySlugQuery = groq`
+  *[_type == "intervention" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    "category": category->title,
+    basePrice,
+    oldPrice,
+    duration,
+    recoveryTime,
+    seoTitle,
+    seoDescription,
+    heroImage,
+    body,
+    surgeons[]->{
+      name,
+      "slug": slug.current,
+      specialty,
+      image
+    },
+    clinics[]->{
+      name,
+      stars,
+      location,
+      images
+    },
+    faq
   }
 `
 
