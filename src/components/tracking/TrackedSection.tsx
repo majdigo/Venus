@@ -1,6 +1,6 @@
 'use client';
 
-import { useIntersectionEvent } from '@/hooks/useIntersectionEvent';
+import { useIntersectionEvent } from '@/lib/tracking/useIntersectionEvent';
 
 interface TrackedSectionProps {
     eventName: string;

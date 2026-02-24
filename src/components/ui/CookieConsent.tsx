@@ -19,27 +19,21 @@ function pushConsentToGTM(level: ConsentLevel) {
   const w = window as any;
   w.dataLayer = w.dataLayer || [];
 
-  if (level === "all") {
-    w.dataLayer.push({
-      event: "consent_update",
-      consent: {
-        analytics_storage: "granted",
-        ad_storage: "granted",
-        ad_user_data: "granted",
-        ad_personalization: "granted",
-      },
-    });
-  } else {
-    w.dataLayer.push({
-      event: "consent_update",
-      consent: {
-        analytics_storage: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-      },
-    });
+  // Use gtag consent API for proper Consent Mode v2 integration
+  function gtag(...args: unknown[]) {
+    w.dataLayer.push(arguments);
   }
+
+  const granted = level === "all";
+  gtag("consent", "update", {
+    analytics_storage: granted ? "granted" : "denied",
+    ad_storage: granted ? "granted" : "denied",
+    ad_user_data: granted ? "granted" : "denied",
+    ad_personalization: granted ? "granted" : "denied",
+  });
+
+  // Also push a custom event for GTM triggers
+  w.dataLayer.push({ event: "consent_update" });
 }
 
 export function CookieConsent() {

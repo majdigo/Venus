@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Politique de Confidentialité — Venus Estetika",
     description: "Politique de confidentialité et protection des données personnelles de Venus Estetika. Conformité RGPD.",
     robots: "noindex, follow",

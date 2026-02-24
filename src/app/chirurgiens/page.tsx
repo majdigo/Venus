@@ -164,7 +164,7 @@ export default function ChirurgiensPage() {
                                         )}
 
                                         <div className="mt-8 pt-8 border-t border-gray-100 flex gap-4">
-                                            <Button asChild className="bg-brand-navy hover:bg-brand-navy/90 text-white shadow-lg">
+                                            <Button variant="ctaNavy" asChild>
                                                 <Link href={`/devis?medecin=${doc.slug}`}>
                                                     Demander une télé-consultation <ArrowRight className="ml-2 w-4 h-4" />
                                                 </Link>

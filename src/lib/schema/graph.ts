@@ -17,17 +17,17 @@ export function combineToGraph(data: GraphData) {
         "@id": "https://venus-estetika.com/#clinic",
         "name": "Venus Estetika",
         "url": "https://venus-estetika.com",
-        "image": "https://venus-estetika.com/images/logo.png",
+        "image": "https://venus-estetika.com/images/logo/logo-venus-estetika.png",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Les Berges du Lac 2",
+            "streetAddress": "Rue du Lac Léman, Les Berges du Lac",
             "addressLocality": "Tunis",
-            "addressRegion": "Tunis",
             "postalCode": "1053",
-            "addressCountry": "Tunisia"
+            "addressCountry": "TN"
         },
-        "telephone": "+33100000000",
-        "priceRange": "$$$"
+        "telephone": "+21650606780",
+        "email": "contact@venus-estetika.com",
+        "priceRange": "€€"
     });
 
     if (data.procedure) graph.push(data.procedure);

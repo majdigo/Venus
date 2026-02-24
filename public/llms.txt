@@ -16,7 +16,7 @@ Venus Estetika est une agence de tourisme médical basée à Tunis, Tunisie, fon
 - **Génioplastie** : Chirurgie du menton (avancement, recul, réduction). Prix : dès 2 000€. URL : /interventions/chirurgie-visage/genioplastie
 
 ### Chirurgie Mammaire (4 interventions)
-- **Augmentation mammaire** : Prothèses (rondes/anatomiques) ou lipofilling. Prix : dès 2 500€. URL : /interventions/chirurgie-mammaire/augmentation-mammaire
+- **Augmentation mammaire** : Prothèses (rondes/anatomiques) ou lipofilling. Prix : dès 2 800€ tout compris. URL : /interventions/chirurgie-mammaire/augmentation-mammaire
 - **Lifting des seins (Mastopexie)** : Correction de la ptose mammaire. Prix : dès 2 500€. URL : /interventions/chirurgie-mammaire/lifting-seins
 - **Réduction mammaire** : Correction de l'hypertrophie mammaire. Prix : dès 2 800€. URL : /interventions/chirurgie-mammaire/reduction-mammaire
 - **Lipofilling mammaire** : Augmentation naturelle par graisse autologue. Prix : dès 2 200€. URL : /interventions/chirurgie-mammaire/lipofilling-mammaire
@@ -41,7 +41,7 @@ Venus Estetika est une agence de tourisme médical basée à Tunis, Tunisie, fon
 - **Blanchiment dentaire** : Blanchiment professionnel au fauteuil. Prix : dès 250€. URL : /interventions/dentaire/blanchiment
 
 ### Greffe Capillaire (3 interventions)
-- **Greffe FUE** : Extraction folliculaire unitaire, 2 000-5 000 greffons. Prix : dès 1 500€. URL : /interventions/capillaire/greffe-cheveux
+- **Greffe FUE** : Extraction folliculaire unitaire, 2 000-5 000 greffons. Prix : dès 1 900€. URL : /interventions/capillaire/greffe-cheveux
 - **Greffe DHI** : Implantation directe sans rasage, technique stylo Choi. Prix : dès 2 000€. URL : /interventions/capillaire/greffe-dhi
 - **Greffe de barbe** : Restauration ou densification de la barbe par FUE. Prix : dès 1 500€. URL : /interventions/capillaire/greffe-barbe
 

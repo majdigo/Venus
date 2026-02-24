@@ -120,7 +120,7 @@ export function Header() {
               ctaLocation="header_desktop"
               ctaType="primary"
             >
-              <Button className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold shadow-md">
+              <Button variant="cta">
                 Devis Gratuit
               </Button>
             </TrackedLink>
@@ -142,7 +142,7 @@ export function Header() {
             </TrackedLink>
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
-                <button className="p-2 text-slate-700" aria-label="Menu">
+                <button className="p-2 text-slate-700" aria-label="Menu" aria-expanded={mobileOpen}>
                   <Menu className="w-6 h-6" />
                 </button>
               </SheetTrigger>
@@ -298,7 +298,7 @@ export function Header() {
                 {/* Sticky CTA bottom */}
                 <div className="border-t border-slate-200 p-4">
                   <Link href="/devis/" onClick={() => { setMobileOpen(false); setMobileSubmenu(null); }}>
-                    <Button className="w-full bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-12 text-base">
+                    <Button variant="cta" size="xlg" className="w-full">
                       <FileText className="w-5 h-5 mr-2" />
                       Devis Gratuit
                     </Button>
@@ -318,7 +318,7 @@ export function Header() {
             onMouseLeave={handleMegaMenuLeave}
           >
             <div className="container mx-auto px-4 py-8 max-w-[1400px]">
-              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {NAVIGATION_CATEGORIES.map((cat) => (
                   <MegaMenuColumn key={cat.slug} category={cat} onClose={() => setMegaMenuOpen(false)} />
                 ))}

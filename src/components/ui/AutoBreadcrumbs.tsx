@@ -28,8 +28,6 @@ function resolveCategoryName(categorySlug: string): string {
   const match = NAVIGATION_CATEGORIES.find((cat) => cat.slug === categorySlug);
   if (match) return match.name;
 
-  if (categorySlug === 'medecine-esthetique') return 'Médecine Esthétique';
-
   return slugToTitle(categorySlug);
 }
 

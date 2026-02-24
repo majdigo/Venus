@@ -22,9 +22,18 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
     title: "Séjour Médical Tunisie | Forfait Tout Compris — Venus Estetika",
     description: "Découvrez le déroulement de votre séjour médical en Tunisie avec Venus Estetika. Vol, accueil aéroport, hôtel 5★, clinique agréée, suivi 12 mois. Tout est organisé pour vous. Guide complet.",
+    alternates: {
+        canonical: "https://venus-estetika.com/sejour-medical",
+    },
+    openGraph: {
+        title: "Séjour Médical Tunisie — Venus Estetika",
+        description: "Forfait tout compris : vol, accueil VIP, hôtel 5★, clinique agréée, suivi 12 mois. Tout est organisé pour vous.",
+    },
 };
 
 const journeySteps = [
@@ -228,7 +237,7 @@ export default function SejourMedicalPage() {
                             De l&apos;aéroport à votre retour, Venus Estetika prend tout en charge. Clinique agréée, hôtel 5 étoiles, transferts privés, accompagnement francophone 24/7. Vivez votre transformation en toute sérénité.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-8">
+                            <Button variant="cta" size="xlg" asChild>
                                 <Link href="/devis">
                                     Planifier mon séjour médical <ArrowRight className="ml-2 w-5 h-5" />
                                 </Link>

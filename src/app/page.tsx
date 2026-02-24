@@ -17,6 +17,7 @@ import { GuidedTourTimeline } from "@/components/ui/GuidedTourTimeline";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
 import { TrustBar } from "@/components/cro/TrustBar";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
+import { JsonLd } from "@/components/seo/JsonLd";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -40,8 +41,58 @@ export default async function Home() {
   const doctors = await getDoctors(true);
   const categoriesMap = await getGroupedCategories();
 
+  const homepageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://venus-estetika.com/#webpage",
+    name: "Venus Estetika — Chirurgie Esthétique en Tunisie",
+    description: "Clinique de chirurgie esthétique en Tunisie. Rhinoplastie, sleeve, greffe cheveux, augmentation mammaire. Séjour tout compris à partir de 1 400 €.",
+    url: "https://venus-estetika.com",
+    inLanguage: "fr-FR",
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": "https://venus-estetika.com/#website",
+      name: "Venus Estetika",
+      url: "https://venus-estetika.com",
+    },
+    about: {
+      "@type": "MedicalClinic",
+      "@id": "https://venus-estetika.com/#clinic",
+      name: "Venus Estetika",
+      url: "https://venus-estetika.com",
+      telephone: "+216 50 606 780",
+      email: "contact@venus-estetika.com",
+      priceRange: "€€",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Lac Malaren, Les Berges du Lac",
+        addressLocality: "Tunis",
+        postalCode: "1053",
+        addressCountry: "TN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 36.8325,
+        longitude: 10.2347,
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        reviewCount: "127",
+        bestRating: "5",
+      },
+      medicalSpecialty: [
+        "PlasticSurgery",
+        "Bariatrics",
+        "Dentistry",
+      ],
+    },
+  };
+
   return (
     <div className="flex flex-col">
+      <JsonLd data={homepageSchema} />
+
       {/* HERO SECTION — IMAGE DE FOND IMMERSIVE */}
       <section className="relative min-h-[700px] lg:min-h-[800px] flex items-center overflow-hidden">
         {/* Background image */}
@@ -83,12 +134,12 @@ export default async function Home() {
           <FadeIn delay={0.4} direction="up">
             <div className="flex flex-col sm:flex-row gap-4 items-start">
               <TrackedLink href="/devis" className="w-full sm:w-auto" ctaText="Demander un Devis Sur-Mesure" ctaLocation="hero">
-                <Button size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/85 text-lg font-bold h-16 px-10 rounded-full w-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95">
+                <Button variant="cta" size="cta" className="w-full shadow-xl hover:shadow-2xl">
                   Demander un Devis Sur-Mesure <ArrowRight className="ml-2 w-6 h-6" />
                 </Button>
               </TrackedLink>
               <TrackedLink href="#specialites" className="w-full sm:w-auto" ctaText="Voir toutes les opérations" ctaLocation="hero" ctaType="secondary">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 text-lg font-bold h-16 px-10 rounded-full w-full hover:scale-105 active:scale-95 transition-transform">
+                <Button variant="ctaOutline" size="cta" className="w-full">
                   Voir toutes les opérations
                 </Button>
               </TrackedLink>
@@ -214,7 +265,7 @@ export default async function Home() {
                 </p>
               </div>
               <TrackedLink href="/devis" ctaText="Voir les tarifs complets" ctaLocation="price_table">
-                <Button className="mt-6 md:mt-0 bg-brand-blue hover:bg-brand-blue/85 text-white font-bold h-12 px-6 hover:scale-105 active:scale-95 transition-transform">
+                <Button variant="cta" size="xlg" className="mt-6 md:mt-0">
                   Voir les tarifs complets
                 </Button>
               </TrackedLink>
@@ -361,7 +412,7 @@ export default async function Home() {
                 <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-600" /> Aucun frais caché • Devis définitif avant le départ</span>
               </div>
               <TrackedLink href="/devis" ctaText="Obtenir mon devis personnalisé" ctaLocation="price_table">
-                <Button size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/85 text-lg font-bold h-14 px-10 rounded-full mt-4 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all">
+                <Button variant="cta" size="cta" className="mt-4">
                   Obtenir mon devis personnalisé <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </TrackedLink>
@@ -391,6 +442,31 @@ export default async function Home() {
       {/* GARANTIES */}
       <GuaranteeSection variant="light" />
 
+      {/* SEO TEXT BLOCK — LONG-TAIL KEYWORDS */}
+      <section className="py-16 px-4 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto max-w-4xl">
+          <FadeIn>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-brand-navy mb-6 text-center">
+              Chirurgie esthétique en Tunisie : pourquoi choisir Venus Estetika ?
+            </h2>
+            <div className="prose prose-slate max-w-none text-gray-600 leading-relaxed">
+              <p>
+                La <strong>chirurgie esthétique en Tunisie</strong> attire chaque année plus de 30 000 patients européens en quête de soins médicaux de qualité à des tarifs accessibles. Venus Estetika, leader du <strong>tourisme médical en Tunisie</strong> depuis 2009, propose un accompagnement complet : de la téléconsultation gratuite avec votre chirurgien à la convalescence en hôtel 5 étoiles, en passant par les transferts VIP et le suivi post-opératoire de 12 mois.
+              </p>
+              <p>
+                Nos chirurgiens sont <strong>diplômés en France, en Belgique ou en Suisse</strong>, inscrits à l&apos;Ordre National des Médecins de Tunisie et cumulant 10 à 25 ans d&apos;expérience. Les cliniques partenaires sont certifiées aux <strong>normes internationales JCI</strong> avec des blocs opératoires ISO 7 et une anesthésie-réanimation 24h/24.
+              </p>
+              <p>
+                Que vous recherchiez une <strong>rhinoplastie en Tunisie</strong> (dès 2 200 €), une <strong>sleeve gastrique</strong> (dès 4 200 €), une <strong>greffe de cheveux FUE</strong> (dès 1 800 €), une <strong>augmentation mammaire</strong> (dès 2 800 €) ou des <strong>facettes dentaires</strong> (dès 350 € l&apos;unité), Venus Estetika garantit un devis définitif sans frais cachés et une retouche gratuite en cas d&apos;insatisfaction.
+              </p>
+              <p>
+                Notre approche &laquo; tout compris &raquo; élimine le stress organisationnel : <strong>vol, hébergement en hôtel 5 étoiles avec pension complète, transferts aéroport-clinique-hôtel et accompagnement francophone</strong> sont inclus dans chaque forfait. Plus de 2 500 patients nous ont déjà fait confiance avec une note de 4,8/5 sur Google.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* CTA FINAL PERCUTANT */}
       <section className="bg-brand-navy text-white py-24 px-4 text-center">
         <FadeIn delay={0.1}>
@@ -404,7 +480,7 @@ export default async function Home() {
         <FadeIn delay={0.3}>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <TrackedLink href="/devis" ctaText="Obtenir mon Devis Gratuit" ctaLocation="cta_final">
-              <Button size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/85 h-16 px-10 text-xl font-bold rounded-full w-full sm:w-auto shadow-xl hover:scale-105 active:scale-95 transition-transform">
+              <Button variant="cta" size="cta" className="w-full sm:w-auto shadow-xl">
                 Obtenir mon Devis Gratuit
               </Button>
             </TrackedLink>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Mentions Légales — Venus Estetika",
     description: "Mentions légales du site venus-estetika.com. Informations légales, éditeur, hébergeur, propriété intellectuelle.",
     robots: "noindex, follow",

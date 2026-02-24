@@ -17,6 +17,16 @@ export function WhatsAppWidget() {
 
   if (!visible) return null;
 
+  const handleWhatsAppClick = () => {
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'whatsapp_click',
+        click_location: 'floating_button',
+        page_path: window.location.pathname,
+      });
+    }
+  };
+
   return (
     <div className="fixed bottom-24 md:bottom-8 right-4 z-40 flex items-end gap-3">
       {/* Tooltip */}
@@ -45,6 +55,7 @@ export function WhatsAppWidget() {
         ctaText="WhatsApp Widget"
         ctaLocation="floating_widget"
         ctaType="whatsapp"
+        onClick={handleWhatsAppClick}
       >
         <MessageCircle className="w-7 h-7 text-white" />
         {/* Pulse animation */}

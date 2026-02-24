@@ -548,7 +548,7 @@ export function getFaqData(slug: string) {
                     "name": "Quel est le prix d'un bypass gastrique en Tunisie ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Le prix d'un bypass gastrique en Tunisie chez Venus Estetika est de 4 500€ tout compris (chirurgie, anesthésie, hospitalisation, hôtel 5* pour 5 nuits, transferts aéroport, suivi post-opératoire 12 mois). En comparaison, la même intervention coûte entre 10 000€ et 18 000€ en France."
+                        "text": "Le prix d'un bypass gastrique en Tunisie chez Venus Estetika est de 4 200€ tout compris (chirurgie, anesthésie, hospitalisation, hôtel 5* pour 5 nuits, transferts aéroport, suivi post-opératoire 12 mois). En comparaison, la même intervention coûte entre 9 500€ et 15 000€ en France."
                     }
                 },
                 {

@@ -1,65 +1,75 @@
+import { SURGEONS, getSurgeon } from '@/data/surgeons';
+import { getInterventionData } from '@/data/interventions';
+import { getCategoryForIntervention } from '@/data/categories';
+
+/**
+ * Generate Schema.org Physician JSON-LD for a given surgeon slug.
+ * Derives all data from centralized src/data/ — single source of truth.
+ */
 export function getPhysicianData(slug: string) {
-    if (slug === 'dr-balti') {
+    const surgeon = getSurgeon(slug);
+    if (!surgeon) return {};
+
+    const availableServices = surgeon.interventions.slice(0, 5).map(intSlug => {
+        const data = getInterventionData(intSlug);
+        const cat = getCategoryForIntervention(intSlug);
+        const url = cat
+            ? `https://venus-estetika.com/interventions/${cat.slug}/${intSlug}`
+            : `https://venus-estetika.com/interventions`;
         return {
-            "@context": "https://schema.org",
-            "@type": "Physician",
-            "@id": "https://venus-estetika.com/chirurgiens/dr-balti#physician",
-            "name": "Dr Balti",
-            "givenName": "Balti",
-            "jobTitle": "Chirurgien bariatrique et esthétique",
-            "description": "Chirurgien spécialisé en chirurgie bariatrique et esthétique, diplômé en France, exerçant en Tunisie depuis plus de 15 ans.",
-            "medicalSpecialty": [
-                {
-                    "@type": "MedicalSpecialty",
-                    "name": "Chirurgie bariatrique"
-                },
-                {
-                    "@type": "MedicalSpecialty",
-                    "name": "Chirurgie esthétique"
-                }
-            ],
-            "alumniOf": {
-                "@type": "EducationalOrganization",
-                "name": "Faculté de Médecine de Paris",
+            "@type": "MedicalProcedure" as const,
+            "@id": `${url}#procedure`,
+            "name": data?.name ?? intSlug,
+        };
+    });
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "@id": `https://venus-estetika.com/chirurgiens/${slug}#physician`,
+        "name": surgeon.name,
+        "jobTitle": surgeon.specialty,
+        "description": surgeon.experience || `${surgeon.name}, ${surgeon.specialty}`,
+        "medicalSpecialty": [
+            {
+                "@type": "MedicalSpecialty",
+                "name": surgeon.specialty,
+            },
+        ],
+        "hospitalAffiliation": [
+            {
+                "@type": "Hospital",
+                "name": "Clinique Médicale Pasteur",
                 "address": {
                     "@type": "PostalAddress",
-                    "addressCountry": "FR"
-                }
-            },
-            "hospitalAffiliation": [
-                {
-                    "@type": "Hospital",
-                    "name": "Clinique Médicale Pasteur",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Tunis",
-                        "addressCountry": "TN"
-                    }
+                    "addressLocality": "Tunis",
+                    "addressCountry": "TN",
                 },
-                {
-                    "@type": "Hospital",
-                    "name": "Clinique Médicale Internationale Hannibal",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Tunis",
-                        "addressCountry": "TN"
-                    }
-                }
-            ],
-            "availableService": [
-                {
-                    "@type": "MedicalProcedure",
-                    "@id": "https://venus-estetika.com/interventions/bariatrique/sleeve-gastrique#procedure"
-                }
-            ],
-            "image": "https://venus-estetika.com/images/chirurgiens/dr-balti.jpg",
-            "url": "https://venus-estetika.com/chirurgiens/dr-balti",
-            "worksFor": {
-                "@type": "MedicalClinic",
-                "@id": "https://venus-estetika.com/#clinic"
             },
-            "knowsLanguage": ["fr", "ar", "en"]
-        };
-    }
-    return {};
+            {
+                "@type": "Hospital",
+                "name": "Clinique Médicale Internationale Hannibal",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Tunis",
+                    "addressCountry": "TN",
+                },
+            },
+        ],
+        "availableService": availableServices,
+        "image": `https://venus-estetika.com${surgeon.image}`,
+        "url": `https://venus-estetika.com/chirurgiens/${slug}`,
+        "worksFor": {
+            "@type": "MedicalClinic",
+            "@id": "https://venus-estetika.com/#clinic",
+        },
+        "knowsLanguage": ["fr", "ar", "en"],
+    };
+}
+
+/**
+ * Get all physician schemas (for chirurgiens page or sitemap).
+ */
+export function getAllPhysicianData() {
+    return Object.keys(SURGEONS).map(slug => getPhysicianData(slug));
 }

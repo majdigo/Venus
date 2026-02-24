@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, ArrowLeft, RefreshCw } from "lucide-react";
 import Link from "next/link";
+import { WHATSAPP_URL, PHONE_NUMBER_FR } from "@/lib/navigation-data";
 
 export default function Error({
     reset,
@@ -34,7 +35,7 @@ export default function Error({
                         <RefreshCw className="w-4 h-4" />
                         Réessayer
                     </Button>
-                    <Button asChild className="bg-brand-navy hover:bg-brand-navy/90 text-white gap-2">
+                    <Button variant="ctaNavy" asChild className="gap-2">
                         <Link href="/">
                             <ArrowLeft className="w-4 h-4" />
                             Retour à l'accueil
@@ -45,10 +46,10 @@ export default function Error({
                 <p className="text-xs text-gray-400 mt-8">
                     Si le problème persiste, contactez-nous au{" "}
                     <a
-                        href="https://wa.me/21650606780"
+                        href={WHATSAPP_URL}
                         className="text-brand-blue hover:underline"
                     >
-                        +216 50 606 780
+                        {PHONE_NUMBER_FR}
                     </a>
                 </p>
             </div>

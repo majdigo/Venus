@@ -4,9 +4,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MedicalEquipmentShowcase } from "@/components/ui/MedicalEquipmentShowcase";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
     title: "Cliniques Partenaires & Hôtels 5★ | Le Luxe Médical Venus Estetika",
     description: "Découvrez nos infrastructures certifiées ISO. Blocs opératoires ultra-modernes, chambres VIP et convalescence en hôtel 5 étoiles. Le luxe au service de votre santé.",
+    alternates: {
+        canonical: "https://venus-estetika.com/cliniques-partenaires",
+    },
+    openGraph: {
+        title: "Cliniques Partenaires & Hôtels 5★ — Venus Estetika",
+        description: "Blocs opératoires ultra-modernes, chambres VIP, convalescence en hôtel 5★. Le luxe au service de votre santé.",
+    },
 };
 
 export default function CliniquesPartenairesPage() {
@@ -143,7 +152,7 @@ export default function CliniquesPartenairesPage() {
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                         Tous nos forfaits incluent la clinique, l'hôtel 5★ et la conciergerie privée pour que vous n'ayez qu'à vous soucier de votre nouvelle apparence.
                     </p>
-                    <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-8 h-14 rounded-xl shadow-lg shadow-brand-blue/20">
+                    <Button variant="cta" size="cta" asChild className="rounded-xl shadow-brand-blue/20">
                         <Link href="/devis">
                             Demander un devis sur-mesure <ArrowRight className="ml-2 w-5 h-5" />
                         </Link>

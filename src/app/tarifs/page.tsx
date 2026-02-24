@@ -3,15 +3,26 @@ import { ArrowRight, CheckCircle2, Shield, XCircle, ExternalLink } from "lucide-
 import Link from "next/link";
 import Image from "next/image";
 import { GuaranteeSection } from "@/components/interventions/GuaranteeSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getBreadcrumbData } from "@/lib/schema/breadcrumb";
+import { WHATSAPP_URL } from "@/lib/navigation-data";
+import type { Metadata } from "next";
 
 // ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Tarifs Chirurgie Esthétique Tunisie | Tous les Prix — Venus Estetika",
   description:
     "Tous les tarifs de la chirurgie esthétique en Tunisie chez Venus Estetika. Prix tout compris : chirurgien, clinique, hôtel 5★, transferts, suivi 12 mois. Comparez avec la France. Devis gratuit.",
+  alternates: {
+    canonical: "https://venus-estetika.com/tarifs",
+  },
+  openGraph: {
+    title: "Tarifs Chirurgie Esthétique Tunisie — Venus Estetika",
+    description: "Tous les prix de la chirurgie esthétique en Tunisie. Forfaits tout compris dès 1 500€. Comparez avec la France et économisez 50 à 75%.",
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -62,42 +73,42 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "1 500€",
         francePrice: "3 000 – 4 500€",
         savings: "-50 % à -67 %",
-        slug: null,
+        slug: "/interventions/chirurgie-visage/blepharoplastie",
       },
       {
         intervention: "Blépharoplastie (4 paupières)",
         venusPrice: "2 500€",
         francePrice: "5 000 – 7 500€",
         savings: "-50 % à -67 %",
-        slug: null,
+        slug: "/interventions/chirurgie-visage/blepharoplastie",
       },
       {
         intervention: "Lifting cervico-facial",
         venusPrice: "3 500€",
         francePrice: "6 000 – 10 000€",
         savings: "-42 % à -65 %",
-        slug: null,
+        slug: "/interventions/chirurgie-visage/lifting-cervico-facial",
       },
       {
         intervention: "Otoplastie (2 oreilles)",
         venusPrice: "1 500€",
         francePrice: "3 000 – 4 500€",
         savings: "-50 % à -67 %",
-        slug: null,
+        slug: "/interventions/chirurgie-visage/otoplastie",
       },
       {
         intervention: "Lipofilling visage",
         venusPrice: "1 800 – 2 500€",
         francePrice: "3 500 – 7 000€",
         savings: "-49 % à -64 %",
-        slug: null,
+        slug: "/interventions/chirurgie-visage/lipofilling-visage",
       },
       {
         intervention: "Génioplastie (prothèse)",
         venusPrice: "2 000€",
         francePrice: "3 500 – 5 500€",
         savings: "-43 % à -64 %",
-        slug: null,
+        slug: "/interventions/chirurgie-visage/genioplastie",
       },
     ],
   },
@@ -108,9 +119,9 @@ const pricingCategories: PricingCategory[] = [
     rows: [
       {
         intervention: "Augmentation mammaire (implants)",
-        venusPrice: "2 500€",
-        francePrice: "5 000 – 8 000€",
-        savings: "-50 % à -69 %",
+        venusPrice: "2 600 – 2 800€",
+        francePrice: "6 000 – 6 500€",
+        savings: "-57 % à -57 %",
         slug: "/interventions/chirurgie-mammaire/augmentation-mammaire",
       },
       {
@@ -118,28 +129,28 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "2 800€",
         francePrice: "5 000 – 8 000€",
         savings: "-44 % à -65 %",
-        slug: null,
+        slug: "/interventions/chirurgie-mammaire/reduction-mammaire",
       },
       {
         intervention: "Lifting mammaire (mastopexie)",
         venusPrice: "2 500€",
         francePrice: "4 500 – 7 000€",
         savings: "-44 % à -64 %",
-        slug: null,
+        slug: "/interventions/chirurgie-mammaire/lifting-seins",
       },
       {
         intervention: "Lifting + prothèse",
         venusPrice: "3 500€",
         francePrice: "6 000 – 9 000€",
         savings: "-42 % à -61 %",
-        slug: null,
+        slug: "/interventions/chirurgie-mammaire/lifting-seins",
       },
       {
         intervention: "Lipofilling mammaire",
         venusPrice: "2 800€",
         francePrice: "5 000 – 7 000€",
         savings: "-44 % à -60 %",
-        slug: null,
+        slug: "/interventions/chirurgie-mammaire/lipofilling-mammaire",
       },
     ],
   },
@@ -149,17 +160,17 @@ const pricingCategories: PricingCategory[] = [
     categorySlug: "/interventions/chirurgie-silhouette",
     rows: [
       {
-        intervention: "Liposuccion (2-3 zones)",
-        venusPrice: "2 000 – 3 000€",
-        francePrice: "4 000 – 7 000€",
-        savings: "-50 % à -57 %",
+        intervention: "Liposuccion (1-3 zones)",
+        venusPrice: "1 500 – 2 500€",
+        francePrice: "3 500 – 6 500€",
+        savings: "-57 % à -62 %",
         slug: "/interventions/chirurgie-silhouette/liposuccion",
       },
       {
         intervention: "Abdominoplastie",
-        venusPrice: "2 900€",
-        francePrice: "5 500 – 8 000€",
-        savings: "-47 % à -64 %",
+        venusPrice: "1 800 – 3 200€",
+        francePrice: "3 500 – 7 000€",
+        savings: "-49 % à -54 %",
         slug: "/interventions/chirurgie-silhouette/abdominoplastie",
       },
       {
@@ -167,28 +178,28 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "3 200€",
         francePrice: "6 000 – 9 000€",
         savings: "-47 % à -64 %",
-        slug: null,
+        slug: "/interventions/chirurgie-silhouette/bbl",
       },
       {
         intervention: "Mommy Makeover",
         venusPrice: "4 500€",
         francePrice: "10 000 – 15 000€",
         savings: "-55 % à -70 %",
-        slug: null,
+        slug: "/interventions/chirurgie-silhouette/mommy-makeover",
       },
       {
         intervention: "Lifting des bras",
         venusPrice: "2 200€",
         francePrice: "4 000 – 6 000€",
         savings: "-45 % à -63 %",
-        slug: null,
+        slug: "/interventions/chirurgie-silhouette/lifting-bras",
       },
       {
         intervention: "Lifting des cuisses",
         venusPrice: "2 500€",
         francePrice: "4 500 – 7 000€",
         savings: "-44 % à -64 %",
-        slug: null,
+        slug: "/interventions/chirurgie-silhouette/lifting-cuisses",
       },
     ],
   },
@@ -206,9 +217,9 @@ const pricingCategories: PricingCategory[] = [
       },
       {
         intervention: "Bypass gastrique",
-        venusPrice: "4 500€",
-        francePrice: "12 000 – 18 000€",
-        savings: "-63 % à -75 %",
+        venusPrice: "4 200€",
+        francePrice: "9 500 – 15 000€",
+        savings: "-56 % à -72 %",
         slug: "/interventions/bariatrique/bypass-gastrique",
       },
       {
@@ -216,7 +227,7 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "2 800€",
         francePrice: "5 000 – 8 000€",
         savings: "-44 % à -65 %",
-        slug: null,
+        slug: "/interventions/bariatrique/anneau-gastrique",
       },
     ],
   },
@@ -227,9 +238,9 @@ const pricingCategories: PricingCategory[] = [
     rows: [
       {
         intervention: "Facette dentaire (E-max)",
-        venusPrice: "300€/dent",
-        francePrice: "800 – 1 300€",
-        savings: "-63 % à -77 %",
+        venusPrice: "250€/dent",
+        francePrice: "900 – 1 300€",
+        savings: "-72 % à -81 %",
         slug: "/interventions/dentaire/facettes",
       },
       {
@@ -237,7 +248,7 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "600€/implant",
         francePrice: "1 800 – 2 500€",
         savings: "-67 % à -76 %",
-        slug: null,
+        slug: "/interventions/dentaire/implants-dentaires",
       },
       {
         intervention: "All-on-4 (1 arcade)",
@@ -251,14 +262,14 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "250€",
         francePrice: "700 – 1 200€",
         savings: "-64 % à -79 %",
-        slug: null,
+        slug: "/interventions/dentaire/couronnes",
       },
       {
         intervention: "Blanchiment professionnel",
         venusPrice: "250€",
         francePrice: "500 – 800€",
         savings: "-50 % à -69 %",
-        slug: null,
+        slug: "/interventions/dentaire/blanchiment",
       },
     ],
   },
@@ -279,56 +290,56 @@ const pricingCategories: PricingCategory[] = [
         venusPrice: "2 200€",
         francePrice: "5 000 – 8 000€",
         savings: "-56 % à -73 %",
-        slug: null,
+        slug: "/interventions/capillaire/greffe-dhi",
       },
       {
         intervention: "Greffe de barbe",
         venusPrice: "1 600 – 2 400€",
         francePrice: "4 000 – 10 000€",
         savings: "-60 % à -76 %",
-        slug: null,
+        slug: "/interventions/capillaire/greffe-barbe",
       },
     ],
   },
   {
     id: "medecine",
     title: "Médecine Esthétique",
-    categorySlug: "/interventions",
+    categorySlug: "/interventions/medecine-esthetique",
     rows: [
       {
         intervention: "Botox (1 zone)",
         venusPrice: "150€",
         francePrice: "250 – 400€",
         savings: "-40 % à -63 %",
-        slug: null,
+        slug: "/interventions/medecine-esthetique/botox",
       },
       {
         intervention: "Botox (full face, 3 zones)",
         venusPrice: "350€",
         francePrice: "500 – 800€",
         savings: "-30 % à -56 %",
-        slug: null,
+        slug: "/interventions/medecine-esthetique/botox",
       },
       {
         intervention: "Acide hyaluronique (1 seringue)",
         venusPrice: "200 – 300€",
         francePrice: "350 – 500€",
         savings: "-40 % à -43 %",
-        slug: null,
+        slug: "/interventions/medecine-esthetique/acide-hyaluronique",
       },
       {
         intervention: "Peeling moyen (TCA)",
         venusPrice: "250€",
         francePrice: "400 – 700€",
         savings: "-38 % à -64 %",
-        slug: null,
+        slug: "/interventions/medecine-esthetique/peeling",
       },
       {
         intervention: "Mésolift (1 séance)",
         venusPrice: "150€",
         francePrice: "250 – 400€",
         savings: "-40 % à -63 %",
-        slug: null,
+        slug: "/interventions/medecine-esthetique/mesolift",
       },
     ],
   },
@@ -553,7 +564,28 @@ function PricingCategorySection({ category }: { category: PricingCategory }) {
  * an economic explanation section, and a final lead-capture CTA.
  */
 export default function TarifsPage() {
+  const breadcrumbs = [
+    { name: "Accueil", url: "https://venus-estetika.com" },
+    { name: "Tarifs", url: "https://venus-estetika.com/tarifs" },
+  ];
+
   return (
+    <>
+    <JsonLd graph={{
+      breadcrumb: getBreadcrumbData(breadcrumbs),
+      website: {
+        "@type": "WebPage",
+        "@id": "https://venus-estetika.com/tarifs#webpage",
+        "name": "Tarifs Chirurgie Esthétique Tunisie — Venus Estetika",
+        "description": "Tous les tarifs de la chirurgie esthétique en Tunisie chez Venus Estetika. Prix tout compris : chirurgien, clinique, hôtel 5★, transferts, suivi 12 mois.",
+        "url": "https://venus-estetika.com/tarifs",
+        "isPartOf": { "@id": "https://venus-estetika.com/#website" },
+        "about": {
+          "@type": "MedicalClinic",
+          "@id": "https://venus-estetika.com/#clinic"
+        }
+      }
+    }} />
     <div className="flex flex-col min-h-screen bg-white">
 
       {/* ================================================================
@@ -927,7 +959,7 @@ export default function TarifsPage() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/21650606780?text=Bonjour%2C%20je%20souhaite%20comparer%20les%20prix%20et%20obtenir%20un%20devis."
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Comparer les prix sur WhatsApp"
@@ -949,5 +981,6 @@ export default function TarifsPage() {
       </section>
 
     </div>
+    </>
   );
 }

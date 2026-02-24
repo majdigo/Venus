@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
     },
     {
         question: "Combien coûte une chirurgie bariatrique en Tunisie ?",
-        answer: "Chez Venus Estetika, la sleeve gastrique est proposée à partir de 3 500€ tout compris (intervention, anesthésie, clinique, hôtel 5 étoiles, transferts). Le bypass gastrique débute à 4 500€. En France, les mêmes interventions coûtent entre 8 000€ et 15 000€ hors hospitalisation.",
+        answer: "Chez Venus Estetika, la sleeve gastrique est proposée à partir de 3 500€ tout compris (intervention, anesthésie, clinique, hôtel 5 étoiles, transferts). Le bypass gastrique débute à 4 200€. En France, les mêmes interventions coûtent entre 8 000€ et 15 000€ hors hospitalisation.",
     },
 ];
 

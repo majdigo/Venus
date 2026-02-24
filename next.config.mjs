@@ -2,12 +2,10 @@
 const nextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
+        qualities: [75, 85],
         remotePatterns: [
             { protocol: 'https', hostname: 'venus-estetika.com' },
         ],
-    },
-    eslint: {
-        ignoreDuringBuilds: true,
     },
     async headers() {
         return [
@@ -40,12 +38,12 @@ const nextConfig = {
             },
             {
                 source: '/lifting-visage',
-                destination: '/interventions/chirurgie-visage/lifting-visage',
+                destination: '/interventions/chirurgie-visage/lifting-cervico-facial',
                 permanent: true,
             },
             {
                 source: '/lifting-du-visage-tunisie',
-                destination: '/interventions/chirurgie-visage/lifting-visage',
+                destination: '/interventions/chirurgie-visage/lifting-cervico-facial',
                 permanent: true,
             },
             {
@@ -99,7 +97,7 @@ const nextConfig = {
             },
             {
                 source: '/lifting-mammaire',
-                destination: '/interventions/chirurgie-mammaire/lifting-mammaire',
+                destination: '/interventions/chirurgie-mammaire/lifting-seins',
                 permanent: true,
             },
 
@@ -128,7 +126,7 @@ const nextConfig = {
             },
             {
                 source: '/augmentation-fesses-bbl',
-                destination: '/interventions/chirurgie-silhouette/augmentation-fesses-bbl',
+                destination: '/interventions/chirurgie-silhouette/bbl',
                 permanent: true,
             },
             {
@@ -152,7 +150,7 @@ const nextConfig = {
             },
             {
                 source: '/chirurgie-de-lobesite',
-                destination: '/interventions/bariatrique',
+                destination: '/interventions/bariatrique/sleeve-gastrique',
                 permanent: true,
             },
             {
@@ -171,12 +169,12 @@ const nextConfig = {
             // ============================================================
             {
                 source: '/facettes-dentaires',
-                destination: '/interventions/dentaire/facettes-dentaires',
+                destination: '/interventions/dentaire/facettes',
                 permanent: true,
             },
             {
                 source: '/facettes-dentaires-tunisie',
-                destination: '/interventions/dentaire/facettes-dentaires',
+                destination: '/interventions/dentaire/facettes',
                 permanent: true,
             },
             {
@@ -186,12 +184,12 @@ const nextConfig = {
             },
             {
                 source: '/couronnes-dentaires',
-                destination: '/interventions/dentaire/couronnes-dentaires',
+                destination: '/interventions/dentaire/couronnes',
                 permanent: true,
             },
             {
                 source: '/blanchiment-dentaire',
-                destination: '/interventions/dentaire/blanchiment-dentaire',
+                destination: '/interventions/dentaire/blanchiment',
                 permanent: true,
             },
 
@@ -200,17 +198,17 @@ const nextConfig = {
             // ============================================================
             {
                 source: '/greffe-cheveux-fue',
-                destination: '/interventions/capillaire/greffe-cheveux-fue',
+                destination: '/interventions/capillaire/greffe-cheveux',
                 permanent: true,
             },
             {
                 source: '/greffe-de-cheveux-tunisie',
-                destination: '/interventions/capillaire/greffe-cheveux-fue',
+                destination: '/interventions/capillaire/greffe-cheveux',
                 permanent: true,
             },
             {
                 source: '/greffe-cheveux-dhi',
-                destination: '/interventions/capillaire/greffe-cheveux-dhi',
+                destination: '/interventions/capillaire/greffe-dhi',
                 permanent: true,
             },
             {
@@ -262,27 +260,22 @@ const nextConfig = {
             // ============================================================
             {
                 source: '/a-propos',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/notre-clinique',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/nos-chirurgiens',
-                destination: '/a-propos/chirurgiens',
-                permanent: true,
-            },
-            {
-                source: '/temoignages',
-                destination: '/a-propos/temoignages',
+                destination: '/chirurgiens',
                 permanent: true,
             },
             {
                 source: '/avis-patients',
-                destination: '/a-propos/temoignages',
+                destination: '/temoignages',
                 permanent: true,
             },
             {
@@ -301,17 +294,17 @@ const nextConfig = {
             // ============================================================
             {
                 source: '/dr-balti',
-                destination: '/a-propos/chirurgiens/dr-walid-balti',
+                destination: '/chirurgiens',
                 permanent: true,
             },
             {
                 source: '/dr-walid-balti',
-                destination: '/a-propos/chirurgiens/dr-walid-balti',
+                destination: '/chirurgiens',
                 permanent: true,
             },
             {
                 source: '/dr-atef-ghedira',
-                destination: '/a-propos/chirurgiens/dr-atef-ghedira',
+                destination: '/chirurgiens',
                 permanent: true,
             },
 
@@ -355,7 +348,7 @@ const nextConfig = {
             },
             {
                 source: '/greffe-capillaire-fue',
-                destination: '/interventions/capillaire/greffe-cheveux-fue',
+                destination: '/interventions/capillaire/greffe-cheveux',
                 permanent: true,
             },
             // Pages specifiques WP (URLs reelles du sitemap)
@@ -365,23 +358,18 @@ const nextConfig = {
                 permanent: true,
             },
             {
-                source: '/chirurgie-esthetique-tunisie',
-                destination: '/interventions',
-                permanent: true,
-            },
-            {
                 source: '/gynecomastie',
-                destination: '/interventions/chirurgie-mammaire/gynecomastie',
+                destination: '/interventions/chirurgie-mammaire/reduction-mammaire',
                 permanent: true,
             },
             {
                 source: '/nos-garanties',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/suivi-postoperatoire',
-                destination: '/a-propos/clinique',
+                destination: '/sejour-medical',
                 permanent: true,
             },
             {
@@ -396,7 +384,7 @@ const nextConfig = {
             },
             {
                 source: '/venus-estetika-avis',
-                destination: '/a-propos/temoignages',
+                destination: '/temoignages',
                 permanent: true,
             },
             {
@@ -404,35 +392,30 @@ const nextConfig = {
                 destination: '/tarifs',
                 permanent: true,
             },
-            {
-                source: '/demande-de-devis-chirurgie-esthetique',
-                destination: '/devis',
-                permanent: true,
-            },
             // Cliniques partenaires
             {
                 source: '/clinique-pasteur',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/clinique-hannibal',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/clinique-carthagene',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/clinique-mediterraneenne',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
             {
                 source: '/clinique-jasmin',
-                destination: '/a-propos/clinique',
+                destination: '/cliniques-partenaires',
                 permanent: true,
             },
 

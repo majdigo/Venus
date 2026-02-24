@@ -101,3 +101,33 @@ export type Step1Data = z.infer<typeof step1Schema>;
 export type Step2Data = z.infer<typeof step2Schema>;
 export type Step3Data = z.infer<typeof step3Schema>;
 export type FullQuoteData = z.infer<typeof fullQuoteSchema>;
+
+// ---------------------------------------------------------------------------
+// Formulaire de Contact — page /contact
+// ---------------------------------------------------------------------------
+
+export const contactFormSchema = z.object({
+    prenom: z.string()
+        .min(2, "Le prénom doit contenir au moins 2 caractères")
+        .max(50, "Le prénom ne peut pas dépasser 50 caractères"),
+    nom: z.string()
+        .min(2, "Le nom doit contenir au moins 2 caractères")
+        .max(50, "Le nom ne peut pas dépasser 50 caractères"),
+    email: z.string()
+        .email("Adresse email invalide"),
+    telephone: z.string()
+        .min(8, "Numéro de téléphone invalide")
+        .max(20, "Numéro de téléphone invalide")
+        .regex(/^\+?[0-9\s\-().]+$/, "Format de téléphone invalide"),
+    pays: z.enum(["FR", "BE", "CH", "CA", "OTHER"], {
+        message: "Veuillez sélectionner votre pays",
+    }),
+    sujet: z.enum(["devis", "information", "reclamation", "autre"], {
+        message: "Veuillez sélectionner un sujet",
+    }),
+    message: z.string()
+        .min(20, "Le message doit contenir au moins 20 caractères")
+        .max(2000, "Le message ne peut pas dépasser 2 000 caractères"),
+});
+
+export type ContactFormData = z.infer<typeof contactFormSchema>;

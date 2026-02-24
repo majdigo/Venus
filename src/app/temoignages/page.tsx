@@ -7,10 +7,19 @@ import Link from "next/link";
 // SEO Metadata
 // ---------------------------------------------------------------------------
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
     title: "Avis Patients | Témoignages Venus Estetika — Chirurgie en Tunisie",
     description:
         "Découvrez les témoignages vérifiés de nos patients : chirurgie esthétique, bariatrique, dentaire et capillaire en Tunisie. Note 4.8/5 sur +127 avis. Résultats réels, patients réels.",
+    alternates: {
+        canonical: "https://venus-estetika.com/temoignages",
+    },
+    openGraph: {
+        title: "Avis Patients — Venus Estetika",
+        description: "Témoignages vérifiés de nos patients. Note 4.8/5 sur +127 avis. Chirurgie esthétique, bariatrique, dentaire en Tunisie.",
+    },
 };
 
 // ---------------------------------------------------------------------------

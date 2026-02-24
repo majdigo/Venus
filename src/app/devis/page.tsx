@@ -5,6 +5,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Devis Gratuit - Venus Estetika",
     description: "Obtenez un devis personnalisé, gratuit et transparent pour votre chirurgie esthétique ou bariatrique en Tunisie.",
+    alternates: {
+        canonical: "https://venus-estetika.com/devis",
+    },
+    openGraph: {
+        title: "Devis Gratuit — Venus Estetika",
+        description: "Devis personnalisé en 2 minutes. Chirurgie esthétique, bariatrique, dentaire en Tunisie. Gratuit, sans engagement.",
+    },
 };
 
 export default async function DevisPage({

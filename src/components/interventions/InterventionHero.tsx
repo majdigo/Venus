@@ -112,7 +112,7 @@ export function InterventionHero({
                 ctaText="Obtenir mon devis gratuit"
                 ctaLocation={`hero_${devisSlug}`}
               >
-                <Button size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-14 px-8 text-lg w-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95">
+                <Button variant="cta" size="cta" className="w-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95">
                   Obtenir mon devis gratuit <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </TrackedLink>

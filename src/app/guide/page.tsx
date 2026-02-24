@@ -1,11 +1,19 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Plane, Shield, Sun, Stethoscope, MapPin, Calendar, HeartPulse } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Guide du Tourisme Médical en Tunisie | Venus Estetika",
     description: "Tout savoir sur votre séjour médical en Tunisie. Organisation, visas, vols, convalescence et accompagnement VIP. Préparez votre voyage esthétique en toute sérénité.",
+    alternates: {
+        canonical: "https://venus-estetika.com/guide",
+    },
+    openGraph: {
+        title: "Guide du Tourisme Médical en Tunisie | Venus Estetika",
+        description: "Tout savoir sur votre séjour médical en Tunisie. Organisation, visas, vols, convalescence et accompagnement VIP.",
+    },
 };
 
 export default function GuideTourismeMedicalPage() {
@@ -157,7 +165,7 @@ export default function GuideTourismeMedicalPage() {
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                         Obtenez un devis 100% gratuit comprenant le vol, l'hôtel, et la clinique, analysé par nos chirurgiens chefs.
                     </p>
-                    <Button size="lg" asChild className="bg-brand-blue text-white hover:bg-brand-blue/90 text-lg px-8 h-14 rounded-xl shadow-lg shadow-brand-blue/20">
+                    <Button variant="cta" size="cta" asChild className="rounded-xl shadow-brand-blue/20">
                         <Link href="/devis">
                             Obtenir mon Diagnostic Gratuit <ArrowRight className="ml-2 w-5 h-5" />
                         </Link>

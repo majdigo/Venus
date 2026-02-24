@@ -304,7 +304,7 @@ export function GreffeCheveuxInteractiveSimulator() {
                                 </div>
 
                                 <div className="pt-6 border-t border-gray-100">
-                                    <Button asChild className="w-full h-14 bg-brand-navy text-white hover:bg-brand-navy/90 text-lg" onClick={handleCtaClick}>
+                                    <Button variant="ctaNavy" size="cta" asChild className="w-full" onClick={handleCtaClick}>
                                         <Link href={`/devis?intervention=greffe-cheveux&norwood=${activeStage}`}>
                                             Obtenir un devis exact <UserPlus className="ml-2 w-5 h-5" />
                                         </Link>

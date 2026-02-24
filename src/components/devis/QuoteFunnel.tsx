@@ -13,17 +13,15 @@ import { useEffect, useRef } from "react";
 
 type FunnelStep = 1 | 2 | 3 | "confirmation";
 
-const INTERVENTION_VALUES: Record<string, number> = {
-    'rhinoplastie': 2200, 'blepharoplastie': 1800, 'lifting-cervico-facial': 3500,
-    'otoplastie': 1500, 'genioplastie': 2000, 'lipofilling-visage': 2200,
-    'augmentation-mammaire': 2800, 'reduction-mammaire': 2500, 'lifting-seins': 2500,
-    'lipofilling-mammaire': 2800, 'liposuccion': 2000, 'abdominoplastie': 2500,
-    'bbl': 3200, 'mommy-makeover': 4500, 'lifting-bras': 2000, 'lifting-cuisses': 2000,
-    'sleeve-gastrique': 4200, 'bypass-gastrique': 5500, 'anneau-gastrique': 3000,
-    'greffe-cheveux': 1800, 'greffe-dhi': 2500, 'greffe-barbe': 1800,
-    'implants-dentaires': 700, 'facettes': 350, 'couronnes': 200, 'blanchiment': 250,
-    'botox': 150, 'acide-hyaluronique': 200, 'peeling': 300, 'mesolift': 250,
-};
+// Derive estimated lead values from centralized intervention data
+import { getAllInterventions } from '@/data/interventions';
+
+const INTERVENTION_VALUES: Record<string, number> = Object.fromEntries(
+    getAllInterventions().map(i => [
+        i.slug,
+        parseInt(i.hero.price.replace(/[^\d]/g, ''), 10) || 2000,
+    ])
+);
 
 function getEstimatedValue(intervention: string): number {
     return INTERVENTION_VALUES[intervention] || 2000;

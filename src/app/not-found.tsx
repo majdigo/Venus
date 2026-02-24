@@ -3,17 +3,21 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Home, Search } from 'lucide-react';
 import { Metadata } from 'next';
+import { NAVIGATION_CATEGORIES, WHATSAPP_URL } from '@/lib/navigation-data';
 
 export const metadata: Metadata = {
     title: 'Page introuvable | Venus Estetika',
     description: "La page que vous recherchez n'existe plus.",
 };
 
+// Derive popular interventions from centralized data + add static pages
 const SUGGESTED_PAGES = [
-    { label: "Rhinoplastie", href: "/interventions/chirurgie-visage/rhinoplastie" },
-    { label: "Sleeve Gastrique", href: "/interventions/bariatrique/sleeve-gastrique" },
-    { label: "Greffe de Cheveux", href: "/interventions/capillaire/greffe-cheveux" },
-    { label: "Augmentation Mammaire", href: "/interventions/chirurgie-mammaire/augmentation-mammaire" },
+    ...NAVIGATION_CATEGORIES
+        .flatMap(cat => cat.interventions.filter(i => i.isPopular).map(i => ({
+            label: i.name,
+            href: `/interventions/${cat.slug}/${i.slug}`,
+        })))
+        .slice(0, 4),
     { label: "Nos Tarifs", href: "/tarifs" },
     { label: "Devis Gratuit", href: "/devis" },
 ];
@@ -64,13 +68,13 @@ export default function NotFound() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button asChild size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/90 shadow-lg h-14 px-8 text-lg rounded-xl">
+                    <Button variant="cta" size="cta" asChild className="rounded-xl">
                         <Link href="/">
                             <Home className="w-5 h-5 mr-2" />
                             Retour à l'accueil
                         </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white h-14 px-8 text-lg rounded-xl">
+                    <Button variant="ctaOutline" size="cta" asChild className="rounded-xl">
                         <Link href="/devis">
                             Demander un devis
                             <ArrowRight className="w-5 h-5 ml-2" />
@@ -80,7 +84,7 @@ export default function NotFound() {
 
                 <div className="mt-12 pt-8 border-t border-white/10">
                     <p className="text-white/60 text-sm">
-                        Besoin d'aide immédiate ? Contactez-nous sur <a href="https://wa.me/21650606780" className="text-brand-blue hover:underline">WhatsApp</a>.
+                        Besoin d&apos;aide immédiate ? Contactez-nous sur <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">WhatsApp</a>.
                     </p>
                 </div>
             </div>

@@ -25,3 +25,16 @@ export async function hashSHA256(value: string): Promise<string> {
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
+
+/**
+ * Récupère les UTMs stockés en sessionStorage.
+ */
+export function getStoredUtms(): Record<string, string> {
+    if (typeof window === 'undefined') return {};
+    try {
+        const stored = sessionStorage.getItem('venus_utms');
+        return stored ? JSON.parse(stored) : {};
+    } catch {
+        return {};
+    }
+}

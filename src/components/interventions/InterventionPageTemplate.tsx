@@ -234,7 +234,7 @@ function BottomCTA({ devisSlug, interventionName }: { devisSlug: string; interve
           Chaque mois, des patients de France et de Suisse nous confient leur {interventionName.toLowerCase()}. Obtenez votre devis maintenant pour réserver votre date opératoire.
         </p>
         <TrackedLink href={`/devis?intervention=${devisSlug}`} ctaText="Obtenir mon devis gratuit" ctaLocation={`footer_${devisSlug}`}>
-          <Button size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/85 font-bold h-16 px-12 text-xl rounded-full shadow-xl">
+          <Button variant="cta" size="cta" className="shadow-xl">
             Obtenir mon devis gratuit
           </Button>
         </TrackedLink>

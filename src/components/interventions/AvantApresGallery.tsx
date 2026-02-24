@@ -56,7 +56,7 @@ export function AvantApresGallery({ interventionSlug }: AvantApresGalleryProps) 
 
                 <div className="mt-16 text-center">
                     <Link href={`/devis?intervention=${interventionSlug}`}>
-                        <Button size="lg" className="bg-brand-navy text-white hover:bg-brand-navy/90 h-14 px-8 text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                        <Button variant="ctaNavy" size="cta">
                             Obtenir un résultat similaire <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                     </Link>

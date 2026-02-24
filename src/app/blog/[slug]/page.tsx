@@ -186,12 +186,12 @@ export default async function BlogPostPage({ params }: Props) {
                             Nos chirurgiens experts sont à votre disposition pour une téléconsultation gratuite. Obtenez un diagnostic personnalisé et un devis détaillé.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-                            <Button asChild size="lg" className="bg-brand-blue text-white hover:bg-white hover:text-brand-navy transition-colors h-14 px-8 text-base">
+                            <Button variant="cta" size="cta" asChild className="hover:bg-white hover:text-brand-navy">
                                 <TrackedLink href="/devis" ctaText="Obtenir mon devis gratuit" ctaLocation="blog-article-cta">
                                     Obtenir mon devis gratuit
                                 </TrackedLink>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-14 px-8 text-base backdrop-blur-sm">
+                            <Button variant="ctaOutline" size="cta" asChild className="backdrop-blur-sm">
                                 <TrackedLink href="/contact" ctaText="Nous contacter" ctaLocation="blog-article-cta">
                                     Nous contacter
                                 </TrackedLink>

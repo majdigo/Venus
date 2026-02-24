@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { ipAddress } from '@vercel/functions';
 
 // Cookie name for sticky A/B test assignment
 const AB_TEST_COOKIE_NAME = 'venus_quote_funnel_ab_test';

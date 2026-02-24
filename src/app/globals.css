@@ -30,13 +30,13 @@ html {
     --primary: 229 50% 23%;
     --primary-foreground: 210 40% 98%;
 
-    /* Secondary/Accent: Venus Teal #7ac2d7 */
-    --secondary: 193 54% 66%;
+    /* Secondary/Accent: Venus Blue (darkened for WCAG AA contrast) */
+    --secondary: 193 54% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Brand tokens (referenced by Tailwind brand-navy / brand-blue) */
+    /* Brand tokens (referenced by Tailwind brand-navy / brand-blue / brand-teal) */
     --brand-navy: 229 50% 23%;
-    --brand-blue: 193 54% 66%;
+    --brand-blue: 193 54% 42%;
     --brand-teal: 193 52% 47%;
 
     /* Muted/Clinical tones: Soft Blue-Gray */
@@ -71,12 +71,12 @@ html {
     --primary: 210 40% 98%;
     --primary-foreground: 229 50% 23%;
 
-    --secondary: 193 54% 66%;
+    --secondary: 193 54% 42%;
     --secondary-foreground: 0 0% 100%;
 
     /* Brand tokens remain consistent in dark mode */
     --brand-navy: 229 50% 23%;
-    --brand-blue: 193 54% 66%;
+    --brand-blue: 193 54% 42%;
     --brand-teal: 193 52% 47%;
 
     --muted: 229 50% 20%;

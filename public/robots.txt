@@ -4,8 +4,25 @@ Allow: /
 Disallow: /api
 Disallow: /studio
 
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# Claude-Web
+User-agent: Claude-Web
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
 # Host
 Host: https://venus-estetika.com
 
 # Sitemaps
 Sitemap: https://venus-estetika.com/sitemap.xml
+Sitemap: https://venus-estetika.com/llms.txt

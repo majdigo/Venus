@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -19,11 +19,22 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // ── Centralized Venus Estetika Design System ──
+        cta:
+          "bg-[hsl(var(--brand-blue))] text-white shadow-lg hover:bg-[hsl(var(--brand-blue)/0.85)] hover:shadow-xl hover:scale-105 active:scale-95",
+        ctaOutline:
+          "border border-white/30 bg-transparent text-white hover:bg-white/10 hover:border-white/50 hover:scale-105 active:scale-95",
+        ctaNavy:
+          "bg-[hsl(var(--brand-navy))] text-white shadow-lg hover:bg-[hsl(var(--brand-navy)/0.85)] hover:shadow-xl hover:scale-105 active:scale-95",
+        whatsapp:
+          "bg-green-500 text-white shadow-lg hover:bg-green-600 hover:shadow-xl hover:scale-105 active:scale-95",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
+        xlg: "h-12 px-8 text-base font-semibold rounded-lg",
+        cta: "h-14 px-10 text-lg font-bold rounded-full",
         icon: "h-9 w-9",
       },
     },
@@ -36,7 +47,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 

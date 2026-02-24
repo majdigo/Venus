@@ -2,7 +2,10 @@
 module.exports = {
     siteUrl: process.env.SITE_URL || 'https://venus-estetika.com',
     generateRobotsTxt: true,
-    exclude: ['/api/*', '/studio/*'],
+    exclude: ['/api/*', '/studio/*', '/lp/*'],
+    additionalPaths: async () => [
+        { loc: '/devis', changefreq: 'monthly', priority: 0.9 },
+    ],
     robotsTxtOptions: {
         policies: [
             {

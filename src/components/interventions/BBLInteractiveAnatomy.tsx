@@ -291,7 +291,7 @@ export function BBLInteractiveAnatomy() {
                         </AnimatePresence>
 
                         {/* Global CTA */}
-                        <Button size="lg" asChild className="w-full mt-4 h-14 bg-brand-blue text-white hover:bg-brand-blue/90 text-lg shadow-lg shadow-brand-blue/20">
+                        <Button variant="cta" size="cta" asChild className="w-full mt-4 shadow-brand-blue/20">
                             <Link href="/devis?intervention=bbl">
                                 Commencer mon diagnostic BBL
                             </Link>

@@ -26,25 +26,36 @@ const CATEGORIES = [
     { id: "medecine-esthetique", navSlug: "medecine-esthetique", label: "Médecine Esthétique", icon: Sparkles },
 ];
 
-// Extra interventions not in NAVIGATION_CATEGORIES (medecine-esthetique)
-const EXTRA_INTERVENTIONS: Record<string, { name: string; slug: string; price: string }[]> = {
-    "medecine-esthetique": [
-        { name: "Botox", slug: "botox", price: "dès 250€" },
-        { name: "Acide Hyaluronique", slug: "acide-hyaluronique", price: "dès 300€" },
-        { name: "Peeling Médical", slug: "peeling", price: "dès 200€" },
-        { name: "Mésolift", slug: "mesolift", price: "dès 250€" },
-    ],
-};
-
 function getInterventionsForCategory(navSlug: string) {
     const navCat = NAVIGATION_CATEGORIES.find((c) => c.slug === navSlug);
-    if (navCat) return navCat.interventions;
-    return EXTRA_INTERVENTIONS[navSlug] || [];
+    return navCat?.interventions || [];
+}
+
+/** Resolve an intervention slug (e.g. "sleeve-gastrique") to its category ID + intervention name. */
+function resolveInitialState(intervention: string | undefined) {
+    if (!intervention) return { categoryId: null, subIntervention: "" };
+
+    // Already a category ID (e.g. coming back from step 2)
+    if (CATEGORIES.some((c) => c.id === intervention)) {
+        return { categoryId: intervention, subIntervention: "" };
+    }
+
+    // Intervention slug from URL — find the parent category
+    for (const cat of CATEGORIES) {
+        const interventions = getInterventionsForCategory(cat.navSlug);
+        const match = interventions.find((int) => int.slug === intervention);
+        if (match) {
+            return { categoryId: cat.id, subIntervention: match.name };
+        }
+    }
+
+    return { categoryId: null, subIntervention: "" };
 }
 
 export function StepIntervention({ onNext, defaultValues }: StepInterventionProps) {
+    const resolved = resolveInitialState(defaultValues.intervention);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(
-        defaultValues.intervention || null
+        resolved.categoryId
     );
 
     const {
@@ -55,8 +66,8 @@ export function StepIntervention({ onNext, defaultValues }: StepInterventionProp
     } = useForm<Step1Data>({
         resolver: zodResolver(step1Schema),
         defaultValues: {
-            intervention: defaultValues.intervention || "",
-            subIntervention: defaultValues.subIntervention || "",
+            intervention: resolved.categoryId || defaultValues.intervention || "",
+            subIntervention: resolved.subIntervention || defaultValues.subIntervention || "",
         },
     });
 

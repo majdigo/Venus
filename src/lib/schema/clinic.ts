@@ -9,7 +9,7 @@ export function getClinicData() {
         "url": "https://venus-estetika.com",
         "logo": "https://venus-estetika.com/images/logo-venus-estetika.png",
         "image": "https://venus-estetika.com/images/clinique-venus-estetika.jpg",
-        "telephone": "+33184208628",
+        "telephone": "+21650606780",
         "email": "contact@venus-estetika.com",
         "address": {
             "@type": "PostalAddress",

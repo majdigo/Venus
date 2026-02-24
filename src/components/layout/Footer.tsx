@@ -13,6 +13,7 @@ const FOOTER_OPERATIONS = [
   { name: 'Liposuccion', href: '/interventions/chirurgie-silhouette/liposuccion/' },
   { name: 'Abdominoplastie', href: '/interventions/chirurgie-silhouette/abdominoplastie/' },
   { name: 'Blépharoplastie', href: '/interventions/chirurgie-visage/blepharoplastie/' },
+  { name: 'Botox', href: '/interventions/medecine-esthetique/botox/' },
 ];
 
 const FOOTER_INFO = [
@@ -21,7 +22,7 @@ const FOOTER_INFO = [
   { name: 'Séjour Médical', href: '/sejour-medical/' },
   { name: 'Tarifs', href: '/tarifs/' },
   { name: 'Témoignages', href: '/temoignages/' },
-  { name: 'Avant / Après', href: '/avant-apres/' },
+  { name: 'Guide Séjour', href: '/guide/' },
   { name: 'Contact', href: '/contact/' },
   { name: 'Devis Gratuit', href: '/devis/' },
 ];
@@ -95,7 +96,7 @@ export function Footer() {
               ))}
               <li>
                 <Link
-                  href="/tarifs/"
+                  href="/interventions/"
                   className="text-sm font-bold text-brand-blue hover:text-white transition-colors"
                 >
                   Voir toutes les opérations →

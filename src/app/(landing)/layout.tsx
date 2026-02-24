@@ -5,6 +5,7 @@ import { GtmProvider } from "@/components/tracking/GtmProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getClinicData } from "@/lib/schema/clinic";
 import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
+import { PHONE_NUMBER_FR, PHONE_NUMBER_HREF, WHATSAPP_URL, ADDRESS } from "@/lib/navigation-data";
 import Image from "next/image";
 import Link from "next/link";
 import "../globals.css";
@@ -53,7 +54,7 @@ export default function LandingLayout({
                                 </Link>
                                 <div className="flex items-center gap-4">
                                     <a
-                                        href="tel:+21650606780"
+                                        href={PHONE_NUMBER_HREF}
                                         className="hidden sm:flex items-center gap-2 text-sm font-bold text-brand-navy hover:text-brand-blue transition-colors"
                                     >
                                         <svg
@@ -69,10 +70,10 @@ export default function LandingLayout({
                                                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                                             />
                                         </svg>
-                                        +216 50 606 780
+                                        {PHONE_NUMBER_FR}
                                     </a>
                                     <a
-                                        href="https://wa.me/21650606780"
+                                        href={WHATSAPP_URL}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-full hover:bg-green-600 transition-colors flex items-center gap-2"
@@ -94,8 +95,7 @@ export default function LandingLayout({
                             <div className="container mx-auto max-w-6xl text-center">
                                 <p className="text-white/60 text-sm">
                                     &copy; {new Date().getFullYear()} Venus
-                                    Estetika — Lac Malaren, Les Berges du Lac,
-                                    1053 Tunis, Tunisie
+                                    Estetika — {ADDRESS}
                                 </p>
                                 <div className="flex justify-center gap-4 mt-3 text-xs text-white/40">
                                     <Link
