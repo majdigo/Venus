@@ -21,11 +21,14 @@
 - [x] Stats endpoint (src/app/api/leads/stats/route.ts)
 - [x] E2E test with real Odoo (lead created: ID 76222)
 
-### IN PROGRESS
-- [ ] Commit and push to GitHub
+### DONE (Commit 2)
+- [x] Odoo custom fields setup script (10 fields created on estetika-test DB)
+- [x] QuoteFunnel → v2 API with UTM capture + device detection
+- [x] Admin dashboard (/admin/leads) — KPIs, lead table, score visualization, audit trail viewer
+- [x] Contact form v2 (/api/contact/v2) through orchestrator
+- [x] Commits pushed to GitHub (PR #1)
 
 ### LIBRE (available)
-- [ ] Create custom fields in Odoo test DB (x_intervention, x_visitor_score, etc.)
 - [ ] Wire UTM parameters from frontend cookies to API
 - [ ] Implement email template engine for follow-up sequences
 - [ ] WhatsApp → CRM bridge adapter
