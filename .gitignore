@@ -51,6 +51,9 @@ next-env.d.ts
 Thumbs.db
 desktop.ini
 
+# Lead store (persistent data)
+/.data/
+
 # Temp files
 lint_log.txt
 scraped_highlights.txt

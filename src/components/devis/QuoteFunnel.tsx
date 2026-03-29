@@ -59,10 +59,24 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
         if (step === 3) {
             setIsSubmitting(true);
             try {
-                const response = await fetch('/api/leads', {
+                // Capture UTM params from URL and device info
+                const urlParams = new URLSearchParams(window.location.search);
+                const enrichedData = {
+                    ...newData,
+                    utm_source: urlParams.get('utm_source') || undefined,
+                    utm_medium: urlParams.get('utm_medium') || undefined,
+                    utm_campaign: urlParams.get('utm_campaign') || undefined,
+                    utm_content: urlParams.get('utm_content') || undefined,
+                    utm_term: urlParams.get('utm_term') || undefined,
+                    landing_page: window.location.pathname,
+                    device_type: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                };
+
+                // Use v2 agentic pipeline
+                const response = await fetch('/api/leads/v2', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(newData)
+                    body: JSON.stringify(enrichedData)
                 });
 
                 const result = await response.json();
@@ -71,10 +85,12 @@ export function QuoteFunnel({ initialIntervention, initialBmi, initialNorwood }:
                     hasCompletedRef.current = true;
                     pushGtmEvent({
                         event: 'funnel_complete',
-                        transaction_id: result.transaction_id,
+                        transaction_id: result.lead_id,
                         intervention: newData.intervention,
                         ...stepData,
-                        estimated_value: 2000, // To be refined by a mapping function later
+                        lead_score: result.score?.value,
+                        lead_category: result.score?.category,
+                        estimated_value: 2000,
                         currency: 'EUR',
                         lead_source: 'website'
                     });
