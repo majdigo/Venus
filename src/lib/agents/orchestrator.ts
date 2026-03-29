@@ -17,13 +17,14 @@ import { qualifyLead } from '@/lib/agents/qualification';
 import { generateActivationPlan } from '@/lib/agents/activation';
 import { odooAdapter, buildOdooPayload } from '@/lib/adapters/odoo-adapter';
 import { generateId, generateLeadId } from '@/lib/agents/utils';
-
-// ============================================================
-// IN-MEMORY STORES (to be replaced by persistent store)
-// ============================================================
-
-const leadStore = new Map<string, Lead>();
-const auditStore: AuditEvent[] = [];
+import {
+  saveLead,
+  getLeadFromStore,
+  getAllLeadsFromStore,
+  saveAuditEvents,
+  getAuditEventsForLead,
+  getLeadStats,
+} from '@/lib/agents/store';
 
 // ============================================================
 // ORCHESTRATOR
@@ -130,8 +131,8 @@ export async function processLead(intake: LeadIntake): Promise<LeadProcessingRes
     updatedAt: new Date().toISOString(),
   };
 
-  leadStore.set(leadId, lead);
-  auditTrail.forEach(e => auditStore.push(e));
+  saveLead(lead);
+  saveAuditEvents(auditTrail);
 
   // --- Return complete result ---
   return {
@@ -146,34 +147,21 @@ export async function processLead(intake: LeadIntake): Promise<LeadProcessingRes
 }
 
 // ============================================================
-// QUERY FUNCTIONS
+// QUERY FUNCTIONS (delegate to persistent store)
 // ============================================================
 
 export function getLead(leadId: string): Lead | undefined {
-  return leadStore.get(leadId);
+  return getLeadFromStore(leadId);
 }
 
 export function getAuditTrail(leadId: string): AuditEvent[] {
-  return auditStore.filter(e => e.target === `lead:${leadId}`);
+  return getAuditEventsForLead(leadId);
 }
 
 export function getAllLeads(): Lead[] {
-  return Array.from(leadStore.values());
+  return getAllLeadsFromStore();
 }
 
-export function getStats(): {
-  total: number;
-  byCategory: Record<string, number>;
-  byStage: Record<string, number>;
-} {
-  const leads = getAllLeads();
-  const byCategory: Record<string, number> = {};
-  const byStage: Record<string, number> = {};
-
-  for (const lead of leads) {
-    byCategory[lead.score.category] = (byCategory[lead.score.category] || 0) + 1;
-    byStage[lead.stage] = (byStage[lead.stage] || 0) + 1;
-  }
-
-  return { total: leads.length, byCategory, byStage };
+export function getStats() {
+  return getLeadStats();
 }
