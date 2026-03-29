@@ -75,6 +75,17 @@ const CATEGORY_COLORS: Record<string, string> = {
   COLD: "bg-gray-100 text-gray-600 border-gray-300",
 };
 
+const PIPELINE_STAGES = [
+  { id: "new", label: "Nouveau" },
+  { id: "qualified", label: "Qualifié" },
+  { id: "consultation_scheduled", label: "Consultation" },
+  { id: "quote_sent", label: "Devis envoyé" },
+  { id: "quote_accepted", label: "Devis accepté" },
+  { id: "booking_confirmed", label: "Réservé" },
+  { id: "completed", label: "Terminé" },
+  { id: "lost", label: "Perdu" },
+];
+
 const CATEGORY_BAR_COLORS: Record<string, string> = {
   HOT: "bg-red-500",
   WARM: "bg-orange-400",
@@ -176,6 +187,24 @@ export function LeadsDashboard() {
                   title={`${cat}: ${count} (${pct.toFixed(0)}%)`}
                 >
                   {pct > 10 ? `${cat} ${count}` : ""}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Pipeline Kanban */}
+      {stats.stats.total > 0 && (
+        <div className="bg-white rounded-xl border p-6">
+          <h3 className="text-sm font-medium text-muted-foreground mb-4">Pipeline Commercial</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
+            {PIPELINE_STAGES.map((stage) => {
+              const count = stats.stats.byStage[stage.id] || 0;
+              return (
+                <div key={stage.id} className={`rounded-lg p-3 text-center border ${count > 0 ? 'bg-brand-navy/5 border-brand-navy/20' : 'bg-slate-50 border-slate-200'}`}>
+                  <div className="text-2xl font-bold text-brand-navy">{count}</div>
+                  <div className="text-[10px] text-muted-foreground mt-1 leading-tight">{stage.label}</div>
                 </div>
               );
             })}
